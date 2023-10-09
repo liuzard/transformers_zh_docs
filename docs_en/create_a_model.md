@@ -215,7 +215,7 @@ Both tokenizers support common methods such as encoding and decoding, adding new
 
 <Tip warning={true}>
 
-Not every model supports a fast tokenizer. Take a look at this [table](index.md#supported-frameworks) to check if a model has fast tokenizer support.
+Not every model supports a fast tokenizer. Take a look at this [table](index#supported-frameworks) to check if a model has fast tokenizer support.
 
 </Tip>
 

@@ -77,7 +77,7 @@ Then use `notebook_login` to sign-in to the Hub, and follow the link [here](http
 
 To ensure your model can be used by someone working with a different framework, we recommend you convert and upload your model with both PyTorch and TensorFlow checkpoints. While users are still able to load your model from a different framework if you skip this step, it will be slower because 🤗 Transformers will need to convert the checkpoint on-the-fly.
 
-Converting a checkpoint for another framework is easy. Make sure you have PyTorch and TensorFlow installed (see [here](installation.md) for installation instructions), and then find the specific model for your task in the other framework. 
+Converting a checkpoint for another framework is easy. Make sure you have PyTorch and TensorFlow installed (see [here](installation) for installation instructions), and then find the specific model for your task in the other framework. 
 
 <frameworkcontent>
 <pt>
@@ -118,7 +118,7 @@ If a model is available in Flax, you can also convert a checkpoint from PyTorch 
 <pt>
 <Youtube id="Z1-XMy-GNLQ"/>
 
-Sharing a model to the Hub is as simple as adding an extra parameter or callback. Remember from the [fine-tuning tutorial](training.md), the [`TrainingArguments`] class is where you specify hyperparameters and additional training options. One of these training options includes the ability to push a model directly to the Hub. Set `push_to_hub=True` in your [`TrainingArguments`]:
+Sharing a model to the Hub is as simple as adding an extra parameter or callback. Remember from the [fine-tuning tutorial](training), the [`TrainingArguments`] class is where you specify hyperparameters and additional training options. One of these training options includes the ability to push a model directly to the Hub. Set `push_to_hub=True` in your [`TrainingArguments`]:
 
 ```py
 >>> training_args = TrainingArguments(output_dir="my-awesome-model", push_to_hub=True)

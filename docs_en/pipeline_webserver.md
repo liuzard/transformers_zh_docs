@@ -15,7 +15,7 @@ to get started which may not necessarily be the most optimal solution for you.
 
 
 The key thing to understand is that we can use an iterator, just like you would [on a
-dataset](pipeline_tutorial.md#using-pipelines-on-a-dataset), since a webserver is basically a system that waits for requests and
+dataset](pipeline_tutorial#using-pipelines-on-a-dataset), since a webserver is basically a system that waits for requests and
 treats them as they come in.
 
 Usually webservers are multiplexed (multithreaded, async, etc..) to handle various
@@ -162,7 +162,7 @@ even receiving an error.
 ### Dynamic batching
 
 In general, batching is not necessarily an improvement over passing 1 item at 
-a time (see [batching details](main_classes/pipelines#pipeline-batching) for more information). But it can be very effective
+a time (see [batching details](./main_classes/pipelines#pipeline-batching) for more information). But it can be very effective
 when used in the correct setting. In the API, there is no dynamic
 batching by default (too much opportunity for a slowdown). But for BLOOM inference -
 which is a very large model - dynamic batching is **essential** to provide a decent experience for everyone.

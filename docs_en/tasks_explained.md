@@ -16,7 +16,7 @@ rendered properly in your Markdown viewer.
 
 # How 🤗 Transformers solve tasks
 
-In [What 🤗 Transformers can do](task_summary.md), you learned about natural language processing (NLP), speech and audio, computer vision tasks, and some important applications of them. This page will look closely at how models solve these tasks and explain what's happening under the hood. There are many ways to solve a given task, some models may implement certain techniques or even approach the task from a new angle, but for Transformer models, the general idea is the same. Owing to its flexible architecture, most models are a variant of an encoder, decoder, or encoder-decoder structure. In addition to Transformer models, our library also has several convolutional neural networks (CNNs), which are still used today for computer vision tasks. We'll also explain how a modern CNN works.
+In [What 🤗 Transformers can do](task_summary), you learned about natural language processing (NLP), speech and audio, computer vision tasks, and some important applications of them. This page will look closely at how models solve these tasks and explain what's happening under the hood. There are many ways to solve a given task, some models may implement certain techniques or even approach the task from a new angle, but for Transformer models, the general idea is the same. Owing to its flexible architecture, most models are a variant of an encoder, decoder, or encoder-decoder structure. In addition to Transformer models, our library also has several convolutional neural networks (CNNs), which are still used today for computer vision tasks. We'll also explain how a modern CNN works.
 
 To explain how tasks are solved, we'll walk through what goes on inside the model to output useful predictions.
 
@@ -63,7 +63,7 @@ Ready to try your hand at audio classification? Check out our complete [audio cl
 
 ### Automatic speech recognition
 
-To use the pretrained model for automatic speech recognition, add a language modeling head on top of the base Wav2Vec2 model for [connectionist temporal classification (CTC)](glossary.md#connectionist-temporal-classification-ctc). The language modeling head is a linear layer that accepts the encoder's hidden states and transforms them into logits. Each logit represents a token class (the number of tokens comes from the task vocabulary). The CTC loss is calculated between the logits and targets to find the most likely sequence of tokens, which are then decoded into a transcription.
+To use the pretrained model for automatic speech recognition, add a language modeling head on top of the base Wav2Vec2 model for [connectionist temporal classification (CTC)](glossary#connectionist-temporal-classification-ctc). The language modeling head is a linear layer that accepts the encoder's hidden states and transforms them into logits. Each logit represents a token class (the number of tokens comes from the task vocabulary). The CTC loss is calculated between the logits and targets to find the most likely sequence of tokens, which are then decoded into a transcription.
 
 Ready to try your hand at automatic speech recognition? Check out our complete [automatic speech recognition guide](tasks/asr) to learn how to finetune Wav2Vec2 and use it for inference!
 
@@ -114,7 +114,7 @@ This section briefly explains convolutions, but it'd be helpful to have a prior 
 
 </Tip>
 
-[ConvNeXT](model_doc/convnext) is a CNN architecture that adopts new and modern network designs to improve performance. However, convolutions are still at the core of the model. From a high-level perspective, a [convolution](glossary.md#convolution) is an operation where a smaller matrix (*kernel*) is multiplied by a small window of the image pixels. It computes some features from it, such as a particular texture or curvature of a line. Then it slides over to the next window of pixels; the distance the convolution travels is known as the *stride*. 
+[ConvNeXT](model_doc/convnext) is a CNN architecture that adopts new and modern network designs to improve performance. However, convolutions are still at the core of the model. From a high-level perspective, a [convolution](glossary#convolution) is an operation where a smaller matrix (*kernel*) is multiplied by a small window of the image pixels. It computes some features from it, such as a particular texture or curvature of a line. Then it slides over to the next window of pixels; the distance the convolution travels is known as the *stride*. 
 
 <div class="flex justify-center">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/convolution.gif"/>
@@ -178,7 +178,7 @@ There are three main components to Mask2Former:
 
 3. Each of these feature maps of differing scales is fed successively to one Transformer decoder layer at a time in order to capture small objects from the high-resolution features. The key to Mask2Former is the *masked attention* mechanism in the decoder. Unlike cross-attention which can attend to the entire image, masked attention only focuses on a certain area of the image. This is faster and leads to better performance because the local features of an image are enough for the model to learn from.
 
-4. Like [DETR](tasks_explained.md#object-detection), Mask2Former also uses learned object queries and combines them with the image features from the pixel decoder to make a set prediction (`class label`, `mask prediction`). The decoder hidden states are passed into a linear layer and transformed into logits over the class labels. The cross-entropy loss is calculated between the logits and class label to find the most likely one.
+4. Like [DETR](tasks_explained#object-detection), Mask2Former also uses learned object queries and combines them with the image features from the pixel decoder to make a set prediction (`class label`, `mask prediction`). The decoder hidden states are passed into a linear layer and transformed into logits over the class labels. The cross-entropy loss is calculated between the logits and class label to find the most likely one.
 
     The mask predictions are generated by combining the pixel-embeddings with the final decoder hidden states. The sigmoid cross-entropy and dice loss is calculated between the logits and the ground truth mask to find the most likely mask.
 
@@ -206,7 +206,7 @@ The Transformer was initially designed for machine translation, and since then, 
 
 [BERT](model_doc/bert) is an encoder-only model and is the first model to effectively implement deep bidirectionality to learn richer representations of the text by attending to words on both sides.
 
-1. BERT uses [WordPiece](tokenizer_summary.md#wordpiece) tokenization to generate a token embedding of the text. To tell the difference between a single sentence and a pair of sentences, a special `[SEP]` token is added to differentiate them. A special `[CLS]` token is added to the beginning of every sequence of text. The final output with the `[CLS]` token is used as the input to the classification head for classification tasks. BERT also adds a segment embedding to denote whether a token belongs to the first or second sentence in a pair of sentences.
+1. BERT uses [WordPiece](tokenizer_summary#wordpiece) tokenization to generate a token embedding of the text. To tell the difference between a single sentence and a pair of sentences, a special `[SEP]` token is added to differentiate them. A special `[CLS]` token is added to the beginning of every sequence of text. The final output with the `[CLS]` token is used as the input to the classification head for classification tasks. BERT also adds a segment embedding to denote whether a token belongs to the first or second sentence in a pair of sentences.
 
 2. BERT is pretrained with two objectives: masked language modeling and next-sentence prediction. In masked language modeling, some percentage of the input tokens are randomly masked, and the model needs to predict these. This solves the issue of bidirectionality, where the model could cheat and see all the words and "predict" the next word. The final hidden states of the predicted mask tokens are passed to a feedforward network with a softmax over the vocabulary to predict the masked word.
 
@@ -244,17 +244,17 @@ Ready to try your hand at question answering? Check out our complete [question a
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/gpt2_architecture.png"/>
 </div>
 
-1. GPT-2 uses [byte pair encoding (BPE)](tokenizer_summary.md#bytepair-encoding-bpe) to tokenize words and generate a token embedding. Positional encodings are added to the token embeddings to indicate the position of each token in the sequence. The input embeddings are passed through multiple decoder blocks to output some final hidden state. Within each decoder block, GPT-2 uses a *masked self-attention* layer which means GPT-2 can't attend to future tokens. It is only allowed to attend to tokens on the left. This is different from BERT's [`mask`] token because, in masked self-attention, an attention mask is used to set the score to `0` for future tokens.
+1. GPT-2 uses [byte pair encoding (BPE)](tokenizer_summary#bytepair-encoding-bpe) to tokenize words and generate a token embedding. Positional encodings are added to the token embeddings to indicate the position of each token in the sequence. The input embeddings are passed through multiple decoder blocks to output some final hidden state. Within each decoder block, GPT-2 uses a *masked self-attention* layer which means GPT-2 can't attend to future tokens. It is only allowed to attend to tokens on the left. This is different from BERT's [`mask`] token because, in masked self-attention, an attention mask is used to set the score to `0` for future tokens.
 
 2. The output from the decoder is passed to a language modeling head, which performs a linear transformation to convert the hidden states into logits. The label is the next token in the sequence, which are created by shifting the logits to the right by one. The cross-entropy loss is calculated between the shifted logits and the labels to output the next most likely token.
 
-GPT-2's pretraining objective is based entirely on [causal language modeling](glossary.md#causal-language-modeling), predicting the next word in a sequence. This makes GPT-2 especially good at tasks that involve generating text.
+GPT-2's pretraining objective is based entirely on [causal language modeling](glossary#causal-language-modeling), predicting the next word in a sequence. This makes GPT-2 especially good at tasks that involve generating text.
 
 Ready to try your hand at text generation? Check out our complete [causal language modeling guide](tasks/language_modeling#causal-language-modeling) to learn how to finetune DistilGPT-2 and use it for inference!
 
 <Tip>
 
-For more information about text generation, check out the [text generation strategies](generation_strategies.md) guide!
+For more information about text generation, check out the [text generation strategies](generation_strategies) guide!
 
 </Tip>
 
@@ -274,7 +274,7 @@ Ready to try your hand at summarization? Check out our complete [summarization g
 
 <Tip>
 
-For more information about text generation, check out the [text generation strategies](generation_strategies.md) guide!
+For more information about text generation, check out the [text generation strategies](generation_strategies) guide!
 
 </Tip>
 
@@ -290,6 +290,6 @@ Ready to try your hand at translation? Check out our complete [translation guide
 
 <Tip>
 
-For more information about text generation, check out the [text generation strategies](generation_strategies.md) guide!
+For more information about text generation, check out the [text generation strategies](generation_strategies) guide!
 
 </Tip>

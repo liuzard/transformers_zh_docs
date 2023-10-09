@@ -22,7 +22,7 @@ On this page, we will have a closer look at tokenization.
 
 <Youtube id="VFp38yj8h3A"/>
 
-As we saw in [the preprocessing tutorial](preprocessing.md), tokenizing a text is splitting it into words or
+As we saw in [the preprocessing tutorial](preprocessing), tokenizing a text is splitting it into words or
 subwords, which then are converted to ids through a look-up table. Converting words or subwords to ids is
 straightforward, so in this summary, we will focus on splitting a text into words or subwords (i.e. tokenizing a text).
 More specifically, we will look at the three main types of tokenizers used in 🤗 Transformers: [Byte-Pair Encoding

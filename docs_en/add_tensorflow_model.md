@@ -17,7 +17,7 @@ rendered properly in your Markdown viewer.
 
 Having multiple frameworks available to use with 🤗 Transformers gives you flexibility to play their strengths when
 designing your application, but it implies that compatibility must be added on a per-model basis. The good news is that
-adding TensorFlow compatibility to an existing model is simpler than [adding a new model from scratch](add_new_model.md)!
+adding TensorFlow compatibility to an existing model is simpler than [adding a new model from scratch](add_new_model)!
 Whether you wish to have a deeper understanding of large TensorFlow models, make a major open-source contribution, or
 enable TensorFlow for your model of choice, this guide is for you.
 
@@ -28,7 +28,7 @@ Harnessing our collective experiences is absolutely critical to make this proces
 highly encourage that you suggest improvements to this guide!
 
 Before you dive deeper, it is recommended that you check the following resources if you're new to 🤗 Transformers:
-- [General overview of 🤗 Transformers](add_new_model.md#general-overview-of-transformers)
+- [General overview of 🤗 Transformers](add_new_model#general-overview-of-transformers)
 - [Hugging Face's TensorFlow Philosophy](https://huggingface.co/blog/tensorflow-philosophy)
 
 In the remainder of this guide, you will learn what's needed to add a new TensorFlow model architecture, the
@@ -52,7 +52,7 @@ architecture ([example](https://github.com/huggingface/transformers/tree/main/sr
 ## Step-by-step guide to add TensorFlow model architecture code
 
 There are many ways to design a large model architecture, and multiple ways of implementing said design. However,
-you might recall from our [general overview of 🤗 Transformers](add_new_model.md#general-overview-of-transformers)
+you might recall from our [general overview of 🤗 Transformers](add_new_model#general-overview-of-transformers)
 that we are an opinionated bunch - the ease of use of 🤗 Transformers relies on consistent design choices. From
 experience, we can tell you a few important things about adding TensorFlow models:
 
@@ -87,7 +87,7 @@ side. If the specific model you want to use with TensorFlow already has a Tensor
 of this page.
 
 For simplicity, the remainder of this guide assumes you've decided to contribute with the TensorFlow version of
-*BrandNewBert* (the same example as in the [guide](add_new_model.md) to add a new model from scratch).
+*BrandNewBert* (the same example as in the [guide](add_new_model) to add a new model from scratch).
 
 <Tip>
 

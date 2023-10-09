@@ -306,7 +306,7 @@ On top of the modeling weights and the configuration in json format, this also c
 configuration `.py` files in the folder `custom-resnet50d` and uploaded the result to the Hub. You can check the result
 in this [model repo](https://huggingface.co/sgugger/custom-resnet50d).
 
-See the [sharing tutorial](model_sharing.md) for more information on the push to Hub method.
+See the [sharing tutorial](model_sharing) for more information on the push to Hub method.
 
 ## Using a model with custom code
 

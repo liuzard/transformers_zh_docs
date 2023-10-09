@@ -24,7 +24,7 @@ such as ONNX and TFLite through its `exporters` module. 🤗 Optimum also provid
 and run models on targeted hardware with maximum efficiency.
 
 This guide demonstrates how you can export 🤗 Transformers models to ONNX with 🤗 Optimum, for the guide on exporting models to TFLite, 
-please refer to the [Export to TFLite page](tflite.md).
+please refer to the [Export to TFLite page](tflite).
 
 ## Export to ONNX 
 

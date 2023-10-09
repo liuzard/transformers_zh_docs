@@ -17,12 +17,12 @@ rendered properly in your Markdown viewer.
 
 This guide demonstrates practical techniques that you can use to increase the efficiency of your model's training by 
 optimizing memory utilization, speeding up the training, or both. If you'd like to understand how GPU is utilized during 
-training, please refer to the [Model training anatomy](model_memory_anatomy.md) conceptual guide first. This guide 
+training, please refer to the [Model training anatomy](model_memory_anatomy) conceptual guide first. This guide 
 focuses on practical techniques.  
 
 <Tip>
 
-If you have access to a machine with multiple GPUs, these approaches are still valid, plus you can leverage additional methods outlined in the [multi-GPU section](perf_train_gpu_many.md).
+If you have access to a machine with multiple GPUs, these approaches are still valid, plus you can leverage additional methods outlined in the [multi-GPU section](perf_train_gpu_many).
 
 </Tip>
 
@@ -70,7 +70,7 @@ If these methods do not result in sufficient gains, you can explore the followin
 
 Finally, if all of the above is still not enough, even after switching to a server-grade GPU like A100, consider moving 
 to a multi-GPU setup. All these approaches are still valid in a multi-GPU setup, plus you can leverage additional parallelism 
-techniques outlined in the [multi-GPU section](perf_train_gpu_many.md). 
+techniques outlined in the [multi-GPU section](perf_train_gpu_many). 
 
 ## Batch size choice
 

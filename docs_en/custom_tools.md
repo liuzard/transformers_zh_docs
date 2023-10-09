@@ -19,7 +19,7 @@ rendered properly in your Markdown viewer.
 <Tip>
 
 If you are not aware of what tools and agents are in the context of transformers, we recommend you read the
-[Transformers Agents](transformers_agents.md) page first.
+[Transformers Agents](transformers_agents) page first.
 
 </Tip>
 
@@ -39,7 +39,7 @@ In this guide we'll take a look at:
 
 ## Customizing the prompt
 
-As explained in [Transformers Agents](transformers_agents.md) agents can run in [`~Agent.run`] and [`~Agent.chat`] mode.
+As explained in [Transformers Agents](transformers_agents) agents can run in [`~Agent.run`] and [`~Agent.chat`] mode.
 Both the `run` and `chat` modes underlie the same logic. The language model powering the agent is conditioned on a long 
 prompt and completes the prompt by generating the next tokens until the stop token is reached.
 The only difference between the two modes is that during the `chat` mode the prompt is extended with 
@@ -461,7 +461,7 @@ It takes two inputs: `image`, which should be the image to transform, and `promp
 Name: 'image_transformer'
 ```
 
-The name and description are accurate and fit the style of the [curated set of tools](transformers_agents.md#a-curated-set-of-tools).
+The name and description are accurate and fit the style of the [curated set of tools](./transformers_agents#a-curated-set-of-tools).
 Next, let's instantiate an agent with `controlnet_transformer` and `upscaler`:
 
 ```py
@@ -514,7 +514,7 @@ print("\n".join([f"- {a}" for a in agent.toolbox.keys()]))
 
 Note how `image_upscaler` is now part of the agents' toolbox.
 
-Let's now try out the new tools! We will re-use the image we generated in [Transformers Agents Quickstart](transformers_agents.md#single-execution-run).
+Let's now try out the new tools! We will re-use the image we generated in [Transformers Agents Quickstart](./transformers_agents#single-execution-run).
 
 ```py
 from diffusers.utils import load_image

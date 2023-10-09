@@ -14,19 +14,19 @@ rendered properly in your Markdown viewer.
 
 -->
 
-# 使用🤗 Accelerate进行分布式训练
+# Distributed training with 🤗 Accelerate
 
-随着模型越来越大，使用并行计算已成为在有限硬件上训练更大模型和加速训练速度的策略。在Hugging Face，我们创建了[🤗 Accelerate](https://huggingface.co/docs/accelerate)库，帮助用户轻松地在任何类型的分布式设置中训练🤗 Transformers模型，无论是在一台机器上的多个GPU还是跨多台机器的多个GPU。在本教程中，您将学习如何自定义原生PyTorch训练循环以在分布式环境中进行训练。
+As models get bigger, parallelism has emerged as a strategy for training larger models on limited hardware and accelerating training speed by several orders of magnitude. At Hugging Face, we created the [🤗 Accelerate](https://huggingface.co/docs/accelerate) library to help users easily train a 🤗 Transformers model on any type of distributed setup, whether it is multiple GPU's on one machine or multiple GPU's across several machines. In this tutorial, learn how to customize your native PyTorch training loop to enable training in a distributed environment.
 
-## 设置
+## Setup
 
-首先，安装🤗 Accelerate：
+Get started by installing 🤗 Accelerate:
 
 ```bash
 pip install accelerate
 ```
 
-然后导入并创建一个[`~accelerate.Accelerator`]对象。[`~accelerate.Accelerator`]会自动检测您的分布式设置类型，并初始化所有必要的组件进行训练。您不需要显式地将模型放置在设备上。
+Then import and create an [`~accelerate.Accelerator`] object. The [`~accelerate.Accelerator`] will automatically detect your type of distributed setup and initialize all the necessary components for training. You don't need to explicitly place your model on a device.
 
 ```py
 >>> from accelerate import Accelerator
@@ -34,9 +34,9 @@ pip install accelerate
 >>> accelerator = Accelerator()
 ```
 
-## 准备加速
+## Prepare to accelerate
 
-下一步是将所有相关的训练对象传递给[`~accelerate.Accelerator.prepare`]方法。这包括您的训练和评估DataLoader、一个模型和一个优化器：
+The next step is to pass all the relevant training objects to the [`~accelerate.Accelerator.prepare`] method. This includes your training and evaluation DataLoaders, a model and an optimizer:
 
 ```py
 >>> train_dataloader, eval_dataloader, model, optimizer = accelerator.prepare(
@@ -44,9 +44,9 @@ pip install accelerate
 ... )
 ```
 
-## 反向传播
+## Backward
 
-最后一个修改是将训练循环中典型的`loss.backward()`替换为🤗 Accelerate的[`~accelerate.Accelerator.backward`]方法：
+The last addition is to replace the typical `loss.backward()` in your training loop with 🤗 Accelerate's [`~accelerate.Accelerator.backward`]method:
 
 ```py
 >>> for epoch in range(num_epochs):
@@ -61,7 +61,7 @@ pip install accelerate
 ...         progress_bar.update(1)
 ```
 
-正如您在下面的代码中所看到的，您只需要添加四行额外的代码到您的训练循环中就可以启用分布式训练！
+As you can see in the following code, you only need to add four additional lines of code to your training loop to enable distributed training!
 
 ```diff
 + from accelerate import Accelerator
@@ -105,27 +105,27 @@ pip install accelerate
           progress_bar.update(1)
 ```
 
-## 训练
+## Train
 
-一旦您添加了相关的代码行，就可以在脚本或笔记本（例如Colaboratory）中启动训练。
+Once you've added the relevant lines of code, launch your training in a script or a notebook like Colaboratory.
 
-### 使用脚本进行训练
+### Train with a script
 
-如果您从脚本中运行训练，请运行以下命令创建并保存一个配置文件：
+If you are running your training from a script, run the following command to create and save a configuration file:
 
 ```bash
 accelerate config
 ```
 
-然后使用以下命令启动训练：
+Then launch your training with:
 
 ```bash
 accelerate launch train.py
 ```
 
-### 使用笔记本进行训练
+### Train with a notebook
 
-🤗 Accelerate也可以在笔记本中运行，如果您计划使用Colaboratory的TPU。将负责训练的所有代码封装在一个函数中，并将其传递给[`~accelerate.notebook_launcher`]：
+🤗 Accelerate can also run in a notebook if you're planning on using Colaboratory's TPUs. Wrap all the code responsible for training in a function, and pass it to [`~accelerate.notebook_launcher`]:
 
 ```py
 >>> from accelerate import notebook_launcher
@@ -133,4 +133,4 @@ accelerate launch train.py
 >>> notebook_launcher(training_function)
 ```
 
-有关🤗 Accelerate及其丰富功能的更多信息，请参阅[文档](https://huggingface.co/docs/accelerate)。
+For more information about 🤗 Accelerate and its rich features, refer to the [documentation](https://huggingface.co/docs/accelerate).

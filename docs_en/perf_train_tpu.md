@@ -17,7 +17,7 @@ rendered properly in your Markdown viewer.
 
 <Tip>
 
- Note: Most of the strategies introduced in the [single GPU section](perf_train_gpu_one.md) (such as mixed precision training or gradient accumulation) and [multi-GPU section](perf_train_gpu_many.md) are generic and apply to training models in general so make sure to have a look at it before diving into this section.
+ Note: Most of the strategies introduced in the [single GPU section](perf_train_gpu_one) (such as mixed precision training or gradient accumulation) and [multi-GPU section](perf_train_gpu_many) are generic and apply to training models in general so make sure to have a look at it before diving into this section.
 
 </Tip>
 

@@ -18,14 +18,13 @@ rendered properly in your Markdown viewer.
 
 <Tip warning={true}>
 
-Transformers Agents是一个实验性的API，随时可能发生变化。由于API或底层模型容易改变，代理返回的结果可能会有所不同。
+Transformers Agents is an experimental API which is subject to change at any time. Results returned by the agents
+can vary as the APIs or underlying models are prone to change.
 
 </Tip>
 
-To learn more about agents and tools make sure to read the [introductory guide](../transformers_agents.md). This page
+To learn more about agents and tools make sure to read the [introductory guide](../transformers_agents). This page
 contains the API docs for the underlying classes.
-
-要了解更多关于代理和工具的信息，请确保阅读[入门指南](http://www.liuzard.com/transformers_agents)。该页面包含底层类的API文档。
 
 ## Agents
 

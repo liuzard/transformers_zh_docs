@@ -28,7 +28,7 @@ of the generation method.
 
 To learn how to inspect a model's generation configuration, what are the defaults, how to change the parameters ad hoc,
 and how to create and save a customized generation configuration, refer to the
-[text generation strategies guide](../generation_strategies.md). The guide also explains how to use related features,
+[text generation strategies guide](../generation_strategies). The guide also explains how to use related features,
 like token streaming.
 
 ## GenerationConfig

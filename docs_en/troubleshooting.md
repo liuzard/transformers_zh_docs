@@ -44,7 +44,7 @@ ValueError: Connection error, and we cannot find the requested files in the cach
 Please try again or make sure your Internet connection is on.
 ```
 
-In this case, you should try to run 🤗 Transformers on [offline mode](installation.md#offline-mode) to avoid the connection error.
+In this case, you should try to run 🤗 Transformers on [offline mode](installation#offline-mode) to avoid the connection error.
 
 ## CUDA out of memory
 
@@ -61,7 +61,7 @@ Here are some potential solutions you can try to lessen memory use:
 
 <Tip>
 
-Refer to the Performance [guide](performance.md) for more details about memory-saving techniques.
+Refer to the Performance [guide](performance) for more details about memory-saving techniques.
 
 </Tip>
 

@@ -64,7 +64,7 @@ But one of the key challenges Transformer architectures have helped with is in l
 
 ## Computer vision
 
-One of the first and earliest successful computer vision tasks was recognizing images of zip code numbers using a [convolutional neural network (CNN)](glossary.md#convolution). An image is composed of pixels, and each pixel has a numerical value. This makes it easy to represent an image as a matrix of pixel values. Each particular combination of pixel values describes the colors of an image. 
+One of the first and earliest successful computer vision tasks was recognizing images of zip code numbers using a [convolutional neural network (CNN)](glossary#convolution). An image is composed of pixels, and each pixel has a numerical value. This makes it easy to represent an image as a matrix of pixel values. Each particular combination of pixel values describes the colors of an image. 
 
 Two general ways computer vision tasks can be solved are:
 
@@ -182,7 +182,7 @@ Like classification tasks in any modality, text classification labels a sequence
 
 ### Token classification
 
-In any NLP task, text is preprocessed by separating the sequence of text into individual words or subwords. These are known as [tokens](/docs_en/glossary.md#token). Token classification assigns each token a label from a predefined set of classes. 
+In any NLP task, text is preprocessed by separating the sequence of text into individual words or subwords. These are known as [tokens](/glossary#token). Token classification assigns each token a label from a predefined set of classes. 
 
 Two common types of token classification are:
 
@@ -338,4 +338,4 @@ Document question answering is a task that answers natural language questions fr
 [{'score': 0.8531, 'answer': '17,000', 'start': 4, 'end': 4}]
 ```
 
-Hopefully, this page has given you some more background information about all the types of tasks in each modality and the practical importance of each one. In the next [section](tasks_explained.md), you'll learn **how** 🤗 Transformers work to solve these tasks.
+Hopefully, this page has given you some more background information about all the types of tasks in each modality and the practical importance of each one. In the next [section](tasks_explained), you'll learn **how** 🤗 Transformers work to solve these tasks.

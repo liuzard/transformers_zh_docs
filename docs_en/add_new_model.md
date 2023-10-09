@@ -19,7 +19,7 @@ The 🤗 Transformers library is often able to offer new models thanks to commun
 
 <Tip>
 
-If you're interested in implementing a TensorFlow model, take a look at the [How to convert a 🤗 Transformers model to TensorFlow](add_tensorflow_model.md) guide!
+If you're interested in implementing a TensorFlow model, take a look at the [How to convert a 🤗 Transformers model to TensorFlow](add_tensorflow_model) guide!
 
 </Tip>
 
@@ -43,7 +43,7 @@ chance that you don't agree with some of the library's philosophies or design ch
 found that the fundamental design choices and philosophies of the library are crucial to efficiently scale 🤗
 Transformers while keeping maintenance costs at a reasonable level.
 
-A good first starting point to better understand the library is to read the [documentation of our philosophy](philosophy.md). As a result of our way of working, there are some choices that we try to apply to all models:
+A good first starting point to better understand the library is to read the [documentation of our philosophy](philosophy). As a result of our way of working, there are some choices that we try to apply to all models:
 
 - Composition is generally favored over-abstraction
 - Duplicating code is not always bad if it strongly improves the readability or accessibility of a model
@@ -101,7 +101,7 @@ own regarding how code should be written :-)
 1. The forward pass of your model should be fully written in the modeling file while being fully independent of other
    models in the library. If you want to reuse a block from another model, copy the code and paste it with a
    `# Copied from` comment on top (see [here](https://github.com/huggingface/transformers/blob/v4.17.0/src/transformers/models/roberta/modeling_roberta.py#L160)
-   for a good example and [there](pr_checks.md#check-copies) for more documentation on Copied from). 
+   for a good example and [there](pr_checks#check-copies) for more documentation on Copied from). 
 2. The code should be fully understandable, even by a non-native English speaker. This means you should pick
    descriptive variable names and avoid abbreviations. As an example, `activation` is preferred to `act`.
    One-letter variable names are strongly discouraged unless it's an index in a for loop.
@@ -172,7 +172,7 @@ effectively re-implement the model in 🤗 Transformers. That being said, you do
 theoretical aspects, but rather focus on the practical ones, namely:
 
 -  What type of model is *brand_new_bert*? BERT-like encoder-only model? GPT2-like decoder-only model? BART-like
-  encoder-decoder model? Look at the [model_summary](model_summary.md) if you're not familiar with the differences between those.
+  encoder-decoder model? Look at the [model_summary](model_summary) if you're not familiar with the differences between those.
 -  What are the applications of *brand_new_bert*? Text classification? Text generation? Seq2Seq tasks, *e.g.,*
   summarization?
 -  What is the novel feature of the model making it different from BERT/GPT-2/BART?
@@ -858,7 +858,7 @@ You have now finished the coding part, congratulation! 🎉 You are Awesome! �
 **12. Upload the models to the model hub**
 
 In this final part, you should convert and upload all checkpoints to the model hub and add a model card for each
-uploaded model checkpoint. You can get familiar with the hub functionalities by reading our [Model sharing and uploading Page](model_sharing.md). You should work alongside the Hugging Face team here to decide on a fitting name for each
+uploaded model checkpoint. You can get familiar with the hub functionalities by reading our [Model sharing and uploading Page](model_sharing). You should work alongside the Hugging Face team here to decide on a fitting name for each
 checkpoint and to get the required access rights to be able to upload the model under the author's organization of
 *brand_new_bert*. The `push_to_hub` method, present in all models in `transformers`, is a quick and efficient way to push your checkpoint to the hub. A little snippet is pasted below:
 

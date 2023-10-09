@@ -18,7 +18,7 @@ rendered properly in your Markdown viewer.
 This document contains information on how to efficiently infer on a multiple GPUs. 
 <Tip>
 
-Note: A multi GPU setup can use the majority of the strategies described in the [single GPU section](perf_infer_gpu_one.md). You must be aware of simple techniques, though, that can be used for a better usage.
+Note: A multi GPU setup can use the majority of the strategies described in the [single GPU section](./perf_infer_gpu_one). You must be aware of simple techniques, though, that can be used for a better usage.
 
 </Tip>
 

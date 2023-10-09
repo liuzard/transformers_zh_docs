@@ -15,7 +15,7 @@ rendered properly in your Markdown viewer.
 
 # Efficient Inference on a Single GPU
 
-In addition to this guide, relevant information can be found as well in [the guide for training on a single GPU](perf_train_gpu_one.md) and [the guide for inference on CPUs](perf_infer_cpu.md).
+In addition to this guide, relevant information can be found as well in [the guide for training on a single GPU](perf_train_gpu_one) and [the guide for inference on CPUs](perf_infer_cpu).
 
 ## BetterTransformer
 

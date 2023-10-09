@@ -23,9 +23,9 @@ GPT2, XLNet, OpenAI GPT, CTRL, TransformerXL, XLM, Bart, T5, GIT, Whisper.
 
 Check out a few examples that use [`~transformers.generation_utils.GenerationMixin.generate`] method to produce
 text outputs for different tasks:
-* [Text summarization](tasks/summarization#inference)
-* [Image captioning](model_doc/git#transformers.GitForCausalLM.forward.example)
-* [Audio transcription](model_doc/whisper#transformers.WhisperForConditionalGeneration.forward.example)
+* [Text summarization](./tasks/summarization#inference)
+* [Image captioning](./model_doc/git#transformers.GitForCausalLM.forward.example)
+* [Audio transcription](./model_doc/whisper#transformers.WhisperForConditionalGeneration.forward.example)
 
 Note that the inputs to the generate method depend on the model's modality. They are returned by the model's preprocessor
 class, such as AutoTokenizer or AutoProcessor. If a model's preprocessor creates more than one kind of input, pass all
@@ -336,7 +336,7 @@ culture, and they allow us to design the'
 
 This guide illustrates the main parameters that enable various decoding strategies. More advanced parameters exist for the
 [`generate`] method, which gives you even further control over the [`generate`] method's behavior.
-For the complete list of the available parameters, refer to the [API documentation](main_classes/text_generation.md).
+For the complete list of the available parameters, refer to the [API documentation](./main_classes/text_generation.md).
 
 ### Assisted Decoding
 

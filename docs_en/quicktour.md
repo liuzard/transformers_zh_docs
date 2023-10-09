@@ -18,7 +18,7 @@ rendered properly in your Markdown viewer.
 
 [[open-in-colab]]
 
-Get up and running with 🤗 Transformers! Whether you're a developer or an everyday user, this quick tour will help you get started and show you how to use the [`pipeline`] for inference, load a pretrained model and preprocessor with an [AutoClass](model_doc/auto), and quickly train a model with PyTorch or TensorFlow. If you're a beginner, we recommend checking out our tutorials or [course](https://huggingface.co/course/chapter1/1) next for more in-depth explanations of the concepts introduced here.
+Get up and running with 🤗 Transformers! Whether you're a developer or an everyday user, this quick tour will help you get started and show you how to use the [`pipeline`] for inference, load a pretrained model and preprocessor with an [AutoClass](./model_doc/auto), and quickly train a model with PyTorch or TensorFlow. If you're a beginner, we recommend checking out our tutorials or [course](https://huggingface.co/course/chapter1/1) next for more in-depth explanations of the concepts introduced here.
 
 Before you begin, make sure you have all the necessary libraries installed:
 
@@ -51,7 +51,7 @@ The [`pipeline`] is the easiest and fastest way to use a pretrained model for in
 
 <Tip>
 
-For a complete list of available tasks, check out the [pipeline API reference](main_classes/pipelines).
+For a complete list of available tasks, check out the [pipeline API reference](./main_classes/pipelines).
 
 </Tip>
 
@@ -127,7 +127,7 @@ Extract the raw waveform arrays from the first 4 samples and pass it as a list t
 ['I WOULD LIKE TO SET UP A JOINT ACCOUNT WITH MY PARTNER HOW DO I PROCEED WITH DOING THAT', "FONDERING HOW I'D SET UP A JOIN TO HELL T WITH MY WIFE AND WHERE THE AP MIGHT BE", "I I'D LIKE TOY SET UP A JOINT ACCOUNT WITH MY PARTNER I'M NOT SEEING THE OPTION TO DO IT ON THE APSO I CALLED IN TO GET SOME HELP CAN I JUST DO IT OVER THE PHONE WITH YOU AND GIVE YOU THE INFORMATION OR SHOULD I DO IT IN THE AP AN I'M MISSING SOMETHING UQUETTE HAD PREFERRED TO JUST DO IT OVER THE PHONE OF POSSIBLE THINGS", 'HOW DO I FURN A JOINA COUT']
 ```
 
-For larger datasets where the inputs are big (like in speech or vision), you'll want to pass a generator instead of a list to load all the inputs in memory. Take a look at the [pipeline API reference](main_classes/pipelines) for more information.
+For larger datasets where the inputs are big (like in speech or vision), you'll want to pass a generator instead of a list to load all the inputs in memory. Take a look at the [pipeline API reference](./main_classes/pipelines) for more information.
 
 ### Use another model and tokenizer in the pipeline
 
@@ -168,19 +168,19 @@ Specify the model and tokenizer in the [`pipeline`], and now you can apply the `
 [{'label': '5 stars', 'score': 0.7273}]
 ```
 
-If you can't find a model for your use-case, you'll need to finetune a pretrained model on your data. Take a look at our [finetuning tutorial](training.md) to learn how. Finally, after you've finetuned your pretrained model, please consider [sharing](model_sharing.md) the model with the community on the Hub to democratize machine learning for everyone! 🤗
+If you can't find a model for your use-case, you'll need to finetune a pretrained model on your data. Take a look at our [finetuning tutorial](./training) to learn how. Finally, after you've finetuned your pretrained model, please consider [sharing](./model_sharing) the model with the community on the Hub to democratize machine learning for everyone! 🤗
 
 ## AutoClass
 
 <Youtube id="AhChOFRegn4"/>
 
-Under the hood, the [`AutoModelForSequenceClassification`] and [`AutoTokenizer`] classes work together to power the [`pipeline`] you used above. An [AutoClass](model_doc/auto) is a shortcut that automatically retrieves the architecture of a pretrained model from its name or path. You only need to select the appropriate `AutoClass` for your task and it's associated preprocessing class. 
+Under the hood, the [`AutoModelForSequenceClassification`] and [`AutoTokenizer`] classes work together to power the [`pipeline`] you used above. An [AutoClass](./model_doc/auto) is a shortcut that automatically retrieves the architecture of a pretrained model from its name or path. You only need to select the appropriate `AutoClass` for your task and it's associated preprocessing class. 
 
 Let's return to the example from the previous section and see how you can use the `AutoClass` to replicate the results of the [`pipeline`].
 
 ### AutoTokenizer
 
-A tokenizer is responsible for preprocessing text into an array of numbers as inputs to a model. There are multiple rules that govern the tokenization process, including how to split a word and at what level words should be split (learn more about tokenization in the [tokenizer summary](tokenizer_summary.md)). The most important thing to remember is you need to instantiate a tokenizer with the same model name to ensure you're using the same tokenization rules a model was pretrained with.
+A tokenizer is responsible for preprocessing text into an array of numbers as inputs to a model. There are multiple rules that govern the tokenization process, including how to split a word and at what level words should be split (learn more about tokenization in the [tokenizer summary](./tokenizer_summary)). The most important thing to remember is you need to instantiate a tokenizer with the same model name to ensure you're using the same tokenization rules a model was pretrained with.
 
 Load a tokenizer with [`AutoTokenizer`]:
 
@@ -203,7 +203,7 @@ Pass your text to the tokenizer:
 
 The tokenizer returns a dictionary containing:
 
-* [input_ids](glossary.md#input-ids): numerical representations of your tokens.
+* [input_ids](./glossary#input-ids): numerical representations of your tokens.
 * [attention_mask](.glossary#attention-mask): indicates which tokens should be attended to.
 
 A tokenizer can also accept a list of inputs, and pad and truncate the text to return a batch with uniform length:
@@ -237,7 +237,7 @@ A tokenizer can also accept a list of inputs, and pad and truncate the text to r
 
 <Tip>
 
-Check out the [preprocess](preprocessing.md) tutorial for more details about tokenization, and how to use an [`AutoImageProcessor`], [`AutoFeatureExtractor`] and [`AutoProcessor`] to preprocess image, audio, and multimodal inputs.
+Check out the [preprocess](./preprocessing) tutorial for more details about tokenization, and how to use an [`AutoImageProcessor`], [`AutoFeatureExtractor`] and [`AutoProcessor`] to preprocess image, audio, and multimodal inputs.
 
 </Tip>
 
@@ -256,7 +256,7 @@ Check out the [preprocess](preprocessing.md) tutorial for more details about tok
 
 <Tip>
 
-See the [task summary](task_summary.md) for tasks supported by an [`AutoModel`] class.
+See the [task summary](./task_summary) for tasks supported by an [`AutoModel`] class.
 
 </Tip>
 
@@ -289,7 +289,7 @@ tensor([[0.0021, 0.0018, 0.0115, 0.2121, 0.7725],
 
 <Tip>
 
-See the [task summary](task_summary.md) for tasks supported by an [`AutoModel`] class.
+See the [task summary](./task_summary) for tasks supported by an [`AutoModel`] class.
 
 </Tip>
 
@@ -408,7 +408,7 @@ Create a model from your custom configuration with [`TFAutoModel.from_config`]:
 </tf>
 </frameworkcontent>
 
-Take a look at the [Create a custom architecture](create_a_model.md) guide for more information about building custom configurations.
+Take a look at the [Create a custom architecture](./create_a_model) guide for more information about building custom configurations.
 
 ## Trainer - a PyTorch optimized training loop
 
@@ -504,7 +504,7 @@ For tasks - like translation or summarization - that use a sequence-to-sequence 
 
 You can customize the training loop behavior by subclassing the methods inside [`Trainer`]. This allows you to customize features such as the loss function, optimizer, and scheduler. Take a look at the [`Trainer`] reference for which methods can be subclassed. 
 
-The other way to customize the training loop is by using [Callbacks](main_classes/callbacks). You can use callbacks to integrate with other libraries and inspect the training loop to report on progress or stop the training early. Callbacks do not modify anything in the training loop itself. To customize something like the loss function, you need to subclass the [`Trainer`] instead.
+The other way to customize the training loop is by using [Callbacks](./main_classes/callbacks). You can use callbacks to integrate with other libraries and inspect the training loop to report on progress or stop the training early. Callbacks do not modify anything in the training loop itself. To customize something like the loss function, you need to subclass the [`Trainer`] instead.
 
 ## Train with TensorFlow
 

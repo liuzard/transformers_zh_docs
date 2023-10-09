@@ -65,7 +65,7 @@ to a given token).
 ## PreTrainedTokenizerFast
 
 The [`PreTrainedTokenizerFast`] depend on the [tokenizers](https://huggingface.co/docs/tokenizers) library. The tokenizers obtained from the 🤗 tokenizers library can be
-loaded very simply into 🤗 transformers. Take a look at the [Using tokenizers from 🤗 tokenizers](../fast_tokenizers.md) page to understand how this is done.
+loaded very simply into 🤗 transformers. Take a look at the [Using tokenizers from 🤗 tokenizers](../fast_tokenizers) page to understand how this is done.
 
 [[autodoc]] PreTrainedTokenizerFast
     - __call__

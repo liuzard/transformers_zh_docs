@@ -14,31 +14,34 @@ rendered properly in your Markdown viewer.
 
 -->
 
-# 基准测试
+# Benchmarks
 
 <Tip warning={true}>
 
-Hugging Face 的基准测试工具已经被弃用，建议使用外部的基准测试库来测量 Transformer 模型的速度和内存复杂度。
+Hugging Face's Benchmarking tools are deprecated and it is advised to use external Benchmarking libraries to measure the speed 
+and memory complexity of Transformer models.
 
 </Tip>
 
 [[open-in-colab]]
 
-让我们看一下如何对🤗 Transformers模型进行基准测试，最佳实践以及已有的基准测试。
+Let's take a look at how 🤗 Transformers models can be benchmarked, best practices, and already available benchmarks.
 
-可以在[这里](https://github.com/huggingface/notebooks/tree/main/examples/benchmark.ipynb)找到一个更详细解释如何对🤗 Transformers模型进行基准测试的笔记本。
+A notebook explaining in more detail how to benchmark 🤗 Transformers models can be found [here](https://github.com/huggingface/notebooks/tree/main/examples/benchmark.ipynb).
 
-## 如何对🤗 Transformers模型进行基准测试
+## How to benchmark 🤗 Transformers models
 
-[`PyTorchBenchmark`] 和 [`TensorFlowBenchmark`] 类允许灵活地对🤗 Transformers模型进行基准测试。基准测试类允许我们测量推断和训练的 *峰值内存使用量* 和 *所需时间*。
+The classes [`PyTorchBenchmark`] and [`TensorFlowBenchmark`] allow to flexibly benchmark 🤗 Transformers models. The benchmark classes allow us to measure the _peak memory usage_ and _required time_ for both _inference_ and _training_.
 
 <Tip>
 
-这里，推断定义为单次前向传递，训练定义为单次前向传递和后向传递。
+Hereby, _inference_ is defined by a single forward pass, and _training_ is defined by a single forward pass and
+backward pass.
 
 </Tip>
 
-[`PyTorchBenchmark`] 和 [`TensorFlowBenchmark`] 类需要相应的 [`PyTorchBenchmarkArguments`] 和 [`TensorFlowBenchmarkArguments`] 类型的对象进行实例化。[`PyTorchBenchmarkArguments`] 和 [`TensorFlowBenchmarkArguments`] 是数据类，包含其相应基准测试类所需的所有相关配置。以下示例展示了如何对类型为 *bert-base-cased* 的BERT模型进行基准测试。
+The benchmark classes [`PyTorchBenchmark`] and [`TensorFlowBenchmark`] expect an object of type [`PyTorchBenchmarkArguments`] and
+[`TensorFlowBenchmarkArguments`], respectively, for instantiation. [`PyTorchBenchmarkArguments`] and [`TensorFlowBenchmarkArguments`] are data classes and contain all relevant configurations for their corresponding benchmark class. In the following example, it is shown how a BERT model of type _bert-base-cased_ can be benchmarked.
 
 <frameworkcontent>
 <pt>
@@ -61,7 +64,15 @@ Hugging Face 的基准测试工具已经被弃用，建议使用外部的基准�
 </tf>
 </frameworkcontent>
 
-这里，基准测试参数数据类传入了三个参数，即 `models`、`batch_sizes` 和 `sequence_lengths`。`models` 参数是必需的，并且需要一个来自[model hub](https://huggingface.co/models) 的模型标识符列表。`batch_sizes` 和 `sequence_lengths` 是列表参数，定义了对模型进行基准测试时的 `input_ids` 的大小。还有许多其他可以通过基准测试参数数据类进行配置的参数。要获取有关这些参数的更多详细信息，可以直接查阅文件 `src/transformers/benchmark/benchmark_args_utils.py`、`src/transformers/benchmark/benchmark_args.py`（用于PyTorch）和 `src/transformers/benchmark/benchmark_args_tf.py`（用于TensorFlow）。或者，可以从根目录运行以下 Shell 命令，分别打印出PyTorch和Tensorflow的所有可配置参数的描述性列表。
+Here, three arguments are given to the benchmark argument data classes, namely `models`, `batch_sizes`, and
+`sequence_lengths`. The argument `models` is required and expects a `list` of model identifiers from the
+[model hub](https://huggingface.co/models) The `list` arguments `batch_sizes` and `sequence_lengths` define
+the size of the `input_ids` on which the model is benchmarked. There are many more parameters that can be configured
+via the benchmark argument data classes. For more detail on these one can either directly consult the files
+`src/transformers/benchmark/benchmark_args_utils.py`, `src/transformers/benchmark/benchmark_args.py` (for PyTorch)
+and `src/transformers/benchmark/benchmark_args_tf.py` (for Tensorflow). Alternatively, running the following shell
+commands from root will print out a descriptive list of all configurable parameters for PyTorch and Tensorflow
+respectively.
 
 <frameworkcontent>
 <pt>
@@ -69,7 +80,7 @@ Hugging Face 的基准测试工具已经被弃用，建议使用外部的基准�
 python examples/pytorch/benchmarking/run_benchmark.py --help
 ```
 
-然后，可以通过调用 `benchmark.run()` 来运行已实例化的基准测试对象。
+An instantiated benchmark object can then simply be run by calling `benchmark.run()`.
 
 ```py
 >>> results = benchmark.run()
@@ -124,7 +135,7 @@ bert-base-uncased          8              512            1539
 python examples/tensorflow/benchmarking/run_benchmark_tf.py --help
 ```
 
-然后可以通过调用 `benchmark.run()` 来运行已实例化的基准测试对象。
+An instantiated benchmark object can then simply be run by calling `benchmark.run()`.
 
 ```py
 >>> results = benchmark.run()
@@ -178,9 +189,17 @@ bert-base-uncased          8              512            1770
 </tf>
 </frameworkcontent>
 
-默认情况下，对推断进行基准测试并测量所需时间和内存。在上面的示例输出中，前两个部分显示了与推断时间和推断内存相对应的结果。此外，在“环境信息”下的第三个部分打印出有关计算环境的所有相关信息，例如GPU类型、系统、库版本等。当在[`PyTorchBenchmarkArguments`]和[`TensorFlowBenchmarkArguments`]中添加`save_to_csv=True`参数时，这些信息可以选择保存到一个_.csv_文件中。在这种情况下，每个部分都保存在一个单独的_.csv_文件中。每个_.csv_文件的路径可以通过参数数据类进行定义。
+By default, the _time_ and the _required memory_ for _inference_ are benchmarked. In the example output above the first
+two sections show the result corresponding to _inference time_ and _inference memory_. In addition, all relevant
+information about the computing environment, _e.g._ the GPU type, the system, the library versions, etc... are printed
+out in the third section under _ENVIRONMENT INFORMATION_. This information can optionally be saved in a _.csv_ file
+when adding the argument `save_to_csv=True` to [`PyTorchBenchmarkArguments`] and
+[`TensorFlowBenchmarkArguments`] respectively. In this case, every section is saved in a separate
+_.csv_ file. The path to each _.csv_ file can optionally be defined via the argument data classes.
 
-除了通过模型标识符（例如 `bert-base-uncased`）对预训练模型进行基准测试之外，用户还可以通过任何可用的模型类对任意配置进行基准测试。在这种情况下，必须在基准测试参数中插入一系列配置，如下所示：
+Instead of benchmarking pre-trained models via their model identifier, _e.g._ `bert-base-uncased`, the user can
+alternatively benchmark an arbitrary configuration of any available model class. In this case, a `list` of
+configurations must be inserted with the benchmark args as follows.
 
 <frameworkcontent>
 <pt>
@@ -333,23 +352,36 @@ bert-6-lay                 8              512            1540
 </tf>
 </frameworkcontent>
 
-- 同样，这次我们测量了自定义配置的`BertModel`类的_推断时间_和_所需内存_。当决定对哪种配置进行模型训练时，这个功能特别有帮助。
+Again, _inference time_ and _required memory_ for _inference_ are measured, but this time for customized configurations
+of the `BertModel` class. This feature can especially be helpful when deciding for which configuration the model
+should be trained.
 
-  ## 基准测试最佳实践
 
-  本节列出了在进行模型基准测试时应注意的几个最佳实践。
+## Benchmark best practices
 
-  - 目前，仅支持单设备基准测试。在使用GPU进行基准测试时，建议用户通过在shell中设置`CUDA_VISIBLE_DEVICES`环境变量来指定代码应在哪个设备上运行，例如在运行代码之前设置`export CUDA_VISIBLE_DEVICES=0`。
-  - 选项`no_multi_processing`只应在测试和调试时设置为`True`。为确保准确的内存测量，建议通过将`no_multi_processing`设置为`True`，在单独的进程中运行每个内存基准测试。
-  - 在共享模型基准测试结果时，应始终说明环境信息。由于不同的GPU设备、库版本等原因，结果可能会有很大差异，因此仅仅提供基准测试结果对社区来说并没有太大用处。
+This section lists a couple of best practices one should be aware of when benchmarking a model.
 
-  ## 共享您的基准测试
+- Currently, only single device benchmarking is supported. When benchmarking on GPU, it is recommended that the user
+  specifies on which device the code should be run by setting the `CUDA_VISIBLE_DEVICES` environment variable in the
+  shell, _e.g._ `export CUDA_VISIBLE_DEVICES=0` before running the code.
+- The option `no_multi_processing` should only be set to `True` for testing and debugging. To ensure accurate
+  memory measurement it is recommended to run each memory benchmark in a separate process by making sure
+  `no_multi_processing` is set to `True`.
+- One should always state the environment information when sharing the results of a model benchmark. Results can vary
+  heavily between different GPU devices, library versions, etc., so that benchmark results on their own are not very
+  useful for the community.
 
-  以前，所有可用的核心模型（当时是10个）都已经进行了_推断时间_的基准测试，涉及许多不同的设置：使用PyTorch，有无TorchScript，使用TensorFlow，有无XLA。所有这些测试都在CPU上进行（除了TensorFlow XLA）和GPU上进行。
 
-  相关方法详见[此博客文章](https://medium.com/huggingface/benchmarking-transformers-pytorch-and-tensorflow-e2917fb891c2)，结果可在[此处](https://docs.google.com/spreadsheets/d/1sryqufw2D0XlUH4sq3e9Wnxu5EAQkaohzrJbd5HdQ_w/edit?usp=sharing)找到。
+## Sharing your benchmark
 
-  使用新的_基准测试_工具，与社区共享您的基准测试结果变得比以往更加容易：
+Previously all available core models (10 at the time) have been benchmarked for _inference time_, across many different
+settings: using PyTorch, with and without TorchScript, using TensorFlow, with and without XLA. All of those tests were
+done across CPUs (except for TensorFlow XLA) and GPUs.
 
-  - [PyTorch 基准测试结果](https://github.com/huggingface/transformers/tree/main/examples/pytorch/benchmarking/README.md)。
-  - [TensorFlow 基准测试结果](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/benchmarking/README.md)。
+The approach is detailed in the [following blogpost](https://medium.com/huggingface/benchmarking-transformers-pytorch-and-tensorflow-e2917fb891c2) and the results are
+available [here](https://docs.google.com/spreadsheets/d/1sryqufw2D0XlUH4sq3e9Wnxu5EAQkaohzrJbd5HdQ_w/edit?usp=sharing).
+
+With the new _benchmark_ tools, it is easier than ever to share your benchmark results with the community
+
+- [PyTorch Benchmarking Results](https://github.com/huggingface/transformers/tree/main/examples/pytorch/benchmarking/README.md).
+- [TensorFlow Benchmarking Results](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/benchmarking/README.md).

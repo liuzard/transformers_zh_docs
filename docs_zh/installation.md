@@ -1,36 +1,32 @@
-<!---
-版权所有2022 HuggingFace团队。 保留所有权利。
+<!--Copyright 2022 The HuggingFace Team. All rights reserved.
 
-根据Apache许可证2.0版（“许可证”）获得许可;
-除非符合许可证，否则不得使用此文件。
-您可以在
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+the License. You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
-获得许可证副本
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
 
-除非适用法律要求或书面同意，否则按原样分发的软件
-在“原样”基础上发布，无论是明示还是暗示，也没有任何保证或条件。
-请参阅许可证以获取特定的管理权限
-在许可证下指定的权限。
-
-⚠️注意，此文件以Markdown格式编写，但包含特定于我们的doc-builder（类似于MDX）的语法，可能在您的Markdown查看器中无法正确渲染。
+⚠️ Note that this file is in Markdown but contain specific syntax for our doc-builder (similar to MDX) that may not be
+rendered properly in your Markdown viewer.
 
 -->
 
 # 安装
 
-安装适用于您正在使用的深度学习库的🤗 Transformers模块，设置缓存，并可选择配置🤗 Transformers以离线运行。
+安装适用于您正在使用的深度学习库的🤗Transformers模块，设置缓存，并可选择配置🤗Transformers以离线运行。
 
-🤗 Transformers已经在Python 3.6+、PyTorch 1.1.0+、TensorFlow 2.0+和Flax上进行了测试。请按照以下针对您所使用的深度学习库的安装说明进行操作：
+🤗Transformers已经在Python 3.6+、PyTorch 1.1.0+、TensorFlow 2.0+和Flax上进行了测试。请按照以下针对您所使用的深度学习库的安装说明进行操作：
 
 * [PyTorch](https://pytorch.org/get-started/locally/) 安装引导.
-* [TensorFlow 2.0](https://www.tensorflow.org/install/pip) 按转引导.
+* [TensorFlow 2.0](https://www.tensorflow.org/install/pip) 安装引导.
 * [Flax](https://flax.readthedocs.io/en/latest/) 安装引导.
 
 ## 通过pip安装
 
-在您的项目中，您应该在[虚拟环境](https://docs.python.org/3/library/venv.html)中安装🤗 Transformers。如果您对Python虚拟环境不熟悉，请参考这个[指南](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)。虚拟环境可以更轻松地管理不同的项目，并避免依赖项之间的兼容性问题。
+在您的项目中，您应该在[虚拟环境](https://docs.python.org/3/library/venv.html)中安装🤗Transformers。如果您对Python虚拟环境不熟悉，请参考这个[指南](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)。虚拟环境可以更轻松地管理不同的项目，并避免依赖项之间的兼容性问题。
 
 首先，在您的项目目录中创建一个虚拟环境：
 
@@ -44,19 +40,19 @@ python -m venv .env
 source .env/bin/activate
 ```
 
-现在您可以使用以下命令安装🤗 Transformers：
+现在您可以使用以下命令安装🤗Transformers：
 
 ```bash
 pip install transformers
 ```
 
-仅限于CPU支持时，你可以方便地使用一行命令安装🤗 Transformers和一个深度学习库。例如，使用以下命令安装🤗 Transformers和PyTorch：
+仅限于CPU支持时，你可以方便地使用一行命令安装🤗Transformers和一个深度学习库。例如，使用以下命令安装🤗Transformers和PyTorch：
 
 ```bash
 pip install 'transformers[torch]'
 ```
 
-🤗 Transformers和TensorFlow 2.0：
+🤗Transformers和TensorFlow 2.0：
 
 ```bash
 pip install 'transformers[tf-cpu]'
@@ -75,13 +71,13 @@ brew install pkg-config
 
 </Tip>
 
-🤗 Transformers 和 Flax:
+🤗Transformers 和 Flax:
 
 ```bash
 pip install 'transformers[flax]'
 ```
 
-最后，通过运行以下命令来检查🤗 Transformers是否已正确安装。该命令将下载一个预训练模型：
+最后，通过运行以下命令来检查🤗Transformers是否已正确安装。该命令将下载一个预训练模型：
 
 ```bash
 python -c "from transformers import pipeline; print(pipeline('sentiment-analysis')('we love you'))"
@@ -95,7 +91,7 @@ python -c "from transformers import pipeline; print(pipeline('sentiment-analysis
 
 ## 从源代码安装
 
-使用以下命令从源代码安装🤗 Transformers：
+使用以下命令从源代码安装🤗Transformers：
 
 ```bash
 pip install git+https://github.com/huggingface/transformers
@@ -103,7 +99,7 @@ pip install git+https://github.com/huggingface/transformers
 
 此命令安装的是最新的`main`版本，而不是最新的`stable`版本。`main`版本非常适合跟进最新的开发进展。例如，如果自上次官方发布以来修复了一个错误但尚未发布新版本，则可以使用`main`版本获取该修复。然而，这也意味着`main`版本不一定始终稳定。我们努力保持`main`版本的可用性，并且大多数问题通常在几个小时或一天内解决。如果遇到问题，请在[Issue](https://github.com/huggingface/transformers/issues)中提出，以便我们可以更快地修复！
 
-通过运行以下命令检查🤗 Transformers是否已正确安装：
+通过运行以下命令检查🤗Transformers是否已正确安装：
 
 ```bash
 python -c "from transformers import pipeline; print(pipeline('sentiment-analysis')('I love you'))"
@@ -114,9 +110,9 @@ python -c "from transformers import pipeline; print(pipeline('sentiment-analysis
 如果您想要：
 
 - 使用源代码的`main`版本。
-- 对🤗 Transformers进行贡献并需要测试代码更改。
+- 对🤗Transformers进行贡献并需要测试代码更改。
 
-则需要进行可编辑安装。请使用以下命令克隆存储库并安装🤗 Transformers：
+则需要进行可编辑安装。请使用以下命令克隆存储库并安装🤗Transformers：
 
 ```bash
 git clone https://github.com/huggingface/transformers.git
@@ -132,14 +128,14 @@ pip install -e .
 
 </Tip>
 
-现在，您可以使用以下命令轻松更新克隆版本到最新的🤗 Transformers：
+现在，您可以使用以下命令轻松更新克隆版本到最新的🤗Transformers：
 
 ```bash
 cd ~/transformers/
 git pull
 ```
 
-您的Python环境将在下次运行时找到🤗 Transformers的`main`版本。
+您的Python环境将在下次运行时找到🤗Transformers的`main`版本。
 
 ## 通过conda安装
 
@@ -159,17 +155,17 @@ conda install -c huggingface transformers
 
 <Tip>
 
-🤗 Transformers将使用shell环境变量`PYTORCH_TRANSFORMERS_CACHE`或`PYTORCH_PRETRAINED_BERT_CACHE`，如果您是从此库的早期版本转换过来并设置了这些环境变量，除非您指定了shell环境变量`TRANSFORMERS_CACHE`。
+🤗Transformers将使用shell环境变量`PYTORCH_TRANSFORMERS_CACHE`或`PYTORCH_PRETRAINED_BERT_CACHE`，如果您是从此库的早期版本转换过来并设置了这些环境变量，除非您指定了shell环境变量`TRANSFORMERS_CACHE`。
 
 </Tip>
 
 ## 离线模式
 
-🤗 Transformers可以在防火墙或离线环境中运行，只使用本地文件。设置环境变量`TRANSFORMERS_OFFLINE=1`以启用此功能。
+🤗Transformers可以在防火墙或离线环境中运行，只使用本地文件。设置环境变量`TRANSFORMERS_OFFLINE=1`以启用此功能。
 
 <Tip>
 
-通过设置环境变量`HF_DATASETS_OFFLINE=1`，将[🤗 Datasets](https://huggingface.co/docs/datasets/)添加到离线训练工作流程中。
+通过设置环境变量`HF_DATASETS_OFFLINE=1`，将[🤗Datasets](https://huggingface.co/docs/datasets/)添加到离线训练工作流程中。
 
 </Tip>
 
@@ -190,7 +186,7 @@ python examples/pytorch/translation/run_translation.py --model_name_or_path t5-s
 
 ### 离线获取模型和分词器
 
-使用🤗 Transformers的另一种离线方式是预先下载文件，然后在需要离线使用时指向其本地路径。有三种方法可以实现这一点：
+使用🤗Transformers的另一种离线方式是预先下载文件，然后在需要离线使用时指向其本地路径。有三种方法可以实现这一点：
 
 * 通过在[Model Hub](https://huggingface.co/models)上点击↓图标，在用户界面上下载文件。
 

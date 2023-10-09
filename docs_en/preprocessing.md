@@ -20,10 +20,10 @@ rendered properly in your Markdown viewer.
 
 Before you can train a model on a dataset, it needs to be preprocessed into the expected model input format. Whether your data is text, images, or audio, they need to be converted and assembled into batches of tensors. 🤗 Transformers provides a set of preprocessing classes to help prepare your data for the model. In this tutorial, you'll learn that for:
 
-* Text, use a [Tokenizer](main_classes/tokenizer) to convert text into a sequence of tokens, create a numerical representation of the tokens, and assemble them into tensors.
-* Speech and audio, use a [Feature extractor](main_classes/feature_extractor) to extract sequential features from audio waveforms and convert them into tensors.
-* Image inputs use a [ImageProcessor](main_classes/image) to convert images into tensors.
-* Multimodal inputs, use a [Processor](main_classes/processors) to combine a tokenizer and a feature extractor or image processor.
+* Text, use a [Tokenizer](./main_classes/tokenizer) to convert text into a sequence of tokens, create a numerical representation of the tokens, and assemble them into tensors.
+* Speech and audio, use a [Feature extractor](./main_classes/feature_extractor) to extract sequential features from audio waveforms and convert them into tensors.
+* Image inputs use a [ImageProcessor](./main_classes/image) to convert images into tensors.
+* Multimodal inputs, use a [Processor](./main_classes/processors) to combine a tokenizer and a feature extractor or image processor.
 
 <Tip>
 
@@ -69,9 +69,9 @@ Then pass your text to the tokenizer:
 
 The tokenizer returns a dictionary with three important items:
 
-* [input_ids](glossary.md#input-ids) are the indices corresponding to each token in the sentence.
-* [attention_mask](glossary.md#attention-mask) indicates whether a token should be attended to or not.
-* [token_type_ids](glossary.md#token-type-ids) identifies which sequence a token belongs to when there is more than one sequence.
+* [input_ids](glossary#input-ids) are the indices corresponding to each token in the sentence.
+* [attention_mask](glossary#attention-mask) indicates whether a token should be attended to or not.
+* [token_type_ids](glossary#token-type-ids) identifies which sequence a token belongs to when there is more than one sequence.
 
 Return your input by decoding the `input_ids`:
 
@@ -158,7 +158,7 @@ Set the `truncation` parameter to `True` to truncate a sequence to the maximum l
 
 <Tip>
 
-Check out the [Padding and truncation](pad_truncation.md) concept guide to learn more different padding and truncation arguments.
+Check out the [Padding and truncation](./pad_truncation) concept guide to learn more different padding and truncation arguments.
 
 </Tip>
 
@@ -448,7 +448,7 @@ or segmentation maps.
 
 ### Pad
 
-In some cases, for instance, when fine-tuning [DETR](model_doc/detr), the model applies scale augmentation at training
+In some cases, for instance, when fine-tuning [DETR](./model_doc/detr), the model applies scale augmentation at training
 time. This may cause images to be different sizes in a batch. You can use [`DetrImageProcessor.pad`]
 from [`DetrImageProcessor`] and define a custom `collate_fn` to batch images together.
 
@@ -495,7 +495,7 @@ Now take a look at the `audio` and `text` columns:
 'Printing, in the only sense with which we are at present concerned, differs from most if not from all the arts and crafts represented in the Exhibition'
 ```
 
-Remember you should always [resample](preprocessing.md#audio) your audio dataset's sampling rate to match the sampling rate of the dataset used to pretrain a model!
+Remember you should always [resample](preprocessing#audio) your audio dataset's sampling rate to match the sampling rate of the dataset used to pretrain a model!
 
 ```py
 >>> lj_speech = lj_speech.cast_column("audio", Audio(sampling_rate=16_000))

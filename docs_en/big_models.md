@@ -120,4 +120,4 @@ If you want to directly load such a sharded checkpoint inside a model without us
 
 Sharded checkpoints reduce the memory usage during step 2 of the workflow mentioned above, but in order to use that model in a low memory setting, we recommend leveraging our tools based on the Accelerate library.
 
-Please read the following guide for more information: [Large model loading using Accelerate](main_classes/model#large-model-loading)
+Please read the following guide for more information: [Large model loading using Accelerate](./main_classes/model#large-model-loading)

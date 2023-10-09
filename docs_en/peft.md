@@ -170,7 +170,7 @@ PEFT adapters are supported by the [`Trainer`] class so that you can train an ad
 
 <Tip>
 
-If you aren't familiar with fine-tuning a model with [`Trainer`], take a look at the [Fine-tune a pretrained model](training.md) tutorial.
+If you aren't familiar with fine-tuning a model with [`Trainer`], take a look at the [Fine-tune a pretrained model](training) tutorial.
 
 </Tip>
 

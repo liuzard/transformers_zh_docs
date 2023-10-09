@@ -19,7 +19,7 @@ When training on a single GPU is too slow or the model weights don't fit in a si
 
 <Tip>
 
- Note: Most of the strategies introduced in the [single GPU section](perf_train_gpu_one.md) (such as mixed precision training or gradient accumulation) are generic and apply to training models in general so make sure to have a look at it before diving into the following sections such as multi-GPU or CPU training.
+ Note: Most of the strategies introduced in the [single GPU section](perf_train_gpu_one) (such as mixed precision training or gradient accumulation) are generic and apply to training models in general so make sure to have a look at it before diving into the following sections such as multi-GPU or CPU training.
 
 </Tip>
 
