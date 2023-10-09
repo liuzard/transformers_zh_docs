@@ -1,418 +1,439 @@
-**开始使用**
+本项目为🤗HuggingFace transformers 库的中文文档，仅仅针对英文文档进行了翻译工作，版权归HuggingFace 团队所有。
 
--  [🤗 Transformers简介](docs_zh/index.md)
+欢迎大家捉虫和贡献。
+
+
+**1. 开始使用**
+
+- [🤗Transformers简介](docs_zh/index.md)
 - [快速开始](docs_zh/quicktour.md)
-- 安装(installation)
+- [安装](docs_zh/installation.md)
 
-**教程**
+**2. 教程**
 
--  通过pipline进行推理 (pipeline_tutorial)
+- [通过pipline进行推理](docs_zh/pipeline_tutorial.md)
 
-- 使用AutoClass编写可移植代码(autoclass_tutorial)
+- [使用AutoClass编写可移植代码](docs_zh/autoclass_tutorial.md)
 
-- 数据预处理(preprocessing)
+- [数据预处理](docs_zh/preprocessing.md)
 
-- 调优预训练模型(training)
+- [调优预训练模型](docs_zh/training.md)
 
-- 通过脚本训练(run_scripts)
+- [通过脚本训练](docs_zh/run_scripts.md)
 
-- 通过🤗 Accelerate设置分布式训练（accelerate）
+- [通过🤗Accelerate设置分布式训练](docs_zh/accelerate.md)
 
-- 通过 🤗 PEFT加载和训练adapters（peft）
+- [通过🤗PEFT加载和训练adapters](docs_zh/peft.md)
 
-- 分析你的模型（model_sharing）
-
-
-**任务指南**
-
-1、自然语言处理
-
-- 文本分类（tasks/sequence_classification）
-
-- Token分类（tasks/token_classification）
-
-- 问答（ tasks/question_answering）
-
-- 语言模型（tasks/language_modeling）
-
-- 掩码语言模型（tasks/masked_language_modeling）
-
-- 机器翻译（tasks/translation）
-
-- 文本摘要（tasks/summarization）
-
-- 多项选择（tasks/multiple_choice）
+- [分享你的模型](docs_zh/model_sharing.md)
 
 
-2、语音处理
+**3. 任务指南**
 
-- 语音分类（tasks/audio_classification）
-- 语音识别（tasks/asr）
+3.1 自然语言处理
 
-3、机器视觉
+- [文本分类](docs_zh/tasks/sequence_classification.md)
 
-- 图像分类（transformers_agents）
-- 图像分割（tasks/semantic_segmentation）
-- 视频分类（tasks/video_classification）
-- 目标检测（tasks/object_detection）
-- 零样本目标检测（tasks/zero_shot_object_detection）
-- 零样本图像分类（tasks/zero_shot_image_classification）
-- 深度估计（tasks/monocular_depth_estimation）
+- [Token分类](docs_zh/tasks/token_classification.md)
 
-4、多模态
+- [问答](docs_zh/tasks/question_answering.md)
 
-- 图像描述（Image captioning）
-- 阅读理解（tasks/document_question_answering）
-- 图像问答（tasks/visual_question_answering）
-- 文本转语音（tasks/text-to-speech）
+- [语言模型](docs_zh/tasks/language_modeling.md)
 
-5、生成
+- [掩码语言模型](docs_zh/tasks/masked_language_modeling.md)
 
-- 自定义生成策略（generation_strategies）
+- [机器翻译](docs_zh/tasks/translation.md)
 
-6、提示
+- [文本摘要](docs_zh/tasks/summarization.md)
 
-- 通过IDEFICS处理图像任务（tasks/idefics）
+- [多项选择](docs_zh/tasks/multiple_choice.md)
 
 
+3.2 语音处理
 
-**开发者指南：**
+- [语音分类](docs_zh/tasks/audio_classification.md)
+- [语音识别](docs_zh/tasks/asr.md)
 
-- 通过🤗 Tokenizers实现快速分词
-- 多语言模型推理（multilingual）
-- 使用模型特定的APIs（create_a_model）
-- 分享自定义的模型（custom_models）
-- chat模型模板（chat_templating）
-- 导出到ONNX（serialization）
-- 导出到TFLite（tflite）
-- 导出到TorchScript（torchscript）
-- 基准测试（benchmarks）
-- 笔记样例（notebooks）
-- 社区资源（community）
-- 自定义Tools和Prompts（custom_tools）
-- 问题排查（troubleshooting）
+3.3 机器视觉
 
-**性能和可拓展性：**
+- [图像分类](docs_zh/transformers_agents.md)
+- [图像分割](docs_zh/tasks/semantic_segmentation.md)
+- [视频分类](docs_zh/tasks/video_classification.md)
+- [目标检测](docs_zh/tasks/object_detection.md)
+- [零样本目标检测](docs_zh/tasks/zero_shot_object_detection.md)
+- [零样本图像分类](docs_zh/tasks/zero_shot_image_classification.md)
+- [深度估计](docs_zh/tasks/monocular_depth_estimation.md)
 
-概述（Overview）
+3.4 多模态
 
-1、高效训练技巧
+- [图像描述](docs_zh/Image captioning.md)
+- [阅读理解](docs_zh/tasks/document_question_answering.md)
+- [图像问答](docs_zh/tasks/visual_question_answering.md)
+- [文本转语音](docs_zh/tasks/text-to-speech.md)
 
-- 单个GPU上高效训练的方法和工具(perf_train_gpu_one)
-- 多个GPU和并行计算(perf_train_gpu_many)
-- CPU上高效训练(perf_train_cpu)
-- 分布式CPU训练(perf_train_cpu_many)
-- TPU上训练(perf_train_tpu)
-- 使用TensorFlow在TPU上训练(perf_train_tpu_tf)
-- 专用硬件训练(perf_train_special)
-- 用于训练的自定义硬件(perf_hardware)
-- 使用Trainer API进行超参数搜索(hpo_train)
+3.5 生成
 
-2、优化推理
+- [自定义生成策略](docs_zh/generation_strategies.md)
 
-- 在CPU上进行推理(perf_infer_cpu)
-- 在单个GPU上进行推理(perf_infer_gpu_one)
-- 在多个GPU上进行推理(perf_infer_gpu_many)
-- 在专用硬件上进行推理(perf_infer_special)
+3.6 提示
 
-3、其他内容
-
-- 实例化一个大型模型(big_models)
-- 故障排查(debugging)
-- TensorFlow模型的XLA集成(tf_xla)
-- 使用`torch.compile()`优化推理(perf_torch_compile)
+- [通过IDEFICS处理图像任务](docs_zh/tasks/idefics.md)
 
 
 
+**4. 开发者指南：**
+
+- [通过🤗Tokenizers实现快速分词](docs_zh/fast_tokenizers.md)
+- [多语言模型推理](docs_zh/multilingual.md)
+- [使用模型特定的APIs](docs_zh/create_a_model.md)
+- [分享自定义的模型](docs_zh/custom_models.md)
+- [chat模型模板](docs_zh/chat_templating.md)
+- [通过Amazon SageMaker训练模型](docs_zh/serialization.md)
+- [导出到ONNX](docs_zh/serialization.md)
+- [导出到TFLite](docs_zh/tflite.md)
+- [导出到TorchScript](docs_zh/torchscript.md)
+- [基准测试](docs_zh/benchmarks.md)
+- [笔记样例](docs_zh/notebooks.md)
+- [社区资源](docs_zh/community.md)
+- [自定义Tools和Prompts](docs_zh/custom_tools.md)
+- [问题排查](docs_zh/troubleshooting.md)
+
+**5. 性能和可拓展性：**
+
+[5.1 概述](docs_zh/Overview.md)
+
+5.2 高效训练技巧
+
+- [单个GPU上高效训练的方法和工具](docs_zh/perf_train_gpu_one.md)
+- [多个GPU和并行计算](docs_zh/perf_train_gpu_many.md)
+- [CPU上高效训练](docs_zh/perf_train_cpu.md)
+- [分布式CPU训练](docs_zh/perf_train_cpu_many.md)
+- [TPU上训练](docs_zh/perf_train_tpu.md)
+- [使用TensorFlow在TPU上训练](docs_zh/perf_train_tpu_tf.md)
+- [专用硬件训练](docs_zh/perf_train_special.md)
+- [用于训练的自定义硬件](docs_zh/perf_hardware.md)
+- [使用Trainer API进行超参数搜索](docs_zh/hpo_train.md)
+
+5.3 优化推理
+
+- [在CPU上进行推理](docs_zh/perf_infer_cpu.md)
+- [在单个GPU上进行推理](docs_zh/perf_infer_gpu_one.md)
+- [在多个GPU上进行推理](docs_zh/perf_infer_gpu_many.md)
+- [在专用硬件上进行推理](docs_zh/perf_infer_special.md)
+
+5.4 其他内容
+
+- [实例化一个大型模型](docs_zh/big_models.md)
+- [故障排查](docs_zh/debugging.md)
+- [TensorFlow模型的XLA集成](docs_zh/tf_xla.md)
+- [使用`torch.compile](docs_zh/.md)`优化推理](docs_zh/perf_torch_compile.md)
 
 
-- 如何贡献给transformers (contributing)
-- 如何向🤗 Transformers添加模型 (add_new_model)
-- 如何将🤗 Transformers模型转换为TensorFlow (add_tensorflow_model)
-- 如何向🤗 Transformers添加流水线 (add_new_pipeline)
-- 测试 (testing)
-- 拉取请求的检查 (pr_checks)
-- 贡献 (Contribute)
-- 哲学 (philosophy)
-- 术语表 (glossary)
-- 🤗 Transformers能做什么 (task_summary)
-- 🤗 Transformers如何解决任务 (tasks_explained)
-- Transformer模型系列 (model_summary)
-- 分词器概述 (tokenizer_summary)
-- 注意力机制 (attention)
-- 填充和截断 (pad_truncation)
-- BERTology (bertology)
-- 固定长度模型的困惑度 (perplexity)
-- 用于Web服务器推论的流水线 (pipeline_webserver)
-- 模型训练解剖学 (model_memory_anatomy)
-- 概念指南 (Conceptual guides)
+**6. 给transformers贡献**
 
-主要的类：
+- [如何贡献给🤗Transformers](docs_zh/contributing.md)
+- [如何向🤗Transformers添加模型](docs_zh/add_new_model.md)
+- [如何将🤗Transformers模型转换为TensorFlow](docs_zh/add_tensorflow_model.md)
+- [如何向🤗Transformers添加pipline](docs_zh/add_new_pipeline.md)
+- [测试](docs_zh/testing.md)
+- [拉取请求的检查](docs_zh/pr_checks.md)
 
-- Agents and Tools (main_classes/agent)
-- Auto Classes (model_doc/auto)
-- Callbacks (main_classes/callback)
-- Configuration (main_classes/configuration)
-- Data Collator (main_classes/data_collator)
-- Keras callbacks (main_classes/keras_callbacks)
-- Logging (main_classes/logging)
-- Models (main_classes/model)
-- Text Generation (main_classes/text_generation)
-- ONNX (main_classes/onnx)
-- Optimization (main_classes/optimizer_schedules)
-- Model outputs (main_classes/output)
-- Pipelines (main_classes/pipelines)
-- Processors (main_classes/processors)
-- Quantization (main_classes/quantization)
-- Tokenizer (main_classes/tokenizer)
-- Trainer (main_classes/trainer)
-- DeepSpeed Integration (main_classes/deepspeed)
-- Feature Extractor (main_classes/feature_extractor)
-- Image Processor (main_classes/image_processor)
+**7. 概念指南**
+- [哲学](docs_zh/philosophy.md)
+- [术语表](docs_zh/glossary.md)
+- [🤗Transformers能做什么](docs_zh/task_summary.md)
+- [🤗Transformers如何解决任务](docs_zh/tasks_explained.md)
+- [Transformer模型系列](docs_zh/model_summary.md)
+- [分词器概述](docs_zh/tokenizer_summary.md)
+- [注意力机制](docs_zh/attention.md)
+- [填充和截断](docs_zh/pad_truncation.md)
+- [BERTology](docs_zh/bertology.md)
+- [固定长度模型的困惑度](docs_zh/perplexity.md)
+- [用于Web服务器推论的流水线](docs_zh/pipeline_webserver.md)
+- [模型训练解剖学](docs_zh/model_memory_anatomy.md)
 
+**7 API**
 
+**7.1 主要的类**
+- [Agents and Tools](docs_zh/main_classes/agent.md)
+- [Auto Classes](docs_zh/model_doc/auto.md)
+- [Callbacks](docs_zh/main_classes/callback.md)
+- [Configuration](docs_zh/main_classes/configuration.md)
+- [Data Collator](docs_zh/main_classes/data_collator.md)
+- [Keras callbacks](docs_zh/main_classes/keras_callbacks.md)
+- [Logging](docs_zh/main_classes/logging.md)
+- [Models](docs_zh/main_classes/model.md)
+- [Text Generation](docs_zh/main_classes/text_generation.md)
+- [ONNX](docs_zh/main_classes/onnx.md)
+- [Optimization](docs_zh/main_classes/optimizer_schedules.md)
+- [Model outputs](docs_zh/main_classes/output.md)
+- [Pipelines](docs_zh/main_classes/pipelines.md)
+- [Processors](docs_zh/main_classes/processors.md)
+- [Quantization](docs_zh/main_classes/quantization.md)
+- [Tokenizer](docs_zh/main_classes/tokenizer.md)
+- [Trainer](docs_zh/main_classes/trainer.md)
+- [DeepSpeed Integration](docs_zh/main_classes/deepspeed.md)
+- [Feature Extractor](docs_zh/main_classes/feature_extractor.md)
+- [Image Processor](docs_zh/main_classes/image_processor.md)
 
-- ALBERT(model_doc/albert)
-- BART(model_doc/bart)
-- BARThez(model_doc/barthez)
-- BARTpho(model_doc/bartpho)
-- BERT(model_doc/bert)
-- BertGeneration(model_doc/bert-generation)
-- BertJapanese(model_doc/bert-japanese)
-- Bertweet(model_doc/bertweet)
-- BigBird(model_doc/big_bird)
-- BigBirdPegasus(model_doc/bigbird_pegasus)
-- BioGpt(model_doc/biogpt)
-- Blenderbot(model_doc/blenderbot)
-- Blenderbot Small(model_doc/blenderbot-small)
-- BLOOM(model_doc/bloom)
-- BORT(model_doc/bort)
-- ByT5(model_doc/byt5)
-- CamemBERT(model_doc/camembert)
-- CANINE(model_doc/canine)
-- CodeGen(model_doc/codegen)
-- CodeLlama(model_doc/code_llama)
-- ConvBERT(model_doc/convbert)
-- CPM(model_doc/cpm)
-- CPMANT(model_doc/cpmant)
-- CTRL(model_doc/ctrl)
-- DeBERTa(model_doc/deberta)
-- DeBERTa-v2(model_doc/deberta-v2)
-- DialoGPT(model_doc/dialogpt)
-- DistilBERT(model_doc/distilbert)
-- DPR(model_doc/dpr)
-- ELECTRA(model_doc/electra)
-- Encoder Decoder Models(model_doc/encoder-decoder)
-- ERNIE(model_doc/ernie)
-- ErnieM(model_doc/ernie_m)
-- ESM(model_doc/esm)
-- Falcon(model_doc/falcon)
-- FLAN-T5(model_doc/flan-t5)
-- FLAN-UL2(model_doc/flan-ul2)
-- FlauBERT(model_doc/flaubert)
-- FNet(model_doc/fnet)
-- FSMT(model_doc/fsmt)
-- Funnel Transformer(model_doc/funnel)
-- GPT(model_doc/openai-gpt)
-- GPT Neo(model_doc/gpt_neo)
-- GPT NeoX(model_doc/gpt_neox)
-- GPT NeoX Japanese(model_doc/gpt_neox_japanese)
-- GPT-J(model_doc/gptj)
-- GPT2(model_doc/gpt2)
-- GPTBigCode(model_doc/gpt_bigcode)
-- GPTSAN Japanese(model_doc/gptsan-japanese)
-- GPTSw3(model_doc/gpt-sw3)
-- HerBERT(model_doc/herbert)
-- I-BERT(model_doc/ibert)
-- Jukebox(model_doc/jukebox)
-- LED(model_doc/led)
-- LLaMA(model_doc/llama)
-- Llama2(model_doc/llama2)
-- Longformer(model_doc/longformer)
-- LongT5(model_doc/longt5)
-- LUKE(model_doc/luke)
-- M2M100(model_doc/m2m_100)
-- MarianMT(model_doc/marian)
-- MarkupLM(model_doc/markuplm)
-- MBart and MBart-50(model_doc/mbart)
-- MEGA(model_doc/mega)
-- MegatronBERT(model_doc/megatron-bert)
-- MegatronGPT2(model_doc/megatron_gpt2)
-- mLUKE(model_doc/mluke)
-- MobileBERT(model_doc/mobilebert)
-- MPNet(model_doc/mpnet)
-- MPT(model_doc/mpt)
-- MRA(model_doc/mra)
-- MT5(model_doc/mt5)
-- MVP(model_doc/mvp)
-- NEZHA(model_doc/nezha)
-- NLLB(model_doc/nllb)
-- NLLB-MoE(model_doc/nllb-moe)
-- Nyströmformer(model_doc/nystromformer)
-- Open-Llama(model_doc/open-llama)
-- OPT(model_doc/opt)
-- Pegasus(model_doc/pegasus)
-- PEGASUS-X(model_doc/pegasus_x)
-- Persimmon(model_doc/persimmon)
-- PhoBERT(model_doc/phobert)
-- PLBart(model_doc/plbart)
-- ProphetNet(model_doc/prophetnet)
-- QDQBert(model_doc/qdqbert)
-- RAG(model_doc/rag)
-- REALM(model_doc/realm)
-- Reformer(model_doc/reformer)
-- RemBERT(model_doc/rembert)
-- RetriBERT(model_doc/retribert)
-- RoBERTa(model_doc/roberta)
-- RoBERTa-PreLayerNorm(model_doc/roberta-prelayernorm)
-- RoCBert(model_doc/roc_bert)
-- RoFormer(model_doc/roformer)
-- RWKV(model_doc/rwkv)
-- Splinter(model_doc/splinter)
-- SqueezeBERT(model_doc/squeezebert)
-- SwitchTransformers(model_doc/switch_transformers)
-- T5(model_doc/t5)
-- T5v1.1(model_doc/t5v1.1)
-- TAPEX(model_doc/tapex)
-- Transformer XL(model_doc/transfo-xl)
-- UL2(model_doc/ul2)
-- UMT5(model_doc/umt5)
-- X-MOD(model_doc/xmod)
-- XGLM(model_doc/xglm)
-- XLM(model_doc/xlm)
-- XLM-ProphetNet(model_doc/xlm-prophetnet)
-- XLM-RoBERTa(model_doc/xlm-roberta)
-- XLM-RoBERTa-XL(model_doc/xlm-roberta-xl)
-- XLM-V(model_doc/xlm-v)
-- XLNet(model_doc/xlnet)
-- YOSO(model_doc/yoso)
-- BEiT(model_doc/beit)
-- BiT(model_doc/bit)
-- Conditional DETR(model_doc/conditional_detr)
-- ConvNeXT(model_doc/convnext)
-- ConvNeXTV2(model_doc/convnextv2)
-- CvT(model_doc/cvt)
-- Deformable DETR(model_doc/deformable_detr)
-- DeiT(model_doc/deit)
-- DETA(model_doc/deta)
-- DETR(model_doc/detr)
-- DiNAT(model_doc/dinat)
-- DINO V2(model_doc/dinov2)
-- DiT(model_doc/dit)
-- DPT(model_doc/dpt)
-- EfficientFormer(model_doc/efficientformer)
-- EfficientNet(model_doc/efficientnet)
-- FocalNet(model_doc/focalnet)
-- GLPN(model_doc/glpn)
-- ImageGPT(model_doc/imagegpt)
-- LeViT(model_doc/levit)
-- Mask2Former(model_doc/mask2former)
-- MaskFormer(model_doc/maskformer)
-- MobileNetV1(model_doc/mobilenet_v1)
-- MobileNetV2(model_doc/mobilenet_v2)
-- MobileViT(model_doc/mobilevit)
-- MobileViTV2(model_doc/mobilevitv2)
-- NAT(model_doc/nat)
-- PoolFormer(model_doc/poolformer)
-- Pyramid Vision Transformer (PVT)(model_doc/pvt)
-- RegNet(model_doc/regnet)
-- ResNet(model_doc/resnet)
-- SegFormer(model_doc/segformer)
-- SwiftFormer(model_doc/swiftformer)
-- Swin Transformer(model_doc/swin)
-- Swin Transformer V2(model_doc/swinv2)
-- Swin2SR(model_doc/swin2sr)
-- Table Transformer(model_doc/table-transformer)
-- TimeSformer(model_doc/timesformer)
-- UperNet(model_doc/upernet)
-- VAN(model_doc/van)
-- VideoMAE(model_doc/videomae)
-- Vision Transformer (ViT)(model_doc/vit)
-- ViT Hybrid(model_doc/vit_hybrid)
-- ViTDet(model_doc/vitdet)
-- ViTMAE(model_doc/vit_mae)
-- ViTMatte(model_doc/vitmatte)
-- ViTMSN(model_doc/vit_msn)
-- ViViT(model_doc/vivit)
-- YOLOS(model_doc/yolos)
-- Audio Spectrogram Transformer(model_doc/audio-spectrogram-transformer)
-- Bark(model_doc/bark)
-- CLAP(model_doc/clap)
-- EnCodec(model_doc/encodec)
-- Hubert(model_doc/hubert)
-- MCTCT(model_doc/mctct)
-- MMS(model_doc/mms)
-- MusicGen(model_doc/musicgen)
-- Pop2Piano(model_doc/pop2piano)
-- SEW(model_doc/sew)
-- SEW-D(model_doc/sew-d)
-- Speech2Text(model_doc/speech_to_text)
-- Speech2Text2(model_doc/speech_to_text_2)
-- SpeechT5(model_doc/speecht5)
-- UniSpeech(model_doc/unispeech)
-- UniSpeech-SAT(model_doc/unispeech-sat)
-- VITS(model_doc/vits)
-- Wav2Vec2(model_doc/wav2vec2)
-- Wav2Vec2-Conformer(model_doc/wav2vec2-conformer)
-- Wav2Vec2Phoneme(model_doc/wav2vec2_phoneme)
-- WavLM(model_doc/wavlm)
-- Whisper(model_doc/whisper)
-- XLS-R(model_doc/xls_r)
-- XLSR-Wav2Vec2(model_doc/xlsr_wav2vec2)
-- ALIGN(model_doc/align)
-- AltCLIP(model_doc/altclip)
-- BLIP(model_doc/blip)
-- BLIP-2(model_doc/blip-2)
-- BridgeTower(model_doc/bridgetower)
-- BROS(model_doc/bros)
-- Chinese-CLIP(model_doc/chinese_clip)
-- CLIP(model_doc/clip)
-- CLIPSeg(model_doc/clipseg)
-- Data2Vec(model_doc/data2vec)
-- DePlot(model_doc/deplot)
-- Donut(model_doc/donut)
-- FLAVA(model_doc/flava)
-- GIT(model_doc/git)
-- GroupViT(model_doc/groupvit)
-- IDEFICS(model_doc/idefics)
-- InstructBLIP(model_doc/instructblip)
-- LayoutLM(model_doc/layoutlm)
-- LayoutLMV2(model_doc/layoutlmv2)
-- LayoutLMV3(model_doc/layoutlmv3)
-- LayoutXLM(model_doc/layoutxlm)
-- LiLT(model_doc/lilt)
-- LXMERT(model_doc/lxmert)
-- MatCha(model_doc/matcha)
-- MGP-STR(model_doc/mgp-str)
-- OneFormer(model_doc/oneformer)
-- OWL-ViT(model_doc/owlvit)
-- Perceiver(model_doc/perceiver)
-- Pix2Struct(model_doc/pix2struct)
-- Segment Anything(model_doc/sam)
-- Speech Encoder Decoder Models(model_doc/speech-encoder-decoder)
-- TAPAS(model_doc/tapas)
-- TrOCR(model_doc/trocr)
-- TVLT(model_doc/tvlt)
-- ViLT(model_doc/vilt)
-- Vision Encoder Decoder Models(model_doc/vision-encoder-decoder)
-- Vision Text Dual Encoder(model_doc/vision-text-dual-encoder)
-- VisualBERT(model_doc/visual_bert)
-- X-CLIP(model_doc/xclip)
-- Decision Transformer(model_doc/decision_transformer)
-- Trajectory Transformer(model_doc/trajectory_transformer)
-- Autoformer(model_doc/autoformer)
-- Informer(model_doc/informer)
-- Time Series Transformer(model_doc/time_series_transformer)
-- Graphormer(model_doc/graphormer)
-- Custom Layers and Utilities(internal/modeling_utils)
-- Utilities for pipelines(internal/pipelines_utils)
-- Utilities for Tokenizers(internal/tokenization_utils)
-- Utilities for Trainer(internal/trainer_utils)
-- Utilities for Generation(internal/generation_utils)
-- Utilities for Image Processors(internal/image_processing_utils)
-- Utilities for Audio processing(internal/audio_utils)
-- General Utilities(internal/file_utils)
-- Utilities for Time Series(internal/time_series_utils)
+**7.2 模型**
+
+**7.2.1 文本模型**
+- [ALBERT](docs_zh/model_doc/albert.md)
+- [BART](docs_zh/model_doc/bart.md)
+- [BARThez](docs_zh/model_doc/barthez.md)
+- [BARTpho](docs_zh/model_doc/bartpho.md)
+- [BERT](docs_zh/model_doc/bert.md)
+- [BertGeneration](docs_zh/model_doc/bert-generation.md)
+- [BertJapanese](docs_zh/model_doc/bert-japanese.md)
+- [Bertweet](docs_zh/model_doc/bertweet.md)
+- [BigBird](docs_zh/model_doc/big_bird.md)
+- [BigBirdPegasus](docs_zh/model_doc/bigbird_pegasus.md)
+- [BioGpt](docs_zh/model_doc/biogpt.md)
+- [Blenderbot](docs_zh/model_doc/blenderbot.md)
+- [Blenderbot Small](docs_zh/model_doc/blenderbot-small.md)
+- [BLOOM](docs_zh/model_doc/bloom.md)
+- [BORT](docs_zh/model_doc/bort.md)
+- [ByT5](docs_zh/model_doc/byt5.md)
+- [CamemBERT](docs_zh/model_doc/camembert.md)
+- [CANINE](docs_zh/model_doc/canine.md)
+- [CodeGen](docs_zh/model_doc/codegen.md)
+- [CodeLlama](docs_zh/model_doc/code_llama.md)
+- [ConvBERT](docs_zh/model_doc/convbert.md)
+- [CPM](docs_zh/model_doc/cpm.md)
+- [CPMANT](docs_zh/model_doc/cpmant.md)
+- [CTRL](docs_zh/model_doc/ctrl.md)
+- [DeBERTa](docs_zh/model_doc/deberta.md)
+- [DeBERTa-v2](docs_zh/model_doc/deberta-v2.md)
+- [DialoGPT](docs_zh/model_doc/dialogpt.md)
+- [DistilBERT](docs_zh/model_doc/distilbert.md)
+- [DPR](docs_zh/model_doc/dpr.md)
+- [ELECTRA](docs_zh/model_doc/electra.md)
+- [Encoder Decoder Models](docs_zh/model_doc/encoder-decoder.md)
+- [ERNIE](docs_zh/model_doc/ernie.md)
+- [ErnieM](docs_zh/model_doc/ernie_m.md)
+- [ESM](docs_zh/model_doc/esm.md)
+- [Falcon](docs_zh/model_doc/falcon.md)
+- [FLAN-T5](docs_zh/model_doc/flan-t5.md)
+- [FLAN-UL2](docs_zh/model_doc/flan-ul2.md)
+- [FlauBERT](docs_zh/model_doc/flaubert.md)
+- [FNet](docs_zh/model_doc/fnet.md)
+- [FSMT](docs_zh/model_doc/fsmt.md)
+- [Funnel Transformer](docs_zh/model_doc/funnel.md)
+- [GPT](docs_zh/model_doc/openai-gpt.md)
+- [GPT Neo](docs_zh/model_doc/gpt_neo.md)
+- [GPT NeoX](docs_zh/model_doc/gpt_neox.md)
+- [GPT NeoX Japanese](docs_zh/model_doc/gpt_neox_japanese.md)
+- [GPT-J](docs_zh/model_doc/gptj.md)
+- [GPT2](docs_zh/model_doc/gpt2.md)
+- [GPTBigCode](docs_zh/model_doc/gpt_bigcode.md)
+- [GPTSAN Japanese](docs_zh/model_doc/gptsan-japanese.md)
+- [GPTSw3](docs_zh/model_doc/gpt-sw3.md)
+- [HerBERT](docs_zh/model_doc/herbert.md)
+- [I-BERT](docs_zh/model_doc/ibert.md)
+- [Jukebox](docs_zh/model_doc/jukebox.md)
+- [LED](docs_zh/model_doc/led.md)
+- [LLaMA](docs_zh/model_doc/llama.md)
+- [Llama2](docs_zh/model_doc/llama2.md)
+- [Longformer](docs_zh/model_doc/longformer.md)
+- [LongT5](docs_zh/model_doc/longt5.md)
+- [LUKE](docs_zh/model_doc/luke.md)
+- [M2M100](docs_zh/model_doc/m2m_100.md)
+- [MarianMT](docs_zh/model_doc/marian.md)
+- [MarkupLM](docs_zh/model_doc/markuplm.md)
+- [MBart and MBart-50](docs_zh/model_doc/mbart.md)
+- [MEGA](docs_zh/model_doc/mega.md)
+- [MegatronBERT](docs_zh/model_doc/megatron-bert.md)
+- [MegatronGPT2](docs_zh/model_doc/megatron_gpt2.md)
+- [mLUKE](docs_zh/model_doc/mluke.md)
+- [MobileBERT](docs_zh/model_doc/mobilebert.md)
+- [MPNet](docs_zh/model_doc/mpnet.md)
+- [MPT](docs_zh/model_doc/mpt.md)
+- [MRA](docs_zh/model_doc/mra.md)
+- [MT5](docs_zh/model_doc/mt5.md)
+- [MVP](docs_zh/model_doc/mvp.md)
+- [NEZHA](docs_zh/model_doc/nezha.md)
+- [NLLB](docs_zh/model_doc/nllb.md)
+- [NLLB-MoE](docs_zh/model_doc/nllb-moe.md)
+- [Nyströmformer](docs_zh/model_doc/nystromformer.md)
+- [Open-Llama](docs_zh/model_doc/open-llama.md)
+- [OPT](docs_zh/model_doc/opt.md)
+- [Pegasus](docs_zh/model_doc/pegasus.md)
+- [PEGASUS-X](docs_zh/model_doc/pegasus_x.md)
+- [Persimmon](docs_zh/model_doc/persimmon.md)
+- [PhoBERT](docs_zh/model_doc/phobert.md)
+- [PLBart](docs_zh/model_doc/plbart.md)
+- [ProphetNet](docs_zh/model_doc/prophetnet.md)
+- [QDQBert](docs_zh/model_doc/qdqbert.md)
+- [RAG](docs_zh/model_doc/rag.md)
+- [REALM](docs_zh/model_doc/realm.md)
+- [Reformer](docs_zh/model_doc/reformer.md)
+- [RemBERT](docs_zh/model_doc/rembert.md)
+- [RetriBERT](docs_zh/model_doc/retribert.md)
+- [RoBERTa](docs_zh/model_doc/roberta.md)
+- [RoBERTa-PreLayerNorm](docs_zh/model_doc/roberta-prelayernorm.md)
+- [RoCBert](docs_zh/model_doc/roc_bert.md)
+- [RoFormer](docs_zh/model_doc/roformer.md)
+- [RWKV](docs_zh/model_doc/rwkv.md)
+- [Splinter](docs_zh/model_doc/splinter.md)
+- [SqueezeBERT](docs_zh/model_doc/squeezebert.md)
+- [SwitchTransformers](docs_zh/model_doc/switch_transformers.md)
+- [T5](docs_zh/model_doc/t5.md)
+- [T5v1.1](docs_zh/model_doc/t5v1.1.md)
+- [TAPEX](docs_zh/model_doc/tapex.md)
+- [Transformer XL](docs_zh/model_doc/transfo-xl.md)
+- [UL2](docs_zh/model_doc/ul2.md)
+- [UMT5](docs_zh/model_doc/umt5.md)
+- [X-MOD](docs_zh/model_doc/xmod.md)
+- [XGLM](docs_zh/model_doc/xglm.md)
+- [XLM](docs_zh/model_doc/xlm.md)
+- [XLM-ProphetNet](docs_zh/model_doc/xlm-prophetnet.md)
+- [XLM-RoBERTa](docs_zh/model_doc/xlm-roberta.md)
+- [XLM-RoBERTa-XL](docs_zh/model_doc/xlm-roberta-xl.md)
+- [XLM-V](docs_zh/model_doc/xlm-v.md)
+- [XLNet](docs_zh/model_doc/xlnet.md)
+- [YOSO](docs_zh/model_doc/yoso.md)
+
+**7.2.2 视觉模型**
+- [BEiT](docs_zh/model_doc/beit.md)
+- [BiT](docs_zh/model_doc/bit.md)
+- [Conditional DETR](docs_zh/model_doc/conditional_detr.md)
+- [ConvNeXT](docs_zh/model_doc/convnext.md)
+- [ConvNeXTV2](docs_zh/model_doc/convnextv2.md)
+- [CvT](docs_zh/model_doc/cvt.md)
+- [Deformable DETR](docs_zh/model_doc/deformable_detr.md)
+- [DeiT](docs_zh/model_doc/deit.md)
+- [DETA](docs_zh/model_doc/deta.md)
+- [DETR](docs_zh/model_doc/detr.md)
+- [DiNAT](docs_zh/model_doc/dinat.md)
+- [DINO V2](docs_zh/model_doc/dinov2.md)
+- [DiT](docs_zh/model_doc/dit.md)
+- [DPT](docs_zh/model_doc/dpt.md)
+- [EfficientFormer](docs_zh/model_doc/efficientformer.md)
+- [EfficientNet](docs_zh/model_doc/efficientnet.md)
+- [FocalNet](docs_zh/model_doc/focalnet.md)
+- [GLPN](docs_zh/model_doc/glpn.md)
+- [ImageGPT](docs_zh/model_doc/imagegpt.md)
+- [LeViT](docs_zh/model_doc/levit.md)
+- [Mask2Former](docs_zh/model_doc/mask2former.md)
+- [MaskFormer](docs_zh/model_doc/maskformer.md)
+- [MobileNetV1](docs_zh/model_doc/mobilenet_v1.md)
+- [MobileNetV2](docs_zh/model_doc/mobilenet_v2.md)
+- [MobileViT](docs_zh/model_doc/mobilevit.md)
+- [MobileViTV2](docs_zh/model_doc/mobilevitv2.md)
+- [NAT](docs_zh/model_doc/nat.md)
+- [PoolFormer](docs_zh/model_doc/poolformer.md)
+- [Pyramid Vision Transformer](docs_zh/model_doc/pvt.md)
+- [RegNet](docs_zh/model_doc/regnet.md)
+- [ResNet](docs_zh/model_doc/resnet.md)
+- [SegFormer](docs_zh/model_doc/segformer.md)
+- [SwiftFormer](docs_zh/model_doc/swiftformer.md)
+- [Swin Transformer](docs_zh/model_doc/swin.md)
+- [Swin Transformer V2](docs_zh/model_doc/swinv2.md)
+- [Swin2SR](docs_zh/model_doc/swin2sr.md)
+- [Table Transformer](docs_zh/model_doc/table-transformer.md)
+- [TimeSformer](docs_zh/model_doc/timesformer.md)
+- [UperNet](docs_zh/model_doc/upernet.md)
+- [VAN](docs_zh/model_doc/van.md)
+- [VideoMAE](docs_zh/model_doc/videomae.md)
+- [Vision Transformer](docs_zh/model_doc/vit.md)]
+- [ViT Hybrid](docs_zh/model_doc/vit_hybrid.md)
+- [ViTDet](docs_zh/model_doc/vitdet.md)
+- [ViTMAE](docs_zh/model_doc/vit_mae.md)
+- [ViTMatte](docs_zh/model_doc/vitmatte.md)
+- [ViTMSN](docs_zh/model_doc/vit_msn.md)
+- [ViViT](docs_zh/model_doc/vivit.md)
+- [YOLOS](docs_zh/model_doc/yolos.md)
+
+**7.2.3 语音模型**
+- [Audio Spectrogram Transformer](docs_zh/model_doc/audio-spectrogram-transformer.md)
+- [Bark](docs_zh/model_doc/bark.md)
+- [CLAP](docs_zh/model_doc/clap.md)
+- [EnCodec](docs_zh/model_doc/encodec.md)
+- [Hubert](docs_zh/model_doc/hubert.md)
+- [MCTCT](docs_zh/model_doc/mctct.md)
+- [MMS](docs_zh/model_doc/mms.md)
+- [MusicGen](docs_zh/model_doc/musicgen.md)
+- [Pop2Piano](docs_zh/model_doc/pop2piano.md)
+- [SEW](docs_zh/model_doc/sew.md)
+- [SEW-D](docs_zh/model_doc/sew-d.md)
+- [Speech2Text](docs_zh/model_doc/speech_to_text.md)
+- [Speech2Text2](docs_zh/model_doc/speech_to_text_2.md)
+- [SpeechT5](docs_zh/model_doc/speecht5.md)
+- [UniSpeech](docs_zh/model_doc/unispeech.md)
+- [UniSpeech-SAT](docs_zh/model_doc/unispeech-sat.md)
+- [VITS](docs_zh/model_doc/vits.md)
+- [Wav2Vec2](docs_zh/model_doc/wav2vec2.md)
+- [Wav2Vec2-Conformer](docs_zh/model_doc/wav2vec2-conformer.md)
+- [Wav2Vec2Phoneme](docs_zh/model_doc/wav2vec2_phoneme.md)
+- [WavLM](docs_zh/model_doc/wavlm.md)
+- [Whisper](docs_zh/model_doc/whisper.md)
+- [XLS-R](docs_zh/model_doc/xls_r.md)
+- [XLSR-Wav2Vec2](docs_zh/model_doc/xlsr_wav2vec2.md)
+
+**7.2.4 多模态模型**
+- [ALIGN](docs_zh/model_doc/align.md)
+- [AltCLIP](docs_zh/model_doc/altclip.md)
+- [BLIP](docs_zh/model_doc/blip.md)
+- [BLIP-2](docs_zh/model_doc/blip-2.md)
+- [BridgeTower](docs_zh/model_doc/bridgetower.md)
+- [BROS](docs_zh/model_doc/bros.md)
+- [Chinese-CLIP](docs_zh/model_doc/chinese_clip.md)
+- [CLIP](docs_zh/model_doc/clip.md)
+- [CLIPSeg](docs_zh/model_doc/clipseg.md)
+- [Data2Vec](docs_zh/model_doc/data2vec.md)
+- [DePlot](docs_zh/model_doc/deplot.md)
+- [Donut](docs_zh/model_doc/donut.md)
+- [FLAVA](docs_zh/model_doc/flava.md)
+- [GIT](docs_zh/model_doc/git.md)
+- [GroupViT](docs_zh/model_doc/groupvit.md)
+- [IDEFICS](docs_zh/model_doc/idefics.md)
+- [InstructBLIP](docs_zh/model_doc/instructblip.md)
+- [LayoutLM](docs_zh/model_doc/layoutlm.md)
+- [LayoutLMV2](docs_zh/model_doc/layoutlmv2.md)
+- [LayoutLMV3](docs_zh/model_doc/layoutlmv3.md)
+- [LayoutXLM](docs_zh/model_doc/layoutxlm.md)
+- [LiLT](docs_zh/model_doc/lilt.md)
+- [LXMERT](docs_zh/model_doc/lxmert.md)
+- [MatCha](docs_zh/model_doc/matcha.md)
+- [MGP-STR](docs_zh/model_doc/mgp-str.md)
+- [OneFormer](docs_zh/model_doc/oneformer.md)
+- [OWL-ViT](docs_zh/model_doc/owlvit.md)
+- [Perceiver](docs_zh/model_doc/perceiver.md)
+- [Pix2Struct](docs_zh/model_doc/pix2struct.md)
+- [Segment Anything](docs_zh/model_doc/sam.md)
+- [Speech Encoder Decoder Models](docs_zh/model_doc/speech-encoder-decoder.md)
+- [TAPAS](docs_zh/model_doc/tapas.md)
+- [TrOCR](docs_zh/model_doc/trocr.md)
+- [TVLT](docs_zh/model_doc/tvlt.md)
+- [ViLT](docs_zh/model_doc/vilt.md)
+- [Vision Encoder Decoder Models](docs_zh/model_doc/vision-encoder-decoder.md)
+- [Vision Text Dual Encoder](docs_zh/model_doc/vision-text-dual-encoder.md)
+- [VisualBERT](docs_zh/model_doc/visual_bert.md)
+- [X-CLIP](docs_zh/model_doc/xclip.md)
+
+**7.2.5 强化学习模型**
+- [Decision Transformer](docs_zh/model_doc/decision_transformer.md)
+- [Trajectory Transformer](docs_zh/model_doc/trajectory_transformer.md)
+
+**7.2.6 时序模型**
+- [Autoformer](docs_zh/model_doc/autoformer.md)
+- [Informer](docs_zh/model_doc/informer.md)
+- [Time Series Transformer](docs_zh/model_doc/time_series_transformer.md)
+
+**7.2.6 图模型**
+- [Graphormer](docs_zh/model_doc/graphormer.md)
+
+**7.3 内部工具**
+- [Custom Layers and Utilities](docs_zh/internal/modeling_utils.md)
+- [Utilities for pipelines](docs_zh/internal/pipelines_utils.md)
+- [Utilities for Tokenizers](docs_zh/internal/tokenization_utils.md)
+- [Utilities for Trainer](docs_zh/internal/trainer_utils.md)
+- [Utilities for Generation](docs_zh/internal/generation_utils.md)
+- [Utilities for Image Processors](docs_zh/internal/image_processing_utils.md)
+- [Utilities for Audio processing](docs_zh/internal/audio_utils.md)
+- [General Utilities](docs_zh/internal/file_utils.md)
+- [Utilities for Time Series](docs_zh/internal/time_series_utils.md)
 
 
 
