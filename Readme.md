@@ -66,7 +66,7 @@
 
 3.4 多模态
 
-- [图像描述](docs_zh/Image captioning.md)
+- [图像描述](docs_zh/tasks/image_captioning.md)
 - [阅读理解](docs_zh/tasks/document_question_answering.md)
 - [图像问答](docs_zh/tasks/visual_question_answering.md)
 - [文本转语音](docs_zh/tasks/text-to-speech.md)
@@ -336,7 +336,7 @@
 - [UperNet](docs_zh/model_doc/upernet.md)
 - [VAN](docs_zh/model_doc/van.md)
 - [VideoMAE](docs_zh/model_doc/videomae.md)
-- [Vision Transformer](docs_zh/model_doc/vit.md)]
+- [Vision Transformer](docs_zh/model_doc/vit.md)
 - [ViT Hybrid](docs_zh/model_doc/vit_hybrid.md)
 - [ViTDet](docs_zh/model_doc/vitdet.md)
 - [ViTMAE](docs_zh/model_doc/vit_mae.md)
