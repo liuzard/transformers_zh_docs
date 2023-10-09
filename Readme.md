@@ -1,7 +1,7 @@
 **开始使用**
 
 -  [🤗 Transformers简介](docs_zh/index.md)
-- 快速开始(quicktour)
+- [快速开始](docs_zh/quicktour.md)
 - 安装(installation)
 
 **教程**
