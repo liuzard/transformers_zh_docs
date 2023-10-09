@@ -1,7 +1,7 @@
 <!--版权所有2021年HuggingFace团队。保留所有权利。
 
 根据Apache许可证2.0版（“许可证”），除非符合该许可，否则不得使用此文件。
-您可以在以下位置获取许可证的副本
+你可以在以下位置获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -9,7 +9,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 没有任何明示或暗示的担保或条件。请参阅许可证的具体语言以及许可的权限和限制。
 
 ⚠️ 请注意，这个文件是Markdown格式的，但包含了我们文档生成器的特定语法（类似于MDX），
-可能无法在您的Markdown查看器中正确显示。
+可能无法在你的Markdown查看器中正确显示。
 
 在许可证下，特定语言管理权限和限制。 -->
 
@@ -46,7 +46,7 @@ alt="drawing" width="600"/>
 
 ## 资源
 
-官方Hugging Face和社区（由🌎表示）资源列表，以帮助您开始使用TrOCR。如果您有兴趣提交资源并包含在此处，请随时提交Pull Request，我们将进行审核！该资源应该展示一些新的东西，而不是重复现有的资源。
+官方Hugging Face和社区（由🌎表示）资源列表，以帮助你开始使用TrOCR。如果你有兴趣提交资源并包含在此处，请随时提交Pull Request，我们将进行审核！该资源应该展示一些新的东西，而不是重复现有的资源。
 
 <PipelineTag pipeline="text-classification"/>
 

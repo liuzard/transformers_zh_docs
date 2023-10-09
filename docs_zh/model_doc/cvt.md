@@ -1,7 +1,7 @@
 <!--版权 2022 年 HuggingFace 团队。保留所有权利。
 
-根据 Apache 许可证第 2.0 版（以下简称“许可证”）许可；除非符合许可证的规定，否则您不得使用此文件。
-您可以在以下网址获得许可证的副本：
+根据 Apache 许可证第 2.0 版（以下简称“许可证”）许可；除非符合许可证的规定，否则你不得使用此文件。
+你可以在以下网址获得许可证的副本：
 
 http://www.apache.orglicenses/LICENSE-2.0
 
@@ -9,7 +9,7 @@ http://www.apache.orglicenses/LICENSE-2.0
 详见许可证中关于特定语言许可的限制和禁止。
 
 ⚠️ 请注意，此文件的格式为 Markdown，但包含我们的文档构建器（类似于 MDX）的特定语法，
-这可能无法在您的 Markdown 查看器中正确呈现。-->
+这可能无法在你的 Markdown 查看器中正确呈现。-->
 
 # 卷积视觉变压器（CvT）
 
@@ -24,21 +24,21 @@ CvT 模型由 Haiping Wu、Bin Xiao、Noel Codella、Mengchen Liu、Xiyang Dai�
 提示：
 
 - CvT 模型是常规的视觉变压器，但是训练时使用了卷积。在 ImageNet-1K 和 CIFAR-100 上微调时，它们优于[原始模型（ViT）](vit)。
-- 您可以在[此处](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/VisionTransformer)查看有关推理和自定义数据微调的演示笔记本（您可以将 [`ViTFeatureExtractor`] 替换为 [`AutoImageProcessor`]，并将 [`ViTForImageClassification`] 替换为 [`CvtForImageClassification`]）。
+- 你可以在[此处](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/VisionTransformer)查看有关推理和自定义数据微调的演示笔记本（你可以将 [`ViTFeatureExtractor`] 替换为 [`AutoImageProcessor`]，并将 [`ViTForImageClassification`] 替换为 [`CvtForImageClassification`]）。
 - 可用的检查点要么（1）仅在 [ImageNet-22k](http://www.image-net.org/) 上进行预训练（包含 1,400 万张图像和 22k 个类别），要么（2）在 ImageNet-22k 上进行了微调，要么（3）在 [ImageNet-1k](http://www.image-net.org/challenges/LSVRC/2012/) 上进行了微调（也称为 ILSVRC 2012，包含 130 万张图像和 1,000 个类别）。
 
 该模型由 [anugunj](https://huggingface.co/anugunj) 贡献。原始代码可以在[此处](https://github.com/microsoft/CvT)找到。
 
 ## 资源
 
-以下是官方 Hugging Face 和社区（由 🌎 表示）资源列表，可帮助您开始使用 CvT。
+以下是官方 Hugging Face 和社区（由 🌎 表示）资源列表，可帮助你开始使用 CvT。
 
 <PipelineTag pipeline="image-classification"/>
 
 - 使用此 [示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-classification) 和 [notebook](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification.ipynb)，支持 [`CvtForImageClassification`]。
 - 另请参阅：[图像分类任务指南](../tasks/image_classification)
 
-如果您有兴趣提交资源以包含在此处，请随时发起拉取请求，我们将进行审核！资源应该展示出一些新的东西，而不是重复现有的资源。
+如果你有兴趣提交资源以包含在此处，请随时发起拉取请求，我们将进行审核！资源应该展示出一些新的东西，而不是重复现有的资源。
 
 ## CvtConfig
 

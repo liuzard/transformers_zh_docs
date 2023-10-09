@@ -1,8 +1,8 @@
 <!--
 版权所有2020年The HuggingFace团队。
 
-根据Apache许可证2.0版（“许可证”），您除非符合许可证中的规定，否则不得使用此文件。
-您可以在以下网址获取许可证的副本：
+根据Apache许可证2.0版（“许可证”），你除非符合许可证中的规定，否则不得使用此文件。
+你可以在以下网址获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -10,13 +10,13 @@ http://www.apache.org/licenses/LICENSE-2.0
 不附带任何明示或暗示的保证或条件。请查看许可证了解许可中的具体语言和限制。
 
 ⚠️请注意，此文件是使用Markdown编写的，但包含了我们doc-builder的特定语法（类似于MDX），
-所以在您的Markdown查看器中可能无法正确显示。
+所以在你的Markdown查看器中可能无法正确显示。
 
 -->
 
 # 日志记录
 
-🤗 Transformers拥有一个集中式的日志记录系统，以便您可以轻松设置库的详细程度。
+🤗 Transformers拥有一个集中式的日志记录系统，以便你可以轻松设置库的详细程度。
 
 当前库的默认详细程度为`WARNING`。
 
@@ -28,7 +28,7 @@ import transformers
 transformers.logging.set_verbosity_info()
 ```
 
-您还可以使用环境变量`TRANSFORMERS_VERBOSITY`来覆盖默认的详细程度。您可以将其设置为以下值之一：`debug`、`info`、`warning`、`error`、`critical`。例如：
+你还可以使用环境变量`TRANSFORMERS_VERBOSITY`来覆盖默认的详细程度。你可以将其设置为以下值之一：`debug`、`info`、`warning`、`error`、`critical`。例如：
 
 ```bash
 TRANSFORMERS_VERBOSITY=error ./myprogram.py
@@ -40,7 +40,7 @@ TRANSFORMERS_VERBOSITY=error ./myprogram.py
 TRANSFORMERS_NO_ADVISORY_WARNINGS=1 ./myprogram.py
 ```
 
-下面是一个在您自己的模块或脚本中使用与库相同的记录器的示例：
+下面是一个在你自己的模块或脚本中使用与库相同的记录器的示例：
 
 ```python
 from transformers.utils import logging
@@ -54,7 +54,7 @@ logger.warning("WARN")
 
 此日志记录模块的所有方法都在下面的文档中进行了说明，其中主要的方法为
 [`logging.get_verbosity`]，用于获取记录器中当前的详细程度，
-以及[`logging.set_verbosity`]，用于将详细程度设置为您选择的级别。
+以及[`logging.set_verbosity`]，用于将详细程度设置为你选择的级别。
 按顺序（从最不详细到最详细），这些级别（及其相应的整数值）为：
 
 - `transformers.logging.CRITICAL`或`transformers.logging.FATAL`（整数值为50）：仅报告最重要的错误。

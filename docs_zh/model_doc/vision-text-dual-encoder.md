@@ -1,10 +1,10 @@
 版权所有 2021 年 HuggingFace 团队。
 
-根据 Apache 许可证第 2.0 版（“许可证”）的条款；除非遵守许可证，否则不得使用此文件。您可以在以下网址获取许可证的副本：
+根据 Apache 许可证第 2.0 版（“许可证”）的条款；除非遵守许可证，否则不得使用此文件。你可以在以下网址获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
-请注意，该文件以 Markdown 格式呈现，但包含我们的 doc-builder 的特定语法（类似于 MDX），可能无法在您的 Markdown 查看器中正确呈现。
+请注意，该文件以 Markdown 格式呈现，但包含我们的 doc-builder 的特定语法（类似于 MDX），可能无法在你的 Markdown 查看器中正确呈现。
 
 # VisionTextDualEncoder
 

@@ -1,11 +1,11 @@
 <!--
 版权所有2021年The HuggingFace Team。保留所有权利。
 
-根据Apache许可证第2.0版（以下简称“许可证”），除非符合许可证的规定，否则您不得使用此文件。您可以通过以下链接获取许可协议的副本：
+根据Apache许可证第2.0版（以下简称“许可证”），除非符合许可证的规定，否则你不得使用此文件。你可以通过以下链接获取许可协议的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
-除非适用法律要求或书面同意，根据许可证分发的软件按"AS IS"原样分发，不附带任何保证或条件。请注意，此文件是Markdown格式，但含有特定于我们文档生成器（类似于MDX）的语法，可能无法在您的Markdown查看器中正确显示。
+除非适用法律要求或书面同意，根据许可证分发的软件按"AS IS"原样分发，不附带任何保证或条件。请注意，此文件是Markdown格式，但含有特定于我们文档生成器（类似于MDX）的语法，可能无法在你的Markdown查看器中正确显示。
 
 -->
 
@@ -50,12 +50,12 @@ CLIP是一个多模态的视觉和语言模型。它可以用于图像-文本相
 
 ## 资源
 
-以下是官方Hugging Face和社区（由🌎表示）的资源列表，可帮助您开始使用CLIP。
+以下是官方Hugging Face和社区（由🌎表示）的资源列表，可帮助你开始使用CLIP。
 
 - 一篇关于[如何在10,000个图像-文本对上微调CLIP](https://huggingface.co/blog/fine-tune-clip-rsicd)的博客文章。
 - CLIP支持的[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/contrastive-image-text)。
 
-如果您有兴趣提交资源以包含在此处，请随时提出Pull Request，我们将进行审核。
+如果你有兴趣提交资源以包含在此处，请随时提出Pull Request，我们将进行审核。
 资源理想上应该展示一些新东西，而不是重复现有的资源。
 
 ## CLIPConfig

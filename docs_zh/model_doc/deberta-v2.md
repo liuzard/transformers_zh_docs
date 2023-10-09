@@ -1,6 +1,6 @@
 <!--版权所有 © 2020 Hugging Face团队.
 
-根据Apache License, Version 2.0 (许可证)，除非符合许可证，否则您不得使用此文件。您可以从以下网址获得许可证的副本：
+根据Apache License, Version 2.0 (许可证)，除非符合许可证，否则你不得使用此文件。你可以从以下网址获得许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -20,7 +20,7 @@ DeBERTa在RoBERTa的基础上使用了解耦关注和增强的掩码解码器训
 
 *最近，预训练的神经语言模型在许多自然语言处理（NLP）任务的性能方面有了显著提高。在本文中，我们提出了一种新的模型架构DeBERTa（具有解耦关注的BERT解码增强模型），它使用两种新技术改进了BERT和RoBERTa模型。第一种技术是解耦关注机制，其中每个单词使用两个向量表示其内容和位置，并使用解耦矩阵来计算单词之间的关注权重。第二种技术是使用增强的掩码解码器来替换输出的softmax层，以预测模型预训练的掩码标记。我们表明，这两种技术显著提高了模型预训练的效率和下游任务的性能。与RoBERTa-Large相比，使用一半训练数据训练的DeBERTa模型在广泛的NLP任务上始终表现更好，在MNLI上提高了+0.9%（90.2% vs 91.1%），在SQuAD v2.0上提高了+2.3%（88.4% vs 90.7%）和在RACE上提高了+3.6%（83.2% vs 86.8%）。DeBERTa的代码和预训练模型将在https://github.com/microsoft/DeBERTa上公开。*
 
-下面的信息可以直接在[原始实现存储库](https://github.com/microsoft/DeBERTa)上看到。DeBERTa v2是DeBERTa模型的第二个版本。它包括用于SuperGLUE单模型提交的15亿模型，达到了89.9，相比人类基准的89.8。您可以在作者的[博客](https://www.microsoft.com/en-us/research/blog/microsoft-deberta-surpasses-human-performance-on-the-superglue-benchmark/)中找到有关此提交的更多详细信息。
+下面的信息可以直接在[原始实现存储库](https://github.com/microsoft/DeBERTa)上看到。DeBERTa v2是DeBERTa模型的第二个版本。它包括用于SuperGLUE单模型提交的15亿模型，达到了89.9，相比人类基准的89.8。你可以在作者的[博客](https://www.microsoft.com/en-us/research/blog/microsoft-deberta-surpasses-human-performance-on-the-superglue-benchmark/)中找到有关此提交的更多详细信息。
 
 v2的新功能：
 

@@ -1,20 +1,20 @@
 版权所有 © 2023 HuggingFace 团队。版权所有。
 
 根据 Apache 授权证书，版本 2.0 进行许可（“许可证”）；
-除非符合许可证，否则不得使用该文件。您可以在以下位置获取许可证的副本:
+除非符合许可证，否则不得使用该文件。你可以在以下位置获取许可证的副本:
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件是按“原样”分发的，不附带任何明示或暗示的担保或条件。
 有关特定语言管理权限和限制的详细信息，请参阅许可证。
 
-⚠️ 注意，此文件是使用 Markdown 编写的，但包含特定语法，用于我们的文档生成器（类似于 MDX），可能无法正确渲染在您的 Markdown 查看器中。
+⚠️ 注意，此文件是使用 Markdown 编写的，但包含特定语法，用于我们的文档生成器（类似于 MDX），可能无法正确渲染在你的 Markdown 查看器中。
 
 # 自定义工具和提示
 
 <Tip>
 
-如果您不知道 transformers 中的工具和 agents 是什么，请先阅读[Transformers Agents](transformers_agents.md)页面。
+如果你不知道 transformers 中的工具和 agents 是什么，请先阅读[Transformers Agents](transformers_agents.md)页面。
 
 </Tip>
 
@@ -48,9 +48,9 @@ Transformers Agents 是一个实验性的 API，随时可能发生更改。由 a
 为了更好地理解每个部分，让我们查看 `run` 提示的简化版本：
 
 ````text
-询问您执行任务，您的工作是编写一系列在 Python 中执行任务的简单命令。
+询问你执行任务，你的工作是编写一系列在 Python 中执行任务的简单命令。
 [...]
-如果有必要，您可以打印中间结果。
+如果有必要，你可以打印中间结果。
 
 工具：
 - 文档问答：这是一个关于文档（PDF）的问题答案工具。它接受一个名为“document”的输入，该输入应该是包含信息的文档，
@@ -122,7 +122,7 @@ print(f"- {document_qa.name}: {document_qa.description}")
 
 <Tip>
 
-检查精选的 Transformers 工具的命名和描述，以更好地了解工具的名称和描述应该是什么样子。您可以使用 [`Agent.toolbox`] 属性查看所有工具。
+检查精选的 Transformers 工具的命名和描述，以更好地了解工具的名称和描述应该是什么样子。你可以使用 [`Agent.toolbox`] 属性查看所有工具。
 
 </Tip>
 
@@ -264,12 +264,12 @@ I will use the following tool `image_generator` to generate an image of a tree.
 image = image_generator(prompt="tree")
 ```
 
-好多了！看起来更接近我们想要的结果。简而言之，当您注意到 agent 难以将您的任务正确映射到正确的工具时，请尝试查找工具名称的最相关关键字，并尝试使用这些关键字得到更精确的任务请求。
+好多了！看起来更接近我们想要的结果。简而言之，当你注意到 agent 难以将你的任务正确映射到正确的工具时，请尝试查找工具名称的最相关关键字，并尝试使用这些关键字得到更精确的任务请求。
 
 ### 自定义工具描述
 
 正如我们之前所见，agent 能够访问每个工具的名称和描述。基本工具应该具有非常精确的名称和描述，
-但您可能会发现在特定用例中更改工具的描述或名称会有所帮助。当添加了多个非常相似的工具或者您只想将代理用于特定领域（如图像生成和转换）时，这可能变得尤为重要。
+但你可能会发现在特定用例中更改工具的描述或名称会有所帮助。当添加了多个非常相似的工具或者你只想将代理用于特定领域（如图像生成和转换）时，这可能变得尤为重要。
 
 一个常见的问题是当大量用于图像生成任务时，agent 会混淆图像生成与图像转换/修改问题，例如：
 
@@ -338,7 +338,7 @@ image = image_generator(prompt="一座房子和一辆汽车")
 
 ### 自定义完整提示
 
-为了给用户最大的灵活性，完整的提示模板，如[上文](#prompt的结构)所述，可以被用户覆盖。在这种情况下，请确保您的自定义提示包括一个介绍部分、一个工具部分、一个示例部分和一个未完成示例部分。如果要覆盖 `run` 提示模板，您可以按照以下方法操作：
+为了给用户最大的灵活性，完整的提示模板，如[上文](#prompt的结构)所述，可以被用户覆盖。在这种情况下，请确保你的自定义提示包括一个介绍部分、一个工具部分、一个示例部分和一个未完成示例部分。如果要覆盖 `run` 提示模板，你可以按照以下方法操作：
 
 ```py
 template = """ [...] """
@@ -352,14 +352,14 @@ agent = HfAgent(your_endpoint, run_prompt_template=template)
 
 </Tip>
 
-类似地，您可以在实例化时通过更改 `chat_prompt_template` 来覆盖 `chat` 提示模板。请注意，`chat` 模式总是使用以下格式进行交互：
+类似地，你可以在实例化时通过更改 `chat_prompt_template` 来覆盖 `chat` 提示模板。请注意，`chat` 模式总是使用以下格式进行交互：
 ```text
 Human: <<task>>
 
 Assistant:
 ```
 所以重要的是确保自定义 `chat` 提示模板的示例也使用这种格式。
-您可以按以下方式在实例化时覆盖 `chat` 模板。
+你可以按以下方式在实例化时覆盖 `chat` 模板。
 
 ```
 template = """ [...] """
@@ -373,9 +373,9 @@ agent = HfAgent(url_endpoint=your_endpoint, chat_prompt_template=template)
 
 </Tip>
 
-在以上两种情况下，如果您希望使用社区中某个人托管的模板，可以传递一个存储库 ID，而不是提示模板。默认的提示短语[存储在此存储库中](https://huggingface.co/datasets/huggingface-tools/default-prompts)作为示例。
+在以上两种情况下，如果你希望使用社区中某个人托管的模板，可以传递一个存储库 ID，而不是提示模板。默认的提示短语[存储在此存储库中](https://huggingface.co/datasets/huggingface-tools/default-prompts)作为示例。
 
-要上传您的自定义提示到 Hub 上的一个存储库，并与社区共享，请确保：
+要上传你的自定义提示到 Hub 上的一个存储库，并与社区共享，请确保：
 - 使用数据集存储库
 - 将 `run` 命令的提示模板放入名为 `run_prompt_template.txt` 的文件中
 - 将 `chat` 命令的提示模板放入名为 `chat_prompt_template.txt` 的文件中
@@ -428,12 +428,12 @@ image_transformer has been replaced by <transformers_modules.diffusers.controlne
 
 <Tip>
 
-如果您想为与现有工具完全相同的任务使用自定义工具，替换现有工具可能会很有好处，因为代理在使用特定任务时非常熟练。请注意，此时自定义工具应遵循与被替换工具完全相同的 API，或者您应该调整提示模板，以确保使用该工具的所有示例都得到更新。
+如果你想为与现有工具完全相同的任务使用自定义工具，替换现有工具可能会很有好处，因为代理在使用特定任务时非常熟练。请注意，此时自定义工具应遵循与被替换工具完全相同的 API，或者你应该调整提示模板，以确保使用该工具的所有示例都得到更新。
 
 </Tip>
 
 上采样工具的名称为 `image_upscaler`，还不存在于默认的工具箱中，因此只需将其添加到工具列表中即可。
-您可以通过查看代理的 `agent.toolbox` 属性来随时查看代理当前可用的工具箱：
+你可以通过查看代理的 `agent.toolbox` 属性来随时查看代理当前可用的工具箱：
 
 ```py
 print("\n".join([f"- {a}" for a in agent.toolbox.keys()]))
@@ -577,7 +577,7 @@ from model_downloads import HFModelDownloadsTool
 tool = HFModelDownloadsTool()
 ```
 
-为了让其他人受益，并为初始化更简单，我们建议将它推送到属于您的命名空间的 Hub 上。为此，只需在 `tool` 变量上调用 `push_to_hub`：
+为了让其他人受益，并为初始化更简单，我们建议将它推送到属于你的命名空间的 Hub 上。为此，只需在 `tool` 变量上调用 `push_to_hub`：
 
 ```python
 tool.push_to_hub("hf-model-downloads")
@@ -587,7 +587,7 @@ tool.push_to_hub("hf-model-downloads")
 
 #### 让代理使用工具
 
-现在我们有了一个在 Hub 上的工具，可以像这样实例化它（将用户名替换为您的工具）：
+现在我们有了一个在 Hub 上的工具，可以像这样实例化它（将用户名替换为你的工具）：
 
 ```python
 from transformers import load_tool
@@ -603,7 +603,7 @@ from transformers import HfAgent
 agent = HfAgent("https://api-inference.huggingface.co/models/bigcode/starcoder", additional_tools=[tool])
 
 agent.run(
-    "您能为我大声朗读一下 Hugging Face Hub 上“text-to-video”任务中下载量最多的模型的名称吗？"
+    "你能为我大声朗读一下 Hugging Face Hub 上“text-to-video”任务中下载量最多的模型的名称吗？"
 )
 ```
 它将输出如下：
@@ -643,7 +643,7 @@ agent.toolbox["image-transformation"] = load_tool("diffusers/controlnet-canny-to
 
 <Tip>
 
-例如，替换工具时要小心！这也会调整代理的提示。这在某些情况下可能是有益的，如果您有一个更适合任务的更好的提示，但它也可能导致您的工具被选择得比其他工具更多，或者其他工具被选择而不是您所定义的。
+例如，替换工具时要小心！这也会调整代理的提示。这在某些情况下可能是有益的，如果你有一个更适合任务的更好的提示，但它也可能导致你的工具被选择得比其他工具更多，或者其他工具被选择而不是你所定义的。
 
 </Tip>
 
@@ -708,4 +708,4 @@ gradio-tools要求使用*文本*输入和输出，即使在处理不同的模态
 
 这种差异意味着transformers-agents和langchain之间不能处理多模态。我们希望在未来的版本中解决这个限制，并欢迎来自热衷于langchain的用户的任何帮助，帮助我们实现这种兼容性。
 
-我们非常希望得到更好的支持。如果您愿意提供帮助，请[提出问题](https://github.com/huggingface/transformers/issues/new)并分享您的想法。
+我们非常希望得到更好的支持。如果你愿意提供帮助，请[提出问题](https://github.com/huggingface/transformers/issues/new)并分享你的想法。

@@ -1,23 +1,23 @@
 <!--
 版权所有2022 HuggingFace团队。 保留所有权利。
 
-根据Apache许可证第2.0版（“许可证”），您除非遵守许可证，否则不得使用此文件。
-您可以在以下位置获取许可证的副本
+根据Apache许可证第2.0版（“许可证”），你除非遵守许可证，否则不得使用此文件。
+你可以在以下位置获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，否则依据许可证分发的软件是基于“原样”原则，即没有任何形式的明示或暗示的保证或条件。关于证本身的湿提示，无论是明示或暗示的，包括但不限于对适销性、特定目的的适用性和无侵权的保证。详细信息请参阅许可证。
 
-请注意，此文件为Markdown格式，但包含特定于我们doc-builder的语法（类似于MDX），这在您的Markdown查看器中可能无法正确呈现。
+请注意，此文件为Markdown格式，但包含特定于我们doc-builder的语法（类似于MDX），这在你的Markdown查看器中可能无法正确呈现。
 -->
 
 # 在单个GPU上进行高效训练的方法和工具
 
-本指南演示了您可以使用的实用技术，以通过优化内存利用率、加快训练速度或两者兼顾来提高模型训练的效率。如果您想了解在训练期间如何利用GPU，请首先参考[模型训练解剖](model_memory_anatomy.md)概念指南。本指南侧重于实用技术。
+本指南演示了你可以使用的实用技术，以通过优化内存利用率、加快训练速度或两者兼顾来提高模型训练的效率。如果你想了解在训练期间如何利用GPU，请首先参考[模型训练解剖](model_memory_anatomy.md)概念指南。本指南侧重于实用技术。
 
 <Tip>
 
-如果您可以访问具有多个GPU的计算机，则这些方法仍然有效，并且您还可以利用在[多GPU部分](perf_train_gpu_many.md)中概述的其他方法。
+如果你可以访问具有多个GPU的计算机，则这些方法仍然有效，并且你还可以利用在[多GPU部分](perf_train_gpu_many.md)中概述的其他方法。
 
 </Tip>
 
@@ -28,7 +28,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 最大化吞吐量（样本/秒）可以降低训练成本。通常，这通过尽可能多地利用GPU并将其填充到其极限来实现。如果所需的批次大小超出了GPU内存的限制，则可以使用内存优化技术（例如渐变累积）来帮助解决内存问题。
 
-但是，如果首选的批次大小适合内存，那么就没有理由应用内存优化技术，因为它们可能会减慢训练速度。仅仅因为可以使用大批量大小，并不意味着必须使用。作为超参数调整的一部分，您应确定哪个批次大小产生最佳结果，然后相应地优化资源。本指南中涉及的方法和工具可以根据它们对训练过程的影响进行分类：
+但是，如果首选的批次大小适合内存，那么就没有理由应用内存优化技术，因为它们可能会减慢训练速度。仅仅因为可以使用大批量大小，并不意味着必须使用。作为超参数调整的一部分，你应确定哪个批次大小产生最佳结果，然后相应地优化资源。本指南中涉及的方法和工具可以根据它们对训练过程的影响进行分类：
 
 | 方法/工具                                                   | 提高训练速度      | 优化内存利用率            |
 |:-----------------------------------------------------------|:------------------------|:-----------------------------|
@@ -47,14 +47,14 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 </Tip>
 
-您可以组合上述方法以获得累积效果。无论您是使用[`Trainer`]训练模型还是编写纯PyTorch循环，都可以使用这些技术。，在后一种情况下，您可以使用🤗 Accelerate[配置这些优化。
+你可以组合上述方法以获得累积效果。无论你是使用[`Trainer`]训练模型还是编写纯PyTorch循环，都可以使用这些技术。，在后一种情况下，你可以使用🤗 Accelerate[配置这些优化。
 
-如果这些方法无法获得足够的收益，您可以尝试以下选项：
+如果这些方法无法获得足够的收益，你可以尝试以下选项：
 * [查看使用高效软件预构建构建自定义Docker容器](#高效软件预构建)
 * [考虑使用混合专家（MoE）模型](#专家混合)
 * [将模型转换为BetterTransformer以利用PyTorch本机注意力](#使用pytorch本机注意力)
 
-最后，即使在切换到像A100这样的服务器级GPU之后，如果以上所有方法仍然不足够，请考虑切换到多GPU设置。所有这些方法在多GPU设置中仍然有效，此外，您还可以利用在[多GPU部分](perf_train_gpu_many.md)中概述的其他并行技术。
+最后，即使在切换到像A100这样的服务器级GPU之后，如果以上所有方法仍然不足够，请考虑切换到多GPU设置。所有这些方法在多GPU设置中仍然有效，此外，你还可以利用在[多GPU部分](perf_train_gpu_many.md)中概述的其他并行技术。
 
 ## 选择批量大小
 
@@ -81,7 +81,7 @@ training_args = TrainingArguments(per_device_train_batch_size=1, gradient_accumu
 
 或者，使用🤗 Accelerate对训练循环进行全面控制。在本指南的[further down](#using-accelerate)中查找🤗 Accelerate示例。
 
-虽然建议尽可能充分利用GPU的使用率，但高数量的渐变累积步骤可能导致训练减速更明显。考虑以下示例。假设`per_device_train_batch_size=4`而没有渐变累积时达到了GPU的限制。如果您想使用大小为64的批次进行训练，请勿将`per_device_train_batch_size`设置为1，并将`gradient_accumulation_steps`设置为64。相反，保持`per_device_train_batch_size=4`，并设置`gradient_accumulation_steps=16`。这样可以获得相同的有效批次大小，同时更好地利用可用的GPU资源。
+虽然建议尽可能充分利用GPU的使用率，但高数量的渐变累积步骤可能导致训练减速更明显。考虑以下示例。假设`per_device_train_batch_size=4`而没有渐变累积时达到了GPU的限制。如果你想使用大小为64的批次进行训练，请勿将`per_device_train_batch_size`设置为1，并将`gradient_accumulation_steps`设置为64。相反，保持`per_device_train_batch_size=4`，并设置`gradient_accumulation_steps=16`。这样可以获得相同的有效批次大小，同时更好地利用可用的GPU资源。
 
 有关更多信息，请参阅以下批处理大小和渐变累积基准[RTX-3090](https://github.com/huggingface/transformers/issues/14608#issuecomment-1004392537)和[A100](https://github.com/huggingface/transformers/issues/15026#issuecomment-1005033957)。
 
@@ -125,20 +125,20 @@ training_args = TrainingArguments(
 training_args = TrainingArguments(per_device_train_batch_size=4, fp16=True, **default_args)
 ```
 
-如果您更喜欢使用🤗 Accelerate，请在本指南的进一步使用[ further in this guide](#using-accelerate)找到🤗 Accelerate示例。
+如果你更喜欢使用🤗 Accelerate，请在本指南的进一步使用[ further in this guide](#using-accelerate)找到🤗 Accelerate示例。
 
 ### BF16
 
-如果您可以使用Ampere或更新的硬件，可以使用bf16进行混合精度训练和评估。尽管bf16的精度比fp16更差，但动态范围更大。在fp16中，您可以拥有的最大数字为`65535`，而超过该数字的任何数字都将导致溢出。bf16数字可以达到`3.39e+38`（！），与fp32大致相同-因为两者都使用了8位来表示数值范围。
+如果你可以使用Ampere或更新的硬件，可以使用bf16进行混合精度训练和评估。尽管bf16的精度比fp16更差，但动态范围更大。在fp16中，你可以拥有的最大数字为`65535`，而超过该数字的任何数字都将导致溢出。bf16数字可以达到`3.39e+38`（！），与fp32大致相同-因为两者都使用了8位来表示数值范围。
 
-您可以使用以下命令在🤗 Trainer中启用BF16：
+你可以使用以下命令在🤗 Trainer中启用BF16：
 
 ```python
 training_args = TrainingArguments(bf16=True, **default_args)
 ```
 ### TF32
 
-Ampere硬件使用一种被称为tf32的神奇数据类型。它具有与fp32相同的数字范围（8位），但是精度为23位（与fp16相同）而不是19位 (与fp16相同).。它是“神奇”的，是因为您可以使用与平常使用的fp32训练和/或推理代码相同的代码，并通过启用tf32支持，可以获得高达3倍的吞吐量改进。需要做的就是在代码中添加以下内容：
+Ampere硬件使用一种被称为tf32的神奇数据类型。它具有与fp32相同的数字范围（8位），但是精度为23位（与fp16相同）而不是19位 (与fp16相同).。它是“神奇”的，是因为你可以使用与平常使用的fp32训练和/或推理代码相同的代码，并通过启用tf32支持，可以获得高达3倍的吞吐量改进。需要做的就是在代码中添加以下内容：
 
 ```
 import torch
@@ -148,9 +148,9 @@ torch.backends.cudnn.allow_tf32 = True
 
 CUDA将自动切换到使用tf32而不是使用fp32（假设使用的GPU是Ampere系列）。
 
-根据[NVIDIA研究](https://developer.nvidia.com/blog/accelerating-ai-training-with-tf32-tensor-cores/)，绝大多数机器学习训练工作负载以tf32训练与fp32相同的困惑度和收敛。如果您已经使用fp16或bf16混合精度，则它也可以提高吞吐量。
+根据[NVIDIA研究](https://developer.nvidia.com/blog/accelerating-ai-training-with-tf32-tensor-cores/)，绝大多数机器学习训练工作负载以tf32训练与fp32相同的困惑度和收敛。如果你已经使用fp16或bf16混合精度，则它也可以提高吞吐量。
 
-您可以在🤗 Trainer中启用此模式：
+你可以在🤗 Trainer中启用此模式：
 
 ```python
 TrainingArguments(tf32=True, **default_args)
@@ -158,7 +158,7 @@ TrainingArguments(tf32=True, **default_args)
 
 <Tip>
 
-无法直接通过`tensor.to(dtype=torch.tf32)`访问tf32，因为它是内部CUDA数据类型。您需要`torch >= 1.7`才能使用tf32数据类型。
+无法直接通过`tensor.to(dtype=torch.tf32)`访问tf32，因为它是内部CUDA数据类型。你需要`torch >= 1.7`才能使用tf32数据类型。
 
 </Tip>
 
@@ -168,7 +168,7 @@ TrainingArguments(tf32=True, **default_args)
 
 ## 优化器选择
 
-用于训练变换器模型的最常用优化器是Adam或AdamW（带有权重衰减的Adam）。Adam通过存储先前梯度的滚动平均值实现良好的收敛；然而，它增加了约模型参数数量的内存占用。为了解决这个问题，您可以使用替代的优化器。例如，如果您安装了[NVIDIA/apex](https://github.com/NVIDIA/apex)，`adamw_apex_fused`将为您提供所有支持的AdamW优化器中的最快训练体验。
+用于训练变换器模型的最常用优化器是Adam或AdamW（带有权重衰减的Adam）。Adam通过存储先前梯度的滚动平均值实现良好的收敛；然而，它增加了约模型参数数量的内存占用。为了解决这个问题，你可以使用替代的优化器。例如，如果你安装了[NVIDIA/apex](https://github.com/NVIDIA/apex)，`adamw_apex_fused`将为你提供所有支持的AdamW优化器中的最快训练体验。
 
 [`Trainer`]集成了各种优化器，可以直接使用：`adamw_hf`、`adamw_torch`、`adamw_torch_fused`、`adamw_apex_fused`、`adamw_anyprecision`、`adafactor`或`adamw_bnb_8bit`。可以通过第三方实现插入更多优化器。
 
@@ -186,7 +186,7 @@ TrainingArguments(tf32=True, **default_args)
 
 Adafactor不会为每个权重矩阵中的每个元素保留滚动平均值。相反，它保留了聚合信息（逐行和逐列的滚动平均值之和），从而显著减少了其占用空间。然而，与Adam相比，在某些情况下，Adafactor可能收敛较慢。
 
-您可以通过在[`TrainingArguments`]中设置`optim="adafactor"`来切换到Adafactor：
+你可以通过在[`TrainingArguments`]中设置`optim="adafactor"`来切换到Adafactor：
 
 ```py
 training_args = TrainingArguments(per_device_train_batch_size=4, optim="adafactor", **default_args)
@@ -198,7 +198,7 @@ training_args = TrainingArguments(per_device_train_batch_size=4, optim="adafacto
 
 与Adafactor不同，8位Adam保留完整状态并对其进行量化。量化意味着以较低的精度存储状态，并仅在优化时进行解量化。这类似于混合精度训练的思路。
 
-要使用`adamw_bnb_8bit`，您只需要在[`TrainingArguments`]中设置`optim="adamw_bnb_8bit"`：
+要使用`adamw_bnb_8bit`，你只需要在[`TrainingArguments`]中设置`optim="adamw_bnb_8bit"`：
 
 ```py
 training_args = TrainingArguments(per_device_train_batch_size=4, optim="adamw_bnb_8bit", **default_args)
@@ -208,7 +208,7 @@ training_args = TrainingArguments(per_device_train_batch_size=4, optim="adamw_bn
 
 首先，按照GitHub [repo](https://github.com/TimDettmers/bitsandbytes)中的安装指南安装实现8位Adam优化器的`bitsandbytes`库。
 
-接下来，您需要初始化优化器。这涉及两个步骤：
+接下来，你需要初始化优化器。这涉及两个步骤：
 * 首先，将模型的参数分组为两组-一组应用权重衰减，另一组不应用权重衰减。通常，偏差和层规范化参数不会应用权重衰减。
 * 然后进行一些参数处理，以使用先前使用的AdamW优化器相同的参数。
 
@@ -251,11 +251,11 @@ adam_bnb_optim = bnb.optim.Adam8bit(
 trainer = Trainer(model=model, args=training_args, train_dataset=ds, optimizers=(adam_bnb_optim, None))
 ```
 
-结合其他方法（梯度积累、梯度检查点和混合精度训练），您可以期望获得约3倍的内存改进，甚至比使用Adafactor时具有稍高的吞吐量。
+结合其他方法（梯度积累、梯度检查点和混合精度训练），你可以期望获得约3倍的内存改进，甚至比使用Adafactor时具有稍高的吞吐量。
 
 ### multi_tensor
 
-pytorch-nightly引入了`torch.optim._multi_tensor`，可以显著加快大量小特征张量的优化器速度。它最终将成为默认选项，但如果您想提前尝试它，请查看此GitHub [issue](https://github.com/huggingface/transformers/issues/9965)。
+pytorch-nightly引入了`torch.optim._multi_tensor`，可以显著加快大量小特征张量的优化器速度。它最终将成为默认选项，但如果你想提前尝试它，请查看此GitHub [issue](https://github.com/huggingface/transformers/issues/9965)。
 
 ## 数据预加载
 
@@ -270,22 +270,22 @@ pytorch-nightly引入了`torch.optim._multi_tensor`，可以显著加快大量�
 
 DeepSpeed是一个与🤗 Transformers和🤗 Accelerate集成的开源深度学习优化库。它提供了一系列功能和优化，旨在改进大规模深度学习训练的效率和可扩展性。
 
-如果您的模型适合于单个GPU并且有足够的空间来放置较小的批次大小，则不需要使用DeepSpeed，因为它只会使事情变慢。然而，如果模型无法适应单个GPU，或者无法放置较小的批次，则可以利用DeepSpeed的ZeRO + CPU Offload或NVMe Offload来处理更大的模型。在这种情况下，您需要单独[安装库](main_classes/deepspeed#installation)，然后遵循一个配置文件并启动DeepSpeed的指南：
+如果你的模型适合于单个GPU并且有足够的空间来放置较小的批次大小，则不需要使用DeepSpeed，因为它只会使事情变慢。然而，如果模型无法适应单个GPU，或者无法放置较小的批次，则可以利用DeepSpeed的ZeRO + CPU Offload或NVMe Offload来处理更大的模型。在这种情况下，你需要单独[安装库](main_classes/deepspeed#installation)，然后遵循一个配置文件并启动DeepSpeed的指南：
 
 * 对于DeepSpeed与[`Trainer`]的完整指南，请查阅[相应的文档](main_classes/deepspeed) ，特别是[单个GPU的部署部分](main_classes/deepspeed#deployment-with-one-gpu)。要在笔记本中使用DeepSpeed，需要进行一些调整；请查阅[对应指南](main_classes/deepspeed#deployment-in-notebooks)。
-* 如果您更喜欢使用🤗 Accelerate，请参考[🤗 Accelerate DeepSpeed指南](https://huggingface.co/docs/accelerate/en/usage_guides/deepspeed)。
+* 如果你更喜欢使用🤗 Accelerate，请参考[🤗 Accelerate DeepSpeed指南](https://huggingface.co/docs/accelerate/en/usage_guides/deepspeed)。
 
 ## 使用torch.compile
 
-PyTorch 2.0引入了一个新的编译函数，它不需要对现有的PyTorch代码进行任何修改，但可以通过添加一行代码来优化您的代码：`model = torch.compile(model)`。
+PyTorch 2.0引入了一个新的编译函数，它不需要对现有的PyTorch代码进行任何修改，但可以通过添加一行代码来优化你的代码：`model = torch.compile(model)`。
 
-如果使用[`Trainer`]，您只需要在[`TrainingArguments`]中传递`torch_compile`选项：
+如果使用[`Trainer`]，你只需要在[`TrainingArguments`]中传递`torch_compile`选项：
 
 ```python
 training_args = TrainingArguments(torch_compile=True, **default_args)
 ```
 
-`torch.compile`使用Python的帧评估API来自动从现有的PyTorch程序中创建图形。在捕获图形之后，可以部署不同的后端将图形降到优化引擎。您可以在[PyTorch文档](https://pytorch.org/get-started/pytorch-2.0/)中找到更多详细信息和基准测试。
+`torch.compile`使用Python的帧评估API来自动从现有的PyTorch程序中创建图形。在捕获图形之后，可以部署不同的后端将图形降到优化引擎。你可以在[PyTorch文档](https://pytorch.org/get-started/pytorch-2.0/)中找到更多详细信息和基准测试。
 
 `torch.compile`具有不断增长的后端列表，可以通过调用`torchdynamo.list_backends()`找到。每个后端都有其可选的依赖项。
 
@@ -311,9 +311,9 @@ training_args = TrainingArguments(torch_compile=True, **default_args)
 
 ## 使用🤗 Accelerate
 
-通过[🤗 Accelerate](https://huggingface.co/docs/accelerate/index)，您可以使用以上方法，并完全控制训练循环，实质上可以使用纯粹的PyTorch编写循环，只需进行一些细微的修改。
+通过[🤗 Accelerate](https://huggingface.co/docs/accelerate/index)，你可以使用以上方法，并完全控制训练循环，实质上可以使用纯粹的PyTorch编写循环，只需进行一些细微的修改。
 
-假设您已经将[`TrainingArguments`]中的方法组合如下：
+假设你已经将[`TrainingArguments`]中的方法组合如下：
 
 ```py
 training_args = TrainingArguments(
@@ -357,12 +357,12 @@ for step, batch in enumerate(dataloader, start=1):
 
 ## 高效的软件预构建
 
-PyTorch的[pip和conda构建](https://pytorch.org/get-started/locally/#start-locally)已经预先构建了cuda toolkit，这足以运行PyTorch，但如果您需要构建cuda扩展，则不足够。
+PyTorch的[pip和conda构建](https://pytorch.org/get-started/locally/#start-locally)已经预先构建了cuda toolkit，这足以运行PyTorch，但如果你需要构建cuda扩展，则不足够。
 
-有时候可能需要额外的努力来预先构建某些组件。例如，如果您使用的是不预先编译的库（如`apex`），可能需要额外的努力。在其他情况下，找到如何在系统范围内安装正确的cuda toolkit可能很复杂。为了解决这些情况，PyTorch和NVIDIA发布了新版本的NGC Docker容器，其中已经预先构建了所有内容。您只需将程序安装在其中，它就可以直接运行。
+有时候可能需要额外的努力来预先构建某些组件。例如，如果你使用的是不预先编译的库（如`apex`），可能需要额外的努力。在其他情况下，找到如何在系统范围内安装正确的cuda toolkit可能很复杂。为了解决这些情况，PyTorch和NVIDIA发布了新版本的NGC Docker容器，其中已经预先构建了所有内容。你只需将程序安装在其中，它就可以直接运行。
 
-如果您想调整pytorch源代码和/或进行新的定制构建，这种方法也很有用。
-要找到所需的Docker映像版本，请查看[PyTorch发布说明](https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/)，选择最新的月度版本之一。进入所需版本的发布说明，检查环境组件是否符合您的需求（包括NVIDIA驱动程序要求！），然后在该文档的顶部转到相应的NGC页面。如果因某种原因迷失方向，请查看[所有PyTorch NGC图像的索引](https://ngc.nvidia.com/catalog/containers/nvidia:pytorch)。
+如果你想调整pytorch源代码和/或进行新的定制构建，这种方法也很有用。
+要找到所需的Docker映像版本，请查看[PyTorch发布说明](https://docs.nvidia.com/deeplearning/frameworks/pytorch-release-notes/)，选择最新的月度版本之一。进入所需版本的发布说明，检查环境组件是否符合你的需求（包括NVIDIA驱动程序要求！），然后在该文档的顶部转到相应的NGC页面。如果因某种原因迷失方向，请查看[所有PyTorch NGC图像的索引](https://ngc.nvidia.com/catalog/containers/nvidia:pytorch)。
 
 接下来，请按照下载和部署Docker映像的说明进行操作。
 
@@ -389,7 +389,7 @@ PyTorch的[pip和conda构建](https://pytorch.org/get-started/locally/#start-loc
 
 这种方法的主要缺点是需要大量的GPU内存，几乎比其密集等效模型多一个数量级。有多种蒸馏和方法被提出来解决这种更高的内存需求。
 
-然而，存在直接的权衡，您可以使用少量具有2-3倍较小基础模型的专家，而不是数十或数百个专家，从而得到一个5倍较小的模型，适度提高训练速度，同时适度提高内存需求。
+然而，存在直接的权衡，你可以使用少量具有2-3倍较小基础模型的专家，而不是数十或数百个专家，从而得到一个5倍较小的模型，适度提高训练速度，同时适度提高内存需求。
 
 大多数相关论文和实现都是基于Tensorflow/TPUs的：
 

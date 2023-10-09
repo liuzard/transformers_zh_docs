@@ -6,10 +6,10 @@
 
 文本分类是一种常见的自然语言处理任务，它将标签或类别分配给文本。一些最大的公司将文本分类应用于各种实际应用中。最流行的文本分类形式之一是情感分析，它将标签（例如：🙂积极、🙁消极或😐中性）分配给一段文本。
 
-这个指南将向您展示如何：
+这个指南将向你展示如何：
 
 1. 在 [IMDb](https://huggingface.co/datasets/imdb) 数据集上微调 [DistilBERT](https://huggingface.co/distilbert-base-uncased)，以确定一篇电影评论是积极的还是消极的。
-2. 使用您微调的模型进行推断。
+2. 使用你微调的模型进行推断。
 
 <Tip>
 在本教程中演示的任务受以下模型架构的支持：
@@ -20,13 +20,13 @@
 
 </Tip>
 
-在开始之前，请确保您已安装所有必要的库：
+在开始之前，请确保你已安装所有必要的库：
 
 ```bash
 pip install transformers datasets evaluate
 ```
 
-我们鼓励您登录到您的 Hugging Face 账户，以便您可以上传和分享模型。在提示时输入您的令牌登录：
+我们鼓励你登录到你的 Hugging Face 账户，以便你可以上传和分享模型。在提示时输入你的令牌登录：
 
 ```python
 >>> from huggingface_hub import notebook_login
@@ -103,7 +103,7 @@ tokenized_imdb = imdb.map(preprocess_function, batched=True)
 
 ## 评估
 
-在训练过程中包含一个评估指标通常对评估模型的性能很有帮助。您可以使用 🤗 [Evaluate](https://huggingface.co/docs/evaluate/index) 库快速加载一个评估方法。对于这个任务，加载 [accuracy](https://huggingface.co/spaces/evaluate-metric/accuracy) 指标（请参阅 🤗 Evaluate [快速入门](https://huggingface.co/docs/evaluate/a_quick_tour) 以了解有关如何加载和计算指标的更多信息）：
+在训练过程中包含一个评估指标通常对评估模型的性能很有帮助。你可以使用 🤗 [Evaluate](https://huggingface.co/docs/evaluate/index) 库快速加载一个评估方法。对于这个任务，加载 [accuracy](https://huggingface.co/spaces/evaluate-metric/accuracy) 指标（请参阅 🤗 Evaluate [快速入门](https://huggingface.co/docs/evaluate/a_quick_tour) 以了解有关如何加载和计算指标的更多信息）：
 
 ```python
 >>> import evaluate
@@ -123,7 +123,7 @@ tokenized_imdb = imdb.map(preprocess_function, batched=True)
 ...     return accuracy.compute(predictions=predictions, references=labels)
 ```
 
-现在您的 `compute_metrics` 函数已准备就绪，在设置训练时将返回它。
+现在你的 `compute_metrics` 函数已准备就绪，在设置训练时将返回它。
 
 ## 训练
 
@@ -138,11 +138,11 @@ tokenized_imdb = imdb.map(preprocess_function, batched=True)
 <pt>
 <Tip>
 
-如果您还不熟悉使用 [`Trainer`] 对模型进行微调，请查看[此处](../training.md#train-with-pytorch-trainer)的基本教程！
+如果你还不熟悉使用 [`Trainer`] 对模型进行微调，请查看[此处](../training.md#train-with-pytorch-trainer)的基本教程！
 
 </Tip>
 
-现在您已经准备好开始训练模型了！使用 [`AutoModelForSequenceClassification`] 加载 DistilBERT 并指定预期的标签数和标签映射：
+现在你已经准备好开始训练模型了！使用 [`AutoModelForSequenceClassification`] 加载 DistilBERT 并指定预期的标签数和标签映射：
 
 ```python
 >>> from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer
@@ -154,7 +154,7 @@ tokenized_imdb = imdb.map(preprocess_function, batched=True)
 
 到这一步，只剩下三个步骤：
 
-1. 在 [`TrainingArguments`] 中定义您的训练超参数。唯一必需的参数是 `output_dir`，用于指定保存模型的位置。通过设置 `push_to_hub=True`，您将把这个模型推送到 Hub（您需要登录到 Hugging Face 才能上传模型）。在每个 epoch 结束时，[`Trainer`] 将评估准确率并保存训练检查点。
+1. 在 [`TrainingArguments`] 中定义你的训练超参数。唯一必需的参数是 `output_dir`，用于指定保存模型的位置。通过设置 `push_to_hub=True`，你将把这个模型推送到 Hub（你需要登录到 Hugging Face 才能上传模型）。在每个 epoch 结束时，[`Trainer`] 将评估准确率并保存训练检查点。
 2. 将训练参数与模型、数据集、tokenizer、数据处理器和 `compute_metrics` 函数一起传递给 [`Trainer`]。
 3. 调用 [`~Trainer.train`] 来微调模型。
 
@@ -187,11 +187,11 @@ tokenized_imdb = imdb.map(preprocess_function, batched=True)
 
 <Tip>
 
-[`Trainer`] 默认使用动态填充，所以当您将 `tokenizer` 传递给它时，默认会应用该机制。在此示例中，不需要显式地指定数据处理器。
+[`Trainer`] 默认使用动态填充，所以当你将 `tokenizer` 传递给它时，默认会应用该机制。在此示例中，不需要显式地指定数据处理器。
 
 </Tip>
 
-训练完成后，使用 [`~transformers.Trainer.push_to_hub`] 方法将您的模型共享到 Hub，以供所有人使用：
+训练完成后，使用 [`~transformers.Trainer.push_to_hub`] 方法将你的模型共享到 Hub，以供所有人使用：
 
 ```python
 >>> trainer.push_to_hub()
@@ -200,7 +200,7 @@ tokenized_imdb = imdb.map(preprocess_function, batched=True)
 <tf>
 <Tip>
 
-如果您还不熟悉使用 Keras 对模型进行微调，请查看[此处](../training.md#train-a-tensorflow-model-with-keras)的基本教程！
+如果你还不熟悉使用 Keras 对模型进行微调，请查看[此处](../training.md#train-a-tensorflow-model-with-keras)的基本教程！
 
 </Tip>
 要在 TensorFlow 中微调模型，请首先设置优化器函数、学习率计划和一些训练超参数：
@@ -216,7 +216,7 @@ tokenized_imdb = imdb.map(preprocess_function, batched=True)
 >>> optimizer, schedule = create_optimizer(init_lr=2e-5, num_warmup_steps=0, num_train_steps=total_train_steps)
 ```
 
-然后，您可以加载 [`TFAutoModelForSequenceClassification`] 的 DistilBERT 和预期的标签数以及标签映射：
+然后，你可以加载 [`TFAutoModelForSequenceClassification`] 的 DistilBERT 和预期的标签数以及标签映射：
 
 ```python
 >>> from transformers import TFAutoModelForSequenceClassification
@@ -244,7 +244,7 @@ tokenized_imdb = imdb.map(preprocess_function, batched=True)
 ... )
 ```
 
-使用 [`compile`](https://keras.io/api/models/model_training_apis/#compile-method) 配置模型进行训练。请注意，Transformer 模型都有一个与任务相关的默认损失函数，所以除非您希望使用自定义的损失函数，否则不需要指定损失函数：
+使用 [`compile`](https://keras.io/api/models/model_training_apis/#compile-method) 配置模型进行训练。请注意，Transformer 模型都有一个与任务相关的默认损失函数，所以除非你希望使用自定义的损失函数，否则不需要指定损失函数：
 
 ```python
 >>> import tensorflow as tf
@@ -252,9 +252,9 @@ tokenized_imdb = imdb.map(preprocess_function, batched=True)
 >>> model.compile(optimizer=optimizer)  # 没有损失参数！
 ```
 
-在您开始训练之前，设置好最后两个事项，即从预测结果中计算准确率，并提供一种将您的模型推送到 Hub 的方式，这两个都是使用 [Keras 回调](../main_classes/keras_callbacks) 完成的。
+在你开始训练之前，设置好最后两个事项，即从预测结果中计算准确率，并提供一种将你的模型推送到 Hub 的方式，这两个都是使用 [Keras 回调](../main_classes/keras_callbacks) 完成的。
 
-将您的 `compute_metrics` 函数传递给 [`~transformers.KerasMetricCallback`]：
+将你的 `compute_metrics` 函数传递给 [`~transformers.KerasMetricCallback`]：
 
 ```python
 >>> from transformers.keras_callbacks import KerasMetricCallback
@@ -273,19 +273,19 @@ tokenized_imdb = imdb.map(preprocess_function, batched=True)
 ... )
 ```
 
-将您的回调函数捆绑在一起：
+将你的回调函数捆绑在一起：
 
 ```python
 >>> callbacks = [metric_callback, push_to_hub_callback]
 ```
 
-最后，您可以开始训练您的模型了！使用您的训练和验证数据集、epoch 数和回调函数来调用 [`fit`](https://keras.io/api/models/model_training_apis/#fit-method) 以进行微调：
+最后，你可以开始训练你的模型了！使用你的训练和验证数据集、epoch 数和回调函数来调用 [`fit`](https://keras.io/api/models/model_training_apis/#fit-method) 以进行微调：
 
 ```python
 >>> model.fit(x=tf_train_set, validation_data=tf_validation_set, epochs=3, callbacks=callbacks)
 ```
 
-训练完成后，您的模型会自动上传到 Hub，供所有人使用！
+训练完成后，你的模型会自动上传到 Hub，供所有人使用！
 </tf>
 </frameworkcontent>
 
@@ -299,9 +299,9 @@ tokenized_imdb = imdb.map(preprocess_function, batched=True)
 
 ## 推断
 
-太棒了，现在您已经微调了一个模型，可以用它进行推断了！
+太棒了，现在你已经微调了一个模型，可以用它进行推断了！
 
-找到一些您想要运行推断的文本：
+找到一些你想要运行推断的文本：
 
 ```
 >>> text = "This was a masterpiece. Not completely faithful to the books, but enthralling from beginning to end. Might be my favorite of the three."

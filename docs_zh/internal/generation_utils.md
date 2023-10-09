@@ -1,7 +1,7 @@
 <!--版权2020 The HuggingFace Team。版权所有。
 
 根据Apache License，版本2.0许可证（“许可证”）；除非符合许可证的规定，
-否则您不得使用此文件。您可以在以下网址获取许可证的副本：
+否则你不得使用此文件。你可以在以下网址获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -10,7 +10,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 以了解许可证下的特定语言的权限和限制。
 
 ⚠️注意，此文件是Markdown文件，但包含了特定于我们文档构建器（类似于MDX）的语法，
-可能在您的Markdown查看器中无法正确渲染。
+可能在你的Markdown查看器中无法正确渲染。
 
 -->
 
@@ -25,7 +25,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 [`~generation.GenerationMixin.group_beam_search`]和
 [`~generation.GenerationMixin.constrained_beam_search`]使用的所有实用函数。
 
-这些函数大多数只在您研究库中的生成方法时才有用。
+这些函数大多数只在你研究库中的生成方法时才有用。
 
 ## 生成输出
 
@@ -56,7 +56,7 @@ generation_output = model.generate(**inputs, return_dict_in_generate=True, outpu
 这里我们有`scores`，因为我们传递了`output_scores=True`，但我们没有`hidden_states`和
 `attentions`，因为我们没有传递`output_hidden_states=True`或`output_attentions=True`。
 
-您可以像通常那样访问每个属性，如果该属性未被模型返回，您将获得`None`。例如，在这里，
+你可以像通常那样访问每个属性，如果该属性未被模型返回，你将获得`None`。例如，在这里，
 `generation_output.scores`是语言模型头的所有生成预测分数，
 `generation_output.attentions`是`None`。
 

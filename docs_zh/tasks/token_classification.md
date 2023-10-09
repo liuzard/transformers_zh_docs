@@ -1,6 +1,6 @@
 <!--版权所有2022 The HuggingFace Team。保留所有权利。
 
-根据Apache License, Version 2.0（“许可证”）许可; 在遵守许可证的情况下，您不得使用此文件。您可以在下面的位置获取许可证的副本：
+根据Apache License, Version 2.0（“许可证”）许可; 在遵守许可证的情况下，你不得使用此文件。你可以在下面的位置获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -18,7 +18,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 Token分类为句子中的每个标记分配一个标签。最常见的Token分类任务之一是命名实体识别（NER）。NER旨在为句子中的每个实体（如人、位置或组织）找到一个标签。
 
-本指南将向您展示如何：
+本指南将向你展示如何：
 
 1. 使用[DistilBERT](https://huggingface.co/distilbert-base-uncased)对[WNUT 17](https://huggingface.co/datasets/wnut_17)数据集进行微调，以检测新的实体。
 2. 使用微调后的模型进行推理。
@@ -40,7 +40,7 @@ Token分类为句子中的每个标记分配一个标签。最常见的Token分�
 pip install transformers datasets evaluate seqeval
 ```
 
-我们建议您登录到您的Hugging Face账户，这样您可以上传和共享您的模型给社区。提示输入您的令牌以登录：
+我们建议你登录到你的Hugging Face账户，这样你可以上传和共享你的模型给社区。提示输入你的令牌以登录：
 
 ```py
 >>> from huggingface_hub import notebook_login
@@ -108,7 +108,7 @@ pip install transformers datasets evaluate seqeval
 >>> tokenizer = AutoTokenizer.from_pretrained("distilbert-base-uncased")
 ```
 
-正如您在上面的示例`tokens`字段中看到的那样，它看起来像已经进行了标记化的输入。但是实际上输入尚未标记化，您需要设置`is_split_into_words=True`将单词标记化为子单词。例如：
+正如你在上面的示例`tokens`字段中看到的那样，它看起来像已经进行了标记化的输入。但是实际上输入尚未标记化，你需要设置`is_split_into_words=True`将单词标记化为子单词。例如：
 
 ```py
 >>> example = wnut["train"][0]
@@ -118,13 +118,13 @@ pip install transformers datasets evaluate seqeval
 ['[CLS]', '@', 'paul', '##walk', 'it', "'", 's', 'the', 'view', 'from', 'where', 'i', "'", 'm', 'living', 'for', 'two', 'weeks', '.', 'empire', 'state', 'building', '=', 'es', '##b', '.', 'pretty', 'bad', 'storm', 'here', 'last', 'evening', '.', '[SEP]']
 ```
 
-但是，这会添加一些特殊标记`[CLS]`和`[SEP]`，而子词标记会导致输入和标签之间的不匹配。现在，一个对应于单个标签的单个单词可能被分割为两个子词。您需要通过以下方式对齐标记和标签：
+但是，这会添加一些特殊标记`[CLS]`和`[SEP]`，而子词标记会导致输入和标签之间的不匹配。现在，一个对应于单个标签的单个单词可能被分割为两个子词。你需要通过以下方式对齐标记和标签：
 
 1. 使用[`word_ids`](https://huggingface.co/docs/transformers/main_classes/tokenizer#transformers.BatchEncoding.word_ids)方法将所有标记映射到相应的单词。
 2. 将特殊标记`[CLS]`和`[SEP]`的标签设置为`-100`，这样它们将被忽略掉用于PyTorch损失函数的计算（请参见[CrossEntropyLoss](https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html)）。
 3. 仅为给定单词的第一个标记进行标记。将同一单词的其他子词分配为`-100`。
 
-以下是您可以创建以对齐标记和标签的函数，并截断序列为不超过DistilBERT的最大输入长度的方法：
+以下是你可以创建以对齐标记和标签的函数，并截断序列为不超过DistilBERT的最大输入长度的方法：
 
 ```py
 >>> def tokenize_and_align_labels(examples):
@@ -176,7 +176,7 @@ pip install transformers datasets evaluate seqeval
 
 ## 评估
 
-在训练过程中包含度量标准通常有助于评估模型的性能。您可以使用🤗 [评估](https://huggingface.co/docs/evaluate/index)库快速加载一个评估方法。对于本任务，请加载[seqeval](https://huggingface.co/spaces/evaluate-metric/seqeval)框架（请参阅🤗 Evaluate [快速导览](https://huggingface.co/docs/evaluate/a_quick_tour)以了解有关如何加载和计算度量标准的更多信息）。Seqeval实际上产生了几个分数：精确度（precision）、召回率（recall）、F1和准确度（accuracy）。
+在训练过程中包含度量标准通常有助于评估模型的性能。你可以使用🤗 [评估](https://huggingface.co/docs/evaluate/index)库快速加载一个评估方法。对于本任务，请加载[seqeval](https://huggingface.co/spaces/evaluate-metric/seqeval)框架（请参阅🤗 Evaluate [快速导览](https://huggingface.co/docs/evaluate/a_quick_tour)以了解有关如何加载和计算度量标准的更多信息）。Seqeval实际上产生了几个分数：精确度（precision）、召回率（recall）、F1和准确度（accuracy）。
 
 ```py
 >>> import evaluate
@@ -184,7 +184,7 @@ pip install transformers datasets evaluate seqeval
 >>> seqeval = evaluate.load("seqeval")
 ```
 
-首先获取NER标签，然后创建一个函数，该函数将您的真实预测和真实标签传递给[`~evaluate.EvaluationModule.compute`]以计算分数：
+首先获取NER标签，然后创建一个函数，该函数将你的真实预测和真实标签传递给[`~evaluate.EvaluationModule.compute`]以计算分数：
 
 ```py
 >>> import numpy as np
@@ -214,7 +214,7 @@ pip install transformers datasets evaluate seqeval
 ...     }
 ```
 
-现在您的`compute_metrics`函数已经准备好，当设置训练时将会返回它。
+现在你的`compute_metrics`函数已经准备好，当设置训练时将会返回它。
 
 ## 训练
 
@@ -257,11 +257,11 @@ pip install transformers datasets evaluate seqeval
 <pt>
 <Tip>
 
-如果您对使用[`Trainer`]对模型进行微调不熟悉，请查看[此处](../training.md#train-with-pytorch-trainer)的基本教程！
+如果你对使用[`Trainer`]对模型进行微调不熟悉，请查看[此处](../training.md#train-with-pytorch-trainer)的基本教程！
 
 </Tip>
 
-现在，您可以开始训练模型了！使用[`AutoModelForTokenClassification`]加载DistilBERT，同时指定期望的标签数量以及标签映射：
+现在，你可以开始训练模型了！使用[`AutoModelForTokenClassification`]加载DistilBERT，同时指定期望的标签数量以及标签映射：
 
 ```py
 >>> from transformers import AutoModelForTokenClassification, TrainingArguments, Trainer
@@ -273,9 +273,9 @@ pip install transformers datasets evaluate seqeval
 
 此时，仅剩下三个步骤：
 
-1. 在[`TrainingArguments`]中定义您的训练超参数。`output_dir`是唯一需要的参数，它指定要保存模型的位置。您可以设置`push_to_hub=True`将模型推送到Hub（上传模型需要登录到Hugging Face）。在每个epoch结束时，[`Trainer`]将评估seqeval分数并保存训练检查点。
+1. 在[`TrainingArguments`]中定义你的训练超参数。`output_dir`是唯一需要的参数，它指定要保存模型的位置。你可以设置`push_to_hub=True`将模型推送到Hub（上传模型需要登录到Hugging Face）。在每个epoch结束时，[`Trainer`]将评估seqeval分数并保存训练检查点。
 2. 将训练参数与模型、数据集、分词器、数据整理器和`compute_metrics`函数一起传递给[`Trainer`]。
-3. 调用[`~Trainer.train`]以微调您的模型。
+3. 调用[`~Trainer.train`]以微调你的模型。
 
 ```py
 >>> training_args = TrainingArguments(
@@ -304,7 +304,7 @@ pip install transformers datasets evaluate seqeval
 >>> trainer.train()
 ```
 
-训练完成后，使用[`~transformers.Trainer.push_to_hub`]方法将您的模型分享到Hub，以便每个人都可以使用您的模型：
+训练完成后，使用[`~transformers.Trainer.push_to_hub`]方法将你的模型分享到Hub，以便每个人都可以使用你的模型：
 
 ```py
 >>> trainer.push_to_hub()
@@ -313,7 +313,7 @@ pip install transformers datasets evaluate seqeval
 <tf>
 <Tip>
 
-如果您对使用Keras进行模型微调不熟悉，请查看[此处](../training.md#train-a-tensorflow-model-with-keras)的基本教程！
+如果你对使用Keras进行模型微调不熟悉，请查看[此处](../training.md#train-a-tensorflow-model-with-keras)的基本教程！
 
 </Tip>
 要在TensorFlow中微调模型，请首先设置一个优化器函数、学习率计划和一些训练超参数：
@@ -332,7 +332,7 @@ pip install transformers datasets evaluate seqeval
 ... )
 ```
 
-然后，您可以使用[`TFAutoModelForTokenClassification`]加载DistilBERT，同时指定期望的标签数量以及标签映射：
+然后，你可以使用[`TFAutoModelForTokenClassification`]加载DistilBERT，同时指定期望的标签数量以及标签映射：
 
 ```py
 >>> from transformers import TFAutoModelForTokenClassification

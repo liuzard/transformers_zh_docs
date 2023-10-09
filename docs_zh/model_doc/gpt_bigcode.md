@@ -1,6 +1,6 @@
 <!--版权所有2023年HuggingFace团队。 版权所有。
 
-根据Apache许可证2.0版（“许可证”），除非符合许可证的要求, 否则您不得使用此文件。 您可以在以下网址获得许可证的副本
+根据Apache许可证2.0版（“许可证”），除非符合许可证的要求, 否则你不得使用此文件。 你可以在以下网址获得许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -35,7 +35,7 @@ GPTBigCode模型在BigCode的[论文“SantaCoder：不要舍近求远!”](http
 - 将密钥和值缓存合并为一个（这将更改layer_past/present的格式，会带来风险吗？）。
 - 对于具有MHA的QKV张量，使用内存布局（self.num_heads, 3, self.head_dim）而不是`(3, self.num_heads, self.head_dim)`。（防止与原始gpt2模型的检查点产生开销）。
 
-您可以在[原始请求中](https://github.com/huggingface/transformers/pull/22575)详细了解这些优化。
+你可以在[原始请求中](https://github.com/huggingface/transformers/pull/22575)详细了解这些优化。
 
 ## GPTBigCodeConfig
 

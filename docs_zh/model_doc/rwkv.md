@@ -1,13 +1,13 @@
 <!--版权 2023 年 HuggingFace 团队。版权所有。
 
-根据 Apache 许可证第 2 版 (the "License")，除非符合许可证的规定，否则您不得使用此文件。
-您可以在以下位置获得许可证的副本：
+根据 Apache 许可证第 2 版 (the "License")，除非符合许可证的规定，否则你不得使用此文件。
+你可以在以下位置获得许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律或书面同意，依照许可证分发的软件是基于"按原样"的基础上提供的，不附带任何担保或条件。请参阅许可证以了解许可证的具体语言和限制。
 
-⚠️ 请注意，该文件是 Markdown 格式的，但包含了我们的文档生成器的特定语法（类似于 MDX），您的 Markdown 阅读器可能无法正确渲染。-->
+⚠️ 请注意，该文件是 Markdown 格式的，但包含了我们的文档生成器的特定语法（类似于 MDX），你的 Markdown 阅读器可能无法正确渲染。-->
 
 # RWKV
 
@@ -46,7 +46,7 @@ output_two = outputs.last_hidden_state
 torch.allclose(torch.cat([output_one, output_two], dim=1), output_whole, atol=1e-5)
 ```
 
-如果您希望确保模型在检测到 `'\n\n'` 时停止生成，则建议使用以下停止准则：
+如果你希望确保模型在检测到 `'\n\n'` 时停止生成，则建议使用以下停止准则：
 
 ```python 
 from transformers import StoppingCriteria

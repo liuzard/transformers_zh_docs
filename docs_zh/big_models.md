@@ -1,6 +1,6 @@
 <!--版权 2022 HuggingFace团队。版权所有。
 
-根据Apache许可证第2.0版（“许可证”），您不得在遵循许可证的情况下使用此文件。您可以在以下网址获得许可证的副本：
+根据Apache许可证第2.0版（“许可证”），你不得在遵循许可证的情况下使用此文件。你可以在以下网址获得许可证的副本：
 
 http：//www.apache.org/licenses/LICENSE-2.0
 
@@ -8,19 +8,19 @@ http：//www.apache.org/licenses/LICENSE-2.0
 一个“AS IS”基础，没有任何种类的保证或条件，无论是明示的还是暗示的。请参阅许可证以获取
 特定语言的详细信息，以及许可证下的限制。
 
-⚠️请注意，该文件以Markdown格式提供，但包含我们的doc-builder（类似于MDX）的特定语法，这可能在您的Markdown查看器中无法正确渲染。
+⚠️请注意，该文件以Markdown格式提供，但包含我们的doc-builder（类似于MDX）的特定语法，这可能在你的Markdown查看器中无法正确渲染。
 
 -->
 
 # 实例化一个大模型
 
-当您希望使用一个非常大的预训练模型时，一个挑战是尽量减少RAM的使用。 PyTorch中的常规工作流程如下：
+当你希望使用一个非常大的预训练模型时，一个挑战是尽量减少RAM的使用。 PyTorch中的常规工作流程如下：
 
 1. 创建具有随机权重的模型。
 2. 加载预训练的权重。
-3. 将这些预训练的权重放入您的随机模型中。
+3. 将这些预训练的权重放入你的随机模型中。
 
-第1步和第2步都需要在内存中具有完整版本的模型，这在大多数情况下不是问题，但是如果您的模型开始达到几个GigaBytes，这两个副本可能会使您的RAM不足。更糟糕的是，如果您正在使用`torch.distributed`来启动分布式培训，则每个进程将加载预训练模型并将这两个副本存储在RAM中。
+第1步和第2步都需要在内存中具有完整版本的模型，这在大多数情况下不是问题，但是如果你的模型开始达到几个GigaBytes，这两个副本可能会使你的RAM不足。更糟糕的是，如果你正在使用`torch.distributed`来启动分布式培训，则每个进程将加载预训练模型并将这两个副本存储在RAM中。
 
 <Tip>
 
@@ -32,9 +32,9 @@ http：//www.apache.org/licenses/LICENSE-2.0
 
 ## 分片检查点
 
-自版本4.18.0以来，占用超过10GB空间的模型检查点会自动分片成较小的片段。在执行`model.save_pretrained(save_dir)`时，您将获得几个部分检查点（每个部分的大小都小于10GB）和一个将参数名称与存储它们的文件相映射的索引。
+自版本4.18.0以来，占用超过10GB空间的模型检查点会自动分片成较小的片段。在执行`model.save_pretrained(save_dir)`时，你将获得几个部分检查点（每个部分的大小都小于10GB）和一个将参数名称与存储它们的文件相映射的索引。
 
-您可以使用`max_shard_size`参数控制分片之前的最大大小，所以为了举例，我们将使用具有小分片大小的普通大小模型：让我们选择传统的BERT模型。
+你可以使用`max_shard_size`参数控制分片之前的最大大小，所以为了举例，我们将使用具有小分片大小的普通大小模型：让我们选择传统的BERT模型。
 
 ```py
 from transformers import AutoModel
@@ -42,7 +42,7 @@ from transformers import AutoModel
 model = AutoModel.from_pretrained("bert-base-cased")
 ```
 
-如果使用[`~PreTrainedModel.save_pretrained`]保存它，您将获得一个包含两个文件的新文件夹：模型的配置和权重：
+如果使用[`~PreTrainedModel.save_pretrained`]保存它，你将获得一个包含两个文件的新文件夹：模型的配置和权重：
 
 ```py
 >>> import os
@@ -103,7 +103,7 @@ dict_keys(['metadata', 'weight_map'])
  ...
 ```
 
-如果要在不使用[`~PreTrainedModel.from_pretrained`]（与完整检查点一样使用`model.load_state_dict（）`）的情况下直接加载此类分片检查点到模型中，您应该使用[`~modeling_utils.load_sharded_checkpoint`]：
+如果要在不使用[`~PreTrainedModel.from_pretrained`]（与完整检查点一样使用`model.load_state_dict（）`）的情况下直接加载此类分片检查点到模型中，你应该使用[`~modeling_utils.load_sharded_checkpoint`]：
 
 ```py
 >>> from transformers.modeling_utils import load_sharded_checkpoint

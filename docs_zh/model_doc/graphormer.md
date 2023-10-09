@@ -1,10 +1,10 @@
 <!--版权 2022年The HuggingFace团队和Microsoft。版权所有。
 
-根据MIT许可证；您除非遵守许可证，否则不得使用此文件。
+根据MIT许可证；你除非遵守许可证，否则不得使用此文件。
 
 除非适用法律要求或书面同意，在许可证下分发的软件都是基于"按原样"的基础分发的，没有任何明示或暗示的担保和条件。详见许可证中关于具体语言的限制和责任的条款。
 
-注意，此文件是Markdown格式的，但包含特定的语法，用于我们的文档构建器（类似于MDX），可能不能正确显示在您的Markdown查看器中。
+注意，此文件是Markdown格式的，但包含特定的语法，用于我们的文档构建器（类似于MDX），可能不能正确显示在你的Markdown查看器中。
 
 -->
 
@@ -21,7 +21,7 @@ Graphormer模型是由[Do Transformers Really Perform Bad for Graph Representati
 提示：
 
 该模型在大型图形上（节点/边大于100个）的效果不佳，因为会导致内存溢出。
-您可以减小批量大小、增加RAM内存或减小algos_graphormer.pyx中的`UNREACHABLE_NODE_DISTANCE`参数，但要超过700个节点/边会很困难。
+你可以减小批量大小、增加RAM内存或减小algos_graphormer.pyx中的`UNREACHABLE_NODE_DISTANCE`参数，但要超过700个节点/边会很困难。
 
 该模型不使用分词器，而是在训练期间使用特殊的整理器。
 

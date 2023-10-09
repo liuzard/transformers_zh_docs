@@ -1,7 +1,7 @@
 <!--版权所有2022年The HuggingFace团队保留。
 
 根据Apache许可证第2.0版（“许可证”）许可；除非符合许可证的规定，否则不得使用此文件。
-您可以在以下网址获得许可证副本：
+你可以在以下网址获得许可证副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -33,14 +33,14 @@ ResNet引入了残差连接，它们能够训练具有未知层数的网络（�
 
 ## 资源
 
-以下是官方Hugging Face和社区（用🌎表示）为帮助您开始使用ResNet而提供的资源列表。
+以下是官方Hugging Face和社区（用🌎表示）为帮助你开始使用ResNet而提供的资源列表。
 
 <PipelineTag pipeline="image-classification"/>
 
 - 通过这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification.ipynb)支持[`ResNetForImageClassification`]。
 - 另请参阅：[图像分类任务指南](../tasks/image_classification)
 
-如果您有兴趣提交资源以包含在此处，请随时打开Pull Request，我们将对其进行审核！资源应该理想地展示出与现有资源不同的内容，而不是重复现有资源。
+如果你有兴趣提交资源以包含在此处，请随时打开Pull Request，我们将对其进行审核！资源应该理想地展示出与现有资源不同的内容，而不是重复现有资源。
 
 ## ResNetConfig
 

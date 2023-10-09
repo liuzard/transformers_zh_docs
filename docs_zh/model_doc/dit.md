@@ -1,12 +1,12 @@
 <!--版权所有2022年The HuggingFace团队。
 
-根据Apache许可证第2版（"许可证"）获得许可；除非符合许可证，否则您不得使用此文件。您可以在以下网址获取许可证的副本
+根据Apache许可证第2版（"许可证"）获得许可；除非符合许可证，否则你不得使用此文件。你可以在以下网址获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，否则根据许可证发布的软件是"按原样"分发的，不附带任何担保或条件。参见许可证规定的特定语言及限制。
 
-⚠️ 请注意，此文件是Markdown格式，但包含我们doc-builder的特定语法（类似于MDX），在您的Markdown查看器中可能无法正确呈现。
+⚠️ 请注意，此文件是Markdown格式，但包含我们doc-builder的特定语法（类似于MDX），在你的Markdown查看器中可能无法正确呈现。
 
 -->
 
@@ -64,10 +64,10 @@ model = AutoModelForImageClassification.from_pretrained("microsoft/dit-base-fine
 
 ## 资源
 
-以下是官方Hugging Face和社区（🌎）资源列表，可帮助您开始使用DiT。
+以下是官方Hugging Face和社区（🌎）资源列表，可帮助你开始使用DiT。
 
 <PipelineTag pipeline="image-classification"/>
 
 - 本[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification.ipynb)支持`BeitForImageClassification`。
 
-如果您有兴趣提交要包含在此处的资源，请随时发起拉取请求，我们将进行审核！该资源应该展示出新的东西，而不是重复现有的资源。
+如果你有兴趣提交要包含在此处的资源，请随时发起拉取请求，我们将进行审核！该资源应该展示出新的东西，而不是重复现有的资源。

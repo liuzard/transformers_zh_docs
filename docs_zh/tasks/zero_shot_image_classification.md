@@ -1,7 +1,7 @@
 <!--版权2023年HuggingFace团队保留所有权利。
 
 根据Apache许可证2.0版（“许可证”）许可；除非依法要求或书面同意，否则不得使用本文件。
-您可以在以下网址获得许可证副本：
+你可以在以下网址获得许可证副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -21,7 +21,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 这种更灵活的图像分类方法允许模型在没有额外训练数据的情况下泛化到新的和未知的类别，并使用户可以使用目标对象的自由文本描述查询图像。
 
-在本指南中，您将学习如何：
+在本指南中，你将学习如何：
 
 * 创建一个零样本图像分类流程
 * 手动运行零样本图像分类推断
@@ -74,7 +74,7 @@ pip install -q transformers
 
 ## 手动零样本图像分类
 
-现在您已经了解了如何使用零样本图像分类流程，让我们来看看如何手动运行零样本图像分类。
+现在你已经了解了如何使用零样本图像分类流程，让我们来看看如何手动运行零样本图像分类。
 
 首先，从Hugging Face Hub的[检查点](https://huggingface.co/models?pipeline_tag=zero-shot-image-classification&sort=downloads)加载模型和相关处理器。
 这次我们仍然使用之前相同的检查点:

@@ -19,10 +19,10 @@ Summarization可以创建一个较短版本的文件或文章，其中包含所�
 - 抽取式：从文档中提取最相关的信息。
 - 笼统的：生成捕捉最相关信息的新文本。
 
-本指南将向您展示如何:
+本指南将向你展示如何:
 
 1. 对[BillSum](https://huggingface.co/datasets/billsum)数据集中的加州州法案子集使用[T5](https://huggingface.co/t5-small)进行泛化 微调处理以实现笼统的总结。
-2. 使用您微调的模型进行推断。
+2. 使用你微调的模型进行推断。
 
 <Tip>
 本教程中演示的任务由以下模型架构支持：
@@ -41,7 +41,7 @@ Summarization可以创建一个较短版本的文件或文章，其中包含所�
 pip install transformers datasets evaluate rouge_score
 ```
 
-我们鼓励您登录您的Hugging Face帐户，以便与社区分享和上传您的模型。当提示时，请输入您的令牌进行登录：
+我们鼓励你登录你的Hugging Face帐户，以便与社区分享和上传你的模型。当提示时，请输入你的令牌进行登录：
 
 ```py
 >>> from huggingface_hub import notebook_login
@@ -110,7 +110,7 @@ pip install transformers datasets evaluate rouge_score
 ...     return model_inputs
 ```
 
-要在整个数据集上应用预处理函数，请使用🤗 Dataset的[`~datasets.Dataset.map`]方法。您可以通过设置`batched=True`来加快绘制速度，从而一次处理数据集中的多个元素：
+要在整个数据集上应用预处理函数，请使用🤗 Dataset的[`~datasets.Dataset.map`]方法。你可以通过设置`batched=True`来加快绘制速度，从而一次处理数据集中的多个元素：
 
 ```py
 >>> tokenized_billsum = billsum.map(preprocess_function, batched=True)
@@ -137,7 +137,7 @@ pip install transformers datasets evaluate rouge_score
 
 ## 评估
 
-在训练过程中添加一个指标通常有助于评估模型的性能。您可以使用🤗 [Evaluate](https://huggingface.co/docs/evaluate/index)库快速加载评估方法。对于本任务，加载[ROUGE](https://huggingface.co/spaces/evaluate-metric/rouge)指标（请参阅🤗 [快速入门](https://huggingface.co/docs/evaluate/a_quick_tour)以了解如何加载和计算指标）：
+在训练过程中添加一个指标通常有助于评估模型的性能。你可以使用🤗 [Evaluate](https://huggingface.co/docs/evaluate/index)库快速加载评估方法。对于本任务，加载[ROUGE](https://huggingface.co/spaces/evaluate-metric/rouge)指标（请参阅🤗 [快速入门](https://huggingface.co/docs/evaluate/a_quick_tour)以了解如何加载和计算指标）：
 
 ```py
 >>> import evaluate
@@ -165,7 +165,7 @@ pip install transformers datasets evaluate rouge_score
 ...     return {k: round(v, 4) for k, v in result.items()}
 ```
 
-现在您已经准备好了您的`compute_metrics`函数了，您将在安装训练设置时返回到它。
+现在你已经准备好了你的`compute_metrics`函数了，你将在安装训练设置时返回到它。
 
 ## 训练
 
@@ -173,11 +173,11 @@ pip install transformers datasets evaluate rouge_score
 <pt>
 <Tip>
 
-如果您对使用[`Trainer`]来进行模型的微调还不熟悉，可以查看简单的教程[此处](../training.md#train-with-pytorch-trainer)！
+如果你对使用[`Trainer`]来进行模型的微调还不熟悉，可以查看简单的教程[此处](../training.md#train-with-pytorch-trainer)！
 
 </Tip>
 
-现在，您可以开始训练您的模型了！使用[`AutoModelForSeq2SeqLM`]加载T5：
+现在，你可以开始训练你的模型了！使用[`AutoModelForSeq2SeqLM`]加载T5：
 
 ```py
 >>> from transformers import AutoModelForSeq2SeqLM, Seq2SeqTrainingArguments, Seq2SeqTrainer

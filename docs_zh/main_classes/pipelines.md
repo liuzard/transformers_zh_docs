@@ -1,12 +1,12 @@
 版权所有 2020年The HuggingFace团队。版权所有。
 
-根据Apache许可证2.0版（“许可证”），除非符合许可证的规定，否则您不得使用此文件。您可以在以下网址获取许可证的副本：
+根据Apache许可证2.0版（“许可证”），除非符合许可证的规定，否则你不得使用此文件。你可以在以下网址获取许可证的副本：
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，软件根据许可证的规定分发，
 创建于"AS IS"基础上，不附带任何形式的明示或默示保证。请参阅许可证的特定语言和限制条款。
 
-⚠️请注意，此文件是Markdown格式的，但包含用于我们的doc-builder（类似于MDX）的特定语法，可能无法正确显示在您的Markdown查看器中。
+⚠️请注意，此文件是Markdown格式的，但包含用于我们的doc-builder（类似于MDX）的特定语法，可能无法正确显示在你的Markdown查看器中。
 
 # Pipelines
 
@@ -29,7 +29,7 @@ pipeline是使用模型进行推理的一种很好且简单的方法。这些pip
 [{'label': 'POSITIVE', 'score': 0.9998743534088135}]
 ```
 
-如果您想要使用hub上的特定模型，可以忽略hub上的模型是否定义了任务：
+如果你想要使用hub上的特定模型，可以忽略hub上的模型是否定义了任务：
 
 ```python
 >>> pipe = pipeline(model="roberta-large-mnli")
@@ -46,7 +46,7 @@ pipeline是使用模型进行推理的一种很好且简单的方法。这些pip
  {'label': 'NEGATIVE', 'score': 0.9996669292449951}]
 ```
 
-在迭代整个数据集时，建议直接使用`dataset`。这意味着您不需要一次分配整个数据集，也不需要自己进行批处理。这应该与在GPU上的自定义循环一样快。如果不是，请随时提出问题。
+在迭代整个数据集时，建议直接使用`dataset`。这意味着你不需要一次分配整个数据集，也不需要自己进行批处理。这应该与在GPU上的自定义循环一样快。如果不是，请随时提出问题。
 
 ```python
 import datasets
@@ -78,8 +78,8 @@ def data():
     while True:
         # 这可能来自数据集、数据库、队列或HTTP请求
         # 服务器中
-        # 注意：因为这是迭代的，所以您不能使用`num_workers > 1`变量
-        # 同时使用多个线程对数据进行预处理。您仍然可以有1个线程
+        # 注意：因为这是迭代的，所以你不能使用`num_workers > 1`变量
+        # 同时使用多个线程对数据进行预处理。你仍然可以有1个线程
         # 做预处理，而主要运行大推理
         yield "This is a test"
 
@@ -198,19 +198,19 @@ Traceback (most recent call last):
 RuntimeError: CUDA out of memory. Tried to allocate 376.00 MiB (GPU 0; 3.95 GiB total capacity; 1.72 GiB already allocated; 354.88 MiB free; 2.46 GiB reserved in total by PyTorch)
 ```
 
-对于这个问题没有好的（通用）解决方案，您的使用情况可能会有所不同。经验法则：
+对于这个问题没有好的（通用）解决方案，你的使用情况可能会有所不同。经验法则：
 
 对于用户来说，经验法则是：
 
-- **测量您的负载的性能，通过硬件测量，不断测量，并继续测量。真实的数字是唯一的方法。**
-- 如果您受到延迟限制（现场产品进行推断），不要进行批处理。
-- 如果您使用CPU，请不要进行批处理。
-- 如果您正在使用吞吐量（您想要运行一堆静态数据的模型），在GPU上，则：
+- **测量你的负载的性能，通过硬件测量，不断测量，并继续测量。真实的数字是唯一的方法。**
+- 如果你受到延迟限制（现场产品进行推断），不要进行批处理。
+- 如果你使用CPU，请不要进行批处理。
+- 如果你正在使用吞吐量（你想要运行一堆静态数据的模型），在GPU上，则：
 
-  - 如果您对sequence_length的大小没有概念（"自然"数据），默认情况下不要批处理，测量并尝试添加它，添加OOM检查以在失败时恢复（如果您不控制sequence_length，则它最终会失败。）
-  - 如果您的sequence_length非常规律，那么批处理更有可能非常有趣，测量并将其推至直到获得OOM。
+  - 如果你对sequence_length的大小没有概念（"自然"数据），默认情况下不要批处理，测量并尝试添加它，添加OOM检查以在失败时恢复（如果你不控制sequence_length，则它最终会失败。）
+  - 如果你的sequence_length非常规律，那么批处理更有可能非常有趣，测量并将其推至直到获得OOM。
   - GPU越大，批处理越有可能更有趣
-- 一旦启用了批处理，请确保您可以很好地处理OOM。
+- 一旦启用了批处理，请确保你可以很好地处理OOM。
 
 ## pipeline块批处理
 
@@ -234,34 +234,34 @@ for preprocessed in pipe.preprocess(inputs):
 outputs = pipe.postprocess(all_model_outputs)
 ```
 
-这对您的代码来说应该是非常透明的，因为pipeline的使用方式是相同的。
+这对你的代码来说应该是非常透明的，因为pipeline的使用方式是相同的。
 
-这是一个简化的视图，因为pipeline可以自动处理批次！这意味着您无需关心您的输入实际上会触发多少前向传递，您可以独立于输入优化`batch_size`。前一节的注意事项仍然适用。
+这是一个简化的视图，因为pipeline可以自动处理批次！这意味着你无需关心你的输入实际上会触发多少前向传递，你可以独立于输入优化`batch_size`。前一节的注意事项仍然适用。
 
 ## pipeline自定义代码
 
 如果要覆盖特定pipeline。
 
-请随时创建问题以处理手头的任务，pipeline的目标是易于使用并支持大多数情况，所以`transformers`也许可以支持您的用例。
+请随时创建问题以处理手头的任务，pipeline的目标是易于使用并支持大多数情况，所以`transformers`也许可以支持你的用例。
 
 如果要尝试简单的方式，可以：
 
-- 子类化您选择的pipeline
+- 子类化你选择的pipeline
 
 ```python
 class MyPipeline(TextClassificationPipeline):
     def postprocess():
-        # 您的代码放在这里
+        # 你的代码放在这里
         scores = scores * 100
         # 以及在这里
 
 
 my_pipeline = MyPipeline(model=model, tokenizer=tokenizer, ...)
-# 或者如果您使用*pipeline*函数，那么：
+# 或者如果你使用*pipeline*函数，那么：
 my_pipeline = pipeline(model="xxxx", pipeline_class=MyPipeline)
 ```
 
-这样可以使您能够进行想要的所有自定义代码。
+这样可以使你能够进行想要的所有自定义代码。
 
 ## pipeline实现
 

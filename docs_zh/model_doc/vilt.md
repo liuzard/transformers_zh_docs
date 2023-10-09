@@ -1,7 +1,7 @@
 <!--2021年版权归HuggingFace团队所有。
 
 根据Apache许可证第2.0版（“许可证”）授权; 除非符合许可证要求，
-否则不得使用此文件。您可以在以下位置获取许可证副本：
+否则不得使用此文件。你可以在以下位置获取许可证副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -36,7 +36,7 @@ Vision-and-Language Transformer（ViLT），在视觉输入的处理方面采用
 - ViLT是一个同时接受`pixel_values`和`input_ids`作为输入的模型。可以使用[`ViltProcessor`] 来为模型准备数据。
   这个处理器将图像处理器（用于图像模态）和分词工具（用于语言模态）包装在一个处理器中。
 - ViLT以各种尺寸的图像进行训练：作者将输入图像的较短边缩放到384，并将较长边限制在640以下，同时保持纵横比。
-  为了实现图像的批处理，作者使用一个`pixel_mask`来指示哪些像素值是真实的，哪些是填充的。[`ViltProcessor`]会为您自动生成这个值。
+  为了实现图像的批处理，作者使用一个`pixel_mask`来指示哪些像素值是真实的，哪些是填充的。[`ViltProcessor`]会为你自动生成这个值。
 - ViLT的设计与标准的Vision Transformer（ViT）非常相似。唯一的区别是模型为语言模态包括了额外的嵌入层。
 
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/vilt_architecture.jpg"

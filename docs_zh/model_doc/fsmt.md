@@ -1,17 +1,17 @@
 <!--版权所有2020年HuggingFace团队。版权所有。
 
-根据Apache许可证，版本2.0（“许可证”）的规定，您不得使用此文件，除非符合许可证的规定。
-您可以在http://www.apache.org/licenses/LICENSE-2.0获得许可证的副本。
+根据Apache许可证，版本2.0（“许可证”）的规定，你不得使用此文件，除非符合许可证的规定。
+你可以在http://www.apache.org/licenses/LICENSE-2.0获得许可证的副本。
 
 除非适用法律要求或书面同意，根据许可证分发软件是根据“按原样”的基础分发的，不附带任何明示或暗示的保证或条件。有关详细信息，请参见许可证下的限制事项。
 
-⚠️请注意，此文件使用Markdown格式，但包含了特定于我们文档构建工具（类似于MDX）的语法，这在您的Markdown查看器中可能无法正确渲染。
+⚠️请注意，此文件使用Markdown格式，但包含了特定于我们文档构建工具（类似于MDX）的语法，这在你的Markdown查看器中可能无法正确渲染。
 
 -->
 
 # FSMT
 
-**免责声明：**如果您发现了异常情况，请在[Github Issue](https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template=bug-report.md&title)中进行报告，并分派@stas00。
+**免责声明：**如果你发现了异常情况，请在[Github Issue](https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template=bug-report.md&title)中进行报告，并分派@stas00。
 
 ## 概述
 

@@ -1,10 +1,10 @@
 <!--版权所有2022年HuggingFace团队。保留所有权利。
 
-根据Apache许可证Version 2.0（“许可证”）许可使用本文件；您除非符合许可证要求，否则不得使用本文件。您可以从以下地址获得许可证副本：
+根据Apache许可证Version 2.0（“许可证”）许可使用本文件；你除非符合许可证要求，否则不得使用本文件。你可以从以下地址获得许可证副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
-除非适用法律要求或书面约定，依据许可证分发的软件是基于“按原样”提供的，无论是明示还是暗示的，不提供任何担保或陈述，也不提供任何条件的保证。请注意，本文件采用Markdown格式，但包含我们文档生成工具的特定语法（类似于MDX），在您的Markdown查看器中可能无法正确渲染。
+除非适用法律要求或书面约定，依据许可证分发的软件是基于“按原样”提供的，无论是明示还是暗示的，不提供任何担保或陈述，也不提供任何条件的保证。请注意，本文件采用Markdown格式，但包含我们文档生成工具的特定语法（类似于MDX），在你的Markdown查看器中可能无法正确渲染。
 
 -->
 
@@ -35,7 +35,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 ```
 pip install oneccl_bind_pt=={pytorch_version} -f https://developer.intel.com/ipex-whl-stable-cpu
 ```
-其中`{pytorch_version}`应为您的PyTorch版本，例如1.13.0。
+其中`{pytorch_version}`应为你的PyTorch版本，例如1.13.0。
 请参阅[oneccl_bind_pt安装方法](https://github.com/intel/torch-ccl)获取更多方法。
 oneCCL和PyTorch的版本必须匹配。
 
@@ -96,7 +96,7 @@ IPEX为CPU训练提供了Float32和BFloat16的性能优化，请参考[单CPU部
 ```
 下面的命令将在两个Xeon节点（node0和node1）上总共使用四个进程进行训练，其中node0为主进程，ppn（每个节点的进程数）设置为2，每个套接字上运行一个进程。可以根据需要调整OMP_NUM_THREADS/CCL_WORKER_COUNT变量以实现最佳性能。
 
-在node0上，您需要创建一个包含每个节点的IP地址的配置文件（例如hostfile），并将该配置文件路径作为参数传递。
+在node0上，你需要创建一个包含每个节点的IP地址的配置文件（例如hostfile），并将该配置文件路径作为参数传递。
 ```shell script
  cat hostfile
  xxx.xxx.xxx.xxx #node0 ip

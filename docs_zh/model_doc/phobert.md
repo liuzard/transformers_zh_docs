@@ -1,7 +1,7 @@
 <!--版权所有2020年The HuggingFace团队。保留所有权利。
 
 根据Apache License, Version 2.0进行许可（"许可证"）; 除非符合
-许可证，否则不得使用此文件。您可以在以下网址获得许可证副本：
+许可证，否则不得使用此文件。你可以在以下网址获得许可证副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -10,7 +10,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 无论是明示还是暗示。有关的特定语言请看许可证
 详细信息和限制。
 
-⚠️请注意，此文件是Markdown格式的，但包含我们文档生成器的特定语法（类似于MDX），可能不会在您的Markdown查看器中正确显示。
+⚠️请注意，此文件是Markdown格式的，但包含我们文档生成器的特定语法（类似于MDX），可能不会在你的Markdown查看器中正确显示。
 
 -->
 

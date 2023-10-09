@@ -1,8 +1,8 @@
 <!--
 版权所有2021年HuggingFace团队。保留所有权利。
 
-根据Apache许可证第2.0版（“许可证”）的规定，您不得使用此文件，除非符合
-许可证的要求。您可以在下面获取许可证的副本
+根据Apache许可证第2.0版（“许可证”）的规定，你不得使用此文件，除非符合
+许可证的要求。你可以在下面获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -51,7 +51,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 随着原始Vision Transformer的成功，出现了一些后续作品：
 
 - 由Facebook AI提供的[DeiT](deit）（数据高效图像转换）。DeiT模型是蒸馏视觉变换器。
-  DeiT的作者还发布了训练效率更高的ViT模型，您可以直接插入[`ViTModel`] 或
+  DeiT的作者还发布了训练效率更高的ViT模型，你可以直接插入[`ViTModel`] 或
   [`ViTForImageClassification`]。有4个变体可用（3种不同大小）：*facebook/deit-tiny-patch16-224*,
   *facebook/deit-small-patch16-224*, *facebook/deit-base-patch16-224*和 *facebook/deit-base-patch16-384*。请注意
   使用[`DeiTImageProcessor`]以为模型准备图像。
@@ -71,7 +71,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ## 资源
 
-官方Hugging Face和社区（由🌎表示）资源列表，可帮助您开始使用ViT。
+官方Hugging Face和社区（由🌎表示）资源列表，可帮助你开始使用ViT。
 
 <PipelineTag pipeline="image-classification"/>
 
@@ -88,7 +88,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
     - [示例代码](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-pretraining)。
     
-如果您有兴趣提交一个资源以包含在此处，请随时打开一个Pull Request，我们将检查它！资源最好能演示一些新东西，而不是重复现有资源。
+如果你有兴趣提交一个资源以包含在此处，请随时打开一个Pull Request，我们将检查它！资源最好能演示一些新东西，而不是重复现有资源。
 
 ## ViTConfig
 

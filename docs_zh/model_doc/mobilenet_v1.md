@@ -1,7 +1,7 @@
 <!--版权所有2022年The HuggingFace团队。保留所有权利。
 
 根据Apache许可证第2版（“许可证”），除非符合下列许可条件
-否则您不能使用此文件。您可以在
+否则你不能使用此文件。你可以在
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，软件根据许可证分发在
@@ -9,7 +9,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 特定语言的语句和限制。
 
 ⚠️请注意，此文件是Markdown格式，但包含我们doc-builder的特定语法（类似于MDX），这可能无法
-在您的Markdown视图器中正确显示。
+在你的Markdown视图器中正确显示。
 
 -->
 
@@ -49,14 +49,14 @@ MobileNet模型是由Andrew G. Howard, Menglong Zhu, Bo Chen, Dmitry Kalenichenk
 
 ## 资源
 
-用于帮助您开始使用MobileNetV1的官方Hugging Face和社区资源列表（由🌎表示）。
+用于帮助你开始使用MobileNetV1的官方Hugging Face和社区资源列表（由🌎表示）。
 
 <PipelineTag pipeline="image-classification"/>
 
 - 通过此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification.ipynb)支持[`MobileNetV1ForImageClassification`]。
 - 另请参阅：[图像分类任务指南](../tasks/image_classification)
 
-如果您有兴趣提交要包括在此处的资源，请随时提出拉取请求，我们将进行审核！该资源应该理想地展示一些新的内容，而不是重复现有的资源。
+如果你有兴趣提交要包括在此处的资源，请随时提出拉取请求，我们将进行审核！该资源应该理想地展示一些新的内容，而不是重复现有的资源。
 
 ## MobileNetV1Config
 

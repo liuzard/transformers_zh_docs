@@ -1,13 +1,13 @@
 <!--版权所有2023 HuggingFace团队。保留所有权利。
 
-根据Apache许可证第2.0版（“许可证”）许可；如果不符合许可证，您不能使用此文件。
-您可以在以下网址获得许可证副本：
+根据Apache许可证第2.0版（“许可证”）许可；如果不符合许可证，你不能使用此文件。
+你可以在以下网址获得许可证副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件是基于“按原样”提供的，没有任何明示或隐含的保证或条件。有关许可的特定语言和限制，请参阅许可。
 
-⚠️请注意，此文件以Markdown格式编写，但包含用于我们的文档生成器（类似于MDX的语法），这可能在您的Markdown查看器中无法正确显示。-->
+⚠️请注意，此文件以Markdown格式编写，但包含用于我们的文档生成器（类似于MDX的语法），这可能在你的Markdown查看器中无法正确显示。-->
 
 # 自动语音识别
 
@@ -17,7 +17,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 自动语音识别（ASR）将语音信号转换为文本，将一系列音频输入映射到文本输出。虚拟助手（如Siri和Alexa）使用ASR模型来帮助用户日常使用，还有许多其他有用的用户界面应用，例如实时字幕和会议记录。
 
-本指南将向您展示如何：
+本指南将向你展示如何：
 
 1. 在[MInDS-14](https://huggingface.co/datasets/PolyAI/minds14)数据集上微调[Wav2Vec2](https://huggingface.co/facebook/wav2vec2-base)，将音频转录为文本。
 2. 使用微调后的模型进行推断。
@@ -37,7 +37,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 pip install transformers datasets evaluate jiwer
 ```
 
-我们鼓励您登录到您的Hugging Face帐户，这样您就可以上传和与社区共享您的模型。在提示时，请输入您的令牌进行登录：
+我们鼓励你登录到你的Hugging Face帐户，这样你就可以上传和与社区共享你的模型。在提示时，请输入你的令牌进行登录：
 
 ```py
 >>> from huggingface_hub import notebook_login
@@ -47,7 +47,7 @@ pip install transformers datasets evaluate jiwer
 
 ## 加载MInDS-14数据集
 
-首先加载🤗 Datasets库中[MInDS-14](https://huggingface.co/datasets/PolyAI/minds14)数据集的一个较小子集。这将为您提供一个实验和确保一切正常的机会，然后再花更多时间在完整数据集上进行训练。
+首先加载🤗 Datasets库中[MInDS-14](https://huggingface.co/datasets/PolyAI/minds14)数据集的一个较小子集。这将为你提供一个实验和确保一切正常的机会，然后再花更多时间在完整数据集上进行训练。
 
 ```py
 >>> from datasets import load_dataset, Audio
@@ -77,7 +77,7 @@ DatasetDict({
 })
 ```
 
-虽然数据集包含了很多有用的信息，如“lang_id”和“english_transcription”，但您在本指南中将重点关注“audio”和“transcription”。使用[`~datasets.Dataset.remove_columns`]方法删除其他列：
+虽然数据集包含了很多有用的信息，如“lang_id”和“english_transcription”，但你在本指南中将重点关注“audio”和“transcription”。使用[`~datasets.Dataset.remove_columns`]方法删除其他列：
 
 ```py
 >>> minds = minds.remove_columns(["english_transcription", "intent_class", "lang_id"])
@@ -110,7 +110,7 @@ DatasetDict({
 >>> processor = AutoProcessor.from_pretrained("facebook/wav2vec2-base")
 ```
 
-MInDS-14数据集的采样率为8000kHz（您可以在其[数据集卡片](https://huggingface.co/datasets/PolyAI/minds14)中找到这些信息），这意味着您需要将数据集重新采样为16000kHz以使用预训练的Wav2Vec2模型：
+MInDS-14数据集的采样率为8000kHz（你可以在其[数据集卡片](https://huggingface.co/datasets/PolyAI/minds14)中找到这些信息），这意味着你需要将数据集重新采样为16000kHz以使用预训练的Wav2Vec2模型：
 
 ```py
 >>> minds = minds.cast_column("audio", Audio(sampling_rate=16_000))
@@ -123,7 +123,7 @@ MInDS-14数据集的采样率为8000kHz（您可以在其[数据集卡片](https
  'transcription': "hi I'm trying to use the banking app on my phone and currently my checking and savings account balance is not refreshing"}
 ```
 
-如上所示，在上面的`transcription`中，文本包含一系列大写和小写字符。Wav2Vec2 tokenizer只是在大写字符上进行训练，所以您需要确保文本与tokenizer的词汇表匹配：
+如上所示，在上面的`transcription`中，文本包含一系列大写和小写字符。Wav2Vec2 tokenizer只是在大写字符上进行训练，所以你需要确保文本与tokenizer的词汇表匹配：
 
 ```py
 >>> def uppercase(example):
@@ -146,13 +146,13 @@ MInDS-14数据集的采样率为8000kHz（您可以在其[数据集卡片](https
 ...     return batch
 ```
 
-要在整个数据集上应用预处理函数，使用🤗 Datasets [`~datasets.Dataset.map`]函数。您可以通过增加`num_proc`参数来加速`map`。使用[`~datasets.Dataset.remove_columns`]方法删除您不需要的列：
+要在整个数据集上应用预处理函数，使用🤗 Datasets [`~datasets.Dataset.map`]函数。你可以通过增加`num_proc`参数来加速`map`。使用[`~datasets.Dataset.remove_columns`]方法删除你不需要的列：
 
 ```py
 >>> encoded_minds = minds.map(prepare_dataset, remove_columns=minds.column_names["train"], num_proc=4)
 ```
 
-🤗Transformers没有适用于ASR的数据整理器，因此您需要适应[`DataCollatorWithPadding`]来创建一批示例。它还将动态地将文本和标签填充到其批次中最长元素的长度（而不是整个数据集的长度），以确保它们具有相同的长度。尽管可以通过设置`padding=True`在`tokenizer`函数中填充文本，但动态填充更高效。
+🤗Transformers没有适用于ASR的数据整理器，因此你需要适应[`DataCollatorWithPadding`]来创建一批示例。它还将动态地将文本和标签填充到其批次中最长元素的长度（而不是整个数据集的长度），以确保它们具有相同的长度。尽管可以通过设置`padding=True`在`tokenizer`函数中填充文本，但动态填充更高效。
 
 与其他数据整理器不同，此特定数据整理器需要对`input_values`和`labels`应用不同的填充方法：
 
@@ -194,7 +194,7 @@ MInDS-14数据集的采样率为8000kHz（您可以在其[数据集卡片](https
 
 ## 评估
 
-在训练过程中包含一个度量标准通常有助于评估模型的性能。您可以使用🤗 [Evaluate](https://huggingface.co/docs/evaluate/index)库快速加载一个评估方法。对于此任务，加载[单词错误率](https://huggingface.co/spaces/evaluate-metric/wer)（WER）度量（请参阅🤗 Evaluate [快速导览](https://huggingface.co/docs/evaluate/a_quick_tour)了解如何加载和计算度量）：
+在训练过程中包含一个度量标准通常有助于评估模型的性能。你可以使用🤗 [Evaluate](https://huggingface.co/docs/evaluate/index)库快速加载一个评估方法。对于此任务，加载[单词错误率](https://huggingface.co/spaces/evaluate-metric/wer)（WER）度量（请参阅🤗 Evaluate [快速导览](https://huggingface.co/docs/evaluate/a_quick_tour)了解如何加载和计算度量）：
 
 ```py
 >>> import evaluate
@@ -222,7 +222,7 @@ MInDS-14数据集的采样率为8000kHz（您可以在其[数据集卡片](https
 ...     return {"wer": wer}
 ```
 
-现在，您的`compute_metrics`函数已准备好了，在设置训练时将返回到它。
+现在，你的`compute_metrics`函数已准备好了，在设置训练时将返回到它。
 
 ## 训练
 
@@ -230,11 +230,11 @@ MInDS-14数据集的采样率为8000kHz（您可以在其[数据集卡片](https
 <pt>
 <Tip>
 
-如果您不熟悉使用[`Trainer`]对模型进行微调，请查看[此处](../training.md#train-with-pytorch-trainer)的基本教程！
+如果你不熟悉使用[`Trainer`]对模型进行微调，请查看[此处](../training.md#train-with-pytorch-trainer)的基本教程！
 
 </Tip>
 
-现在，您已经准备好开始对模型进行训练了！使用[`AutoModelForCTC`]加载Wav2Vec2模型。使用`ctc_loss_reduction`参数指定要应用的缩减。通常最好使用平均而不是默认的求和：
+现在，你已经准备好开始对模型进行训练了！使用[`AutoModelForCTC`]加载Wav2Vec2模型。使用`ctc_loss_reduction`参数指定要应用的缩减。通常最好使用平均而不是默认的求和：
 
 ```py
 >>> from transformers import AutoModelForCTC, TrainingArguments, Trainer
@@ -248,9 +248,9 @@ MInDS-14数据集的采样率为8000kHz（您可以在其[数据集卡片](https
 
 现在只剩下三个步骤：
 
-1. 在[`TrainingArguments`]中定义您的训练超参数。唯一需要的参数是`output_dir`，它指定要保存您的模型的位置。通过设置`push_to_hub=True`将该模型推送到Hub（您需要登录到HuggingFace以上传您的模型）。在每个时期结束时，[`Trainer`]将评估WER并保存训练检查点。
+1. 在[`TrainingArguments`]中定义你的训练超参数。唯一需要的参数是`output_dir`，它指定要保存你的模型的位置。通过设置`push_to_hub=True`将该模型推送到Hub（你需要登录到HuggingFace以上传你的模型）。在每个时期结束时，[`Trainer`]将评估WER并保存训练检查点。
 2. 将训练参数传递给[`Trainer`]，以及模型、数据集、标记器、数据整理器和`compute_metrics`函数。
-3. 调用[`~Trainer.train`]来微调您的模型。
+3. 调用[`~Trainer.train`]来微调你的模型。
 
 ```py
 >>> training_args = TrainingArguments(
@@ -287,7 +287,7 @@ MInDS-14数据集的采样率为8000kHz（您可以在其[数据集卡片](https
 >>> trainer.train()
 ```
 
-完成训练后，使用[`~transformers.Trainer.push_to_hub`]方法将您的模型共享到Hub，以便每个人都可以使用您的模型。
+完成训练后，使用[`~transformers.Trainer.push_to_hub`]方法将你的模型共享到Hub，以便每个人都可以使用你的模型。
 
 ```py
 >>> trainer.push_to_hub()
@@ -303,7 +303,7 @@ MInDS-14数据集的采样率为8000kHz（您可以在其[数据集卡片](https
 
 ## 推断
 
-很好，既然您已经微调了一个模型，现在可以将其用于推断！
+很好，既然你已经微调了一个模型，现在可以将其用于推断！
 
 加载要在其上运行推断的音频文件。记得将音频文件的采样率重新采样以匹配模型的采样率，如果需要的话！
 
@@ -316,7 +316,7 @@ MInDS-14数据集的采样率为8000kHz（您可以在其[数据集卡片](https
 >>> audio_file = dataset[0]["audio"]["path"]
 ```
 
-尝试在推断中使用微调的模型的最简单方法是在[`pipeline`]中使用它。使用您的模型实例化一个自动语音识别`pipeline`，将音频文件传递给它：
+尝试在推断中使用微调的模型的最简单方法是在[`pipeline`]中使用它。使用你的模型实例化一个自动语音识别`pipeline`，将音频文件传递给它：
 
 ```py
 >>> from transformers import pipeline
@@ -328,11 +328,11 @@ MInDS-14数据集的采样率为8000kHz（您可以在其[数据集卡片](https
 
 <Tip>
 
-这次转录还可以，但可能还有进一步改进的空间！尝试在更多的示例上微调您的模型以获得更好的结果！
+这次转录还可以，但可能还有进一步改进的空间！尝试在更多的示例上微调你的模型以获得更好的结果！
 
 </Tip>
 
-如果需要，您还可以手动复制`pipeline`的结果：
+如果需要，你还可以手动复制`pipeline`的结果：
 
 <frameworkcontent>
 <pt>

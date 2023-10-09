@@ -1,11 +1,11 @@
 <!--版权所有 © 2022 HuggingFace 团队保留所有权利。
 
-根据 Apache 许可证第2版（"许可证"），除非符合许可证的规定，否则您不得使用此文件。
-您可以在以下位置获得许可证的副本：http://www.apache.org/licenses/LICENSE-2.0
+根据 Apache 许可证第2版（"许可证"），除非符合许可证的规定，否则你不得使用此文件。
+你可以在以下位置获得许可证的副本：http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，按原样分发的软件在"AS IS"的基础上提供，无论是明示的还是暗示的，不附带任何形式的保证或条件。请查阅许可证以获取特定语言下的权限和限制。
 
-注意，此文件是Markdown格式，但它包含的语法是为我们的文档生成器（类似于MDX）设计的，可能无法在您的Markdown阅读器中正确渲染。-->
+注意，此文件是Markdown格式，但它包含的语法是为我们的文档生成器（类似于MDX）设计的，可能无法在你的Markdown阅读器中正确渲染。-->
 
 # Mask2Former
 
@@ -33,7 +33,7 @@ Mask2Former模型是由Bowen Cheng, Ishan Misra, Alexander G. Schwing, Alexander
 
 - 有关在自定义数据上进行推断+微调Mask2Former的演示笔记本可在[这里](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/Mask2Former)找到。
 
-如果您有兴趣提交一个要包含在这里的资源，请随时发起拉取请求，我们将进行审核。
+如果你有兴趣提交一个要包含在这里的资源，请随时发起拉取请求，我们将进行审核。
 这些资源理想情况下应该展示一些新的东西，而不是重复现有的资源。
 
 ## MaskFormer特定输出

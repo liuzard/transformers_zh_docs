@@ -1,7 +1,7 @@
 <!--
 版权所有2021年The HuggingFace团队。保留所有权利。
 
-根据Apache许可证2.0版（"许可证"），除非符合许可证的规定，否则您不得使用此文件。您可以在以下链接处获得许可证的副本
+根据Apache许可证2.0版（"许可证"），除非符合许可证的规定，否则你不得使用此文件。你可以在以下链接处获得许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -30,7 +30,7 @@ Wav2Vec2模型是由Alexei Baevski、Henry Zhou、Abdelrahman Mohamed和Michael 
 
 ## 资源
 
-以下是官方和社区（由🌎表示）资源的列表，可帮助您快速入门Wav2Vec2。如果您有兴趣提交资源以包含在此处，请随时提出Pull Request，我们将对其进行审查！该资源理想情况下应展示出一些新内容，而不是重复现有资源。
+以下是官方和社区（由🌎表示）资源的列表，可帮助你快速入门Wav2Vec2。如果你有兴趣提交资源以包含在此处，请随时提出Pull Request，我们将对其进行审查！该资源理想情况下应展示出一些新内容，而不是重复现有资源。
 
 <PipelineTag pipeline="audio-classification"/>
 
@@ -91,7 +91,7 @@ Wav2Vec2模型是由Alexei Baevski、Henry Zhou、Abdelrahman Mohamed和Michael 
 
 ### 解码多个音频
 
-如果您计划对多个音频进行解码，应考虑使用[`~Wav2Vec2ProcessorWithLM.batch_decode`]，并传递一个已实例化的`multiprocessing.Pool`。
+如果你计划对多个音频进行解码，应考虑使用[`~Wav2Vec2ProcessorWithLM.batch_decode`]，并传递一个已实例化的`multiprocessing.Pool`。
 否则，[`~Wav2Vec2ProcessorWithLM.batch_decode`]的性能将比逐个调用[`~Wav2Vec2ProcessorWithLM.decode`]要慢，因为它在每次调用时内部实例化一个新的`Pool`。 请参考以下示例：
 
 ```python

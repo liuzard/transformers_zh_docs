@@ -1,7 +1,7 @@
 <!--版权所有2021年HuggingFace团队。保留所有权利。
 
 根据Apache许可证第2版（“许可证”）的规定，除非符合许可证的规定，否则不得使用此文件。
-您可以在以下位置获得许可证的副本
+你可以在以下位置获得许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -43,10 +43,10 @@ DETR可以自然地扩展以执行全景分割（将语义分割和实例分割�
 - 在训练期间，DETR的作者发现在解码器中使用辅助损失对于帮助模型输出每个类别的正确数量非常有帮助。如果将[`~transformers.DetrConfig`]的`auxiliary_loss`参数设置为`True`，则在每个解码器层之后添加预测前馈神经网络和匈牙利损失（FFN共享参数）。
 - 如果要在多个节点的分布环境中训练模型，应该在modeling_detr.py的DetrLoss类中更新_num_boxes_变量。当在多个节点上进行训练时，应将其设置为所有节点上平均目标框的数量，可以在原始实现[here](https://github.com/facebookresearch/detr/blob/a54b77800eb8e64e3ad0d8237789fcbf2f8350c5/models/detr.py#L227-L232)中找到。
 - [`~transformers.DetrForObjectDetection`]和[`~transformers.DetrForSegmentation`]可以使用[timm库](https://github.com/rwightman/pytorch-image-models)中可用的任何卷积骨干网络进行初始化。例如，可以通过将[`~transformers.DetrConfig`]的`backbone`属性设置为`"tf_mobilenetv3_small_075"`，然后使用该配置初始化模型来使用MobileNet骨干网。
-- DETR调整输入图像的大小，使最短边至少有一定数量的像素，而最长边至多为1333像素。在训练时，使用缩放增强来随机将最短边设置为至少480像素，最多800像素。在推理时间，最短边被设置为800。可以使用[`~transformers.DetrImageProcessor`]为模型准备图像（和可选的COCO格式的注释）。由于这种调整大小，批处理中的图像大小可能不同。DETR通过将图像填充到批处理中的最大大小，并创建一个像素掩码来指示哪些像素是实际的/哪些是填充来解决这个问题。或者，您还可以定义一个自定义的`collate_fn`，以便使用[`~transformers.DetrImageProcessor.pad_and_create_pixel_mask`]将图像批处理在一起。
+- DETR调整输入图像的大小，使最短边至少有一定数量的像素，而最长边至多为1333像素。在训练时，使用缩放增强来随机将最短边设置为至少480像素，最多800像素。在推理时间，最短边被设置为800。可以使用[`~transformers.DetrImageProcessor`]为模型准备图像（和可选的COCO格式的注释）。由于这种调整大小，批处理中的图像大小可能不同。DETR通过将图像填充到批处理中的最大大小，并创建一个像素掩码来指示哪些像素是实际的/哪些是填充来解决这个问题。或者，你还可以定义一个自定义的`collate_fn`，以便使用[`~transformers.DetrImageProcessor.pad_and_create_pixel_mask`]将图像批处理在一起。
 - 图像的大小将决定使用的内存量，并因此决定`batch_size`。建议每个GPU使用2个batch大小。有关更多信息，请参见[此Github线程](https://github.com/facebookresearch/detr/issues/150)。
 
-有三种实例化DETR模型的方法（取决于您的首选）：
+有三种实例化DETR模型的方法（取决于你的首选）：
 
 选项1：使用预训练权重实例化整个模型的DETR
 ```py
@@ -79,18 +79,18 @@ DETR可以自然地扩展以执行全景分割（将语义分割和实例分割�
 | **后处理**（即将模型的输出转换为COCO API）| [`~transformers.DetrImageProcessor.post_process`] | [`~transformers.DetrImageProcessor.post_process_segmentation`] | [`~transformers.DetrImageProcessor.post_process_segmentation`]，[`~transformers.DetrImageProcessor.post_process_panoptic`] |
 | **评估器** | `CocoEvaluator`，`iou_types="bbox"` | `CocoEvaluator`，`iou_types="bbox"`或`"segm"` | `CocoEvaluator`，`iou_tupes="bbox"`或`"segm"`，`PanopticEvaluator` |
 
-简而言之，应以COCO检测或COCO全景格式准备数据，然后使用[`~transformers.DetrImageProcessor`]创建`pixel_values`，`pixel_mask`和可选的`labels`，然后用于训练（或微调）模型。对于评估，应首先使用[`~transformers.DetrImageProcessor`]的其中一种后处理方法将模型的输出转换。这些可以提供给`CocoEvaluator`或`PanopticEvaluator`，允许您计算诸如均值平均精度（mAP）和全景质量（PQ）之类的指标。后者对象在[原始存储库](https://github.com/facebookresearch/detr)中实现。有关评估的更多信息，请参见[示例笔记本](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/DETR)。
+简而言之，应以COCO检测或COCO全景格式准备数据，然后使用[`~transformers.DetrImageProcessor`]创建`pixel_values`，`pixel_mask`和可选的`labels`，然后用于训练（或微调）模型。对于评估，应首先使用[`~transformers.DetrImageProcessor`]的其中一种后处理方法将模型的输出转换。这些可以提供给`CocoEvaluator`或`PanopticEvaluator`，允许你计算诸如均值平均精度（mAP）和全景质量（PQ）之类的指标。后者对象在[原始存储库](https://github.com/facebookresearch/detr)中实现。有关评估的更多信息，请参见[示例笔记本](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/DETR)。
 
 ## 资源
 
-官方Hugging Face和社区（由🌎表示）资源列表，以帮助您开始使用DETR。
+官方Hugging Face和社区（由🌎表示）资源列表，以帮助你开始使用DETR。
 
 <PipelineTag pipeline="object-detection"/>
 
 - 所有示例笔记本演示了在自定义数据集上微调[`DetrForObjectDetection`]和[`DetrForSegmentation`]，可以在[此处](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/DETR)找到。
 - 另请参阅：[对象检测任务指南](../tasks/object_detection)
 
-如果您有兴趣提交一个要包含在这里的资源，请随时提交拉取请求，我们将对其进行审核！资源应理想地展示新内容，而不是重复现有资源。
+如果你有兴趣提交一个要包含在这里的资源，请随时提交拉取请求，我们将对其进行审核！资源应理想地展示新内容，而不是重复现有资源。
 
 ## DETR特定的输出
 

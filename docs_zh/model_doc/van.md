@@ -1,6 +1,6 @@
 版权所有 © 2022 HuggingFace团队。
 
-根据Apache许可证2.0版（“许可证”）获得许可；除非符合许可证的规定，否则您不得使用此文件。您可以在以下网址获得许可证的副本：
+根据Apache许可证2.0版（“许可证”）获得许可；除非符合许可证的规定，否则你不得使用此文件。你可以在以下网址获得许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -41,14 +41,14 @@ VAN模型是由Meng-Hao Guo、Cheng-Ze Lu、Zheng-Ning Liu、Ming-Ming Cheng和S
 
 ## 资源
 
-以下是官方Hugging Face和社区（由🌎表示）资源的列表，可帮助您开始使用VAN。
+以下是官方Hugging Face和社区（由🌎表示）资源的列表，可帮助你开始使用VAN。
 
 <PipelineTag pipeline="image-classification"/>
 
 - [`VanForImageClassification`]受到此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification.ipynb)的支持。
 - 另请参阅：[图像分类任务指南](../tasks/image_classification)
 
-如果您有兴趣提交资源以包含在此处，请随时打开拉取请求，我们将对其进行审核！该资源应该展示出一些新内容，而不是重复现有的资源。
+如果你有兴趣提交资源以包含在此处，请随时打开拉取请求，我们将对其进行审核！该资源应该展示出一些新内容，而不是重复现有的资源。
 
 ## VanConfig
 

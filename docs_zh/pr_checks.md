@@ -2,8 +2,8 @@
 版权所有2020年“拥抱面官团”。 版权所有。
 
 根据Apache许可证2.0版（“许可证”）许可;
-您不得使用此文件，除非符合许可证的规定。
-您可以在以下网址获取许可证的副本
+你不得使用此文件，除非符合许可证的规定。
+你可以在以下网址获取许可证的副本
 
     http://www.apache.org/licenses/LICENSE-2.0
 
@@ -19,8 +19,8 @@
 
 # 在拉取请求上进行检查
 
-当您在🤗 Transformers上打开拉取请求时，将运行相当数量的检查，
-以确保您添加的补丁不会破坏任何现有的内容。这些检查可以分为四类：
+当你在🤗 Transformers上打开拉取请求时，将运行相当数量的检查，
+以确保你添加的补丁不会破坏任何现有的内容。这些检查可以分为四类：
 - 常规测试
 - 文档构建
 - 代码和文档格式
@@ -29,7 +29,7 @@
 在本文档中，我们将尝试解释这些不同的检查是什么以及背后的原因，
 以及如果其中一个检查在PR中失败了，如何在本地调试它们。
 
-请注意，理想情况下，它们需要您进行开发安装:
+请注意，理想情况下，它们需要你进行开发安装:
 
 ```bash
 pip install transformers[dev]
@@ -42,8 +42,8 @@ pip install -e .[dev]
 ```
 
 位于Transformers存储库中。由于Transformers的可选依赖项数量增加了很多，
-您可能无法获得所有这些依赖项。如果开发安装失败，请确保安装了
-您使用的深度学习框架（PyTorch，TensorFlow和/或Flax），然后执行以下操作
+你可能无法获得所有这些依赖项。如果开发安装失败，请确保安装了
+你使用的深度学习框架（PyTorch，TensorFlow和/或Flax），然后执行以下操作
 
 ```bash
 pip install transformers[quality]
@@ -72,7 +72,7 @@ python utils/tests_fetcher.py
 3. 在步骤1中获取的文件上应用此映射，从而得到PR影响的模型文件列表。
 4. 将每个文件映射到其相应的测试文件，并获取要运行的测试列表。
 
-在本地执行脚本时，您应该能够获得步骤1、3和4的结果，并且知道运行了哪些测试。该脚本还将创建一个名为`test_list.txt`的文件，其中包含要运行的测试列表，您可以使用以下命令在本地运行它们：
+在本地执行脚本时，你应该能够获得步骤1、3和4的结果，并且知道运行了哪些测试。该脚本还将创建一个名为`test_list.txt`的文件，其中包含要运行的测试列表，你可以使用以下命令在本地运行它们：
 
 ```bash
 python -m pytest -n 8 --dist=loadfile -rA -s $(cat test_list.txt)
@@ -83,22 +83,22 @@ python -m pytest -n 8 --dist=loadfile -rA -s $(cat test_list.txt)
 ## 文档构建
 
 `build_pr_documentation`作业将构建和生成一个文档的预览，
-以确保在合并您的PR后一切正常。一个机器人将在您的PR中添加一个链接来预览文档。
-您对PR所做的任何更改都会自动更新到预览中。如果构建文档失败，
+以确保在合并你的PR后一切正常。一个机器人将在你的PR中添加一个链接来预览文档。
+你对PR所做的任何更改都会自动更新到预览中。如果构建文档失败，
 单击失败作业旁边的**Details**以查看出错的位置。通常，错误可能只是`toctree`中缺少文件而已。
 
-如果您对在本地构建或预览文档感兴趣，请查看文档文件夹中的[`README.md`](https://github.com/huggingface/transformers/tree/main/docs)。
+如果你对在本地构建或预览文档感兴趣，请查看文档文件夹中的[`README.md`](https://github.com/huggingface/transformers/tree/main/docs)。
 
 ## 代码和文档格式
 
 我们使用`black`和`ruff`对所有源代码文件、示例和测试文件应用代码格式。我们还有一个自定义工具负责格式化文档字符串和`rst`文件（`utils/style_doc.py`），以及Transformers `__init__.py`文件中执行的延迟导入的顺序(`utils/custom_init_isort.py`)。
-您可以通过运行以下命令来启动这些工具
+你可以通过运行以下命令来启动这些工具
 
 ```bash
 make style
 ```
 
-CI在`ci/circleci: check_code_quality`检查中检查这些是否已应用。它还运行`ruff`，它会基于您的代码进行基本检查，如果找到未定义的变量或未使用的变量，则会发出警告。要在本地运行此检查，请使用以下命令
+CI在`ci/circleci: check_code_quality`检查中检查这些是否已应用。它还运行`ruff`，它会基于你的代码进行基本检查，如果找到未定义的变量或未使用的变量，则会发出警告。要在本地运行此检查，请使用以下命令
 
 ```bash
 make quality
@@ -114,7 +114,7 @@ make fixup
 
 ## 存储库一致性
 
-这涵盖了所有的测试，以确保您的PR将存储库保持在良好状态，并由`ci/circleci: check_repository_consistency`检查执行。您可以通过执行以下命令在本地运行此检查：
+这涵盖了所有的测试，以确保你的PR将存储库保持在良好状态，并由`ci/circleci: check_repository_consistency`检查执行。你可以通过执行以下命令在本地运行此检查：
 
 ```bash
 make repo-consistency
@@ -156,17 +156,17 @@ make fix-copies
 
 <Tip>
 
-如果一个文件是另一个文件的完全副本，您应该将其注册在`utils/check_copies.py`的常量`FULL_COPIES`中。
+如果一个文件是另一个文件的完全副本，你应该将其注册在`utils/check_copies.py`的常量`FULL_COPIES`中。
 
 </Tip>
 
-此机制依赖于类似于`# Copied from xxx`的注释形式。`xxx`应包含要复制下来的类或函数的完整路径。例如，`RobertaSelfOutput`是`BertSelfOutput`类的直接副本，因此您可以在此[处](https://github.com/huggingface/transformers/blob/2bd7a27a671fd1d98059124024f580f8f5c0f3b5/src/transformers/models/roberta/modeling_roberta.py#L289)看到一个注释：
+此机制依赖于类似于`# Copied from xxx`的注释形式。`xxx`应包含要复制下来的类或函数的完整路径。例如，`RobertaSelfOutput`是`BertSelfOutput`类的直接副本，因此你可以在此[处](https://github.com/huggingface/transformers/blob/2bd7a27a671fd1d98059124024f580f8f5c0f3b5/src/transformers/models/roberta/modeling_roberta.py#L289)看到一个注释：
 
 ```py
 # Copied from transformers.models.bert.modeling_bert.BertSelfOutput
 ```
 
-请注意，您可以将其应用于整个类而不是整个类时，也可以应用于从中复制的相关方法。例如，[此处](https://github.com/huggingface/transformers/blob/2bd7a27a671fd1d98059124024f580f8f5c0f3b5/src/transformers/models/roberta/modeling_roberta.py#L598)可以看到`RobertaPreTrainedModel._init_weights`是从`BertPreTrainedModel`中相同方法的副本，其中也有一个注释：
+请注意，你可以将其应用于整个类而不是整个类时，也可以应用于从中复制的相关方法。例如，[此处](https://github.com/huggingface/transformers/blob/2bd7a27a671fd1d98059124024f580f8f5c0f3b5/src/transformers/models/roberta/modeling_roberta.py#L598)可以看到`RobertaPreTrainedModel._init_weights`是从`BertPreTrainedModel`中相同方法的副本，其中也有一个注释：
 
 ```py
 # Copied from transformers.models.bert.modeling_bert.BertPreTrainedModel._init_weights
@@ -180,7 +180,7 @@ make fix-copies
 
 请注意，箭头周围不应该有任何空格（除非该空格当然是要替换的一部分）。
 
-您可以用逗号分隔多个模式。例如，`CamemberForMaskedLM`直接从`RobertaForMaskedLM`复制，具有两个替换：`Roberta`到`Camembert`和 `ROBERTA` 到 `CAMEMBERT`。可以在[此处](https://github.com/huggingface/transformers/blob/15082a9dc6950ecae63a0d3e5060b2fc7f15050a/src/transformers/models/camembert/modeling_camembert.py#L929)看到一个示例，在`RobertaForMaskedLM`中是`RobertaForMaskedLM`，对应的注释是：
+你可以用逗号分隔多个模式。例如，`CamemberForMaskedLM`直接从`RobertaForMaskedLM`复制，具有两个替换：`Roberta`到`Camembert`和 `ROBERTA` 到 `CAMEMBERT`。可以在[此处](https://github.com/huggingface/transformers/blob/15082a9dc6950ecae63a0d3e5060b2fc7f15050a/src/transformers/models/camembert/modeling_camembert.py#L929)看到一个示例，在`RobertaForMaskedLM`中是`RobertaForMaskedLM`，对应的注释是：
 
 ```py
 # Copied from transformers.models.roberta.modeling_roberta.RobertaForMaskedLM with Roberta->Camembert, ROBERTA->CAMEMBERT

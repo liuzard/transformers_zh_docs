@@ -1,13 +1,13 @@
 <!--版权2022 HuggingFace团队保留所有权利。
 
-根据Apache许可证第2.0版（“许可证”）进行许可；除非符合许可证，否则您不能使用此文件。
-您可以在以下位置获得许可证的副本
+根据Apache许可证第2.0版（“许可证”）进行许可；除非符合许可证，否则你不能使用此文件。
+你可以在以下位置获得许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，否则根据许可证分发的软件是按"原样"分发的，不附带任何明示或暗示的担保或条件。详细了解许可证的特定语言，请参阅许可证
 
-⚠️请注意，此文件采用Markdown格式，但包含我们doc-builder的特定语法（类似于MDX），在您的Markdown查看器中可能无法正确呈现。-->
+⚠️请注意，此文件采用Markdown格式，但包含我们doc-builder的特定语法（类似于MDX），在你的Markdown查看器中可能无法正确呈现。-->
 
 # ViTMSN
 
@@ -33,14 +33,14 @@ ViTMSN模型由Mahmoud Assran, Mathilde Caron, Ishan Misra, Piotr Bojanowski, Fl
 
 ## 资源
 
-下面是官方Hugging Face和社区（通过🌎标识）的资源列表，可帮助您开始使用ViT MSN。
+下面是官方Hugging Face和社区（通过🌎标识）的资源列表，可帮助你开始使用ViT MSN。
 
 <PipelineTag pipeline="image-classification"/>
 
 - [`ViTMSNForImageClassification`]支持使用这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification.ipynb)。
 - 另请参阅：[图像分类任务指南](../tasks/image_classification)
 
-如果您有兴趣提交要包含在此处的资源，请随时提出Pull Request，我们将进行审查！这个资源应该展示一些新的东西，而不是重复现有的资源。
+如果你有兴趣提交要包含在此处的资源，请随时提出Pull Request，我们将进行审查！这个资源应该展示一些新的东西，而不是重复现有的资源。
 
 ## ViTMSNConfig
 

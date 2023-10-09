@@ -1,10 +1,10 @@
 版权©2022 HuggingFace团队。保留所有权利。
 
-根据Apache许可证第2.0版（“许可证”），您除非符合许可证的规定，否则不得使用此文件。您可以在下面的链接找到许可证的副本。
+根据Apache许可证第2.0版（“许可证”），你除非符合许可证的规定，否则不得使用此文件。你可以在下面的链接找到许可证的副本。
 
 http://www.apache.org/licenses/LICENSE-2.0
 
-请注意，此文件以Markdown格式编写，但包含用于我们的文档构建器（类似于MDX）的特定语法，可能无法在您的Markdown查看器中正确显示。
+请注意，此文件以Markdown格式编写，但包含用于我们的文档构建器（类似于MDX）的特定语法，可能无法在你的Markdown查看器中正确显示。
 
 音频分类
 
@@ -14,23 +14,23 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 音频分类-与文本一样-将类标签输出分配给输入数据。唯一的区别是，使用原始音频波形而不是文本输入。音频分类的一些实际应用包括识别说话者意图，语言分类，甚至通过声音识别动物物种。
 
-本指南将向您展示如何：
+本指南将向你展示如何：
 
 1.在[MInDS-14](https://huggingface.co/datasets/PolyAI/minds14)数据集上微调[Wav2Vec2](https://huggingface.co/facebook/wav2vec2-base)，以实现说话者意图的分类。
-2.使用您微调的模型进行推理。
+2.使用你微调的模型进行推理。
 
 提示
 本教程中所示的任务支持以下模型架构：
 
 音频频谱图变换器，Data2VecAudio，Hubert，SEW，SEW-D，UniSpeech，UniSpeechSat，Wav2Vec2，Wav2Vec2-Conformer，WavLM，Whisper
 
-在开始之前，请确保您已安装所有必要的库：
+在开始之前，请确保你已安装所有必要的库：
 
 ```bash
 pip install transformers datasets evaluate
 ```
 
-我们鼓励您登录到Hugging Face账户，这样您就可以上传和共享您的模型。当提示时，输入您的令牌进行登录：
+我们鼓励你登录到Hugging Face账户，这样你就可以上传和共享你的模型。当提示时，输入你的令牌进行登录：
 
 ```py
 >>> from huggingface_hub import notebook_login
@@ -48,7 +48,7 @@ pip install transformers datasets evaluate
 >>> minds = load_dataset("PolyAI/minds14", name="en-US", split="train")
 ```
 
-将数据集的“train”拆分为较小的训练集和测试集，使用[`~datasets.Dataset.train_test_split`]方法。这样您可以有机会在处理完整数据集之前进行实验和确认一切正常。
+将数据集的“train”拆分为较小的训练集和测试集，使用[`~datasets.Dataset.train_test_split`]方法。这样你可以有机会在处理完整数据集之前进行实验和确认一切正常。
 
 ```py
 >>> minds = minds.train_test_split(test_size=0.2)
@@ -70,7 +70,7 @@ DatasetDict({
 })
 ```
 
-数据集包含许多有用的信息，例如`lang_id`和`english_transcription`，但在本指南中，您将专注于`audio`和`intent_class`。使用[`~datasets.Dataset.remove_columns`]方法删除其他列：
+数据集包含许多有用的信息，例如`lang_id`和`english_transcription`，但在本指南中，你将专注于`audio`和`intent_class`。使用[`~datasets.Dataset.remove_columns`]方法删除其他列：
 
 ```py
 >>> minds = minds.remove_columns(["path", "transcription", "english_transcription", "lang_id"])
@@ -119,7 +119,7 @@ DatasetDict({
 >>> feature_extractor = AutoFeatureExtractor.from_pretrained("facebook/wav2vec2-base")
 ```
 
-MInDS-14数据集的采样率为8000khz（您可以在其[数据集卡片](https://huggingface.co/datasets/PolyAI/minds14)中找到此信息），这意味着您需要将数据集重采样为16000kHz以使用预训练的Wav2Vec2模型：
+MInDS-14数据集的采样率为8000khz（你可以在其[数据集卡片](https://huggingface.co/datasets/PolyAI/minds14)中找到此信息），这意味着你需要将数据集重采样为16000kHz以使用预训练的Wav2Vec2模型：
 
 ```py
 >>> minds = minds.cast_column("audio", Audio(sampling_rate=16_000))
@@ -134,7 +134,7 @@ MInDS-14数据集的采样率为8000khz（您可以在其[数据集卡片](https
 现在创建一个预处理函数：
 
 1. 调用`audio`列以加载和（如果必要）重采样音频文件。
-2. 检查音频文件的采样率是否与音频数据模型的采样率匹配。您可以在Wav2Vec2[模型卡片](https://huggingface.co/facebook/wav2vec2-base)中找到此信息。
+2. 检查音频文件的采样率是否与音频数据模型的采样率匹配。你可以在Wav2Vec2[模型卡片](https://huggingface.co/facebook/wav2vec2-base)中找到此信息。
 3. 设置最大输入长度，以便批处理更长的输入而不会将其截断。
 
 ```py
@@ -155,7 +155,7 @@ MInDS-14数据集的采样率为8000khz（您可以在其[数据集卡片](https
 
 评估
 
-在训练过程中包含指标通常有助于评估模型的性能。您可以使用🤗[Evaluate](https://huggingface.co/docs/evaluate/index)库快速加载评估方法。对于此任务，加载[accuracy](https://huggingface.co/spaces/evaluate-metric/accuracy)指标（请参阅🤗 Evaluate [quick tour](https://huggingface.co/docs/evaluate/a_quick_tour)以了解有关如何加载和计算指标的更多信息）：
+在训练过程中包含指标通常有助于评估模型的性能。你可以使用🤗[Evaluate](https://huggingface.co/docs/evaluate/index)库快速加载评估方法。对于此任务，加载[accuracy](https://huggingface.co/spaces/evaluate-metric/accuracy)指标（请参阅🤗 Evaluate [quick tour](https://huggingface.co/docs/evaluate/a_quick_tour)以了解有关如何加载和计算指标的更多信息）：
 
 ```py
 >>> import evaluate
@@ -163,7 +163,7 @@ MInDS-14数据集的采样率为8000khz（您可以在其[数据集卡片](https
 >>> accuracy = evaluate.load("accuracy")
 ```
 
-然后创建一个函数，将您的预测和标签传递给[`~evaluate.EvaluationModule.compute`]以计算准确率：
+然后创建一个函数，将你的预测和标签传递给[`~evaluate.EvaluationModule.compute`]以计算准确率：
 
 ```py
 >>> import numpy as np
@@ -173,11 +173,11 @@ MInDS-14数据集的采样率为8000khz（您可以在其[数据集卡片](https
 ...     return accuracy.compute(predictions=predictions, references=eval_pred.label_ids)
 ```
 
-现在您的`compute_metrics`函数已准备就绪，当您设置训练时将返回它。
+现在你的`compute_metrics`函数已准备就绪，当你设置训练时将返回它。
 
 训练
 
-现在您准备开始训练模型了！使用[`AutoModelForAudioClassification`]加载Wav2Vec2模型以及期望标签的数量和标签映射：
+现在你准备开始训练模型了！使用[`AutoModelForAudioClassification`]加载Wav2Vec2模型以及期望标签的数量和标签映射：
 
 ```py
 >>> from transformers import AutoModelForAudioClassification, TrainingArguments, Trainer
@@ -190,7 +190,7 @@ MInDS-14数据集的采样率为8000khz（您可以在其[数据集卡片](https
 
 到此为止，只剩下三个步骤：
 
-1. 在[`TrainingArguments`]中定义您的训练超参数。唯一需要的参数是`output_dir`，它指定了保存模型的位置。通过设置`push_to_hub=True`将此模型推送到Hub（需要登录到Hugging Face上载您的模型）。在每个epoch结束时，[`Trainer`]将评估准确性并保存训练检查点。
+1. 在[`TrainingArguments`]中定义你的训练超参数。唯一需要的参数是`output_dir`，它指定了保存模型的位置。通过设置`push_to_hub=True`将此模型推送到Hub（需要登录到Hugging Face上载你的模型）。在每个epoch结束时，[`Trainer`]将评估准确性并保存训练检查点。
 2. 将训练参数与模型、数据集、标记器、数据整理器和`compute_metrics`函数一起传递给[`Trainer`]。
 3. 调用[`~Trainer.train`]以微调模型。
 
@@ -223,7 +223,7 @@ MInDS-14数据集的采样率为8000khz（您可以在其[数据集卡片](https
 >>> trainer.train()
 ```
 
-训练完成后，使用[`~transformers.Trainer.push_to_hub`]方法将模型分享到Hub，以便所有人都可以使用您的模型：
+训练完成后，使用[`~transformers.Trainer.push_to_hub`]方法将模型分享到Hub，以便所有人都可以使用你的模型：
 
 ```py
 >>> trainer.push_to_hub()
@@ -231,7 +231,7 @@ MInDS-14数据集的采样率为8000khz（您可以在其[数据集卡片](https
 
 推理
 
-很好，现在您已经微调了一个模型，可以将其用于推理！
+很好，现在你已经微调了一个模型，可以将其用于推理！
 
 加载要运行推理的音频文件。记得要根据需要重新采样音频文件的采样率以匹配模型的采样率。
 
@@ -244,7 +244,7 @@ MInDS-14数据集的采样率为8000khz（您可以在其[数据集卡片](https
 >>> audio_file = dataset[0]["audio"]["path"]
 ```
 
-尝试使用[`pipeline`]在推理中使用微调的模型最简单的方法是将其用于音频分类。用您的模型实例化一个音频分类的`pipeline`，并将音频文件传递给它：
+尝试使用[`pipeline`]在推理中使用微调的模型最简单的方法是将其用于音频分类。用你的模型实例化一个音频分类的`pipeline`，并将音频文件传递给它：
 
 ```py
 >>> from transformers import pipeline
@@ -260,7 +260,7 @@ MInDS-14数据集的采样率为8000khz（您可以在其[数据集卡片](https
 ]
 ```
 
-如果愿意，您也可以手动复制`pipeline`的结果：
+如果愿意，你也可以手动复制`pipeline`的结果：
 
 加载一个特征提取器来预处理音频文件并将`input`作为PyTorch张量返回：
 

@@ -1,7 +1,7 @@
 <!--版权所有2022 The HuggingFace团队。保留所有权利。
 
 根据Apache License, Version 2.0 (许可证)进行许可；除非符合许可证的规定，否则不得使用此文件。
-您可以在以下网址获取许可证的副本：
+你可以在以下网址获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -15,7 +15,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 该模型目前仅处于维护模式，因此不会接受任何更改其代码的新PR。
 
 如果在运行该模型时遇到任何问题，请重新安装支持该模型的最后一个版本：v4.30.0。
-您可以通过运行以下命令来执行此操作：`pip install -U transformers==4.30.0`。
+你可以通过运行以下命令来执行此操作：`pip install -U transformers==4.30.0`。
 
 </Tip>
 
@@ -29,7 +29,7 @@ Trajectory Transformer模型是由Michael Janner，Qiyang Li，Sergey Levine在�
 
 提示：
 
-该Transformer用于深度强化学习。要使用它，您需要从所有先前的时间步长中创建行动、状态和奖励的序列。该模型将把所有这些元素视为一个大序列（一个轨迹）。
+该Transformer用于深度强化学习。要使用它，你需要从所有先前的时间步长中创建行动、状态和奖励的序列。该模型将把所有这些元素视为一个大序列（一个轨迹）。
 
 该模型由[CarlCochet](https://huggingface.co/CarlCochet)贡献。原始代码可在[此处](https://github.com/jannerm/trajectory-transformer)找到。
 

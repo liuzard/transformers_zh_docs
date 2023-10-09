@@ -10,7 +10,7 @@
 * 客户服务和电子商务：VQA可以通过允许用户提问产品来提升用户体验。
 * 图像检索：VQA模型可以用于检索具有特定特征的图像。例如，用户可以询问“有一只狗吗？”以从一组图像中找到所有包含狗的图像。
 
-在本指南中，您将学习以下内容：
+在本指南中，你将学习以下内容：
 
 - 在[`Graphcore/vqa`数据集](https://huggingface.co/datasets/Graphcore/vqa)上微调分类VQA模型，特别是[ViLT](../model_doc/vilt)。
 - 使用经微调的ViLT进行推理。
@@ -22,13 +22,13 @@ ViLT模型将文本嵌入集成到视觉Transformer（ViT）中，使其可以�
 
 较新的模型，如BLIP、BLIP-2和InstructBLIP，将VQA作为生成任务处理。在本指南的后面部分，我们将说明如何使用它们进行零-shot VQA推理。
 
-在开始之前，请确保您已安装了所有必要的库。
+在开始之前，请确保你已安装了所有必要的库。
 
 ```bash
 pip install -q transformers datasets
 ```
 
-我们鼓励您与社区共享您的模型。登录到您的Hugging Face帐号，将其上传到🤗 Hub。在提示时，输入您的令牌以登录：
+我们鼓励你与社区共享你的模型。登录到你的Hugging Face帐号，将其上传到🤗 Hub。在提示时，输入你的令牌以登录：
 
 ```py
 >>> from huggingface_hub import notebook_login
@@ -44,9 +44,9 @@ pip install -q transformers datasets
 
 ## 加载数据
 
-为了说明目的，在本指南中，我们使用了`Graphcore/vqa`数据集的非常小的样本。您可以在[🤗 Hub](https://huggingface.co/datasets/Graphcore/vqa)上找到完整的数据集。
+为了说明目的，在本指南中，我们使用了`Graphcore/vqa`数据集的非常小的样本。你可以在[🤗 Hub](https://huggingface.co/datasets/Graphcore/vqa)上找到完整的数据集。
 
-作为[`Graphcore/vqa`数据集](https://huggingface.co/datasets/Graphcore/vqa)的替代，您可以从官方的[VQA数据集页面](https://visualqa.org/download.html)手动下载相同的数据。如果您想使用自定义数据跟随本教程，请查看在🤗 Datasets文档中的[创建图像数据集](https://huggingface.co/docs/datasets/image_dataset#loading-script)指南。
+作为[`Graphcore/vqa`数据集](https://huggingface.co/datasets/Graphcore/vqa)的替代，你可以从官方的[VQA数据集页面](https://visualqa.org/download.html)手动下载相同的数据。如果你想使用自定义数据跟随本教程，请查看在🤗 Datasets文档中的[创建图像数据集](https://huggingface.co/docs/datasets/image_dataset#loading-script)指南。
 
 让我们加载验证集的前200个示例，并探索数据集的特征：
 
@@ -88,9 +88,9 @@ Dataset({
 >>> dataset = dataset.remove_columns(['question_type', 'question_id', 'answer_type'])
 ```
 
-正如您所见，`label`特征包含对相同问题的多个答案（此处称为`ids`），它们是由不同的人类标注者收集到的。这是因为对问题的答案可能是主观的。在这种情况下，问题是“他在哪里看？”。有人用“下面”进行注释，有人用“在桌子上”，还有人用“滑板”等等。
+正如你所见，`label`特征包含对相同问题的多个答案（此处称为`ids`），它们是由不同的人类标注者收集到的。这是因为对问题的答案可能是主观的。在这种情况下，问题是“他在哪里看？”。有人用“下面”进行注释，有人用“在桌子上”，还有人用“滑板”等等。
 
-查看图像并考虑一下您会给出哪个答案：
+查看图像并考虑一下你会给出哪个答案：
 
 ```python
 >>> from PIL import Image
@@ -181,7 +181,7 @@ Dataset({
 ...     return encoding
 ```
 
-为了在整个数据集上应用预处理函数，使用🤗 Datasets的[`~datasets.map`]函数。您可以通过将`batched=True`设置为一次处理数据集的多个元素来加速`map`。此时，可以删除您不需要的列。
+为了在整个数据集上应用预处理函数，使用🤗 Datasets的[`~datasets.map`]函数。你可以通过将`batched=True`设置为一次处理数据集的多个元素来加速`map`。此时，可以删除你不需要的列。
 
 ```py
 >>> processed_dataset = flat_dataset.map(preprocess_data, batched=True, remove_columns=['question','question_type',  'question_id', 'image_id', 'answer_type', 'label.ids', 'label.weights'])
@@ -202,7 +202,7 @@ Dataset({
 
 ## 训练模型
 
-您现在已经准备好开始训练模型了！使用[`ViltForQuestionAnswering`]加载ViLT模型。指定标签的数量以及标签映射：
+你现在已经准备好开始训练模型了！使用[`ViltForQuestionAnswering`]加载ViLT模型。指定标签的数量以及标签映射：
 
 ```py
 >>> from transformers import ViltForQuestionAnswering
@@ -212,7 +212,7 @@ Dataset({
 
 此时，只需要三个步骤即可完成：
 
-1. 在[`TrainingArguments`]中定义您的训练超参数：
+1. 在[`TrainingArguments`]中定义你的训练超参数：
 
 ```py
 >>> from transformers import TrainingArguments
@@ -246,13 +246,13 @@ Dataset({
 ... )
 ```
 
-3. 调用[`~Trainer.train`]来微调您的模型。
+3. 调用[`~Trainer.train`]来微调你的模型。
 
 ```py
 >>> trainer.train() 
 ```
 
-一旦训练完成，使用[`~Trainer.push_to_hub`]方法将您的模型共享到Hub上：
+一旦训练完成，使用[`~Trainer.push_to_hub`]方法将你的模型共享到Hub上：
 
 ```py
 >>> trainer.push_to_hub()
@@ -260,7 +260,7 @@ Dataset({
 
 ## 推理
 
-既然您已经微调了一个ViLT模型，并将其上传到了🤗 Hub上，您可以使用它进行推理。尝试将您微调的模型用于推理的最简单方式是在[`Pipeline`]中使用它。
+既然你已经微调了一个ViLT模型，并将其上传到了🤗 Hub上，你可以使用它进行推理。尝试将你微调的模型用于推理的最简单方式是在[`Pipeline`]中使用它。
 
 ```py
 >>> from transformers import pipeline
@@ -280,10 +280,10 @@ Dataset({
 [{'score': 0.5498199462890625, 'answer': 'down'}]
 ```
 
-尽管置信度不高，但该模型确实学到了一些东西。通过更多的示例和更长时间的训练，您将获得更好的结果！
+尽管置信度不高，但该模型确实学到了一些东西。通过更多的示例和更长时间的训练，你将获得更好的结果！
 
-如果您愿意，您也可以手动复制Pipeline的结果：
-1. 获取一个图像和一个问题，使用您模型的处理器对其进行准备。
+如果你愿意，你也可以手动复制Pipeline的结果：
+1. 获取一个图像和一个问题，使用你模型的处理器对其进行准备。
 2. 通过模型转发预处理结果。
 3. 从logits中获取最可能的答案id，并在`id2label`中找到实际答案。
 
@@ -312,7 +312,7 @@ Predicted answer: down
 
 前一模型将VQA视为分类任务进行处理。近期的一些模型，如BLIP、BLIP-2和InstructBLIP，则将VQA视为生成任务。让我们以[BLIP-2](../model_doc/blip-2)为例。它引入了一种新的视觉-语言预训练范式，其中可以使用任意预训练视觉编码器和LLM的组合（在[BLIP-2博文](https://huggingface.co/blog/blip-2)中了解更多）。这使得在多个视觉-语言任务中实现了最先进的结果，包括视觉问答。
 
-让我们看看您如何在VQA任务上使用这个模型。首先，让我们加载模型。这里我们将模型明确发送到GPU（如果有的话），而之前在训练时不需要这样做，因为[`Trainer`]会自动处理： 
+让我们看看你如何在VQA任务上使用这个模型。首先，让我们加载模型。这里我们将模型明确发送到GPU（如果有的话），而之前在训练时不需要这样做，因为[`Trainer`]会自动处理： 
 
 ```py
 >>> from transformers import AutoProcessor, Blip2ForConditionalGeneration
@@ -349,4 +349,4 @@ Predicted answer: down
 "He is looking at the crowd"
 ```
 
-正如您所见，模型识别了人群和面部的朝向（向下看），但它似乎忽略了人群在滑冰者后面的事实。尽管如此，在无法获取人工注释数据集的情况下，这种方法可以快速产生有用的结果。
+正如你所见，模型识别了人群和面部的朝向（向下看），但它似乎忽略了人群在滑冰者后面的事实。尽管如此，在无法获取人工注释数据集的情况下，这种方法可以快速产生有用的结果。

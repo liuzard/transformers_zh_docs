@@ -8,7 +8,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 除非适用法律要求或书面同意，按原样发布的软件分发在“即使在没有任何担保或条件的情况下，在
 基础”基础上。请参阅许可证下的特定语言以及许可限制等错误。
 
-⚠️ 请注意这个文件是在 Markdown 中，但包含我们的文档构建器（类似于 MDX）的特定语法，这可能不会在您的 Markdown 查看器中正确显示。
+⚠️ 请注意这个文件是在 Markdown 中，但包含我们的文档构建器（类似于 MDX）的特定语法，这可能不会在你的 Markdown 查看器中正确显示。
 
 -->
 
@@ -29,7 +29,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 导出为 ONNX 格式后，可以对模型进行以下操作：
 - 通过诸如 [图优化](https://huggingface.co/docs/optimum/onnxruntime/usage_guides/optimization) 和 [量化](https://huggingface.co/docs/optimum/onnxruntime/usage_guides/quantization) 等技术对推理进行优化。
 - 使用 ONNX Runtime 通过 [`ORTModelForXXX` 类](https://huggingface.co/docs/optimum/onnxruntime/package_reference/modeling_ort)运行，
-它们与 🤗 Transformers 中您习惯使用的 `AutoModel` API 相同。
+它们与 🤗 Transformers 中你习惯使用的 `AutoModel` API 相同。
 - 使用[优化的推理pipeline](https://huggingface.co/docs/optimum/main/en/onnxruntime/usage_guides/pipelines)，其与 🤗 Transformers 中的 [`pipeline`] 函数具有相同的 API。
 
 🤗 Optimum 通过利用配置对象提供对 ONNX 导出的支持。这些配置对象针对许多模型体系结构都已准备好，并设计易于扩展到其他体系结构。
@@ -60,7 +60,7 @@ optimum-cli export onnx --help
 optimum-cli export onnx --model distilbert-base-uncased-distilled-squad distilbert_base_uncased_squad_onnx/
 ```
 
-您应该会看到日志显示进度并显示保存了结果 `model.onnx` 的位置，例如：
+你应该会看到日志显示进度并显示保存了结果 `model.onnx` 的位置，例如：
 
 ```bash
 Validating ONNX model distilbert_base_uncased_squad_onnx/model.onnx...
@@ -74,7 +74,7 @@ Validating ONNX model distilbert_base_uncased_squad_onnx/model.onnx...
 The ONNX export succeeded and the exported model was saved at: distilbert_base_uncased_squad_onnx
 ```
 
-上面的示例演示了如何导出来自 🤗 Hub 的检查点。当导出本地模型时，首先确保将模型的权重和分词器文件保存在同一个目录（`local_path`）。当使用 CLI 时，将 `local_path` 传递给 `model` 参数，而不是检查点名称在 🤗 Hub 中，并提供 `--task` 参数。您可以在[🤗 Optimum 文档](https://huggingface.co/docs/optimum/exporters/task_manager)中查看支持的任务列表。如果未提供 `task` 参数，它将默认为不具有任何任务特定头的模型体系结构。
+上面的示例演示了如何导出来自 🤗 Hub 的检查点。当导出本地模型时，首先确保将模型的权重和分词器文件保存在同一个目录（`local_path`）。当使用 CLI 时，将 `local_path` 传递给 `model` 参数，而不是检查点名称在 🤗 Hub 中，并提供 `--task` 参数。你可以在[🤗 Optimum 文档](https://huggingface.co/docs/optimum/exporters/task_manager)中查看支持的任务列表。如果未提供 `task` 参数，它将默认为不具有任何任务特定头的模型体系结构。
 
 ```bash
 optimum-cli export onnx --model local_path --task question-answering distilbert_base_uncased_squad_onnx/
@@ -100,7 +100,7 @@ optimum-cli export onnx --model keras-io/transformers-qa distilbert_base_cased_s
 
 ### 使用 `optimum.onnxruntime` 将 🤗 Transformers 模型导出到 ONNX
 
-与 CLI 相比，您也可以按以下方式以编程方式将 🤗 Transformers 模型导出为 ONNX：
+与 CLI 相比，你也可以按以下方式以编程方式将 🤗 Transformers 模型导出为 ONNX：
 
 ```python
 >>> from optimum.onnxruntime import ORTModelForSequenceClassification
@@ -120,7 +120,7 @@ optimum-cli export onnx --model keras-io/transformers-qa distilbert_base_cased_s
 
 ### 导出不支持的体系结构的模型
 
-如果您希望通过为当前无法导出的模型添加支持来进行贡献，您应首先检查 [`optimum.exporters.onnx`](https://huggingface.co/docs/optimum/exporters/onnx/overview) 是否支持该模型，如果不支持，您可以直接[对 🤗 Optimum 进行贡献](https://huggingface.co/docs/optimum/exporters/onnx/usage_guides/contribute)。
+如果你希望通过为当前无法导出的模型添加支持来进行贡献，你应首先检查 [`optimum.exporters.onnx`](https://huggingface.co/docs/optimum/exporters/onnx/overview) 是否支持该模型，如果不支持，你可以直接[对 🤗 Optimum 进行贡献](https://huggingface.co/docs/optimum/exporters/onnx/usage_guides/contribute)。
 
 ### 使用 `transformers.onnx` 导出模型
 

@@ -1,7 +1,7 @@
 <!--版权 2020 年 HuggingFace 团队。版权所有。
 
 根据 Apache 许可证第 2.0 版（“许可证”），除非符合许可证的规定，否则无法使用此文件。
-您可以在以下网址获得许可证的副本：
+你可以在以下网址获得许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -10,7 +10,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 有关明示或暗示的更多信息，请参阅许可证中的条款。
 
 注意，该文件是以 Markdown 的格式编写的，但包含了特定语法，供我们的 doc-builder（类似于 MDX）使用，这可能不能
-在您的 Markdown 查看器中正确渲染。-->
+在你的 Markdown 查看器中正确渲染。-->
 
 # DistilBERT
 
@@ -39,8 +39,8 @@ distilled version of BERT: smaller, faster, cheaper and lighter](https://arxiv.o
 
 提示：
 
-- DistilBERT 模型没有 `token_type_ids`，您不需要指示哪个标记属于哪个片段。只需使用分隔标记 `tokenizer.sep_token`（或 `[SEP]`）将片段分开即可。
-- DistilBERT 模型没有选择输入位置的选项（`position_ids` 输入）。如果需要，可以添加该选项，只需让我们知道您是否需要。
+- DistilBERT 模型没有 `token_type_ids`，你不需要指示哪个标记属于哪个片段。只需使用分隔标记 `tokenizer.sep_token`（或 `[SEP]`）将片段分开即可。
+- DistilBERT 模型没有选择输入位置的选项（`position_ids` 输入）。如果需要，可以添加该选项，只需让我们知道你是否需要。
 - 与 BERT 相同但更小。通过对预训练的 BERT 模型进行蒸馏训练，这意味着它被训练为预测与较大模型相同的概率。实际目标是：
 
     * 提供与教师模型相同的概率
@@ -51,7 +51,7 @@ distilled version of BERT: smaller, faster, cheaper and lighter](https://arxiv.o
 
 ## 资源
 
-以下是官方 Hugging Face 和社区（由 🌎 标记）资源列表，可帮助您开始使用 DistilBERT。如果您有兴趣提交资源以包含在此处，请随时提出拉取请求，我们将进行审核！资源最好应该展示一些新的东西，而不是重复现有的资源。
+以下是官方 Hugging Face 和社区（由 🌎 标记）资源列表，可帮助你开始使用 DistilBERT。如果你有兴趣提交资源以包含在此处，请随时提出拉取请求，我们将进行审核！资源最好应该展示一些新的东西，而不是重复现有的资源。
 
 <PipelineTag pipeline="text-classification"/>
 

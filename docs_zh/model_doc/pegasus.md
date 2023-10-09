@@ -1,11 +1,11 @@
 <!--版权保留-->
-版权所有2020 HuggingFace团队。已经获得许可根据Apache许可证第2版（“许可证”）进行使用此文件，除非符合许可证中的要求，否则您不得使用此文件。您可以在以下位置获取许可证的副本：
+版权所有2020 HuggingFace团队。已经获得许可根据Apache许可证第2版（“许可证”）进行使用此文件，除非符合许可证中的要求，否则你不得使用此文件。你可以在以下位置获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，软件在许可证下分发时是按“原样”的基础分发的，不附带任何明示或暗示的条件或保证。详细了解许可证的特定语言，请参阅许可证。
 
-⚠️请注意，此文件以Markdown格式编写，但包含特定于我们doc-builder的语法（类似于MDX），可能无法在您的Markdown查看器中正确渲染。
+⚠️请注意，此文件以Markdown格式编写，但包含特定于我们doc-builder的语法（类似于MDX），可能无法在你的Markdown查看器中正确渲染。
 
 # Pegasus
 
@@ -18,7 +18,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 </a>
 </div>
 
-**免责声明：**如果您发现有什么奇怪的地方，请[提交Github问题](https://github.com/huggingface/transformers/issues/new?assignees=sshleifer&labels=&template=bug-report.md&title)并@patrickvonplaten。
+**免责声明：**如果你发现有什么奇怪的地方，请[提交Github问题](https://github.com/huggingface/transformers/issues/new?assignees=sshleifer&labels=&template=bug-report.md&title)并@patrickvonplaten。
 
 ## 概览
 

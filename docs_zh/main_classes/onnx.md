@@ -3,7 +3,7 @@
 根据Apache License，Version 2.0（"许可证"），除非获得许可证，
 否则不得使用此文件。
 
-您可以在以下位置获取许可证副本：
+你可以在以下位置获取许可证副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -24,7 +24,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ## ONNX 配置
 
-我们提供了三个抽象类供您继承，具体取决于您希望导出的模型架构类型：
+我们提供了三个抽象类供你继承，具体取决于你希望导出的模型架构类型：
 
 * 基于Encoder的模型继承自[`~onnx.config.OnnxConfig`]
 * 基于Decoder的模型继承自[`~onnx.config.OnnxConfigWithPast`]
@@ -44,7 +44,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ## ONNX 特性
 
-每个ONNX配置都与一组“特性”相关联，使您能够为不同类型的拓扑或任务导出模型。
+每个ONNX配置都与一组“特性”相关联，使你能够为不同类型的拓扑或任务导出模型。
 
 ### FeaturesManager
 

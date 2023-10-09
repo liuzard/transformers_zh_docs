@@ -1,12 +1,12 @@
 <!--版权2020 HuggingFace团队。版权所有。
 
-根据Apache许可证第2.0版（"许可证"）许可；除非符合许可证的规定，否则您不得使用此文件。
-您可以在以下网址获取许可证副本
+根据Apache许可证第2.0版（"许可证"）许可；除非符合许可证的规定，否则你不得使用此文件。
+你可以在以下网址获取许可证副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证授权的软件是基于“按原样”（as is）的基础分发的，无论是明示的还是暗示的。请参阅许可证以获取特定语言的权限和限制。
-⚠️注意，这个文件是Markdown格式，但包含了我们的doc-builder的特殊语法（类似于MDX），这个语法在您的Markdown查看器中可能无法正确显示。
+⚠️注意，这个文件是Markdown格式，但包含了我们的doc-builder的特殊语法（类似于MDX），这个语法在你的Markdown查看器中可能无法正确显示。
 
 -->
 
@@ -21,7 +21,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 </a>
 </div>
 
-**免责声明：**如果您发现任何奇怪的问题，请提交[Github Issue](https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template=bug-report.md&title)并指派给@patrickvonplaten
+**免责声明：**如果你发现任何奇怪的问题，请提交[Github Issue](https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template=bug-report.md&title)并指派给@patrickvonplaten
 
 ## MBart概述
 

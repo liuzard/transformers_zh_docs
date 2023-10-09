@@ -1,12 +1,12 @@
 <!--版权2023年赞美脸团队。保留所有权利。
 
-根据Apache License，版本2.0（“许可证”）获得许可；您不得使用此文件，除非符合许可证的要求。您可以在以下位置获取许可证的副本
+根据Apache License，版本2.0（“许可证”）获得许可；你不得使用此文件，除非符合许可证的要求。你可以在以下位置获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件可以根据“按原样的基础”分发，不附带任何形式的保证或条件，无论是明示的还是默示的。有关特定语言的详细信息，请参见许可证下面的限制。
 
-⚠️请注意，此文件为Markdown格式，但包含我们doc-builder（类似于MDX）的特定语法，您的Markdown查看器可能无法正确渲染。
+⚠️请注意，此文件为Markdown格式，但包含我们doc-builder（类似于MDX）的特定语法，你的Markdown查看器可能无法正确渲染。
 
 -->
 
@@ -35,7 +35,7 @@ optimum-cli export tflite --help
 optimum-cli export tflite --model bert-base-uncased --sequence_length 128 bert_tflite/
 ```
 
-您将看到指示进度并显示保存的 `model.tflite` 文件的位置的日志，如下所示：
+你将看到指示进度并显示保存的 `model.tflite` 文件的位置的日志，如下所示：
 
 ```bash
 验证TFLite模型...

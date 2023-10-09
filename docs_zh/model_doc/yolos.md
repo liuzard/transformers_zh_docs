@@ -1,13 +1,13 @@
 版权 2022 HuggingFace团队。 版权所有。
 
-根据Apache许可证第2版（“许可证”），除非符合许可证的规定，否则您不得使用此文件。
-您可以从以下位置获取许可证的副本：
+根据Apache许可证第2版（“许可证”），除非符合许可证的规定，否则你不得使用此文件。
+你可以从以下位置获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，否则根据许可证分发的软件是基于“按原样”无任何担保或条件的基础上分发的，在任何情况下都不对应用程序承担任何担保或条件，无论是明示的还是暗示的。有关许诺的具体语言，请参阅许可证。
 
-⚠️ 注意，此文件以Markdown格式编写，但包含我们 doc-builder 的特定语法（类似于 MDX），在您的Markdown查看器中可能无法正确渲染。
+⚠️ 注意，此文件以Markdown格式编写，但包含我们 doc-builder 的特定语法（类似于 MDX），在你的Markdown查看器中可能无法正确渲染。
 
 # YOLOS
 
@@ -32,14 +32,14 @@ alt="drawing" width="600" />
 
 ## 资源
 
-以下是官方 Hugging Face 和社区资源（🌎 表示）的列表，可帮助您开始使用 YOLOS。
+以下是官方 Hugging Face 和社区资源（🌎 表示）的列表，可帮助你开始使用 YOLOS。
 
 <PipelineTag pipeline="object-detection"/>
 
 - 所有演示推理 + 微调 [`YolosForObjectDetection`] 的示例笔记本可以在[这里](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/YOLOS)找到。
 - 参见：[Object detection 任务指南](../tasks/object_detection)
 
-如果您有兴趣提交要包含在此处的资源，请随时打开 Pull Request，我们将审核它！该资源应该展示一些新的东西，而不是重复现有的资源。
+如果你有兴趣提交要包含在此处的资源，请随时打开 Pull Request，我们将审核它！该资源应该展示一些新的东西，而不是重复现有的资源。
 
 ## YolosConfig
 

@@ -1,7 +1,7 @@
 <!--版权所有 2021 年 The HuggingFace 团队。保留所有权利。
 
 根据 Apache 许可证，第 2.0 版（“许可证”），除非遵从该许可证，否则不得使用此文件。
-您可以在下面获取许可证的副本
+你可以在下面获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -9,7 +9,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 没有任何明示或暗示的担保或条件。有关许可证下的特定语言的详细信息，请参阅许可证。
 
 ⚠️ 请注意，此文件以 Markdown 格式编写，但包含特定语法，适用于我们的 doc-builder（类似于 MDX），
-可能无法在您的 Markdown 查看器中正确显示。
+可能无法在你的 Markdown 查看器中正确显示。
 
 -->
 
@@ -27,7 +27,7 @@ LUKE 模型在 Yamada 等人提出的文章 [LUKE: Deep Contextualized Entity Re
 提示：
 
 - 这个实现与 [`RobertaModel`] 相同，只是增加了实体嵌入以及实体感知的自注意机制来改善涉及实体推理的任务性能。
-- LUKE 将实体视为输入标记；因此，它需要额外的输入参数 `entity_ids`、`entity_attention_mask`、`entity_token_type_ids` 和 `entity_position_ids`。您可以使用
+- LUKE 将实体视为输入标记；因此，它需要额外的输入参数 `entity_ids`、`entity_attention_mask`、`entity_token_type_ids` 和 `entity_position_ids`。你可以使用
   [`LukeTokenizer`] 获得这些参数。
 - [`LukeTokenizer`] 接受额外的输入参数 `entities` 和 `entity_spans`（输入文本中实体的基于字符的起始和结束位置）。`entities` 通常包含 [MASK] 类型的实体或维基百科实体。输入这些实体时的简要说明如下:
 
@@ -38,12 +38,12 @@ LUKE 模型在 Yamada 等人提出的文章 [LUKE: Deep Contextualized Entity Re
 
   - [`LukeForEntityClassification`] 用于对输入文本中的单个实体进行分类的任务，例如实体类型识别，例如 [Open Entity 数据集](https://www.cs.utexas.edu/~eunsol/html_pages/open_entity.html)。该模型在输出实体表示之上放置了一个线性头。
   - [`LukeForEntityPairClassification`] 用于对两个实体之间的关系进行分类的任务，例如关系分类，例如 [TACRED 数据集](https://nlp.stanford.edu/projects/tacred/)。该模型在给定实体对的输出表示的基础上放置了一个线性头。
-  - [`LukeForEntitySpanClassification`] 用于对实体跨度序列进行分类的任务，例如命名实体识别（NER）。该模型在输出实体表示之上放置了一个线性头。您可以通过将文本中的所有可能实体跨度输入模型来使用此模型进行 NER。
+  - [`LukeForEntitySpanClassification`] 用于对实体跨度序列进行分类的任务，例如命名实体识别（NER）。该模型在输出实体表示之上放置了一个线性头。你可以通过将文本中的所有可能实体跨度输入模型来使用此模型进行 NER。
 
-  [`LukeTokenizer`] 有一个 `task` 参数，您可以通过指定 `task="entity_classification"`、`task="entity_pair_classification"` 或
+  [`LukeTokenizer`] 有一个 `task` 参数，你可以通过指定 `task="entity_classification"`、`task="entity_pair_classification"` 或
   `task="entity_span_classification"` 来轻松地为这些头模型创建输入。请参阅每个头模型的示例代码。
 
-  您可以在[此处](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/LUKE)找到一个演示笔记本，介绍了如何对 [`LukeForEntityPairClassification`] 进行微调，用于关系分类。
+  你可以在[此处](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/LUKE)找到一个演示笔记本，介绍了如何对 [`LukeForEntityPairClassification`] 进行微调，用于关系分类。
 
   还有 3 个可用的笔记本，展示了如何使用 HuggingFace 的 LUKE 实现按照论文中报告的结果进行复现。它们可以在[此处](https://github.com/studio-ousia/luke/tree/master/notebooks)找到。
 

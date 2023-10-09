@@ -1,11 +1,11 @@
 <!--版权所有©2022 HuggingFace团队。
 
-根据Apache许可证第2版（“许可证”）许可；除非符合许可证的规定，否则您不得使用此文件。
-您可以在以下位置获得许可证的副本：
+根据Apache许可证第2版（“许可证”）许可；除非符合许可证的规定，否则你不得使用此文件。
+你可以在以下位置获得许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
-注意：本文件以Markdown格式编写，但包含了我们doc-builder的特定语法（类似于MDX），可能在您的Markdown查看器中无法正确呈现。
+注意：本文件以Markdown格式编写，但包含了我们doc-builder的特定语法（类似于MDX），可能在你的Markdown查看器中无法正确呈现。
 
 -->
 
@@ -23,7 +23,7 @@ FocalNet通过一种聚焦调制机制完全替换了自注意力（在模型如
 
 提示：
 
-- 您可以使用 [`AutoImageProcessor`] 类为模型准备图像。
+- 你可以使用 [`AutoImageProcessor`] 类为模型准备图像。
 
 此模型由[nielsr](https://huggingface.co/nielsr)提供。
 原始代码可在[此处](https://github.com/microsoft/FocalNet)找到。

@@ -1,8 +1,8 @@
 <!--
 版权© 2022 HuggingFace团队。版权所有。
 
-根据Apache许可证第2版（“许可证”），除非符合许可证的规定，否则您不得使用此文件。
-您可以在以下网址获取许可证副本：
+根据Apache许可证第2版（“许可证”），除非符合许可证的规定，否则你不得使用此文件。
+你可以在以下网址获取许可证副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -10,7 +10,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 无论是明示的还是暗示的，都没有任何形式的保证或条件。有关详细信息，请参阅许可证中的特定语言。
 
 ⚠️ 请注意，此文件是Markdown格式，但包含我们doc-builder（类似于MDX的）的特定语法，
-可能无法在您的Markdown查看器中正确呈现。
+可能无法在你的Markdown查看器中正确呈现。
 
 -->
 
@@ -18,7 +18,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ## 概述
 
-TimeSformer模型是由Facebook Research在[TimeSformer：时空注意力是否就是您对视频理解所需要的全部？](https://arxiv.org/abs/2102.05095)一文中提出的。
+TimeSformer模型是由Facebook Research在[TimeSformer：时空注意力是否就是你对视频理解所需要的全部？](https://arxiv.org/abs/2102.05095)一文中提出的。
 这项工作是行动识别领域的里程碑，是第一个基于转换器（Transformer）的视频模型。它启发了许多基于转换器的视频理解和分类论文。
 
 论文摘要如下所示：

@@ -1,4 +1,4 @@
-版权所有2023年The HuggingFace团队。Apache许可证第2.0版（“许可证”）许可，除非符合许可证的要求,否则你不能使用此文件。你可以获取许可证的副本。http://www.apache.org/licenses/LICENSE-2.0 unless You may obtain a copy of the License at。许可证要求适用法律或以书面形式同意，经授权分发软件仅以“只是”为基础，不附带任何保证或条件。请参阅许可以了解特定语言下许可证的限制和规定。⚠️请注意，此文件是Markdown格式，但包含我们doc-builder(类似于MDX)的特定语法，可能在您的Markdown视图器中无法正确渲染的内容。
+版权所有2023年The HuggingFace团队。Apache许可证第2.0版（“许可证”）许可，除非符合许可证的要求,否则你不能使用此文件。你可以获取许可证的副本。http://www.apache.org/licenses/LICENSE-2.0 unless You may obtain a copy of the License at。许可证要求适用法律或以书面形式同意，经授权分发软件仅以“只是”为基础，不附带任何保证或条件。请参阅许可以了解特定语言下许可证的限制和规定。⚠️请注意，此文件是Markdown格式，但包含我们doc-builder(类似于MDX)的特定语法，可能在你的Markdown视图器中无法正确渲染的内容。
 
 # MMS
 
@@ -20,11 +20,11 @@ ASR模型检查点可以在这里找到：[mms-1b-fl102](https://huggingface.co/
 
 - 所有ASR模型都接受与语音信号的原始波形对应的浮点数数组。原始波形应使用[`Wav2Vec2FeatureExtractor`]进行预处理。
 - 这些模型使用连接时间分类(CTC)进行训练，因此模型输出必须使用[`Wav2Vec2CTCTokenizer`]进行解码。
-- 您可以通过[`~Wav2Vec2PreTrainedModel.load_adapter`]为不同的语言加载不同的语言适配器的权重。语言适配器只包含大约200万个参数，因此在需要时可以高效地动态加载。
+- 你可以通过[`~Wav2Vec2PreTrainedModel.load_adapter`]为不同的语言加载不同的语言适配器的权重。语言适配器只包含大约200万个参数，因此在需要时可以高效地动态加载。
 
 #### 加载
 
-默认情况下，MMS仅加载英语的适配器权重。如果您想加载其他语言的适配器权重，请确保同时指定`target_lang=<您选择的目标语言>`和`ignore_mismatched_sizes=True`。要允许根据指定语言的词汇表调整语言模型头的大小，必须传递`ignore_mismatched_sizes=True`关键字。同样，处理器应该使用相同的目标语言加载。
+默认情况下，MMS仅加载英语的适配器权重。如果你想加载其他语言的适配器权重，请确保同时指定`target_lang=<你选择的目标语言>`和`ignore_mismatched_sizes=True`。要允许根据指定语言的词汇表调整语言模型头的大小，必须传递`ignore_mismatched_sizes=True`关键字。同样，处理器应该使用相同的目标语言加载。
 
 ```py
 from transformers import Wav2Vec2ForCTC, AutoProcessor
@@ -38,7 +38,7 @@ model = Wav2Vec2ForCTC.from_pretrained(model_id, target_lang=target_lang, ignore
 
 <Tip>
 
-您可以安全地忽略如下警告：
+你可以安全地忽略如下警告：
 
 ```text
 Some weights of Wav2Vec2ForCTC were not initialized from the model checkpoint at facebook/mms-1b-all and are newly initialized because the shapes did not match:
@@ -49,7 +49,7 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 
 </Tip>
 
-如果您想使用ASR流水线，可以像这样加载所选的目标语言：
+如果你想使用ASR流水线，可以像这样加载所选的目标语言：
 
 ```py
 from transformers import pipeline
@@ -180,7 +180,7 @@ Audio(waveform, rate=model.config.sampling_rate)
 
 对于某些具有非罗马字母方案（如阿拉伯语、汉语或印地语）的语言，需要[`uroman`](https://github.com/isi-nlp/uroman)Perl软件包来对文本输入进行预处理，将文字转换为罗马字母。
 
-您可以通过检查预训练令牌器的`is_uroman`属性来确定您的语言是否需要`uroman`软件包：
+你可以通过检查预训练令牌器的`is_uroman`属性来确定你的语言是否需要`uroman`软件包：
 
 ```python
 from transformers import VitsTokenizer
@@ -189,7 +189,7 @@ tokenizer = VitsTokenizer.from_pretrained("facebook/mms-tts-eng")
 print(tokenizer.is_uroman)
 ```
 
-如果需要，您应该在将文本输入传递给`VitsTokenizer`之前，先将uroman软件包应用于您的文本输入。因为目前令牌器不支持执行预处理本身。
+如果需要，你应该在将文本输入传递给`VitsTokenizer`之前，先将uroman软件包应用于你的文本输入。因为目前令牌器不支持执行预处理本身。
 
 要做到这一点，首先将uroman存储库克隆到本地计算机，并将bash变量`UROMAN`设置为本地路径：
 
@@ -199,7 +199,7 @@ cd uroman
 export UROMAN=$(pwd)
 ```
 
-您可以使用以下代码段使用uroman软件包对文本输入进行预处理。您可以依赖使用bash变量`UROMAN`指向uroman存储库，也可以将uroman目录作为参数传递给`uroman`函数：
+你可以使用以下代码段使用uroman软件包对文本输入进行预处理。你可以依赖使用bash变量`UROMAN`指向uroman存储库，也可以将uroman目录作为参数传递给`uroman`函数：
 
 ```python
 import torch
@@ -240,7 +240,7 @@ waveform = outputs.waveform[0]
 
 **提示：**
 
-* MMS-TTS检查点是在小写、无标点的文本上进行训练的。默认情况下，`VitsTokenizer` *归一化*输入，通过删除所有大小写和标点符号，以避免将未登录字符传递给模型。因此，模型不受大小写和标点符号的影响，因此在文本提示中应避免使用它们。您可以通过在调用令牌器时设置`noramlize=False`来禁用归一化，但这将导致非预期的行为，不建议这样做。
+* MMS-TTS检查点是在小写、无标点的文本上进行训练的。默认情况下，`VitsTokenizer` *归一化*输入，通过删除所有大小写和标点符号，以避免将未登录字符传递给模型。因此，模型不受大小写和标点符号的影响，因此在文本提示中应避免使用它们。你可以通过在调用令牌器时设置`noramlize=False`来禁用归一化，但这将导致非预期的行为，不建议这样做。
 * 通过将属性`model.speaking_rate`设置为所选择的值，可以变化说话速度。同理，噪声的随机性由`model.noise_scale`控制。
 
 ```python

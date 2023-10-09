@@ -1,7 +1,7 @@
 <!--版权所有2021年HuggingFace团队。保留所有权利。
 
-根据Apache License，Version 2.0许可（“许可证”）进行许可；除非符合许可证，否则您不得使用此文件。
-您可以在以下网址获取许可证的副本
+根据Apache License，Version 2.0许可（“许可证”）进行许可；除非符合许可证，否则你不得使用此文件。
+你可以在以下网址获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 

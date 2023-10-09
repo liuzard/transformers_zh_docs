@@ -1,7 +1,7 @@
 <!--版权所有2023年HuggingFace团队。保留所有权利。
 
 根据Apache许可证版本2.0（“许可证”），除非符合许可证，
-否则不得使用此文件。您可以在下面的链接地址获取许可证的副本：
+否则不得使用此文件。你可以在下面的链接地址获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -44,7 +44,7 @@ def expand_and_normalize_bbox(bboxes, doc_width, doc_height):
     bboxes[:, [1, 3]] = bboxes[:, [1, 3]] / height
 ```
 
-- [`~transformers.BrosForTokenClassification.forward`、`~transformers.BrosSpadeEEForTokenClassification.forward`、`~transformers.BrosSpadeEEForTokenClassification.forward`] 不仅需要 `input_ids` 和 `bbox`，还需要用于损失计算的 `box_first_token_mask`。这是一个掩蔽非第一个令牌的每个框的掩码。您可以通过在创建`input_ids`时保存边界框的起始令牌索引来获取该掩码。您可以使用以下代码生成`box_first_token_mask`，
+- [`~transformers.BrosForTokenClassification.forward`、`~transformers.BrosSpadeEEForTokenClassification.forward`、`~transformers.BrosSpadeEEForTokenClassification.forward`] 不仅需要 `input_ids` 和 `bbox`，还需要用于损失计算的 `box_first_token_mask`。这是一个掩蔽非第一个令牌的每个框的掩码。你可以通过在创建`input_ids`时保存边界框的起始令牌索引来获取该掩码。你可以使用以下代码生成`box_first_token_mask`，
     
 ```python
 def make_box_first_token_mask(bboxes, words, tokenizer, max_seq_length=512):

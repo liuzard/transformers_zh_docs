@@ -1,7 +1,7 @@
 <!--版权2023由HuggingFace和百度团队所有。
 
 根据Apache许可证第2.0版（“许可证”）许可；除非符合许可证中的规定，否则不得使用此文件。
-您可以获取许可证的副本：
+你可以获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 

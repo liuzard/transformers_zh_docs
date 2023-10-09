@@ -1,7 +1,7 @@
 <!--版权所有 2022 年 The HuggingFace 团队保留所有权利。
 
-根据 Apache 许可证第 2.0 版（“许可证”），除非符合许可证，否则您不得使用此文件。
-您可以在以下位置获取许可证的副本
+根据 Apache 许可证第 2.0 版（“许可证”），除非符合许可证，否则你不得使用此文件。
+你可以在以下位置获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -9,7 +9,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 没有任何明示或暗示的担保或条件。有关许可证的特定语言和限制，请参阅许可证。
 
 ⚠️ 请注意，这个文件是用 Markdown 编写的，但包含了我们文档构建器（类似于 MDX）的特殊语法，
-这可能在您的 Markdown 查看器中无法正确显示。
+这可能在你的 Markdown 查看器中无法正确显示。
 
 -->
 
@@ -38,14 +38,14 @@ NA 的局部注意力和 DiNA 的稀疏全局注意力相辅相成，因此我�
 并在 Cityscapes 上排名第二（84.5 mIoU）（不需要额外的数据）。*
 
 提示：
-- 您可以使用 [`AutoImageProcessor`] API 来为模型准备图像。
+- 你可以使用 [`AutoImageProcessor`] API 来为模型准备图像。
 - DiNAT 可以用作*主干模型*。当设置 `output_hidden_states = True` 时，
 它将输出 `hidden_states` 和 `reshaped_hidden_states`。`reshaped_hidden_states` 的形状为 `(batch, num_channels, height, width)`，
 而不是 `(batch_size, height, width, num_channels)`。
 
 注意：
 - DiNAT 依赖于 [NATTEN](https://github.com/SHI-Labs/NATTEN/) 的 Neighborhood Attention 和 Dilated Neighborhood Attention 实现。
-您可以通过参考 [shi-labs.com/natten](https://shi-labs.com/natten) 安装适用于 Linux 的预编译库，或通过运行 `pip install natten` 在您的系统上构建。
+你可以通过参考 [shi-labs.com/natten](https://shi-labs.com/natten) 安装适用于 Linux 的预编译库，或通过运行 `pip install natten` 在你的系统上构建。
 请注意，后者可能需要一些时间进行编译。NATTEN 尚不支持 Windows 设备。
 - 目前仅支持 4 的补丁大小。
 
@@ -61,14 +61,14 @@ alt="drawing" width="600"/>
 
 ## 资源
 
-Hugging Face 官方和社区资源列表（🌎 表示社区资源），以帮助您开始使用 DiNAT。
+Hugging Face 官方和社区资源列表（🌎 表示社区资源），以帮助你开始使用 DiNAT。
 
 <PipelineTag pipeline="image-classification"/>
 
 - 使用此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification.ipynb)支持 [`DinatForImageClassification`]。
 - 另请参阅：[图像分类任务指南](../tasks/image_classification)
 
-如果您有兴趣提交资源供收录，欢迎提出拉取请求，我们将会审核！资源最好展示的是一些新的东西，而不是重复的现有资源。
+如果你有兴趣提交资源供收录，欢迎提出拉取请求，我们将会审核！资源最好展示的是一些新的东西，而不是重复的现有资源。
 
 ## DinatConfig
 

@@ -1,12 +1,12 @@
 <!--版权2023年HuggingFace团队。保留所有权利。
 
-根据Apache许可证第2版（“许可证”）进行许可；除非符合许可证，否则您不得使用此文件。您可以在以下网址获得许可证的副本
+根据Apache许可证第2版（“许可证”）进行许可；除非符合许可证，否则你不得使用此文件。你可以在以下网址获得许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件以“按原样”分发，不附带任何明示或暗示的保证或条件。有关许可证的详细信息，请参阅授权。
 
-⚠️请注意，此文件采用Markdown格式，但包含我们的文档生成器（类似于MDX）的特定语法，这可能在您的Markdown查看器中无法正确显示。
+⚠️请注意，此文件采用Markdown格式，但包含我们的文档生成器（类似于MDX）的特定语法，这可能在你的Markdown查看器中无法正确显示。
 
 -->
 
@@ -18,7 +18,7 @@ http://www.apache.org/licenses/LICENSE-2.0
    
 根据模型和GPU的不同，`torch.compile()`在推理过程中可提高高达30％的速度。要使用`torch.compile()`，只需安装2.0以上的任何版本的`torch`。
 
-编译模型需要时间，因此如果您只在每次推理之前编译模型一次，则可以节省时间。要在您选择的任何计算机视觉模型上编译，只需在模型上调用`torch.compile()`，如下所示：
+编译模型需要时间，因此如果你只在每次推理之前编译模型一次，则可以节省时间。要在你选择的任何计算机视觉模型上编译，只需在模型上调用`torch.compile()`，如下所示：
 
 ```diff
 from transformers import AutoModelForImageClassification
@@ -27,7 +27,7 @@ model = AutoModelForImageClassification.from_pretrained(MODEL_ID).to("cuda")
 + model = torch.compile(model)
 ```
 
-`compile()`具有多种编译模式，这些模式在编译时间和推理开销上略有不同。`max-autotune`比`reduce-overhead`花费的时间更长，但推理速度更快。默认模式对于编译来说最快，但与`reduce-overhead`相比，对于推理时间来说效率不高。在本指南中，我们使用了默认模式。您可以在[此处](https://pytorch.org/get-started/pytorch-2.0/#user-experience)了解更多信息。
+`compile()`具有多种编译模式，这些模式在编译时间和推理开销上略有不同。`max-autotune`比`reduce-overhead`花费的时间更长，但推理速度更快。默认模式对于编译来说最快，但与`reduce-overhead`相比，对于推理时间来说效率不高。在本指南中，我们使用了默认模式。你可以在[此处](https://pytorch.org/get-started/pytorch-2.0/#user-experience)了解更多信息。
 
 我们使用`torch`的2.0.1版本针对不同的计算机视觉模型、任务、硬件类型和批处理大小进行了`torch.compile`的基准测试。
 

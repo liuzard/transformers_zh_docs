@@ -56,7 +56,7 @@ model.save_pretrained("segformer-b0-scene-parse-150-tf")
 pip install -q datasets transformers evaluate
 ```
 
-我们鼓励您登录您的Hugging Face帐户，以便您可以将模型上传和共享给社区。在提示时，输入您的令牌进行登录：
+我们鼓励你登录你的Hugging Face帐户，以便你可以将模型上传和共享给社区。在提示时，输入你的令牌进行登录：
 
 ```py
 >>> from huggingface_hub import notebook_login
@@ -66,7 +66,7 @@ pip install -q datasets transformers evaluate
 
 ## 加载SceneParse150数据集
 
-首先从🤗数据集库中加载SceneParse150数据集的较小子集。在使用完整数据集进行更长时间的训练之前，这将为您提供实验和确保一切正常的机会。
+首先从🤗数据集库中加载SceneParse150数据集的较小子集。在使用完整数据集进行更长时间的训练之前，这将为你提供实验和确保一切正常的机会。
 
 ```py
 >>> from datasets import load_dataset
@@ -93,9 +93,9 @@ pip install -q datasets transformers evaluate
 
 - `image`：场景的PIL图像。
 - `annotation`：分割地图的PIL图像，也是模型的目标。
-- `scene_category`：描述图像场景的类别ID，如“kitchen”或“office”。在本指南中，您只需要`image`和`annotation`，它们都是PIL图像。
+- `scene_category`：描述图像场景的类别ID，如“kitchen”或“office”。在本指南中，你只需要`image`和`annotation`，它们都是PIL图像。
 
-您还需要创建一个字典，将标签id映射到标签类别，这在设置模型时将很有用。从Hub下载映射并创建`id2label`和`label2id`字典：
+你还需要创建一个字典，将标签id映射到标签类别，这在设置模型时将很有用。从Hub下载映射并创建`id2label`和`label2id`字典：
 
 ```py
 >>> import json
@@ -111,7 +111,7 @@ pip install -q datasets transformers evaluate
 
 ## 预处理
 
-下一步是加载SegFormer图像处理器，以准备图像和注释供模型使用。一些数据集（例如此数据集）使用零索引作为背景类别。但是，实际上背景类别不包括在这150个类别中，因此您需要设置`reduce_labels=True`，将所有标签减1。零索引由`255`替换，因此SegFormer的损失函数会忽略它：
+下一步是加载SegFormer图像处理器，以准备图像和注释供模型使用。一些数据集（例如此数据集）使用零索引作为背景类别。但是，实际上背景类别不包括在这150个类别中，因此你需要设置`reduce_labels=True`，将所有标签减1。零索引由`255`替换，因此SegFormer的损失函数会忽略它：
 
 ```py
 >>> from transformers import AutoImageProcessor
@@ -123,7 +123,7 @@ pip install -q datasets transformers evaluate
 <frameworkcontent>
 <pt>
 
-通常在图像数据集上应用一些数据增强方法，以使模型对过拟合更具鲁棒性。在本指南中，您将使用[`ColorJitter`](https://pytorch.org/vision/stable/generated/torchvision.transforms.ColorJitter.html)函数，随机更改图像的颜色属性，但您也可以使用您喜欢的任何图像库。
+通常在图像数据集上应用一些数据增强方法，以使模型对过拟合更具鲁棒性。在本指南中，你将使用[`ColorJitter`](https://pytorch.org/vision/stable/generated/torchvision.transforms.ColorJitter.html)函数，随机更改图像的颜色属性，但你也可以使用你喜欢的任何图像库。
 
 ```py
 >>> from torchvision.transforms import ColorJitter
@@ -162,7 +162,7 @@ pip install -q datasets transformers evaluate
 <tf>
 
 通常，在图像数据集上应用一些数据增强方法可以提高模型对过拟合的鲁棒性。
-在本指南中，您将使用[`tf.image`](https://www.tensorflow.org/api_docs/python/tf/image)随机更改图像的颜色属性，但您也可以使用您喜欢的任何图像库。
+在本指南中，你将使用[`tf.image`](https://www.tensorflow.org/api_docs/python/tf/image)随机更改图像的颜色属性，但你也可以使用你喜欢的任何图像库。
 请定义两个不同的转换函数：
 - 包含图像增强的训练数据转换
 - 仅转置图像的验证数据转换，因为🤗 Transformers中的计算机视觉模型需要以通道优先的布局（channels-first layout）
@@ -215,7 +215,7 @@ pip install -q datasets transformers evaluate
 
 ## 评估
 
-在训练过程中包含一个度量指标通常有助于评估模型的性能。您可以使用🤗 [Evaluate](https://huggingface.co/docs/evaluate/index)库快速加载一个评估方法。对于此任务，加载[mean Intersection over Union](https://huggingface.co/spaces/evaluate-metric/accuracy)（IoU）度量指标（请参阅🤗 Evaluate [快速入门](https://huggingface.co/docs/evaluate/a_quick_tour)了解如何加载和计算度量指标）：
+在训练过程中包含一个度量指标通常有助于评估模型的性能。你可以使用🤗 [Evaluate](https://huggingface.co/docs/evaluate/index)库快速加载一个评估方法。对于此任务，加载[mean Intersection over Union](https://huggingface.co/spaces/evaluate-metric/accuracy)（IoU）度量指标（请参阅🤗 Evaluate [快速入门](https://huggingface.co/docs/evaluate/a_quick_tour)了解如何加载和计算度量指标）：
 
 ```py
 >>> import evaluate
@@ -295,14 +295,14 @@ pip install -q datasets transformers evaluate
 </tf>
 </frameworkcontent>
 
-现在您的`compute_metrics`函数已准备就绪，请在设置训练时返回。
+现在你的`compute_metrics`函数已准备就绪，请在设置训练时返回。
 
 ## 训练
 <frameworkcontent>
 <pt>
 <Tip>
 
-如果您对使用[`Trainer`]进行模型微调不熟悉，请先查看基本教程[这里](../training.md#finetune-with-trainer)！
+如果你对使用[`Trainer`]进行模型微调不熟悉，请先查看基本教程[这里](../training.md#finetune-with-trainer)！
 
 </Tip>
 
@@ -316,7 +316,7 @@ pip install -q datasets transformers evaluate
 
 此时，只剩下三个步骤：
 
-1. 在[`TrainingArguments`]中定义训练超参数。重要的是不要删除未使用的列，因为这将删除`image`列。没有`image`列，您无法创建`pixel_values`。将`remove_unused_columns=False`设置为防止此行为！仅其他必需的参数是`output_dir`，它指定保存模型的位置。设置`push_to_hub=True`将此模型推送到Hub（需要登录Hugging Face以上传您的模型）。在每个epoch结束时，[`Trainer`]将评估IoU度量并保存训练检查点。
+1. 在[`TrainingArguments`]中定义训练超参数。重要的是不要删除未使用的列，因为这将删除`image`列。没有`image`列，你无法创建`pixel_values`。将`remove_unused_columns=False`设置为防止此行为！仅其他必需的参数是`output_dir`，它指定保存模型的位置。设置`push_to_hub=True`将此模型推送到Hub（需要登录Hugging Face以上传你的模型）。在每个epoch结束时，[`Trainer`]将评估IoU度量并保存训练检查点。
 2. 将训练参数以及模型、数据集、tokenizer、数据收集器和`compute_metrics`函数传递给[`Trainer`]。
 3. 调用[`~Trainer.train`]开始微调模型。
 
@@ -349,7 +349,7 @@ pip install -q datasets transformers evaluate
 >>> trainer.train()
 ```
 
-完成训练后，请使用[`~transformers.Trainer.push_to_hub`]方法将模型分享到Hub，以便每个人都可以使用您的模型：
+完成训练后，请使用[`~transformers.Trainer.push_to_hub`]方法将模型分享到Hub，以便每个人都可以使用你的模型：
 
 ```py
 >>> trainer.push_to_hub()
@@ -361,7 +361,7 @@ pip install -q datasets transformers evaluate
 <tf>
 <Tip>
 
-如果您熟悉使用Keras进行微调模型，请先参阅[基本教程](./training#train-a-tensorflow-model-with-keras)！
+如果你熟悉使用Keras进行微调模型，请先参阅[基本教程](./training#train-a-tensorflow-model-with-keras)！
 
 </Tip>
 
@@ -421,7 +421,7 @@ model.save_pretrained("segformer-b0-scene-parse-150-tf")
 ```markdown
 ### 推理
 
-好的，既然您已经微调了模型，那么可以用它进行推理！
+好的，既然你已经微调了模型，那么可以用它进行推理！
 
 加载用于推理的图像：
 
@@ -472,7 +472,7 @@ segmenter(image)
   'mask': <PIL.Image.Image image mode=L size=640x427 at 0x7FD5B2062E10>}]
 ```
 
-如果需要，您还可以手动复制`pipeline`的结果。使用图像处理器处理图像，并将`pixel_values`放在GPU上：
+如果需要，你还可以手动复制`pipeline`的结果。使用图像处理器处理图像，并将`pixel_values`放在GPU上：
 
 ```py
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")  # 如果有可用的GPU，则使用GPU，否则使用CPU
@@ -539,7 +539,7 @@ pred_seg = tf.math.argmax(upsampled_logits, axis=-1)[0]
 </tf>
 </frameworkcontent>
 
-要可视化结果，加载[数据集颜色调色板](https://github.com/tensorflow/models/blob/3f1ca33afe3c1631b733ea7e40c294273b9e406d/research/deeplab/utils/get_dataset_colormap.py#L51)作为`ade_palette()`将每个类别映射到RGB值。然后，您可以将图像和预测的分割图组合在一起并绘制出来：
+要可视化结果，加载[数据集颜色调色板](https://github.com/tensorflow/models/blob/3f1ca33afe3c1631b733ea7e40c294273b9e406d/research/deeplab/utils/get_dataset_colormap.py#L51)作为`ade_palette()`将每个类别映射到RGB值。然后，你可以将图像和预测的分割图组合在一起并绘制出来：
 
 ```py
 import matplotlib.pyplot as plt

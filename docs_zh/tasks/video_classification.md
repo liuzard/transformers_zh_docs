@@ -1,10 +1,10 @@
 版权2023 HuggingFace团队。保留所有权利。
 
-根据Apache许可证2.0（"许可证"），在遵循许可证的情况下，您不得使用此文件。您可以在http://www.apache.org/licenses/LICENSE-2.0获取许可证的副本。
+根据Apache许可证2.0（"许可证"），在遵循许可证的情况下，你不得使用此文件。你可以在http://www.apache.org/licenses/LICENSE-2.0获取许可证的副本。
 
 除非适用法律要求或书面同意，按"原样"分发的软件均不带任何担保或条件，无论是明示的还是暗示的。请参阅许可证以获得许可证下限制和特殊语言的具体条款。
 
-⚠️请注意，此文件使用Markdown格式，但包含特定的语法用于我们的文档构建器（类似于MDX），这在您的Markdown查看器中可能无法正确呈现。
+⚠️请注意，此文件使用Markdown格式，但包含特定的语法用于我们的文档构建器（类似于MDX），这在你的Markdown查看器中可能无法正确呈现。
 
 视频分类
 
@@ -28,15 +28,15 @@
 
 </Tip>
 
-开始之前，请确保您已安装所有必要的库：
+开始之前，请确保你已安装所有必要的库：
 
 ```bash
 pip install -q pytorchvideo transformers evaluate
 ```
 
-您将使用[PyTorchVideo](https://pytorchvideo.org/)（称为`pytorchvideo`）来处理和准备视频。
+你将使用[PyTorchVideo](https://pytorchvideo.org/)（称为`pytorchvideo`）来处理和准备视频。
 
-我们鼓励您登录您的Hugging Face帐户，这样您就可以上传和与社区分享模型。在提示时输入您的令牌登录：
+我们鼓励你登录你的Hugging Face帐户，这样你就可以上传和与社区分享模型。在提示时输入你的令牌登录：
 
 ```py
 >>> from huggingface_hub import notebook_login
@@ -46,7 +46,7 @@ pip install -q pytorchvideo transformers evaluate
 
 加载UCF101数据集
 
-首先加载[UCF-101数据集](https://www.crcv.ucf.edu/data/UCF101.php)的一个子集。在对整个数据集进行更长时间的训练之前，这将为您提供一个机会来进行实验并确保一切正常运行。
+首先加载[UCF-101数据集](https://www.crcv.ucf.edu/data/UCF101.php)的一个子集。在对整个数据集进行更长时间的训练之前，这将为你提供一个机会来进行实验并确保一切正常运行。
 
 ```py
 >>> from huggingface_hub import hf_hub_download
@@ -56,7 +56,7 @@ pip install -q pytorchvideo transformers evaluate
 >>> file_path = hf_hub_download(repo_id=hf_dataset_identifier, filename=filename, repo_type="dataset")
 ```
 
-下载完子集后，您需要解压缩存档：
+下载完子集后，你需要解压缩存档：
 
 ```py 
 >>> import tarfile
@@ -113,11 +113,11 @@ UCF101_subset/
 ...
 ```
 
-您将注意到，同一组/场景中的视频剪辑属于同一组，其中组在视频文件路径中以`g`表示。例如，`v_ApplyEyeMakeup_g07_c04.avi`和`v_ApplyEyeMakeup_g07_c06.avi`。
+你将注意到，同一组/场景中的视频剪辑属于同一组，其中组在视频文件路径中以`g`表示。例如，`v_ApplyEyeMakeup_g07_c04.avi`和`v_ApplyEyeMakeup_g07_c06.avi`。
 
-对于验证和评估集，您不希望具有来自同一组/场景的视频剪辑，以防止[数据泄漏](https://www.kaggle.com/code/alexisbcook/data-leakage)。该教程中使用的子集就考虑到了这一点。
+对于验证和评估集，你不希望具有来自同一组/场景的视频剪辑，以防止[数据泄漏](https://www.kaggle.com/code/alexisbcook/data-leakage)。该教程中使用的子集就考虑到了这一点。
 
-接下来，您将提取数据集中的标签集。同时，创建两个在初始化模型时会有帮助的字典：
+接下来，你将提取数据集中的标签集。同时，创建两个在初始化模型时会有帮助的字典：
 
 * `label2id`：将类名映射到整数。
 * `id2label`：将整数映射到类名。
@@ -147,11 +147,11 @@ UCF101_subset/
 ...     model_ckpt,
 ...     label2id=label2id,
 ...     id2label=id2label,
-...     ignore_mismatched_sizes=True,  # 此参数表示您打算对已经微调过的检查点进行微调
+...     ignore_mismatched_sizes=True,  # 此参数表示你打算对已经微调过的检查点进行微调
 ... )
 ```
 
-在模型加载过程中，您可能会注意到以下警告：
+在模型加载过程中，你可能会注意到以下警告：
 
 ```bash
 Some weights of the model checkpoint at MCG-NJU/videomae-base were not used when initializing VideoMAEForVideoClassification: [..., 'decoder.decoder_layers.1.attention.output.dense.bias', 'decoder.decoder_layers.2.attention.attention.key.weight']
@@ -163,11 +163,11 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 
 警告告诉我们，我们丢弃了一些权重（例如`classifier`层的权重和偏差），并且随机初始化了另一些权重（新的`classifier`层的权重和偏差）。这在这种情况下是正常的，因为我们添加了一个新的头部，我们没有预训练权重，因此库警告我们在使用它进行推断之前应先微调此模型，而这正是我们要做的。
 
-**注意**，[此检查点](https://huggingface.co/MCG-NJU/videomae-base-finetuned-kinetics)在此任务的性能上更好，因为此检查点通过微调获得，微调时与此任务的域有很大的重叠。您可以查看[此检查点](https://huggingface.co/sayakpaul/videomae-base-finetuned-kinetics-finetuned-ucf101-subset)，该检查点通过微调了`MCG-NJU/videomae-base-finetuned-kinetics`检查点而获得。  
+**注意**，[此检查点](https://huggingface.co/MCG-NJU/videomae-base-finetuned-kinetics)在此任务的性能上更好，因为此检查点通过微调获得，微调时与此任务的域有很大的重叠。你可以查看[此检查点](https://huggingface.co/sayakpaul/videomae-base-finetuned-kinetics-finetuned-ucf101-subset)，该检查点通过微调了`MCG-NJU/videomae-base-finetuned-kinetics`检查点而获得。  
 
 准备训练数据集
 
-要预处理视频，您将利用[PyTorchVideo库](https://pytorchvideo.org/)。首先导入所需的依赖项。 
+要预处理视频，你将利用[PyTorchVideo库](https://pytorchvideo.org/)。首先导入所需的依赖项。 
 
 ```py 
 >>> import pytorchvideo.data
@@ -280,9 +280,9 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 ... )
 ```
 
-**注意**：以上数据集流水线取自[PyTorchVideo官方示例](https://pytorchvideo.org/docs/tutorial_classification#dataset)。我们使用[`pytorchvideo.data.Ucf101()`](https://pytorchvideo.readthedocs.io/en/latest/api/data/data.html#pytorchvideo.data.Ucf101)函数，因为它专为UCF-101数据集定制。在幕后，它返回一个[`pytorchvideo.data.labeled_video_dataset.LabeledVideoDataset`](https://pytorchvideo.readthedocs.io/en/latest/api/data/data.html#pytorchvideo.data.LabeledVideoDataset)对象。`LabeledVideoDataset`类是PyTorchVideo数据集中与视频相关的基类。因此，如果要使用PyTorchVideo不支持的自定义数据集，可以相应地扩展`LabeledVideoDataset`类。请参阅`data` API [文档](https://pytorchvideo.readthedocs.io/en/latest/api/data/data.html)以了解更多信息。另外，如果您的数据集遵循类似的结构（如上所示），那么使用`pytorchvideo.data.Ucf101()`应该没有问题。
+**注意**：以上数据集流水线取自[PyTorchVideo官方示例](https://pytorchvideo.org/docs/tutorial_classification#dataset)。我们使用[`pytorchvideo.data.Ucf101()`](https://pytorchvideo.readthedocs.io/en/latest/api/data/data.html#pytorchvideo.data.Ucf101)函数，因为它专为UCF-101数据集定制。在幕后，它返回一个[`pytorchvideo.data.labeled_video_dataset.LabeledVideoDataset`](https://pytorchvideo.readthedocs.io/en/latest/api/data/data.html#pytorchvideo.data.LabeledVideoDataset)对象。`LabeledVideoDataset`类是PyTorchVideo数据集中与视频相关的基类。因此，如果要使用PyTorchVideo不支持的自定义数据集，可以相应地扩展`LabeledVideoDataset`类。请参阅`data` API [文档](https://pytorchvideo.readthedocs.io/en/latest/api/data/data.html)以了解更多信息。另外，如果你的数据集遵循类似的结构（如上所示），那么使用`pytorchvideo.data.Ucf101()`应该没有问题。
 
-您可以访问`num_videos`参数以了解数据集中的视频数量。
+你可以访问`num_videos`参数以了解数据集中的视频数量。
 
 ```py
 >>> print(train_dataset.num_videos, val_dataset.num_videos, test_dataset.num_videos)
@@ -335,7 +335,7 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 
 使用 🤗 Transformers 中的 [`Trainer`](https://huggingface.co/docs/transformers/main_classes/trainer) 对模型进行训练。要实例化一个 `Trainer`，需要定义训练配置和评估指标。其中最重要的是 [`TrainingArguments`](https://huggingface.co/transformers/main_classes/trainer.html#transformers.TrainingArguments)，它是一个包含所有属性以配置训练的类。它需要一个输出文件夹名称，用于保存模型的检查点。它还有助于同步 🤗 Hub 上模型存储库中的所有信息。
 
-大多数训练参数都是显而易见的，但这里有一个非常重要的参数 `remove_unused_columns=False`。它会丢弃模型的调用函数未使用的任何特征。默认情况下它是 `True`，因为通常丢弃未使用的特征列是理想的，这样可以更容易地将输入解包到模型的调用函数中。但是，在这种情况下，您需要未使用的特征（特别是 'video'）来创建 `pixel_values`（这是我们的模型在其输入中期望的一个必需键）。
+大多数训练参数都是显而易见的，但这里有一个非常重要的参数 `remove_unused_columns=False`。它会丢弃模型的调用函数未使用的任何特征。默认情况下它是 `True`，因为通常丢弃未使用的特征列是理想的，这样可以更容易地将输入解包到模型的调用函数中。但是，在这种情况下，你需要未使用的特征（特别是 'video'）来创建 `pixel_values`（这是我们的模型在其输入中期望的一个必需键）。
 
 下面代码定义了训练的参数：
 
@@ -365,7 +365,7 @@ You should probably TRAIN this model on a down-stream task to be able to use it 
 
 `pytorchvideo.data.Ucf101()` 返回的数据集没有实现 `__len__` 方法。因此，在实例化 `TrainingArguments` 时，我们必须定义 `max_steps`。
 
-下一步，您需要定义一个用于根据预测结果计算度量标准的函数，该函数将使用您将要加载的 `metric`。您唯一需要做的预处理就是获取预测 logits 的 argmax：
+下一步，你需要定义一个用于根据预测结果计算度量标准的函数，该函数将使用你将要加载的 `metric`。你唯一需要做的预处理就是获取预测 logits 的 argmax：
 
 ```py
 import evaluate
@@ -408,7 +408,7 @@ def compute_metrics(eval_pred):
 ... )
 ```
 
-您可能想知道为什么在预处理数据时已经将 `image_processor` 作为 tokenizer 传递了。这只是为了确保图像处理器配置文件（存储为 JSON）也会上传到 Hub 上的仓库中。
+你可能想知道为什么在预处理数据时已经将 `image_processor` 作为 tokenizer 传递了。这只是为了确保图像处理器配置文件（存储为 JSON）也会上传到 Hub 上的仓库中。
 
 现在通过调用 `train` 方法来微调我们的模型：
 
@@ -416,7 +416,7 @@ def compute_metrics(eval_pred):
 >>> train_results = trainer.train()
 ```
 
-训练完成后，使用 [`~transformers.Trainer.push_to_hub`] 方法将您的模型共享到 Hub 中，这样每个人都可以使用您的模型：
+训练完成后，使用 [`~transformers.Trainer.push_to_hub`] 方法将你的模型共享到 Hub 中，这样每个人都可以使用你的模型：
 
 ```py
 >>> trainer.push_to_hub()
@@ -424,7 +424,7 @@ def compute_metrics(eval_pred):
 
 ## 推理
 
-很棒，现在您已经对模型进行了微调，可以用它进行推理了！
+很棒，现在你已经对模型进行了微调，可以用它进行推理了！
 
 加载一个用于推理的视频：
 
@@ -436,7 +436,7 @@ def compute_metrics(eval_pred):
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/transformers/tasks/sample_gif_two.gif" alt="Teams playing basketball"/>
 </div>
 
-在推理中尝试使用微调后的模型最简单的方法是在 [`pipeline`](https://huggingface.co/docs/transformers/main/en/main_classes/pipelines#transformers.VideoClassificationPipeline) 中使用它。使用您的模型实例化一个视频分类的 `pipeline`，并将视频传递给它：
+在推理中尝试使用微调后的模型最简单的方法是在 [`pipeline`](https://huggingface.co/docs/transformers/main/en/main_classes/pipelines#transformers.VideoClassificationPipeline) 中使用它。使用你的模型实例化一个视频分类的 `pipeline`，并将视频传递给它：
 
 ```py
 >>> from transformers import pipeline
@@ -450,7 +450,7 @@ def compute_metrics(eval_pred):
  {'score': 0.0068979403004050255, 'label': 'BaseballPitch'}]
 ```
 
-您也可以手动复制 `pipeline` 的结果。
+你也可以手动复制 `pipeline` 的结果。
 
 ```py
 >>> def run_inference(model, video):

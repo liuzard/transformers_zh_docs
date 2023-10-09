@@ -1,7 +1,7 @@
 <!--版权所有2020年HuggingFace团队。保留所有权利。
 
 根据Apache许可证2.0版（“许可证”）进行许可；除非符合许可证，否则不能使用此文件
-。您可以在以下网址获取许可证的副本：
+。你可以在以下网址获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -9,13 +9,13 @@ http://www.apache.org/licenses/LICENSE-2.0
 ，没有任何明示或暗示的担保或条件。有关许可证的详细信息，请参阅许可证
 特定语言在许可证下所规定的限制。
 
-⚠️请注意，此文件是使用Markdown格式的，但包含了我们文档生成器（类似于MDX）的特定语法，可能不会在您的Markdown查看器中正确显示。
+⚠️请注意，此文件是使用Markdown格式的，但包含了我们文档生成器（类似于MDX）的特定语法，可能不会在你的Markdown查看器中正确显示。
 
 -->
 
 # Blenderbot
 
-**免责声明：**如果您看到一些奇怪的问题，请提交一个[GitHub问题](https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template=bug-report.md&title)。
+**免责声明：**如果你看到一些奇怪的问题，请提交一个[GitHub问题](https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template=bug-report.md&title)。
 
 ## 概述
 

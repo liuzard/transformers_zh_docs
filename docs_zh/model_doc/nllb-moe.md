@@ -22,7 +22,7 @@ NLLB模型在[Marta R. Costa-jussà, James Cross, Onur Çelebi等人的论文《
 
 ## 使用NLLB-MoE生成文本
 
-可用的检查点需要约350GB的存储空间。如果您的计算机内存不足，请确保使用`accelerate`。
+可用的检查点需要约350GB的存储空间。如果你的计算机内存不足，请确保使用`accelerate`。
 
 在生成目标文本时，将`forced_bos_token_id`设置为目标语言的id。以下示例展示了如何使用*facebook/nllb-200-distilled-600M*模型将英语翻译为法语。
 
@@ -46,7 +46,7 @@ NLLB模型在[Marta R. Costa-jussà, James Cross, Onur Çelebi等人的论文《
 
 ### 从除英语以外的任何语言生成
 
-英语（`eng_Latn`）设置为默认的翻译语言。为了指定从其他语言翻译，您应该在分词器初始化的`src_lang`关键字参数中指定BCP-47代码。
+英语（`eng_Latn`）设置为默认的翻译语言。为了指定从其他语言翻译，你应该在分词器初始化的`src_lang`关键字参数中指定BCP-47代码。
 
 以下示例演示了从罗马尼亚语翻译为德语的情况：
 

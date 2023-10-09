@@ -1,6 +1,6 @@
 <!--版权所有 © 2023 The HuggingFace Team
 
-根据Apache License，Version 2.0 (“许可证”)提供；除非符合许可证规定，否则不得使用此文件。您可以从以下网址获得许可证的副本
+根据Apache License，Version 2.0 (“许可证”)提供；除非符合许可证规定，否则不得使用此文件。你可以从以下网址获得许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -16,7 +16,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 文字转语音 (TTS) 是将文字转换为自然语音的任务，语音可以生成多种语言并适用于多个说话者。目前🤗Transformers中有多个文本至语音模型，例如[Bark](../model_doc/bark)，[MMS](../model_doc/mms)，[VITS](../model_doc/vits)和[SpeechT5](../model_doc/speecht5)。
 
-您可以使用`"text-to-audio"`流水线（或其别名`"text-to-speech"`）轻松生成音频。像Bark这样的一些模型还可以通过条件生成非语言交流，如笑话，叹息和哭泣，甚至可以添加音乐。
+你可以使用`"text-to-audio"`流水线（或其别名`"text-to-speech"`）轻松生成音频。像Bark这样的一些模型还可以通过条件生成非语言交流，如笑话，叹息和哭泣，甚至可以添加音乐。
 以下是使用Bark的`"text-to-speech"`流水线的示例：
 
 ```py
@@ -36,7 +36,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 有关Bark和其他预训练TTS模型的更多示例，请参阅我们的[音频课程](https://huggingface.co/learn/audio-course/chapter6/pre-trained_models)。
 
-如果您正在寻找微调TTS模型，目前只能对SpeechT5进行微调。SpeechT5经过预训练，融合了文本到语音和语音到文本数据，使其能够学习文本和语音共享的隐藏表示空间。这意味着可以使用相同的预训练模型来微调不同的任务。此外，SpeechT5通过x-vector说话者嵌入支持多个说话者。
+如果你正在寻找微调TTS模型，目前只能对SpeechT5进行微调。SpeechT5经过预训练，融合了文本到语音和语音到文本数据，使其能够学习文本和语音共享的隐藏表示空间。这意味着可以使用相同的预训练模型来微调不同的任务。此外，SpeechT5通过x-vector说话者嵌入支持多个说话者。
 
 本指南的其余部分演示了如何：
 
@@ -65,7 +65,7 @@ pip install git+https://github.com/huggingface/transformers.git
 
 </Tip>
 
-我们鼓励您登录Hugging Face帐户，以上传和共享模型。在提示时，请输入您的令牌以登录：
+我们鼓励你登录Hugging Face帐户，以上传和共享模型。在提示时，请输入你的令牌以登录：
 
 ```py
 >>> from huggingface_hub import notebook_login
@@ -108,7 +108,7 @@ dataset = dataset.cast_column("audio", Audio(sampling_rate=16000))
 
 ### SpeechT5标记化的文本清理
 
-首先要做的是清理文本数据。您需要处理器的分词器部分来处理文本：
+首先要做的是清理文本数据。你需要处理器的分词器部分来处理文本：
 
 ```py
 >>> tokenizer = processor.tokenizer
@@ -139,7 +139,7 @@ dataset = dataset.cast_column("audio", Audio(sampling_rate=16000))
 >>> tokenizer_vocab = {k for k, _ in tokenizer.get_vocab().items()}
 ```
 
-现在，您有两个字符集：一个是数据集的词汇表，一个是分词器的词汇表。要识别数据集中不在分词器中的不支持的字符，可以取两个字符集之间的差集。结果集将包含数据集中存在但不在分词器中的字符。
+现在，你有两个字符集：一个是数据集的词汇表，一个是分词器的词汇表。要识别数据集中不在分词器中的不支持的字符，可以取两个字符集之间的差集。结果集将包含数据集中存在但不在分词器中的字符。
 
 ```py
 >>> dataset_vocab - tokenizer_vocab
@@ -170,7 +170,7 @@ dataset = dataset.cast_column("audio", Audio(sampling_rate=16000))
 >>> dataset = dataset.map(cleanup_text)
 ```
 
-现在，您已经处理了文本中的特殊字符，是时候将重点转移到音频数据上了。
+现在，你已经处理了文本中的特殊字符，是时候将重点转移到音频数据上了。
 
 ### 说话者
 
@@ -225,13 +225,13 @@ VoxPopuli数据集包括多个说话者的语音，但数据集中有多少个�
 9973
 ```
 
-您还剩下了约10000个示例，约40个独特说话者，应该足够了。
+你还剩下了约10000个示例，约40个独特说话者，应该足够了。
 
 请注意：一些示例较少的说话者实际上可能有更多的音频，如果示例很长。然而，确定每个说话者的总音频量需要扫描整个数据集，这是一个耗时的过程，需要加载和解码每个音频文件。因此，我们选择在此跳过此步骤。
 
 ### 说话者嵌入
 
-为了使TTS模型能够区分多个说话者，您需要为每个示例创建一个说话者嵌入。说话者嵌入是模型的额外输入，可以捕获特定说话者的声音特征。为了生成这些说话者嵌入，使用SpeechBrain 中预训练的 [spkrec-xvect-voxceleb](https://huggingface.co/speechbrain/spkrec-xvect-voxceleb) 模型。
+为了使TTS模型能够区分多个说话者，你需要为每个示例创建一个说话者嵌入。说话者嵌入是模型的额外输入，可以捕获特定说话者的声音特征。为了生成这些说话者嵌入，使用SpeechBrain 中预训练的 [spkrec-xvect-voxceleb](https://huggingface.co/speechbrain/spkrec-xvect-voxceleb) 模型。
 
 创建一个函数`create_speaker_embedding()`，接受输入音频波形并输出包含相应说话者嵌入的512个元素矢量。
 
@@ -315,7 +315,7 @@ VoxPopuli数据集包括多个说话者的语音，但数据集中有多少个�
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/transformers/tasks/tts_logmelspectrogram_1.png" alt="Log-mel spectrogram with 80 mel bins"/>
 </div>
 
-顺便说一下：如果您对此频谱图感到困惑，可能是由于您熟悉将低频放在底部，高频放在顶部的绘图惯例。然而，当使用matplotlib库将频谱图作为图像绘制时，y轴是上下翻转的，频谱图会倒置。
+顺便说一下：如果你对此频谱图感到困惑，可能是由于你熟悉将低频放在底部，高频放在顶部的绘图惯例。然而，当使用matplotlib库将频谱图作为图像绘制时，y轴是上下翻转的，频谱图会倒置。
 
 现在将处理函数应用于整个数据集，这将花费5到10分钟。
 
@@ -323,7 +323,7 @@ VoxPopuli数据集包括多个说话者的语音，但数据集中有多少个�
 >>> dataset = dataset.map(prepare_dataset, remove_columns=dataset.column_names)
 ```
 
-您将看到一个警告，说数据集中的一些示例长度超过了模型的最大输入长度（600个标记）。从数据集中删除这些示例。为了进一步允许更大的批处理大小，我们将删除超过200个标记的数据。
+你将看到一个警告，说数据集中的一些示例长度超过了模型的最大输入长度（600个标记）。从数据集中删除这些示例。为了进一步允许更大的批处理大小，我们将删除超过200个标记的数据。
 
 ```py
 >>> def is_not_too_long(input_ids):
@@ -412,7 +412,7 @@ VoxPopuli数据集包括多个说话者的语音，但数据集中有多少个�
 >>> from transformers import Seq2SeqTrainingArguments
 
 >>> training_args = Seq2SeqTrainingArguments(
-...     output_dir="speecht5_finetuned_voxpopuli_nl",  # 更改为您选择的仓库名称
+...     output_dir="speecht5_finetuned_voxpopuli_nl",  # 更改为你选择的仓库名称
 ...     per_device_train_batch_size=4,
 ...     gradient_accumulation_steps=8,
 ...     learning_rate=1e-5,
@@ -448,13 +448,13 @@ VoxPopuli数据集包括多个说话者的语音，但数据集中有多少个�
 ... )
 ```
 
-有了上述准备，您就可以开始训练了！训练需要几个小时的时间。根据您的GPU，当您开始训练时，可能会遇到CUDA "out-of-memory"错误。在这种情况下，您可以逐渐将`per_device_train_batch_size`减小2倍，并将`gradient_accumulation_steps`增加2倍来进行补偿。
+有了上述准备，你就可以开始训练了！训练需要几个小时的时间。根据你的GPU，当你开始训练时，可能会遇到CUDA "out-of-memory"错误。在这种情况下，你可以逐渐将`per_device_train_batch_size`减小2倍，并将`gradient_accumulation_steps`增加2倍来进行补偿。
 
 ```py
 >>> trainer.train()
 ```
 
-为了能够在流水线中使用您的检查点，请确保将处理器与检查点一起保存：
+为了能够在流水线中使用你的检查点，请确保将处理器与检查点一起保存：
 
 ```py
 >>> processor.save_pretrained("YOUR_ACCOUNT_NAME/speecht5_finetuned_voxpopuli_nl")
@@ -470,7 +470,7 @@ VoxPopuli数据集包括多个说话者的语音，但数据集中有多少个�
 
 ### 使用流水线进行推理
 
-太好了，现在您已经微调了模型，可以用它进行推理了！首先，让我们看看如何使用对应的流水线。让我们创建一个具有您的检查点的`"text-to-speech"`流水线：
+太好了，现在你已经微调了模型，可以用它进行推理了！首先，让我们看看如何使用对应的流水线。让我们创建一个具有你的检查点的`"text-to-speech"`流水线：
 
 ```py
 >>> from transformers import pipeline
@@ -478,20 +478,20 @@ VoxPopuli数据集包括多个说话者的语音，但数据集中有多少个�
 >>> pipe = pipeline("text-to-speech", model="YOUR_ACCOUNT_NAME/speecht5_finetuned_voxpopuli_nl")
 ```
 
-选择一段您想要朗读的荷兰语文本，例如：
+选择一段你想要朗读的荷兰语文本，例如：
 
 ```py
 >>> text = "hallo allemaal, ik praat nederlands. groetjes aan iedereen!"
 ```
 
-要使用流水线的SpeechT5，您需要一个说话人嵌入。让我们从测试数据集中获取一个示例的说话人嵌入：
+要使用流水线的SpeechT5，你需要一个说话人嵌入。让我们从测试数据集中获取一个示例的说话人嵌入：
 
 ```py
 >>> example = dataset["test"][304]
 >>> speaker_embeddings = torch.tensor(example["speaker_embeddings"]).unsqueeze(0)
 ```
 
-现在，您可以将文本和说话人嵌入传递给流水线，它将为您处理剩下的部分：
+现在，你可以将文本和说话人嵌入传递给流水线，它将为你处理剩下的部分：
 
 ```py
 >>> forward_params = {"speaker_embeddings": speaker_embeddings}
@@ -502,7 +502,7 @@ VoxPopuli数据集包括多个说话者的语音，但数据集中有多少个�
  'sampling_rate': 16000}
 ```
 
-然后，您可以听到结果：
+然后，你可以听到结果：
 
 ```py
 >>> from IPython.display import Audio
@@ -511,7 +511,7 @@ VoxPopuli数据集包括多个说话者的语音，但数据集中有多少个�
 
 ### 手动运行推理
 
-您可以在不使用流水线的情况下实现相同的推理结果，但是，需要更多的步骤。
+你可以在不使用流水线的情况下实现相同的推理结果，但是，需要更多的步骤。
 
 从🤗 Hub加载模型：
 
@@ -539,7 +539,7 @@ VoxPopuli数据集包括多个说话者的语音，但数据集中有多少个�
 >>> spectrogram = model.generate_speech(inputs["input_ids"], speaker_embeddings)
 ```
 
-如果您想要可视化频谱图，可以执行以下操作： 
+如果你想要可视化频谱图，可以执行以下操作： 
 
 ```py
 >>> plt.figure()

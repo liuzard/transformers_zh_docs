@@ -1,7 +1,7 @@
 <!--版权所有2020年HuggingFace团队。保留所有权利。
 
 根据Apache License，Version 2.0（“许可证”）获得许可；除非符合License的规定，
-否则您不得使用该文件。您可以在
+否则你不得使用该文件。你可以在
 
 http://www.apache.org/licenses/LICENSE-2.0
 

@@ -1,13 +1,13 @@
 <!--版权所有 2022 The HuggingFace Team. 保留所有权利。
 
-根据 Apache 2.0 许可证 (the "License")，除非符合许可证，否则您不能使用此文件。
-您可以获取许可证的副本，网址为
+根据 Apache 2.0 许可证 (the "License")，除非符合许可证，否则你不能使用此文件。
+你可以获取许可证的副本，网址为
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，按“现状”分发的软件，没有任何形式的明示或暗示担保或条件，参见许可证下的特定语言
 
-⚠️ 注意，此文件是 Markdown 文件，但包含我们的文档构建器 (类似于MDX) 的特定语法，可能无法在您的 Markdown 查看器中正确显示。
+⚠️ 注意，此文件是 Markdown 文件，但包含我们的文档构建器 (类似于MDX) 的特定语法，可能无法在你的 Markdown 查看器中正确显示。
 
 -->
 
@@ -24,7 +24,7 @@ DETA（Detection Transformers with Assignment的缩写）通过将传统检测�
 
 提示：
 
-- 您可以使用[`DetaImageProcessor`]来为模型准备图像和可选的目标。
+- 你可以使用[`DetaImageProcessor`]来为模型准备图像和可选的目标。
 
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/transformers/model_doc/deta_architecture.jpg"
 alt="drawing" width="600"/>
@@ -36,12 +36,12 @@ alt="drawing" width="600"/>
 
 ## 资源
 
-以下是官方Hugging Face和社区（使用🌎表示）提供的资源列表，可帮助您开始使用DETA。
+以下是官方Hugging Face和社区（使用🌎表示）提供的资源列表，可帮助你开始使用DETA。
 
 - DETA的演示笔记本可在[此处](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/DETA)找到。
 - 请参阅：[目标检测任务指南](../tasks/object_detection)
 
-如果您有兴趣提交资源以包含在此处，请随时提交拉取请求，我们将进行审核！该资源应该展示出新的东西，而不是重复现有的资源。
+如果你有兴趣提交资源以包含在此处，请随时提交拉取请求，我们将进行审核！该资源应该展示出新的东西，而不是重复现有的资源。
 
 ## DetaConfig
 

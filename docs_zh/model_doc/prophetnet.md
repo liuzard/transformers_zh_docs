@@ -1,12 +1,12 @@
 <!--2020年版权归HuggingFace团队所有。
 
-根据Apache许可证第2版（“许可证”），您不得使用此文件，除非符合许可证的要求。您可以在以下位置获取许可证的副本：
+根据Apache许可证第2版（“许可证”），你不得使用此文件，除非符合许可证的要求。你可以在以下位置获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件是按"原样"基础分发，不附带任何明示或暗示的保证或条件。有关更多信息，请参阅许可证中的特定语言。
 
-⚠️ 请注意，此文件采用Markdown格式，但包含我们文档生成器的特定语法（类似于MDX），可能在您的Markdown查看器中无法正确显示。-->
+⚠️ 请注意，此文件采用Markdown格式，但包含我们文档生成器的特定语法（类似于MDX），可能在你的Markdown查看器中无法正确显示。-->
 
 # ProphetNet
 
@@ -19,7 +19,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 </a>
 </div>
 
-**免责声明：** 如果您看到任何异常，可以在[GitHub问题](https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template=bug-report.md&title)上提出并指定@patrickvonplaten。
+**免责声明：** 如果你看到任何异常，可以在[GitHub问题](https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template=bug-report.md&title)上提出并指定@patrickvonplaten。
 
 ## 概述
 

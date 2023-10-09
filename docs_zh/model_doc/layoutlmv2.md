@@ -9,7 +9,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
 specific language governing permissions and limitations under the License.
 
-⚠️ 请注意，此文件采用 Markdown 格式，但包含用于我们文档生成器的特定语法（类似于 MDX 的语法），在您的 Markdown 查看器中可能无法正确显示。
+⚠️ 请注意，此文件采用 Markdown 格式，但包含用于我们文档生成器的特定语法（类似于 MDX 的语法），在你的 Markdown 查看器中可能无法正确显示。
 
 -->
 
@@ -33,7 +33,7 @@ LayoutLMv2 依赖于 `detectron2`、`torchvision` 和 `tesseract`。运行以下
 python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
 python -m pip install torchvision tesseract
 ```
-（如果您是为 LayoutLMv2 开发，请注意，通过测试文档还需要安装这些软件包。）
+（如果你是为 LayoutLMv2 开发，请注意，通过测试文档还需要安装这些软件包。）
 
 提示：
 
@@ -42,7 +42,7 @@ python -m pip install torchvision tesseract
 - 有关如何在 RVL-CDIP、FUNSD、DocVQA、CORD 上使用 LayoutLMv2 模型的演示笔记本，可以参考[此处](https://github.com/NielsRogge/Transformers-Tutorials)。
 - LayoutLMv2 使用 Facebook AI 的 [Detectron2](https://github.com/facebookresearch/detectron2/) 包作为其视觉骨干。有关安装说明，请参阅[此链接](https://detectron2.readthedocs.io/en/latest/tutorials/install.html)。
 - 除 `input_ids` 之外，[`~LayoutLMv2Model.forward`] 预期还提供另外两个输入，即
-  `image` 和 `bbox`。`image` 输入对应文本标记出现的原始文档图像。模型期望每个文档图像的大小为 224x224。这意味着，如果您有一批文档图像，则 `image` 应该是形状为 (batch_size, 3, 224, 224) 的张量。这可以是一个 `torch.Tensor` 或一个 `Detectron2.structures.ImageList`。您无需对通道进行归一化处理，因为模型会执行此操作。重要的是要注意，视觉骨干期望 BGR 通道而不是 RGB 通道，因为 Detectron2 中的所有模型都使用 BGR 格式进行了预训练。`bbox` 输入是输入文本标记的边界框（即 2D位置）。这与 [`LayoutLMModel`] 中的相同。可以使用外部 OCR 引擎（例如 Google 的 [Tesseract](https://github.com/tesseract-ocr/tesseract)）将其检索出来（有一个可用的 [Python 封装](https://pypi.org/project/pytesseract/)）。每个边界框的格式应为 (x0, y0, x1, y1)，其中 (x0, y0) 对应于边界框左上角的位置，(x1, y1) 表示边界框右下角的位置。请注意，首先需要将边界框进行正则化，使其位于 0-1000 的范围内。要进行正则化，可以使用以下函数：
+  `image` 和 `bbox`。`image` 输入对应文本标记出现的原始文档图像。模型期望每个文档图像的大小为 224x224。这意味着，如果你有一批文档图像，则 `image` 应该是形状为 (batch_size, 3, 224, 224) 的张量。这可以是一个 `torch.Tensor` 或一个 `Detectron2.structures.ImageList`。你无需对通道进行归一化处理，因为模型会执行此操作。重要的是要注意，视觉骨干期望 BGR 通道而不是 RGB 通道，因为 Detectron2 中的所有模型都使用 BGR 格式进行了预训练。`bbox` 输入是输入文本标记的边界框（即 2D位置）。这与 [`LayoutLMModel`] 中的相同。可以使用外部 OCR 引擎（例如 Google 的 [Tesseract](https://github.com/tesseract-ocr/tesseract)）将其检索出来（有一个可用的 [Python 封装](https://pypi.org/project/pytesseract/)）。每个边界框的格式应为 (x0, y0, x1, y1)，其中 (x0, y0) 对应于边界框左上角的位置，(x1, y1) 表示边界框右下角的位置。请注意，首先需要将边界框进行正则化，使其位于 0-1000 的范围内。要进行正则化，可以使用以下函数：
 
 ```python
 def normalize_bbox(bbox, width, height):
@@ -60,7 +60,7 @@ def normalize_bbox(bbox, width, height):
 from PIL import Image
 
 image = Image.open(
-    "name_of_your_document - 可以是您要处理的文档的 png、jpg 等（PDF 必须转换为图像）。"
+    "name_of_your_document - 可以是你要处理的文档的 png、jpg 等（PDF 必须转换为图像）。"
 )
 
 width, height = image.size
@@ -68,16 +68,16 @@ width, height = image.size
 
 不过，该模型包括全新的 [`~transformers.LayoutLMv2Processor`]，可用于直接为模型准备数据（在幕后应用 OCR）。更多信息可以在下面的“用法”部分中找到。
 
-- 在内部，[`~transformers.LayoutLMv2Model`]会将 `image` 输入通过其视觉骨干传递，以获取低分辨率特征图，其形状等于 [`~transformers.LayoutLMv2Config`] 的 `image_feature_pool_shape` 属性。然后，此特征图被展平以获取图像标记的序列。由于默认情况下特征图的大小为 7x7，因此一共会得到 49 个图像标记。然后，这些图像标记与文本标记连接，并通过 Transformer 编码器。这意味着，如果您将文本标记扩展到最大长度，则模型的最后隐藏状态的长度将为 512 + 49 = 561。更一般地，最后的隐藏状态将具有形状 `seq_length` + `image_feature_pool_shape[0]` *
+- 在内部，[`~transformers.LayoutLMv2Model`]会将 `image` 输入通过其视觉骨干传递，以获取低分辨率特征图，其形状等于 [`~transformers.LayoutLMv2Config`] 的 `image_feature_pool_shape` 属性。然后，此特征图被展平以获取图像标记的序列。由于默认情况下特征图的大小为 7x7，因此一共会得到 49 个图像标记。然后，这些图像标记与文本标记连接，并通过 Transformer 编码器。这意味着，如果你将文本标记扩展到最大长度，则模型的最后隐藏状态的长度将为 512 + 49 = 561。更一般地，最后的隐藏状态将具有形状 `seq_length` + `image_feature_pool_shape[0]` *
   `config.image_feature_pool_shape[1]`。
 - 在调用 [`~transformers.LayoutLMv2Model.from_pretrained`] 时，将显示一个警告，其中列出了未初始化的一长串参数名称。这并不是问题，因为这些参数是批量归一化统计数据，在自定义数据集上进行微调时将具有值。
-- 如果您想在分布式环境中训练模型，请确保在调用中的模型上调用 [`synchronize_batch_norm`]，以便正确同步可视化骨干的批量归一化层。
+- 如果你想在分布式环境中训练模型，请确保在调用中的模型上调用 [`synchronize_batch_norm`]，以便正确同步可视化骨干的批量归一化层。
 
 此外，还有 LayoutXLM，它是 LayoutLMv2 的多语言版本。更多信息可以在[LayoutXLM 的文档页面](layoutxlm)找到。
 
 ## 资源
 
-LayoutLMv2 入门的官方 Hugging Face 和社区资源列表（由 🌎 表示）。如果您有兴趣提交要包含在此处的资源，请随时提出合并请求，我们将对其进行审核！该资源应最好展示出新的内容，而不是重复现有资源。
+LayoutLMv2 入门的官方 Hugging Face 和社区资源列表（由 🌎 表示）。如果你有兴趣提交要包含在此处的资源，请随时提出合并请求，我们将对其进行审核！该资源应最好展示出新的内容，而不是重复现有资源。
 
 <PipelineTag pipeline="text-classification"/>
 
@@ -99,7 +99,7 @@ LayoutLMv2 入门的官方 Hugging Face 和社区资源列表（由 🌎 表示�
 
 ## 用法：LayoutLMv2Processor
 
-准备模型数据的最简单方法是使用 [`LayoutLMv2Processor`]，它内部组合了图像处理器（[`LayoutLMv2ImageProcessor`]）和分词器（[`LayoutLMv2Tokenizer`] 或 [`LayoutLMv2TokenizerFast`]）。图像处理器处理图像模态，而分词器处理文本模态。处理器将两者结合起来，这对于像 LayoutLMv2 这样的多模态模型非常理想。注意，您仍然可以单独使用它们，如果只想处理一种模态。
+准备模型数据的最简单方法是使用 [`LayoutLMv2Processor`]，它内部组合了图像处理器（[`LayoutLMv2ImageProcessor`]）和分词器（[`LayoutLMv2Tokenizer`] 或 [`LayoutLMv2TokenizerFast`]）。图像处理器处理图像模态，而分词器处理文本模态。处理器将两者结合起来，这对于像 LayoutLMv2 这样的多模态模型非常理想。注意，你仍然可以单独使用它们，如果只想处理一种模态。
 
 ```python
 from transformers import LayoutLMv2ImageProcessor, LayoutLMv2TokenizerFast, LayoutLMv2Processor
@@ -111,7 +111,7 @@ processor = LayoutLMv2Processor(image_processor, tokenizer)
 
 简而言之，一个可以提供文档图像（以及可能的其他数据）给 [`LayoutLMv2Processor`]，它将创建模型所需的输入。在内部，处理器首先使用 [`LayoutLMv2ImageProcessor`] 在图像上应用 OCR 以获取单词和规范化的边界框列表，并将图像调整为给定大小以获取 `image` 输入。然后，将这些单词和规范化的边界框提供给 [`LayoutLMv2Tokenizer`] 或 [`LayoutLMv2TokenizerFast`]，将其转换为标记级别的 `input_ids`、`attention_mask`、`token_type_ids` 和 `bbox`。可选地，还可以将单词标签提供给处理器，它们将转换为标记级别的 `labels`。
 
-[`LayoutLMv2Processor`] 在幕后使用 [PyTesseract](https://pypi.org/project/pytesseract/)，这是一个围绕 Google Tesseract OCR 引擎的 Python 封装。请注意，您仍然可以使用自己选择的 OCR 引擎，并将单词和规范化的边界框提供给处理器。这要求使用 `apply_ocr` 设置为 `False` 初始化 [`LayoutLMv2ImageProcessor`]。
+[`LayoutLMv2Processor`] 在幕后使用 [PyTesseract](https://pypi.org/project/pytesseract/)，这是一个围绕 Google Tesseract OCR 引擎的 Python 封装。请注意，你仍然可以使用自己选择的 OCR 引擎，并将单词和规范化的边界框提供给处理器。这要求使用 `apply_ocr` 设置为 `False` 初始化 [`LayoutLMv2ImageProcessor`]。
 
 总的来说，处理器支持以下 5 种用例。下面列出了所有这些用例。请注意，每个这些用例都适用于批量和非批量输入（我们以非批量输入为例进行说明）。
 
@@ -126,18 +126,18 @@ from PIL import Image
 processor = LayoutLMv2Processor.from_pretrained("microsoft/layoutlmv2-base-uncased")
 
 image = Image.open(
-    "name_of_your_document - 可以是您要处理的文档的 png、jpg 等（PDF 必须转换为图像）。"
+    "name_of_your_document - 可以是你要处理的文档的 png、jpg 等（PDF 必须转换为图像）。"
 ).convert("RGB")
 encoding = processor(
     image, return_tensors="pt"
-)  # 您也可以在此处添加所有分词器参数，如 padding、截断等
+)  # 你也可以在此处添加所有分词器参数，如 padding、截断等
 print(encoding.keys())
 # dict_keys(['input_ids', 'token_type_ids', 'attention_mask', 'bbox', 'image'])
 ```
 
 **用例 2：文档图像分类（训练、推断）+ 令牌分类（推断），apply_ocr=False**
 
-如果您想自行执行 OCR，可以使用 `apply_ocr` 设置为 `False` 初始化图像处理器。在这种情况下，您应该自己提供单词和相应的（规范化的）边界框，以供处理器使用。
+如果你想自行执行 OCR，可以使用 `apply_ocr` 设置为 `False` 初始化图像处理器。在这种情况下，你应该自己提供单词和相应的（规范化的）边界框，以供处理器使用。
 
 ```python
 from transformers import LayoutLMv2Processor
@@ -146,10 +146,10 @@ from PIL import Image
 processor = LayoutLMv2Processor.from_pretrained("microsoft/layoutlmv2-base-uncased", revision="no_ocr")
 
 image = Image.open(
-    "name_of_your_document - 可以是您要处理的文档的 png、jpg 等（PDF 必须转换为图像）。"
+    "name_of_your_document - 可以是你要处理的文档的 png、jpg 等（PDF 必须转换为图像）。"
 ).convert("RGB")
 words = ["hello", "world"]
-boxes = [[1, 2, 3, 4], [5, 6, 7, 8]]  # 请确保正规化您的边界框
+boxes = [[1, 2, 3, 4], [5, 6, 7, 8]]  # 请确保正规化你的边界框
 encoding = processor(image, words, boxes=boxes, return_tensors="pt")
 print(encoding.keys())
 # dict_keys(['input_ids', 'token_type_ids', 'attention_mask', 'bbox', 'image'])
@@ -182,7 +182,7 @@ print(encoding.keys())
 
 **用例 4：视觉问答（推理），apply_ocr=True**
 
-对于视觉问答任务（如DocVQA），您可以向处理器提供一个问题。默认情况下，处理器将在图像上应用OCR，并创建[CLS]问题标记[SEP]单词标记[SEP]。
+对于视觉问答任务（如DocVQA），你可以向处理器提供一个问题。默认情况下，处理器将在图像上应用OCR，并创建[CLS]问题标记[SEP]单词标记[SEP]。
 
 ```python
 from transformers import LayoutLMv2Processor
@@ -201,7 +201,7 @@ print(encoding.keys())
 
 **用例 5：视觉问答（推理），apply_ocr=False**
 
-对于视觉问答任务（如DocVQA），您可以向处理器提供一个问题。如果您想自己执行OCR，可以向处理器提供您自己的单词和（标准化的）边界框。
+对于视觉问答任务（如DocVQA），你可以向处理器提供一个问题。如果你想自己执行OCR，可以向处理器提供你自己的单词和（标准化的）边界框。
 
 ```python
 from transformers import LayoutLMv2Processor

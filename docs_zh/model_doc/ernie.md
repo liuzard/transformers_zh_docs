@@ -1,6 +1,6 @@
 <!--版权所有2022年致人可拥抱团队。保留所有权利。
 
-根据Apache许可证第2.0版（“许可证”），您除非符合许可证的规定否则不得使用此文件。您可以在
+根据Apache许可证第2.0版（“许可证”），你除非符合许可证的规定否则不得使用此文件。你可以在
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -8,7 +8,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或者书面同意，否则以"AS IS"的基础分发软件，没有任何形式的保证或条件，无论是明示的还是暗示的。详细资料请参阅许可证的规定。
 
-⚠️ 请注意，此文件是Markdown格式的，但包含特定语法（类似于MDX）以供我们的文档构建器使用，可能不会在您的Markdown查看器中正确显示。
+⚠️ 请注意，此文件是Markdown格式的，但包含特定语法（类似于MDX）以供我们的文档构建器使用，可能不会在你的Markdown查看器中正确显示。
 
 -->
 
@@ -45,7 +45,7 @@ model = AutoModel.from_pretrained("nghuyong/ernie-1.0-base-zh")
 |   ernie-health-zh   | 中文 | 层数：12，头数：12，隐藏层：768 |
 |    ernie-gram-zh    | 中文 | 层数：12，头数：12，隐藏层：768 |
 
-您可以在huggingface的模型中心找到所有支持的模型：[huggingface.co/nghuyong](https://huggingface.co/nghuyong)，模型详细信息可在paddle的官方存储库中找到：
+你可以在huggingface的模型中心找到所有支持的模型：[huggingface.co/nghuyong](https://huggingface.co/nghuyong)，模型详细信息可在paddle的官方存储库中找到：
 [PaddleNLP](https://paddlenlp.readthedocs.io/zh/latest/model_zoo/transformers/ERNIE/contents.html)
 和[ERNIE](https://github.com/PaddlePaddle/ERNIE/blob/repro)。
 

@@ -22,11 +22,11 @@ OneFormer模型由Jitesh Jain、Jiachen Li、MangTik Chiu、Ali Hassani、Nikita
 
 ## 资源
 
-下面是一些官方Hugging Face资源和社区资源（由🌎表示），可帮助您开始使用OneFormer。
+下面是一些官方Hugging Face资源和社区资源（由🌎表示），可帮助你开始使用OneFormer。
 
 - 有关推断+对自定义数据进行微调的演示笔记本可在[此处](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/OneFormer)找到。
 
-如果您有兴趣提交资源以包括在此处，请随时打开拉取请求，我们将对其进行审核。资源应该展示出一些新东西，而不是重复已有的资源。
+如果你有兴趣提交资源以包括在此处，请随时打开拉取请求，我们将对其进行审核。资源应该展示出一些新东西，而不是重复已有的资源。
 
 ## OneFormer特定输出
 

@@ -1,6 +1,6 @@
 <!--版权所有2022年HuggingFace团队。保留所有权利。
 
-根据Apache许可证第2.0版（“许可证”）获得许可；除非符合许可证的规定，否则不得使用此文件。您可以在
+根据Apache许可证第2.0版（“许可证”）获得许可；除非符合许可证的规定，否则不得使用此文件。你可以在
 
 http://www.apache.org/licenses/LICENSE-2.0
    
@@ -10,7 +10,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 许可下的特定语言和限制。
 
-⚠️请注意，这个文件是Markdown格式的，但含有我们的doc-builder的特定语法（类似于MDX），在您的Markdown查看器中可能无法正确渲染。
+⚠️请注意，这个文件是Markdown格式的，但含有我们的doc-builder的特定语法（类似于MDX），在你的Markdown查看器中可能无法正确渲染。
 
 -->
 
@@ -113,7 +113,7 @@ XLM-RoBERTa在100种语言的新创建和清理的CommonCrawl数据上进行了2
 - `facebook/m2m100_418M` （翻译）
 - `facebook/m2m100_1.2B` （翻译）
 
-在此示例中，加载`facebook/m2m100_418M`检查点，将中文翻译为英文。您可以在分词器中设置源语言：
+在此示例中，加载`facebook/m2m100_418M`检查点，将中文翻译为英文。你可以在分词器中设置源语言：
 
 ```py
 >>> from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer
@@ -149,7 +149,7 @@ M2M100要求将目标语言ID作为第一个生成的标记，以将其翻译为
 - `facebook/mbart-large-50` （多语言翻译，50种语言）
 - `facebook/mbart-large-cc25`
 
-在此示例中，加载`facebook/mbart-large-50-many-to-many-mmt`检查点，将芬兰语翻译为英语。您可以在分词器中设置源语言：
+在此示例中，加载`facebook/mbart-large-50-many-to-many-mmt`检查点，将芬兰语翻译为英语。你可以在分词器中设置源语言：
 
 ```py
 >>> from transformers import AutoTokenizer, AutoModelForSeq2SeqLM

@@ -2,7 +2,7 @@
 版权所有 (c) 2021 NVIDIA公司和HuggingFace团队。保留所有权利。
 
 根据Apache许可证第2.0版（“许可证”），除非符合许可证的要求，
-否则不得使用此文件。您可以在下面网址获取许可证的副本：
+否则不得使用此文件。你可以在下面网址获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -10,7 +10,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 “按原样”提供的，“没有任何担保或条件”，不论是明示或暗示的。
 有关许可证的详细信息，请参阅许可证下的规定。
 
-⚠️请注意，此文件是Markdown格式，但包含我们文档生成器的特定语法（类似于MDX），可能在您的Markdown查看器中无法正确渲染。
+⚠️请注意，此文件是Markdown格式，但包含我们文档生成器的特定语法（类似于MDX），可能在你的Markdown查看器中无法正确渲染。
 
 -->
 
@@ -28,7 +28,7 @@ Mohammad Shoeybi、Mostofa Patwary、Raul Puri、Patrick LeGresley、Jared Caspe
 
 要访问这些检查点，请首先[注册](https://ngc.nvidia.com/signup)并设置NVIDIA GPU云（NGC）注册表CLI。下载模型的更多文档可以在[NGC文档](https://docs.nvidia.com/dgx/ngc-registry-cli-user-guide/index.html#topic_6_4_1)中找到。
 
-或者，您可以直接使用以下命令下载检查点：
+或者，你可以直接使用以下命令下载检查点：
 
 BERT-345M-uncased:
 
@@ -44,9 +44,9 @@ wget --content-disposition https://api.ngc.nvidia.com/v2/models/nvidia/megatron_
 megatron_bert_345m_v0_1_cased.zip
 ```
 
-一旦您从NVIDIA GPU Cloud（NGC）获得了检查点，您需要将它们转换为Hugging Face Transformers和我们的BERT代码端口可以轻松加载的格式。
+一旦你从NVIDIA GPU Cloud（NGC）获得了检查点，你需要将它们转换为Hugging Face Transformers和我们的BERT代码端口可以轻松加载的格式。
 
-以下命令允许您进行转换。我们假设文件夹`models/megatron_bert`包含`megatron_bert_345m_v0_1_{cased, uncased}.zip`，并且这些命令是在该文件夹内运行的：
+以下命令允许你进行转换。我们假设文件夹`models/megatron_bert`包含`megatron_bert_345m_v0_1_{cased, uncased}.zip`，并且这些命令是在该文件夹内运行的：
 
 ```bash
 python3 $PATH_TO_TRANSFORMERS/models/megatron_bert/convert_megatron_bert_checkpoint.py megatron_bert_345m_v0_1_uncased.zip

@@ -1,13 +1,13 @@
 <!--2021年版权归“拥抱面部”团队所有。
 
-根据Apache许可证第2.0版（“许可证”）获得许可；除非符合许可证，否则您不得使用此文件。
-您可以在以下网址获取许可证副本：
+根据Apache许可证第2.0版（“许可证”）获得许可；除非符合许可证，否则你不得使用此文件。
+你可以在以下网址获取许可证副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，否则根据许可证分发的软件是基于“原样”分发的，不附带任何形式的明示或暗示的保证。请参阅许可证以获取特定语言下的权限和限制。
 
-⚠️请注意，该文件是Markdown格式的，但包含专为我们的文档生成器（类似MDX）的特定语法，可能在您的Markdown查看器中无法正确显示。
+⚠️请注意，该文件是Markdown格式的，但包含专为我们的文档生成器（类似MDX）的特定语法，可能在你的Markdown查看器中无法正确显示。
 
 -->
 
@@ -21,7 +21,7 @@ MatCha是由Fangyu Liu、Francesco Piccinno、Syrine Krichene、Chenxi Pang、Ke
 
 ## 模型描述
 
-MatCha是使用`Pix2Struct`架构进行训练的模型。您可以在[Pix2Struct文档](https://huggingface.co/docs/transformers/main/en/model_doc/pix2struct)中找到有关`Pix2Struct`的更多信息。MatCha是`Pix2Struct`架构的视觉问答子集，它将输入的问题渲染到图像上并预测答案。
+MatCha是使用`Pix2Struct`架构进行训练的模型。你可以在[Pix2Struct文档](https://huggingface.co/docs/transformers/main/en/model_doc/pix2struct)中找到有关`Pix2Struct`的更多信息。MatCha是`Pix2Struct`架构的视觉问答子集，它将输入的问题渲染到图像上并预测答案。
 
 ## 使用方法
 
@@ -36,7 +36,7 @@ MatCha是使用`Pix2Struct`架构进行训练的模型。您可以在[Pix2Struct
 
 在`chart2text-pew`和`chart2text-statista`上微调的模型更适合进行摘要，而在`plotqa`和`chartqa`上微调的模型更适合进行问答。
 
-您可以按照以下方式使用这些模型（以ChatQA数据集为例）：
+你可以按照以下方式使用这些模型（以ChatQA数据集为例）：
 
 ```python
 from transformers import AutoProcessor, Pix2StructForConditionalGeneration

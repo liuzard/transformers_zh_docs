@@ -1,10 +1,10 @@
 版权所有 © 2021 HuggingFace团队。
 
-根据Apache License，Version 2.0（“许可证”）许可；除非符合许可证的规定，否则不得使用此文件。您可以从以下网址获取许可证的副本：
+根据Apache License，Version 2.0（“许可证”）许可；除非符合许可证的规定，否则不得使用此文件。你可以从以下网址获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
-除非适用法律要求或书面同意，本软件按“原样”分发，不附带任何形式的明示或暗示担保。请注意，此文件是Markdown格式的，但包含对于我们的文档构建器（类似于MDX）的特定语法，可能无法在您的Markdown查看器中正确显示。
+除非适用法律要求或书面同意，本软件按“原样”分发，不附带任何形式的明示或暗示担保。请注意，此文件是Markdown格式的，但包含对于我们的文档构建器（类似于MDX）的特定语法，可能无法在你的Markdown查看器中正确显示。
 
 # Splinter
 
@@ -20,7 +20,7 @@ Splinter模型是由Ori Ram、Yuval Kirstain、Jonathan Berant、Amir Globerson�
 
 - Splinter是通过特殊的[QUESTION]标记来预测答案跨度的。这些标记将上下文化为用于预测答案的问题表示。这一层被称为QASS层，并且是SplinterForQuestionAnswering类的默认行为。因此：
 - 使用SplinterTokenizer（而不是BertTokenizer），因为它已经包含了这个特殊的标记。此外，默认情况下，当给出两个序列（例如在run_qa.py脚本中）时，它会使用这个标记。
-- 如果您计划在run_qa.py之外使用Splinter，请记住问题标记-在少样本设置中，这可能对于您的模型的成功至关重要。
+- 如果你计划在run_qa.py之外使用Splinter，请记住问题标记-在少样本设置中，这可能对于你的模型的成功至关重要。
 - 请注意，对于每个Splinter大小，有两个不同的检查点。两者基本上是相同的，只是一个还有QASS层的预训练权重（*tau/splinter-base-qass*和*tau/splinter-large-qass*），而另一个没有（*tau/splinter-base*和*tau/splinter-large*）。这样做是为了支持在微调时随机初始化这一层，因为据论文中的一些案例表明，这样做可以获得更好的结果。
 
 此模型由yuvalkirstain和oriram贡献。原始代码可以在此处找到：https://github.com/oriram/splinter。

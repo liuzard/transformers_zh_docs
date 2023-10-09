@@ -29,7 +29,7 @@ from transformers import AutoModelForSeq2SeqLM
 t0pp = AutoModelForSeq2SeqLM.from_pretrained("bigscience/T0pp", low_cpu_mem_usage=True)
 ```
 
-此外，如果模型无法完全适配内存（目前仅适用于推理），您可以直接将模型放置在不同的设备上。通过使用 `device_map="auto"`，Accelerate 将确定在哪一个设备上放置每个图层，以最大化使用速度最快的设备（GPU），并将剩余部分卸载到CPU，甚至硬盘上（如果您没有足够的GPU内存或CPU内存）。即使模型分布在多个设备上，它也会正常运行。
+此外，如果模型无法完全适配内存（目前仅适用于推理），你可以直接将模型放置在不同的设备上。通过使用 `device_map="auto"`，Accelerate 将确定在哪一个设备上放置每个图层，以最大化使用速度最快的设备（GPU），并将剩余部分卸载到CPU，甚至硬盘上（如果你没有足够的GPU内存或CPU内存）。即使模型分布在多个设备上，它也会正常运行。
 
 当传递 `device_map` 时，`low_cpu_mem_usage` 会自动设置为 `True`，所以不需要指定它：
 
@@ -39,7 +39,7 @@ from transformers import AutoModelForSeq2SeqLM
 t0pp = AutoModelForSeq2SeqLM.from_pretrained("bigscience/T0pp", device_map="auto")
 ```
 
-您可以通过查看其 `hf_device_map` 属性来了解模型如何在设备上分割：
+你可以通过查看其 `hf_device_map` 属性来了解模型如何在设备上分割：
 
 ```py
 t0pp.hf_device_map
@@ -78,7 +78,7 @@ t0pp.hf_device_map
  'lm_head': 'cpu'}
 ```
 
-您还可以按照相同的格式编写自己的设备映射（一个将图层名称映射到设备的字典）。它应该将模型的所有参数映射到特定设备，但如果该层完全位于同一设备上，则不必详细说明一个层的所有子模块放在哪个设备上。例如，以下设备映射对T0pp来说是有效的（只要您具有GPU内存）：
+你还可以按照相同的格式编写自己的设备映射（一个将图层名称映射到设备的字典）。它应该将模型的所有参数映射到特定设备，但如果该层完全位于同一设备上，则不必详细说明一个层的所有子模块放在哪个设备上。例如，以下设备映射对T0pp来说是有效的（只要你具有GPU内存）：
 
 ```python
 device_map = {"shared": 0, "encoder": 0, "decoder": 1, "lm_head": 1}

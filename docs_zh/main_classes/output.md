@@ -1,7 +1,7 @@
 <!--版权所有2020年HuggingFace团队，保留所有权利。
 
-根据Apache许可证2.0版本（“许可证”）的规定，您不得使用此文件，除非符合许可证的要求。
-您可以在以下位置获取许可证的副本：
+根据Apache许可证2.0版本（“许可证”）的规定，你不得使用此文件，除非符合许可证的要求。
+你可以在以下位置获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -9,7 +9,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 请参阅许可证中的特定语言，了解许可证下的特定权限和限制。
 
 ⚠️请注意，此文件是Markdown格式的，但包含我们的文档生成器的特定语法（类似于MDX），
-在您的Markdown查看器中可能无法正确渲染。-->
+在你的Markdown查看器中可能无法正确渲染。-->
 
 # 模型输出
 
@@ -36,11 +36,11 @@ outputs = model(**inputs, labels=labels)
 
 <Tip>
 
-在传递`output_hidden_states=True`时，您可以期望`outputs.hidden_states[-1]`与`outputs.last_hidden_states`完全匹配。
+在传递`output_hidden_states=True`时，你可以期望`outputs.hidden_states[-1]`与`outputs.last_hidden_states`完全匹配。
 然而，情况并非一直如此。有些模型在返回最后的隐藏状态时对其应用归一化或后续处理。
 </Tip>
 
-您可以像通常一样访问每个属性，如果该属性未被模型返回，您将得到`None`。
+你可以像通常一样访问每个属性，如果该属性未被模型返回，你将得到`None`。
 在这里，例如，`outputs.loss`是模型计算的损失，`outputs.attentions`是`None`。
 
 当将我们的`outputs`对象视为元组时，它只考虑那些没有`None`值的属性。

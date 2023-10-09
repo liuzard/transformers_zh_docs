@@ -1,6 +1,6 @@
 <!--版权所有2021年The HuggingFace团队。保留所有权利。
 
-根据Apache许可证第2.0版（“许可证”）许可，除非遵守许可证，否则不得使用此文件。您可以在以下位置获取许可证的副本http://www.apache.org/licenses/LICENSE-2.0
+根据Apache许可证第2.0版（“许可证”）许可，除非遵守许可证，否则不得使用此文件。你可以在以下位置获取许可证的副本http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，软件根据许可证的条款分发，
 <dl>”基于“AS IS” BASIS的，没有明示或暗示的任何保证或条件，
@@ -21,8 +21,8 @@ BEiT模型是由Hangbo Bao，Li Dong和Furu Wei在[BEiT：BERT图像变压器的
 
 提示：
 
-- BEiT模型是常规的视觉变压器，但采用自监督方式进行预训练，而不是监督方式。当在ImageNet-1K和CIFAR-100上进行微调时，它们的性能优于[原始模型（ViT）](vit)和[Data-efficient Image Transformers (DeiT)](deit)。您可以在这里查看有关推理以及在自定义数据上进行微调的演示笔记本[（此处）](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/VisionTransformer)（您可以使用[`BeitImageProcessor`]替换[`ViTFeatureExtractor`]以及[`ViTForImageClassification`]替换[`BeitForImageClassification`]）。
-- 这里还有一个演示笔记本，展示了如何结合DALL-E的图像标记器和BEiT来执行掩码图像建模。您可以在[此处](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/BEiT)找到它。
+- BEiT模型是常规的视觉变压器，但采用自监督方式进行预训练，而不是监督方式。当在ImageNet-1K和CIFAR-100上进行微调时，它们的性能优于[原始模型（ViT）](vit)和[Data-efficient Image Transformers (DeiT)](deit)。你可以在这里查看有关推理以及在自定义数据上进行微调的演示笔记本[（此处）](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/VisionTransformer)（你可以使用[`BeitImageProcessor`]替换[`ViTFeatureExtractor`]以及[`ViTForImageClassification`]替换[`BeitForImageClassification`]）。
+- 这里还有一个演示笔记本，展示了如何结合DALL-E的图像标记器和BEiT来执行掩码图像建模。你可以在[此处](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/BEiT)找到它。
 - 由于BEiT模型期望每个图像具有相同的尺寸（分辨率），因此可以使用[`BeitImageProcessor`]对模型的图像进行调整（或重新缩放）和归一化。
 - 预训练或微调期间使用的块分辨率和图像分辨率反映在每个检查点的名称中。例如，`microsoft/beit-base-patch16-224`指的是具有16x16块分辨率和224x224微调分辨率的基本大小架构。所有检查点都可以在[hub](https://huggingface.co/models?search=microsoft/beit)上找到。
 - 可用的检查点要么（1）仅在[ImageNet-22k](http://www.image-net.org/)（包含1400万图像和22k类别）上进行了预训练，要么（2）在ImageNet-22k上进行了微调，或者（3）在[ImageNet-1k](http://www.image-net.org/challenges/LSVRC/2012/)上进行了微调（也称为ILSVRC 2012，包含130万图像和1000个类别）。
@@ -37,7 +37,7 @@ alt="drawing" width="600"/>
 
 ## 资源
 
-以下是官方Hugging Face和社区（用🌎表示）的资源列表，可帮助您开始使用BEiT。
+以下是官方Hugging Face和社区（用🌎表示）的资源列表，可帮助你开始使用BEiT。
 
 <PipelineTag pipeline="image-classification"/>
 
@@ -47,7 +47,7 @@ alt="drawing" width="600"/>
 **语义分割**
 - [语义分割任务指南](../tasks/semantic_segmentation)
 
-如果您有兴趣提交资源以包含在此处，请随时发起拉取请求，我们将进行审核！该资源应该最好展示新东西，而不是重复现有资源。
+如果你有兴趣提交资源以包含在此处，请随时发起拉取请求，我们将进行审核！该资源应该最好展示新东西，而不是重复现有资源。
 
 ## BEiT特定输出
 

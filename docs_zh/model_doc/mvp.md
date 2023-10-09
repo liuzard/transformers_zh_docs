@@ -1,13 +1,13 @@
 <!--版权2022年HuggingFace团队。版权所有。
 
-根据Apache许可证第2.0版（“许可证”），您除非符合许可证的规定，在未获得版权人的许可的情况下不得使用此文件。
-您可以在以下位置获得许可证的副本：
+根据Apache许可证第2.0版（“许可证”），你除非符合许可证的规定，在未获得版权人的许可的情况下不得使用此文件。
+你可以在以下位置获得许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件以“原样”分发且不附带任何明示或暗示的保证或条件。请参阅许可证以获取有关许可证下特定语言的权限和限制的详细信息。
 
-⚠️请注意，此文件以Markdown格式编写，但包含了我们文档构建器（类似于MDX）的特定语法，可能无法在您的Markdown查看器中正确呈现。
+⚠️请注意，此文件以Markdown格式编写，但包含了我们文档构建器（类似于MDX）的特定语法，可能无法在你的Markdown查看器中正确呈现。
 
 -->
 
@@ -26,8 +26,8 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 提示：
 - 我们在[这里](https://huggingface.co/models?filter=mvp)发布了一系列模型，包括MVP、带有任务特定提示的MVP和多任务预训练变体。
-- 如果您想使用没有提示的模型（标准Transformer），可以通过`MvpForConditionalGeneration.from_pretrained('RUCAIBox/mvp')`进行加载。
-- 如果您想使用带有任务特定提示的模型，例如摘要，可以通过`MvpForConditionalGeneration.from_pretrained('RUCAIBox/mvp-summarization')`进行加载。
+- 如果你想使用没有提示的模型（标准Transformer），可以通过`MvpForConditionalGeneration.from_pretrained('RUCAIBox/mvp')`进行加载。
+- 如果你想使用带有任务特定提示的模型，例如摘要，可以通过`MvpForConditionalGeneration.from_pretrained('RUCAIBox/mvp-summarization')`进行加载。
 - 我们的模型支持轻量级的前置调整（Prefix-tuning），具体方法请参见[这里](https://arxiv.org/abs/2101.00190)中的`set_lightweight_tuning()`方法。
 
 此模型由[Tianyi Tang](https://huggingface.co/StevenTang)贡献。详细信息和说明可在[此处](https://github.com/RUCAIBox/MVP)找到。
@@ -76,7 +76,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 ['钢铁侠是由漫威演员出版的美国漫画中出现的一个虚构的超级英雄。']
 ```
 
-对于轻量级调整（即仅固定模型并调整提示），您可以加载具有随机初始化提示或具有任务特定提示的MVP。我们的代码还支持使用BART进行前缀调整，遵循[原始论文](https://arxiv.org/abs/2101.00190)的方法。
+对于轻量级调整（即仅固定模型并调整提示），你可以加载具有随机初始化提示或具有任务特定提示的MVP。我们的代码还支持使用BART进行前缀调整，遵循[原始论文](https://arxiv.org/abs/2101.00190)的方法。
 
 ```python
 >>> from transformers import MvpForConditionalGeneration

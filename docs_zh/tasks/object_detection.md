@@ -1,14 +1,14 @@
 <!--
 # 版权2022 HuggingFace团队。保留所有权利。
 
-根据Apache许可证第2版（“许可证”），您除非符合许可证的要求，否则无权使用此文件。
-您可以在以下位置获取许可证的副本
+根据Apache许可证第2版（“许可证”），你除非符合许可证的要求，否则无权使用此文件。
+你可以在以下位置获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，软件在"AS IS"基础上分发，不附带任何明示或暗示的保证或条件。请参阅许可证以了解许可证下的特定语言以及限制。
 
-⚠️ 请注意，此文件是Markdown格式，但包含用于我们的文档构建器（类似于MDX）的特定语法，可能无法在您的Markdown查看器中正确呈现。
+⚠️ 请注意，此文件是Markdown格式，但包含用于我们的文档构建器（类似于MDX）的特定语法，可能无法在你的Markdown查看器中正确呈现。
 
 -->
 
@@ -18,7 +18,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 目标检测是计算机视觉的任务之一，用于在图像中检测实例（例如人、建筑物或汽车）。目标检测模型接收图像作为输入，并输出检测到的对象的边界框的坐标和关联标签。一张图像可以包含多个对象，每个对象都有自己的边界框和标签（例如可以同时包含汽车和建筑物），每个对象可以出现在图像的不同部分（例如图像中可能有几辆汽车）。这个任务在自动驾驶中常用于检测像行人、道路标志和交通灯等物体。其他应用包括图像中对象计数、图像搜索等。
 
-在本指南中，您将学习如何：
+在本指南中，你将学习如何：
 
  1. 对[DETR](https://huggingface.co/docs/transformers/model_doc/detr)进行微调，DETR是一个将卷积骨干网络与编码器-解码器Transformer相结合的模型，使用[CPPE-5](https://huggingface.co/datasets/cppe-5)数据集进行微调。
  2. 使用已经微调过的模型进行推断。
@@ -40,10 +40,10 @@ http://www.apache.org/licenses/LICENSE-2.0
 pip install -q datasets transformers evaluate timm albumentations
 ```
 
-您将使用🤗 Datasets 来从 Hugging Face Hub 加载数据集，🤗 Transformers 用于训练模型，`albumentations` 用于增强数据。`timm` 目前需要用于加载 DETR 模型的卷积骨干网络。
+你将使用🤗 Datasets 来从 Hugging Face Hub 加载数据集，🤗 Transformers 用于训练模型，`albumentations` 用于增强数据。`timm` 目前需要用于加载 DETR 模型的卷积骨干网络。
 
-我们鼓励您与社区分享您的模型。登录到您的 Hugging Face 帐户并将其上传到 Hub。
-在提示时输入您的令牌以登录：
+我们鼓励你与社区分享你的模型。登录到你的 Hugging Face 帐户并将其上传到 Hub。
+在提示时输入你的令牌以登录：
 
 ```py
 >>> from huggingface_hub import notebook_login
@@ -104,8 +104,8 @@ DatasetDict({
   - `bbox`：对象的边界框（[COCO 格式](https://albumentations.ai/docs/getting_started/bounding_boxes_augmentation/#coco)）
   - `category`：对象的类别，可能的值包括 `Coverall (0)`、`Face_Shield (1)`、`Gloves (2)`、`Goggles (3)` 和 `Mask (4)`
 
-您可能会注意到 `bbox` 字段遵循 COCO 格式，这是 DETR 模型希望的格式。
-然而，`objects` 中字段的分组与 DETR 要求的注释格式不同。您需要在使用此数据进行训练之前应用一些预处理转换。
+你可能会注意到 `bbox` 字段遵循 COCO 格式，这是 DETR 模型希望的格式。
+然而，`objects` 中字段的分组与 DETR 要求的注释格式不同。你需要在使用此数据进行训练之前应用一些预处理转换。
 
 为了更好地了解数据，可视化数据集中的一个示例。
 
@@ -137,9 +137,9 @@ DatasetDict({
     <img src="https://i.imgur.com/TdaqPJO.png" alt="CPPE-5 Image Example"/>
 </div>
 
-要可视化带有关联标签的边界框，您可以从数据集的元数据中获取标签，特别是 `category` 字段。
-您还需要创建映射将标签 ID 映射到标签类别（`id2label`），以及将标签类别映射到 ID 的映射（`label2id`）。
-如果您在 Hugging Face Hub 上分享模型，包括这些映射将使您的模型可以被其他人重复使用。
+要可视化带有关联标签的边界框，你可以从数据集的元数据中获取标签，特别是 `category` 字段。
+你还需要创建映射将标签 ID 映射到标签类别（`id2label`），以及将标签类别映射到 ID 的映射（`label2id`）。
+如果你在 Hugging Face Hub 上分享模型，包括这些映射将使你的模型可以被其他人重复使用。
 
 在了解数据的过程中，要侧重检查潜在问题。对象检测数据集中的一个常见问题是边界框“拉伸”到图像边缘以外。这样的“行为”边界框可能会在训练时引发错误，并且应该在此阶段予以解决。在此数据集中有几个示例存在这个问题。为了简化本指南，我们从数据中删除这些图像。
 
@@ -151,8 +151,8 @@ DatasetDict({
 
 对数据进行预处理
 
-要微调模型，您必须预处理计划使用的数据，以精确地匹配预训练模型所使用的方法。
-[`AutoImageProcessor`] 负责处理图像数据，创建 `pixel_values`、`pixel_mask` 和可以用于训练 DETR 模型的 `labels`。图像处理器具有一些您不必担心的属性：
+要微调模型，你必须预处理计划使用的数据，以精确地匹配预训练模型所使用的方法。
+[`AutoImageProcessor`] 负责处理图像数据，创建 `pixel_values`、`pixel_mask` 和可以用于训练 DETR 模型的 `labels`。图像处理器具有一些你不必担心的属性：
 
 - `image_mean = [0.485, 0.456, 0.406]`
 - `image_std = [0.229, 0.224, 0.225]`
@@ -208,7 +208,7 @@ DatasetDict({
 ...     return annotations
 ```
 
-现在，您可以将图像和注释转换组合起来以在一批示例上使用：
+现在，你可以将图像和注释转换组合起来以在一批示例上使用：
 
 ```py
 >>> # transforming a batch
@@ -234,7 +234,7 @@ DatasetDict({
 
 使用 🤗 Datasets 的 [`~datasets.Dataset.with_transform`] 方法将此预处理函数应用于整个数据集。此方法在加载数据集元素时动态应用转换。
 
-此时，您可以检查经过转换的数据集中的示例的样子了。您应该会看到带有 `pixel_values` 的张量，带有 `pixel_mask` 的张量和 `labels`。
+此时，你可以检查经过转换的数据集中的示例的样子了。你应该会看到带有 `pixel_values` 的张量，带有 `pixel_mask` 的张量和 `labels`。
 
 ```py
 >>> cppe5["train"] = cppe5["train"].with_transform(transform_aug_ann)
@@ -272,7 +272,7 @@ DatasetDict({
  'labels': {'size': tensor([800, 800]), 'image_id': tensor([756]), 'class_labels': tensor([4]), 'boxes': tensor([[0.7340, 0.6986, 0.3414, 0.5944]]), 'area': tensor([519544.4375]), 'iscrowd': tensor([0]), 'orig_size': tensor([480, 480])}}
 ```
 
-您已成功增强了个别图像并准备了它们的注释。然而，预处理还没有完成。在最后一步中，创建一个自定义的 `collate_fn` 来将图像批处理在一起。
+你已成功增强了个别图像并准备了它们的注释。然而，预处理还没有完成。在最后一步中，创建一个自定义的 `collate_fn` 来将图像批处理在一起。
 将图像（现在是 `pixel_values`）填充到一批中最大的图像，创建相应的 `pixel_mask` 来指示哪些像素是真实的（1）和哪些是填充的（0）。
 
 ```py
@@ -288,13 +288,13 @@ DatasetDict({
 ```
 
 训练 DEER 模型
-在之前的部分中，您已经完成了大部分繁重的工作，现在可以开始训练模型了！即使在调整大小之后，此数据集中的图像仍然相当大。这意味着微调此模型将需要至少一个 GPU。
+在之前的部分中，你已经完成了大部分繁重的工作，现在可以开始训练模型了！即使在调整大小之后，此数据集中的图像仍然相当大。这意味着微调此模型将需要至少一个 GPU。
 
 训练包括以下步骤：
 1. 使用与预处理相同的检查点使用 [`AutoModelForObjectDetection`] 加载模型。
-2. 在 [`TrainingArguments`] 中定义您的训练超参数。
+2. 在 [`TrainingArguments`] 中定义你的训练超参数。
 3. 将训练参数与模型、数据集、图像处理器和数据收集器一起传递给 [`Trainer`]。
-4. 调用 [`~Trainer.train`] 来微调您的模型。
+4. 调用 [`~Trainer.train`] 来微调你的模型。
 
 在从与预处理相同的检查点加载模型时，请记得传递之前从数据集的元数据中创建的 `label2id` 和 `id2label` 映射。此外，我们指定了 `ignore_mismatched_sizes=True` 来用新的分类头替换现有的分类头。
 

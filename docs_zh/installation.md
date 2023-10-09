@@ -16,43 +16,43 @@ rendered properly in your Markdown viewer.
 
 # 安装
 
-安装适用于您正在使用的深度学习库的🤗Transformers模块，设置缓存，并可选择配置🤗Transformers以离线运行。
+根据你正在使用的深度学习库的来安装🤗Transformers模块，设置缓存，并且可以配置🤗Transformers以离线运行。
 
-🤗Transformers已经在Python 3.6+、PyTorch 1.1.0+、TensorFlow 2.0+和Flax上进行了测试。请按照以下针对您所使用的深度学习库的安装说明进行操作：
+🤗Transformers已经在Python 3.6+、PyTorch 1.1.0+、TensorFlow 2.0+和Flax上进行了测试。请根据你使用的深度学习库的安装说明进行操作：
 
-* [PyTorch](https://pytorch.org/get-started/locally/) 安装引导.
-* [TensorFlow 2.0](https://www.tensorflow.org/install/pip) 安装引导.
-* [Flax](https://flax.readthedocs.io/en/latest/) 安装引导.
+* [PyTorch安装引导](https://pytorch.org/get-started/locally/)
+* [TensorFlow 2.0安装引导](https://www.tensorflow.org/install/pip)
+* [Flax安装引导](https://flax.readthedocs.io/en/latest/)
 
 ## 通过pip安装
 
-在您的项目中，您应该在[虚拟环境](https://docs.python.org/3/library/venv.html)中安装🤗Transformers。如果您对Python虚拟环境不熟悉，请参考这个[指南](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)。虚拟环境可以更轻松地管理不同的项目，并避免依赖项之间的兼容性问题。
+在你的项目中，你应该在[虚拟环境](https://docs.python.org/3/library/venv.html)中安装🤗Transformers。如果你对Python虚拟环境不熟悉，请参考这个[指南](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)。虚拟环境可以更轻松地管理不同的项目，并避免依赖项之间的兼容性问题。
 
-首先，在您的项目目录中创建一个虚拟环境：
+首先，在你的项目目录中创建一个虚拟环境：
 
 ```bash
 python -m venv .env
 ```
 
-激活虚拟环境。在Linux和MacOS上：
+激活虚拟环境。如果是Linux和MacOS，输入如下命令：
 
 ```bash
 source .env/bin/activate
 ```
 
-现在您可以使用以下命令安装🤗Transformers：
+现在你可以使用以下命令安装🤗Transformers：
 
 ```bash
 pip install transformers
 ```
 
-仅限于CPU支持时，你可以方便地使用一行命令安装🤗Transformers和一个深度学习库。例如，使用以下命令安装🤗Transformers和PyTorch：
+当只需要CPU版本时，你可以方便地使用一行命令安装🤗Transformers和深度学习库。例如，使用以下命令安装🤗Transformers和PyTorch：
 
 ```bash
 pip install 'transformers[torch]'
 ```
 
-🤗Transformers和TensorFlow 2.0：
+对于🤗Transformers和TensorFlow 2.0：
 
 ```bash
 pip install 'transformers[tf-cpu]'
@@ -62,7 +62,7 @@ pip install 'transformers[tf-cpu]'
 
 M1 / ARM 用户
     
-在安装TensorFlow 2.0之前，您需要先安装以下内容：
+在安装TensorFlow 2.0之前，你需要先安装以下内容：
 
 ```
 brew install cmake
@@ -107,7 +107,7 @@ python -c "from transformers import pipeline; print(pipeline('sentiment-analysis
 
 ## 可编辑安装
 
-如果您想要：
+如果你想要：
 
 - 使用源代码的`main`版本。
 - 对🤗Transformers进行贡献并需要测试代码更改。
@@ -120,22 +120,22 @@ cd transformers
 pip install -e .
 ```
 
-这些命令将把您克隆存储库的文件夹链接到Python库路径中。Python现在会在正常的库路径之外，也会查找您克隆到的文件夹内的内容。例如，如果您通常的Python包安装在`~/anaconda3/envs/main/lib/python3.7/site-packages/`中，Python也会搜索您克隆到的文件夹：`~/transformers/`。
+这些命令将把你克隆存储库的文件夹链接到Python库路径中。Python现在会在正常的库路径之外，也会查找你克隆到的文件夹内的内容。例如，如果你通常的Python包安装在`~/anaconda3/envs/main/lib/python3.7/site-packages/`中，Python也会搜索你克隆到的文件夹：`~/transformers/`。
 
 <Tip warning={true}>
 
-如果您希望继续使用该库，您必须保留`transformers`文件夹。
+如果你希望继续使用该库，你必须保留`transformers`文件夹。
 
 </Tip>
 
-现在，您可以使用以下命令轻松更新克隆版本到最新的🤗Transformers：
+现在，你可以使用以下命令轻松更新克隆版本到最新的🤗Transformers：
 
 ```bash
 cd ~/transformers/
 git pull
 ```
 
-您的Python环境将在下次运行时找到🤗Transformers的`main`版本。
+你的Python环境将在下次运行时找到🤗Transformers的`main`版本。
 
 ## 通过conda安装
 
@@ -147,7 +147,7 @@ conda install -c huggingface transformers
 
 ## 缓存设置：
 
-预训练模型会被下载并本地缓存在`~/.cache/huggingface/hub`目录下。这是由shell环境变量`TRANSFORMERS_CACHE`指定的默认目录。在Windows系统上，默认目录为`C:\Users\username\.cache\huggingface\hub`。您可以按以下优先顺序更改下面显示的shell环境变量，以指定不同的缓存目录：
+预训练模型会被下载并本地缓存在`~/.cache/huggingface/hub`目录下。这是由shell环境变量`TRANSFORMERS_CACHE`指定的默认目录。在Windows系统上，默认目录为`C:\Users\username\.cache\huggingface\hub`。你可以按以下优先顺序更改下面显示的shell环境变量，以指定不同的缓存目录：
 
 1. Shell环境变量（默认）：`HUGGINGFACE_HUB_CACHE`或`TRANSFORMERS_CACHE`。
 2. Shell环境变量：`HF_HOME`。
@@ -155,7 +155,7 @@ conda install -c huggingface transformers
 
 <Tip>
 
-🤗Transformers将使用shell环境变量`PYTORCH_TRANSFORMERS_CACHE`或`PYTORCH_PRETRAINED_BERT_CACHE`，如果您是从此库的早期版本转换过来并设置了这些环境变量，除非您指定了shell环境变量`TRANSFORMERS_CACHE`。
+🤗Transformers将使用shell环境变量`PYTORCH_TRANSFORMERS_CACHE`或`PYTORCH_PRETRAINED_BERT_CACHE`，如果你是从此库的早期版本转换过来并设置了这些环境变量，除非你指定了shell环境变量`TRANSFORMERS_CACHE`。
 
 </Tip>
 
@@ -169,7 +169,7 @@ conda install -c huggingface transformers
 
 </Tip>
 
-例如，您通常会在一个正常的网络防火墙下运行程序，如下所示：
+例如，你通常会在一个正常的网络防火墙下运行程序，如下所示：
 
 ```bash
 python examples/pytorch/translation/run_translation.py --model_name_or_path t5-small --dataset_name wmt16 --dataset_config ro-en ...
@@ -210,7 +210,7 @@ python examples/pytorch/translation/run_translation.py --model_name_or_path t5-s
     >>> model.save_pretrained("./your/path/bigscience_t0")
     ```
 
-    3. 当您处于离线状态时，使用指定目录下的`PreTrainedModel.from_pretrained`重新加载文件：
+    3. 当你处于离线状态时，使用指定目录下的`PreTrainedModel.from_pretrained`重新加载文件：
 
     ```py
     >>> tokenizer = AutoTokenizer.from_pretrained("./your/path/bigscience_t0")
@@ -225,7 +225,7 @@ python examples/pytorch/translation/run_translation.py --model_name_or_path t5-s
     python -m pip install huggingface_hub
     ```
 
-    2. 使用[`hf_hub_download`](https://huggingface.co/docs/hub/adding-a-library#download-files-from-the-hub)函数将文件下载到特定路径。例如，以下命令会将[T0](https://huggingface.co/bigscience/T0_3B)模型的`config.json`文件下载到您指定的路径：
+    2. 使用[`hf_hub_download`](https://huggingface.co/docs/hub/adding-a-library#download-files-from-the-hub)函数将文件下载到特定路径。例如，以下命令会将[T0](https://huggingface.co/bigscience/T0_3B)模型的`config.json`文件下载到你指定的路径：
 
     ```py
     >>> from huggingface_hub import hf_hub_download

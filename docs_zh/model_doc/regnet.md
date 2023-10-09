@@ -1,14 +1,14 @@
 <!--版权所有2022 The HuggingFace团队。保留所有权利。
 
-根据Apache License，Version 2.0（“许可证”）许可; 除非符合许可证的规定，否则您不得使用此文件。
-您可以在以下位置获取许可证的副本
+根据Apache License，Version 2.0（“许可证”）许可; 除非符合许可证的规定，否则你不得使用此文件。
+你可以在以下位置获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或以书面形式同意，根据许可证分发的软件是基于“原样”的，
 没有任何明示或暗示的担保或条件。参见许可证中的特定语言以及许可证下的限制。
 
-⚠️ 请注意，此文件是Markdown格式，但包含我们doc-builder的特定语法（类似于MDX），可能在您的Markdown查看器中无法正确显示。
+⚠️ 请注意，此文件是Markdown格式，但包含我们doc-builder的特定语法（类似于MDX），可能在你的Markdown查看器中无法正确显示。
 
 -->
 
@@ -25,7 +25,7 @@ RegNet模型是由Ilija Radosavovic、Raj Prateek Kosaraju、Ross Girshick、Kai
 
 提示：
 
-- 您可以使用[`AutoImageProcessor`](https://huggingface.co/docs/datasets/package_reference/main_classes/hf_datasets.transforms.AutoImageProcessor.html)为模型准备图像。
+- 你可以使用[`AutoImageProcessor`](https://huggingface.co/docs/datasets/package_reference/main_classes/hf_datasets.transforms.AutoImageProcessor.html)为模型准备图像。
 - 来自[《Self-supervised Pretraining of Visual Features in the Wild》](https://arxiv.org/abs/2103.01988)的巨大的10B模型，它在10亿个Instagram图像上进行了训练，可在[huggingface.co](https://huggingface.co/facebook/regnet-y-10b-seer)上获取。
 
 此模型由[Francesco](https://huggingface.co/Francesco)贡献。模型的TensorFlow版本由[sayakpaul](https://huggingface.com/sayakpaul)和[ariG23498](https://huggingface.com/ariG23498)贡献。
@@ -33,14 +33,14 @@ RegNet模型是由Ilija Radosavovic、Raj Prateek Kosaraju、Ross Girshick、Kai
 
 ## 资源
 
-以下是官方Hugging Face资源和社区（标有🌎）资源的列表，可帮助您开始使用RegNet。
+以下是官方Hugging Face资源和社区（标有🌎）资源的列表，可帮助你开始使用RegNet。
 
 <PipelineTag pipeline="image-classification"/>
 
 - [`RegNetForImageClassification`](https://huggingface.co/models?pipeline_tag=image-classification)的使用示例可以在[此处](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification.ipynb)找到。
 - 参阅：[图像分类任务指南](../tasks/image_classification)
 
-如果您有兴趣提交资源以包含在这里，请随时打开拉取请求，我们将进行审核！资源应该展示出新的东西，而不是重复现有的资源。
+如果你有兴趣提交资源以包含在这里，请随时打开拉取请求，我们将进行审核！资源应该展示出新的东西，而不是重复现有的资源。
 
 ## RegNetConfig
 

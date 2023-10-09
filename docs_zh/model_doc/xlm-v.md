@@ -1,11 +1,11 @@
 <!--版权所有2023 HuggingFace团队。
 
 根据Apache License， Version 2.0 （“许可证”）发布的；除非符合许可证的相关法律或书面同意要求，不得使用本文件。
-您可以从以下链接获得许可证的副本：
+你可以从以下链接获得许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
-请注意，该文件采用Markdown格式，但包含着我们的doc-builder特定的语法（类似于MDX），可能在您的Markdown阅读器中无法正确渲染。
+请注意，该文件采用Markdown格式，但包含着我们的doc-builder特定的语法（类似于MDX），可能在你的Markdown阅读器中无法正确渲染。
 
 -->
 

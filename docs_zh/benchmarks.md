@@ -1,12 +1,12 @@
 <!--版权所有 2020 年 HuggingFace 团队. 保留所有权利。
 
-基于 Apache 许可证第 2 版 ("许可证")；在符合许可的前提下，您不得使用此文件。您可以获取此许可的副本，网址为
+基于 Apache 许可证第 2 版 ("许可证")；在符合许可的前提下，你不得使用此文件。你可以获取此许可的副本，网址为
 
 http://www.apache.org/licenses/LICENSE-2.0
 
-除非适用的法律要求或书面同意，否则按"原样"分发本软件。本许可不允许您以任何方式领取、使用、复制、修改、分发、出售、许可或转让本软件中的任何权利或软件文档的任何副本。本软件由版权所有人按"原样"提供，没有明示或暗示的任何保证或条件，无论是明示或暗示的保证、条件或其他，包括非侵权、适销性或其他特定用途的适用性。有关限制在特定法律下的责任，请参阅许可证。
+除非适用的法律要求或书面同意，否则按"原样"分发本软件。本许可不允许你以任何方式领取、使用、复制、修改、分发、出售、许可或转让本软件中的任何权利或软件文档的任何副本。本软件由版权所有人按"原样"提供，没有明示或暗示的任何保证或条件，无论是明示或暗示的保证、条件或其他，包括非侵权、适销性或其他特定用途的适用性。有关限制在特定法律下的责任，请参阅许可证。
 
-请注意，此文件位于 Markdown 中，但包含对我们的文档构建程序（类似于 MDX）的特定语法，可能无法在您的 Markdown 查看器中正确渲染。
+请注意，此文件位于 Markdown 中，但包含对我们的文档构建程序（类似于 MDX）的特定语法，可能无法在你的 Markdown 查看器中正确渲染。
 
 -->
 
@@ -339,13 +339,13 @@ bert-6-lay                 8              512            1540
   - 选项`no_multi_processing`只应在测试和调试时设置为`True`。为确保准确的内存测量，建议通过将`no_multi_processing`设置为`True`，在单独的进程中运行每个内存基准测试。
   - 在共享模型基准测试结果时，应始终说明环境信息。由于不同的GPU设备、库版本等原因，结果可能会有很大差异，因此仅仅提供基准测试结果对社区来说并没有太大用处。
 
-  ## 共享您的基准测试
+  ## 共享你的基准测试
 
   以前，所有可用的核心模型（当时是10个）都已经进行了_推断时间_的基准测试，涉及许多不同的设置：使用PyTorch，有无TorchScript，使用TensorFlow，有无XLA。所有这些测试都在CPU上进行（除了TensorFlow XLA）和GPU上进行。
 
   相关方法详见[此博客文章](https://medium.com/huggingface/benchmarking-transformers-pytorch-and-tensorflow-e2917fb891c2)，结果可在[此处](https://docs.google.com/spreadsheets/d/1sryqufw2D0XlUH4sq3e9Wnxu5EAQkaohzrJbd5HdQ_w/edit?usp=sharing)找到。
 
-  使用新的_基准测试_工具，与社区共享您的基准测试结果变得比以往更加容易：
+  使用新的_基准测试_工具，与社区共享你的基准测试结果变得比以往更加容易：
 
 - [PyTorch 基准测试结果](https://github.com/huggingface/transformers/tree/main/examples/pytorch/benchmarking/README.md)。
   - [TensorFlow 基准测试结果](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/benchmarking/README.md)。

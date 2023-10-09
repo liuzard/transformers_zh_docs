@@ -1,13 +1,13 @@
 <!--版权所有2022年The HuggingFace团队。 保留所有权利。
 
-根据Apache许可证第2.0版（“许可证”）授权；您除非遵守此许可证，否则不得使用此文件。
-您可以在以下位置获取许可证的副本：
+根据Apache许可证第2.0版（“许可证”）授权；你除非遵守此许可证，否则不得使用此文件。
+你可以在以下位置获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，否则根据许可证分发的软件是基于“按原样” BASIS 没有任何明示或暗示的担保或条件。请参阅有关许可证的详细信息
 
-⚠️请注意，此文件是Markdown格式的，但包含针对我们的文档生成器的特定语法（类似于MDX）。因此在您的Markdown查看器中可能无法正常呈现。 -->
+⚠️请注意，此文件是Markdown格式的，但包含针对我们的文档生成器的特定语法（类似于MDX）。因此在你的Markdown查看器中可能无法正常呈现。 -->
 
 # 在单个GPU上进行高效推理
 
@@ -94,14 +94,14 @@ RuntimeError: No available kernel.  Aborting execution.
 pip3 install -U --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu118
 ```
 
-或确保您的模型正确转换为 float16 或 bfloat16 字符串
+或确保你的模型正确转换为 float16 或 bfloat16 字符串
 
 
 请查看这个 [详细博文](https://pytorch.org/blog/out-of-the-box-acceleration/) 以了解如何使用 `BetterTransformer` + SDPA API 来获取更多功能。
 
 ## 使用 FP4 half-precision 混合精度进行推理的 `bitsandbytes` 集成
 
-您可以安装 `bitsandbytes` 并从中受益，以便在 GPU 上轻松压缩模型。 使用 FP4 量化，与原始全精度版本相比，可以将模型大小减小多达 8 倍。 请查看下面如何开始。
+你可以安装 `bitsandbytes` 并从中受益，以便在 GPU 上轻松压缩模型。 使用 FP4 量化，与原始全精度版本相比，可以将模型大小减小多达 8 倍。 请查看下面如何开始。
 
 <Tip>
 
@@ -122,7 +122,7 @@ pip3 install -U --pre torch torchvision torchaudio --index-url https://download.
 
 ### 运行 FP4 模型 - 单 GPU 设置 - 快速入门
 
-您可以通过运行以下代码快速在单个 GPU 上运行 FP4 模型：
+你可以通过运行以下代码快速在单个 GPU 上运行 FP4 模型：
 
 ```py
 from transformers import AutoModelForCausalLM
@@ -170,13 +170,13 @@ Int8 混合精度矩阵分解通过将矩阵乘法分解为两个流进行操作
 
 ![MixedInt8.gif](https://cdn-uploads.huggingface.co/production/uploads/1660567469965-62441d1d9fdefb55a0b7d12c.gif)
 
-请注意，您需要 GPU 才能运行混合 8 位模型，因为核已编译为仅适用于 GPU。确保您有足够的 GPU 内存来存储模型的四分之一（如果您的模型权重为半精度，则是二分之一）之前，使用此功能。
+请注意，你需要 GPU 才能运行混合 8 位模型，因为核已编译为仅适用于 GPU。确保你有足够的 GPU 内存来存储模型的四分之一（如果你的模型权重为半精度，则是二分之一）之前，使用此功能。
 
-以下是一些提示，以帮助您使用此模块，或者按照 [Google colab 的演示](#colab-demos) 进行演示。
+以下是一些提示，以帮助你使用此模块，或者按照 [Google colab 的演示](#colab-demos) 进行演示。
 
 ### 要求 [[requirements-for-int8-mixedprecision-matrix-decomposition]]
 
-- 如果您的 `bitsandbytes<0.37.0`，请确保您在支持 8 位张量核心的 NVIDIA GPU 上运行（图灵、安培或更新架构 - 例如 T4、RTX20s、RTX30s、A40-A100）。对于 `bitsandbytes>=0.37.0`，应支持所有 GPU。
+- 如果你的 `bitsandbytes<0.37.0`，请确保你在支持 8 位张量核心的 NVIDIA GPU 上运行（图灵、安培或更新架构 - 例如 T4、RTX20s、RTX30s、A40-A100）。对于 `bitsandbytes>=0.37.0`，应支持所有 GPU。
 - 通过运行以下命令来安装正确的 `bitsandbytes` 版本：
 `pip install bitsandbytes>=0.31.5`
 - 安装 `accelerate`
@@ -221,7 +221,7 @@ model_name = "bigscience/bloom-2b5"
 model_8bit = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto", load_in_8bit=True)
 ```
 
-但是，您可以使用 `accelerate` 来控制要在每个 GPU 上分配的 GPU 内存。使用 `max_memory` 参数，如下所示：
+但是，你可以使用 `accelerate` 来控制要在每个 GPU 上分配的 GPU 内存。使用 `max_memory` 参数，如下所示：
 
 ```py
 max_memory_mapping = {0: "1GB", 1: "2GB"}
@@ -234,7 +234,7 @@ model_8bit = AutoModelForCausalLM.from_pretrained(
 
 ### Google Colab 演示
 
-使用此方法，您可以在以前无法在 Google Colab 上运行的模型上进行推理。
+使用此方法，你可以在以前无法在 Google Colab 上运行的模型上进行推理。
 查看在 Google Colab 上运行 T5-11b（42GB 的 fp32）的演示！使用 8 位量化：
 
 [![在 Colab 中打开：T5-11b 演示](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1YORPWx4okIHXnjW7MSAidXN29mPVNT7F?usp=sharing)
@@ -245,7 +245,7 @@ model_8bit = AutoModelForCausalLM.from_pretrained(
 
 ## 高级用法：FP4（或Int8）和BetterTransformer 混合
 
-您可以组合上述不同的方法，以获得最佳的模型性能。例如，您可以在 FP4 混合精度推理 + flash attention 中使用 BetterTransformer：
+你可以组合上述不同的方法，以获得最佳的模型性能。例如，你可以在 FP4 混合精度推理 + flash attention 中使用 BetterTransformer：
 
 ```py
 import torch

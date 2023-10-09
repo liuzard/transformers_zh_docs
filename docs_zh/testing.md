@@ -1,12 +1,12 @@
 <!--版权所有2020年HuggingFace团队。保留所有权利。
 
-根据Apache许可证第2.0版（“许可证”）许可；您除非符合许可证，否则不得使用此文件。您可以在以下位置获取许可证副本：
+根据Apache许可证第2.0版（“许可证”）许可；你除非符合许可证，否则不得使用此文件。你可以在以下位置获取许可证副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，否则根据许可证分发的软件是基于“原样”提供的，不附带任何明示或默示的保证或条件。请参阅许可证以获取特定语言的权限和限制。
 
-⚠️请注意，此文件采用Markdown格式，但包含特定用于我们doc-builder（类似于MDX）的语法，可能在您的Markdown查看器中无法正确显示。
+⚠️请注意，此文件采用Markdown格式，但包含特定用于我们doc-builder（类似于MDX）的语法，可能在你的Markdown查看器中无法正确显示。
 
 -->
 
@@ -23,7 +23,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 ## 如何测试transformers
 
 1. 一旦提交PR，它就会在9个CircleCi作业中进行测试。对该PR进行的每次新提交都会重新进行测试。这些作业
-   在这个 [config文件]中定义（https://github.com/huggingface/transformers/tree/main/.circleci/config.yml），所以如果需要，您可以在您的机器上重现相同的
+   在这个 [config文件]中定义（https://github.com/huggingface/transformers/tree/main/.circleci/config.yml），所以如果需要，你可以在你的机器上重现相同的
    环境。
 
    这些CI作业不会运行“@slow”测试。
@@ -57,8 +57,8 @@ RUN_SLOW=1 pytest examples/
 
 ### 选择要运行的测试
 
-本文档详细介绍了如何运行测试的许多细节。如果阅读完所有内容后，您仍需要更多详细信息
-您将在这里找到它们[这里]（https://docs.pytest.org/en/latest/usage.html）。
+本文档详细介绍了如何运行测试的许多细节。如果阅读完所有内容后，你仍需要更多详细信息
+你将在这里找到它们[这里]（https://docs.pytest.org/en/latest/usage.html）。
 
 下面是一些运行测试的最有用方法。
 
@@ -113,7 +113,7 @@ pytest tests/utils/test_logging.py
 
 ### 运行特定的测试
 
-由于大多数测试中使用了unittest，要运行特定的子测试，您需要知道包含这些测试的unittest类的名称。例如，它可能是：
+由于大多数测试中使用了unittest，要运行特定的子测试，你需要知道包含这些测试的unittest类的名称。例如，它可能是：
 
 ```bash
 pytest tests/test_optimization.py::OptimizationTest::test_adam_w
@@ -133,13 +133,13 @@ pytest tests/test_optimization.py::OptimizationTest
 
 将运行该类中的所有测试。
 
-正如前面提到的，您可以通过运行以下命令查看`OptimizationTest`类中包含的所有测试：
+正如前面提到的，你可以通过运行以下命令查看`OptimizationTest`类中包含的所有测试：
 
 ```bash
 pytest tests/test_optimization.py::OptimizationTest --collect-only -q
 ```
 
-您可以通过关键字表达式来运行测试。
+你可以通过关键字表达式来运行测试。
 
 要仅运行名称中包含“adam”的测试：
 
@@ -155,7 +155,7 @@ pytest -k adam tests/test_optimization.py
 pytest -k "not adam" tests/test_optimization.py
 ```
 
-您可以在一个模式中组合两个模式：
+你可以在一个模式中组合两个模式：
 
 ```bash
 pytest -k "ada and not adam" tests/test_optimization.py
@@ -177,7 +177,7 @@ pytest -k "test and ada" tests/test_optimization.py
 
 ### 运行“accelerate”测试
 
-有时您需要在模型上运行“accelerate”测试。为此，只需将`-m accelerate_tests`添加到您的命令中，例如，如果您要在`OPT`上运行这些测试，则运行：
+有时你需要在模型上运行“accelerate”测试。为此，只需将`-m accelerate_tests`添加到你的命令中，例如，如果你要在`OPT`上运行这些测试，则运行：
 ```bash
 RUN_SLOW=1 pytest -m accelerate_tests tests/models/opt/test_modeling_opt.py 
 ```
@@ -185,7 +185,7 @@ RUN_SLOW=1 pytest -m accelerate_tests tests/models/opt/test_modeling_opt.py
 
 ### 运行文档测试 
 
-为了测试文档示例是否正确，您应该检查`doctests`是否通过。 
+为了测试文档示例是否正确，你应该检查`doctests`是否通过。 
 例如，让我们使用[`WhisperModel.forward`的docstring](https://github.com/huggingface/transformers/blob/main/src/transformers/models/whisper/modeling_whisper.py#L1017-L1035)： 
 
 ```python 
@@ -219,8 +219,8 @@ pytest --doctest-modules <path_to_file_or_dir>
 
 ### 仅运行已修改的测试
 
-您可以通过使用 [pytest-picked](https://github.com/anapaulagomes/pytest-picked) 来运行与未暂存文件或当前分支（根据 Git）相关的测试。这是一种在快速测试您的更改没有破坏时的快速测试的好方法。
-任何东西，因为它不会运行与您没有触及的文件相关的测试。
+你可以通过使用 [pytest-picked](https://github.com/anapaulagomes/pytest-picked) 来运行与未暂存文件或当前分支（根据 Git）相关的测试。这是一种在快速测试你的更改没有破坏时的快速测试的好方法。
+任何东西，因为它不会运行与你没有触及的文件相关的测试。
 
 ```bash
 pip install pytest-picked
@@ -235,7 +235,7 @@ pytest --picked
 ### 在源代码修改时自动重试失败的测试
 
 [pytest-xdist](https://github.com/pytest-dev/pytest-xdist)提供了一项非常有用的功能，可以检测到所有失败
-测试，然后等待您修改文件并在修复期间连续重新运行那些失败的测试，直到它们通过为止。这样就不需要在修复后重新启动pytest了。直到所有测试通过后再执行完整的运行。
+测试，然后等待你修改文件并在修复期间连续重新运行那些失败的测试，直到它们通过为止。这样就不需要在修复后重新启动pytest了。直到所有测试通过后再执行完整的运行。
 
 ```bash
 pip install pytest-xdist
@@ -243,7 +243,7 @@ pip install pytest-xdist
 
 进入模式：`pytest -f`或`pytest --looponfail`
 
-通过查看`looponfailroots`根目录及其所有内容（递归地）来检测文件更改。如果默认值对您不起作用，可以在`setup.cfg`中设置配置选项来更改项目设置：
+通过查看`looponfailroots`根目录及其所有内容（递归地）来检测文件更改。如果默认值对你不起作用，可以在`setup.cfg`中设置配置选项来更改项目设置：
 
 ```ini
 [tool:pytest]
@@ -264,7 +264,7 @@ looponfailroots = transformers tests
 
 ### 跳过测试模块
 
-如果要运行所有测试模块，除了一些例外，您可以通过指定要运行的测试的显式列表来排除它们。例如，要运行除了`test_modeling_*.py`测试之外的全部测试：
+如果要运行所有测试模块，除了一些例外，你可以通过指定要运行的测试的显式列表来排除它们。例如，要运行除了`test_modeling_*.py`测试之外的全部测试：
 
 ```bash
 pytest *ls -1 tests/*py | grep -v test_modeling*
@@ -336,7 +336,7 @@ Using --random-order-bucket=module
 Using --random-order-seed=573663
 ```
 
-因此，如果给定特定序列失败，您可以通过添加完全相同的种子来重现它，例如：
+因此，如果给定特定序列失败，你可以通过添加完全相同的种子来重现它，例如：
 
 ```bash
 pytest --random-order-seed=573663
@@ -345,7 +345,7 @@ Using --random-order-bucket=module
 Using --random-order-seed=573663
 ```
 
-仅当您使用完全相同的测试列表（或没有测试列表）时，它才会重现确切的顺序。一旦你开始手动缩小列表，你就不能再依赖种子，而必须手动以失败的确切顺序列出它们，并告诉pytest不要再对它们进行随机排序，使用`--random-order-bucket=none`，例如：
+仅当你使用完全相同的测试列表（或没有测试列表）时，它才会重现确切的顺序。一旦你开始手动缩小列表，你就不能再依赖种子，而必须手动以失败的确切顺序列出它们，并告诉pytest不要再对它们进行随机排序，使用`--random-order-bucket=none`，例如：
 
 ```bash
 pytest --random-order-bucket=none tests/test_a.py tests/test_c.py tests/test_b.py
@@ -412,13 +412,13 @@ pytest --instafail
 CUDA_VISIBLE_DEVICES="" pytest tests/utils/test_logging.py
 ```
 
-或者如果您有多个GPU，请指定要由`pytest`使用的GPU。例如，如果您有GPU `0` 和 `1`，则只使用第二个GPU：
+或者如果你有多个GPU，请指定要由`pytest`使用的GPU。例如，如果你有GPU `0` 和 `1`，则只使用第二个GPU：
 
 ```bash
 CUDA_VISIBLE_DEVICES="1" pytest tests/utils/test_logging.py
 ```
 
-当您希望在不同的GPU上运行不同的任务时，这很方便。
+当你希望在不同的GPU上运行不同的任务时，这很方便。
 
 某些测试必须在仅CPU上运行，其他测试必须在CPU或GPU或TPU上运行，而其他测试必须在多个GPU上运行。以下跳过
 装饰器用于根据CPU/GPU/TPU需求设置测试：
@@ -499,7 +499,7 @@ TRANSFORMERS_TEST_BACKEND="torch_npu" pytest tests/utils/test_logging.py
 
 要直接跳到执行点，搜索这些测试中的`execute_subprocess_async`调用。
 
-您将至少需要2个GPU才能看到这些测试的效果：
+你将至少需要2个GPU才能看到这些测试的效果：
 
 ```bash
 CUDA_VISIBLE_DEVICES=0,1 RUN_SLOW=1 pytest -sv tests/test_trainer_distributed.py
@@ -537,7 +537,7 @@ pytest --color=no tests/utils/test_logging.py
 pytest --pastebin=failed tests/utils/test_logging.py
 ```
 
-这将将测试运行信息提交到远程粘贴服务，并为每个失败提供一个URL。您可以像往常一样选择测试，或者添加`-x`（如果只想发送一个特定的失败）。
+这将将测试运行信息提交到远程粘贴服务，并为每个失败提供一个URL。你可以像往常一样选择测试，或者添加`-x`（如果只想发送一个特定的失败）。
 
 为整个测试会话日志创建一个URL：
 
@@ -549,7 +549,7 @@ pytest --pastebin=all tests/utils/test_logging.py
 
 🤗 transformers 测试基于`unittest`，但由`pytest`运行，因此大多数情况下可以使用这两个系统的功能。
 
-您可以在[这里](https://docs.pytest.org/en/stable/unittest.html)阅读其支持的功能，但重要的是要记住，大多数`pytest`修饰器不起作用。参数化也不起作用，但是我们使用`parameterized`模块，它的工作方式类似。
+你可以在[这里](https://docs.pytest.org/en/stable/unittest.html)阅读其支持的功能，但重要的是要记住，大多数`pytest`修饰器不起作用。参数化也不起作用，但是我们使用`parameterized`模块，它的工作方式类似。
 
 ### 参数化
 
@@ -701,7 +701,7 @@ class PathExampleTest(TestCasePlus):
 
 对于并行运行的测试，使用唯一的临时文件和目录非常重要，以便测试不会相互覆盖彼此的数据。此外，我们希望在每个创建它们的测试结束时删除临时文件和目录。因此，使用像 `tempfile` 这样的包以满足这些需求是至关重要的。
 
-但是，在调试测试时，您需要能够查看临时文件或目录中的内容，并且希望知道其确切路径，而不是在每次测试重新运行时进行随机化。
+但是，在调试测试时，你需要能够查看临时文件或目录中的内容，并且希望知道其确切路径，而不是在每次测试重新运行时进行随机化。
 
 辅助类`transformers.test_utils.TestCasePlus`最适用于此类目的。它是`unittest.TestCase`的子类，因此我们可以轻松地从测试模块继承它。
 
@@ -734,9 +734,9 @@ def test_whatever(self):
     tmp_dir = self.get_auto_remove_tmp_dir("./xxx")
 ```
 
-这在调试时非常有用，当您想要监视特定目录并确保以前的测试没有在那里留下任何数据时。
+这在调试时非常有用，当你想要监视特定目录并确保以前的测试没有在那里留下任何数据时。
 
-- 您可以通过直接覆盖 `before` 和 `after` 参数来覆盖默认行为，从而得到以下行为之一：
+- 你可以通过直接覆盖 `before` 和 `after` 参数来覆盖默认行为，从而得到以下行为之一：
 
   - `before=True`：临时目录将始终在测试开始时被清空。
   - `before=False`：如果临时目录已经存在，则任何现有文件将保留在其中。
@@ -776,7 +776,7 @@ with ExtendSysPath(f"{bindir}/.."):
 
 - **跳过**意味着只有满足某些条件时才期望测试通过，否则`pytest`应该完全跳过运行测试。常见的例子是仅在非Windows平台上跳过仅适用于Windows的测试，或者跳过依赖于目前不可用的外部资源（例如数据库）的测试。
 
-- **xfail**意味着您预计测试会失败出现某些问题。常见的例子是尚未实现的功能或尚未修复的错误的测试。当标记为`pytest.mark.xfail`的测试尽管预期失败但实际上通过时，它们将被报告为`xpass`。
+- **xfail**意味着你预计测试会失败出现某些问题。常见的例子是尚未实现的功能或尚未修复的错误的测试。当标记为`pytest.mark.xfail`的测试尽管预期失败但实际上通过时，它们将被报告为`xpass`。
 
 两者之间的一个重要区别是`skip`不会运行测试，而`xfail`会。因此，如果引起错误的代码会导致一些会影响其他测试的坏状态，请不要使用`xfail`。
 
@@ -864,12 +864,12 @@ class TestClass():
 def test_integration_foo():
 ```
 
-正如本文档开头所解释的，慢速测试会定期运行，而不是在Pull Request（PR）的CI检查中运行。因此，在提交PR之前在您的计算机上运行慢速测试非常重要，以确保不会漏掉任何问题。
+正如本文档开头所解释的，慢速测试会定期运行，而不是在Pull Request（PR）的CI检查中运行。因此，在提交PR之前在你的计算机上运行慢速测试非常重要，以确保不会漏掉任何问题。
 
 以下是选择标记为慢速测试的大致决策机制：
 
 - 如果测试侧重于库的一个内部组件（例如，建模文件、分词文件、流水线），则应该在非慢速测试套件中运行该测试。如果侧重于库的其他方面，例如文档或示例，则应该在慢速测试套件中运行这些测试。然后，我们还可以有一些例外情况：
-- 所有需要下载大量权重或大于~50MB的数据集（例如，模型或分词器集成测试，流水线集成测试）的测试都应该设置为慢速测试。如果要添加新模型，您应该创建并上传到hub的模型的微小版本（带有随机权重）用于集成测试。在接下来的几段中将对此进行讨论。
+- 所有需要下载大量权重或大于~50MB的数据集（例如，模型或分词器集成测试，流水线集成测试）的测试都应该设置为慢速测试。如果要添加新模型，你应该创建并上传到hub的模型的微小版本（带有随机权重）用于集成测试。在接下来的几段中将对此进行讨论。
 - 所有需要进行特定优化以提高速度的训练的测试都应该被设置为慢速测试。
 - 如果其中一些本应为非慢速测试的测试运行非常慢，则可以纳入例外情况，并将它们设置为`@slow`。自动建模测试会将大型文件保存到磁盘并加载，它们是标记为`@slow`的测试的良好示例。
 - 如果测试在CI上完成时间小于1秒（包括下载时间），则应将其视为正常测试。
@@ -880,8 +880,8 @@ def test_integration_foo():
 grep tiny tests examples
 ```
 
-下面是一个创建小型模型的[脚本示例](https://github.com/huggingface/transformers/tree/main/scripts/fsmt/fsmt-make-tiny-model.py)，它创建了名为[stas/tiny-wmt19-en-de](https://huggingface.co/stas/tiny-wmt19-en-de)的小型模型。您可以根据自己的具体模型架构轻松调整该脚本。
+下面是一个创建小型模型的[脚本示例](https://github.com/huggingface/transformers/tree/main/scripts/fsmt/fsmt-make-tiny-model.py)，它创建了名为[stas/tiny-wmt19-en-de](https://huggingface.co/stas/tiny-wmt19-en-de)的小型模型。你可以根据自己的具体模型架构轻松调整该脚本。
 
-如果执行过程中出现了下载巨大模型的性能问题，正确测量运行时间可能会变得困难。但是，如果您在本地运行测试，下载的文件将被缓存，因此不会计算下载时间。因此，在CI日志中检查执行速度报告是非常重要的（使用`pytest --durations=0 tests`命令的输出）。
+如果执行过程中出现了下载巨大模型的性能问题，正确测量运行时间可能会变得困难。但是，如果你在本地运行测试，下载的文件将被缓存，因此不会计算下载时间。因此，在CI日志中检查执行速度报告是非常重要的（使用`pytest --durations=0 tests`命令的输出）。
 
-该报告还有助于查找未标记为慢速测试或需要重写为快速测试的慢速异常值。如果您注意到CI上的测试套件开始变慢，则该报告的顶部列表将显示最慢的测试项。
+该报告还有助于查找未标记为慢速测试或需要重写为快速测试的慢速异常值。如果你注意到CI上的测试套件开始变慢，则该报告的顶部列表将显示最慢的测试项。

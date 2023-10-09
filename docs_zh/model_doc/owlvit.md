@@ -1,7 +1,7 @@
 <!--版权 2022 HuggingFace团队。版权所有。
 
-根据Apache许可证，版本2.0（“许可证”），您不得使用此文件，除非符合
-许可证。您可以在以下位置获取许可证的副本
+根据Apache许可证，版本2.0（“许可证”），你不得使用此文件，除非符合
+许可证。你可以在以下位置获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -12,7 +12,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 特定语言管理权限的限制和限制，请参阅许可证。
 
 ⚠️选项卡中的文件是Markdown，但包含我们的文档生成器的具体语法（类似于MDX），可能无法
-在您的Markdown查看器中正常呈现。--> 
+在你的Markdown查看器中正常呈现。--> 
 
 # OWL-ViT
 

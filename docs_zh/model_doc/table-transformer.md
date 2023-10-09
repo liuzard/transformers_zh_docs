@@ -1,7 +1,7 @@
 <!--版权 2022 HuggingFace团队。版权所有。
 
 根据Apache许可证，版本2.0（“许可证”），除非符合
-许可证。您可以在以下位置获取许可证的副本
+许可证。你可以在以下位置获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -11,7 +11,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 适用许可证。
 
 ⚠️请注意，此文件是Markdown格式，但包含适用于我们的文档生成器（类似于MDX）的特定语法，可能不会
-在您的Markdown查看器中正常显示。
+在你的Markdown查看器中正常显示。
 
 -->
 
@@ -28,7 +28,7 @@ Brandon Smock，Rohith Pesala，Robin Abraham在[PubTables-1M: Towards comprehen
 提示：
 
 - 作者发布了两个模型，一个用于文档中的[表格检测](https://huggingface.co/microsoft/table-transformer-detection)，一个用于[表格结构识别](https://huggingface.co/microsoft/table-transformer-structure-recognition)(即识别表格中的行、列等)。
-- 您可以使用[`AutoImageProcessor`] API来为模型准备图像和可选目标。这将在幕后加载一个[`DetrImageProcessor`]。
+- 你可以使用[`AutoImageProcessor`] API来为模型准备图像和可选目标。这将在幕后加载一个[`DetrImageProcessor`]。
 
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/transformers/model_doc/table_transformer_architecture.jpeg"
 alt="drawing" width="600"/>

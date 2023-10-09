@@ -1,13 +1,13 @@
 <!-- 版权 2023 年 HuggingFace 团队。保留所有权利。
 
-根据 Apache 许可证 第 2.0 版（“许可证”）获得许可；您不得使用此文件，除非符合许可证的要求。
-您可以在以下位置获取许可证的副本
+根据 Apache 许可证 第 2.0 版（“许可证”）获得许可；你不得使用此文件，除非符合许可证的要求。
+你可以在以下位置获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证发布的软件是基于"按原样"的方式分发的，不附带任何形式的担保或条件。请查阅许可证以获取许可证下的特定语言权限和限制。
 
-⚠️ 请注意，该文件采用 Markdown 格式，但包含我们的文档生成器的特定语法（类似于 MDX），可能在您的 Markdown 查看器中不能正确呈现。
+⚠️ 请注意，该文件采用 Markdown 格式，但包含我们的文档生成器的特定语法（类似于 MDX），可能在你的 Markdown 查看器中不能正确呈现。
 
 -->
 
@@ -15,17 +15,17 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 [[open-in-colab]]
 
-LLMs，即大型语言模型，是文本生成的关键组件。简而言之，它们由大型预训练的 Transformer 模型组成，用于在给定一些输入文本的情况下预测下一个单词（或更准确地说，令牌）。由于它们一次预测一个令牌，因此如果要生成新的句子，您需要进行更复杂的操作，而不仅仅是调用模型 - 您需要进行自回归生成。
+LLMs，即大型语言模型，是文本生成的关键组件。简而言之，它们由大型预训练的 Transformer 模型组成，用于在给定一些输入文本的情况下预测下一个单词（或更准确地说，令牌）。由于它们一次预测一个令牌，因此如果要生成新的句子，你需要进行更复杂的操作，而不仅仅是调用模型 - 你需要进行自回归生成。
 
 自回归生成是在推断时使用模型的生成输出迭代调用模型的过程，给定一些初始输入。在 🤗 Transformers 中，这由 [`~generation.GenerationMixin.generate`] 方法处理，该方法适用于具有生成能力的所有模型。
 
-本教程将向您展示如何：
+本教程将向你展示如何：
 
 - 使用 LLM 生成文本
 - 避免常见陷阱
-- 下一步，帮助您充分利用 LLM
+- 下一步，帮助你充分利用 LLM
 
-开始之前，请确保您已安装所有必要的库：
+开始之前，请确保你已安装所有必要的库：
 
 ```bash
 pip install transformers bitsandbytes>=0.39.0 -q
@@ -61,19 +61,19 @@ pip install transformers bitsandbytes>=0.39.0 -q
 
 上述过程会迭代重复进行，直到满足某个停止条件。理想情况下，停止条件由模型决定，模型应该学会何时输出一个结束序列（`EOS`）令牌。如果不是这种情况，生成将在达到预定义的最大长度时停止。
 
-正确设置令牌选择步骤和停止条件对于使您的模型在任务中表现符合预期至关重要。这就是为什么我们为每个模型都有一个与之关联的 [`~generation.GenerationConfig`] 文件，其中包含一个良好的默认生成参数设置，并与您的模型一起加载。
+正确设置令牌选择步骤和停止条件对于使你的模型在任务中表现符合预期至关重要。这就是为什么我们为每个模型都有一个与之关联的 [`~generation.GenerationConfig`] 文件，其中包含一个良好的默认生成参数设置，并与你的模型一起加载。
 
 让我们来谈谈代码！
 
 <Tip>
 
-如果您对 LLMs 的基本用法感兴趣，我们提供的高级 [`Pipeline`](http://www.liuzard.com/pipeline_tutorial) 接口是一个很好的起点。然而，LLMs 通常需要高级功能，比如量化和对令牌选择步骤的精细控制，最好通过 [`~generation.GenerationMixin.generate`] 来实现。带有 LLMs 的自回归生成也需要大量资源，并且应该在 GPU 上执行以获得足够的吞吐量。
+如果你对 LLMs 的基本用法感兴趣，我们提供的高级 [`Pipeline`](http://www.liuzard.com/pipeline_tutorial) 接口是一个很好的起点。然而，LLMs 通常需要高级功能，比如量化和对令牌选择步骤的精细控制，最好通过 [`~generation.GenerationMixin.generate`] 来实现。带有 LLMs 的自回归生成也需要大量资源，并且应该在 GPU 上执行以获得足够的吞吐量。
 
 </Tip>
 
 <!-- TODO: update example to llama 2 (or a newer popular baseline) when it becomes ungated -->
 
-首先，您需要加载模型。
+首先，你需要加载模型。
 
 ```py
 >>> from transformers import AutoModelForCausalLM
@@ -83,14 +83,14 @@ pip install transformers bitsandbytes>=0.39.0 -q
 ... )
 ```
 
-在 `from_pretrained` 调用中，您会注意到两个标志：
+在 `from_pretrained` 调用中，你会注意到两个标志：
 
-- `device_map` 确保将模型移动到您的 GPU 上
+- `device_map` 确保将模型移动到你的 GPU 上
 - `load_in_4bit` 对模型进行 [4位动态量化](http://www.liuzard.com/main_classes/quantization)，大大减少了资源要求
 
 还有其他初始化模型的方法，但这是开始使用 LLM 的一个不错的基准。
 
-接下来，您需要使用 [tokenizer](http://www.liuzard.com/tokenizer_summary) 对文本输入进行预处理。
+接下来，你需要使用 [tokenizer](http://www.liuzard.com/tokenizer_summary) 对文本输入进行预处理。
 
 ```py
 >>> from transformers import AutoTokenizer
@@ -109,11 +109,11 @@ pip install transformers bitsandbytes>=0.39.0 -q
 'A list of colors: red, blue, green, yellow, black, white, and brown'
 ```
 
-就是这样！只需几行代码，您就可以利用 LLM 的强大功能。
+就是这样！只需几行代码，你就可以利用 LLM 的强大功能。
 
 ## 常见陷阱
 
-有许多 [生成策略](http://www.liuzard.com/generation_strategies)，有时默认值可能不适合您的用例。如果生成的输出与您期望的结果不一致，我们列出了最常见的陷阱及其避免方法。
+有许多 [生成策略](http://www.liuzard.com/generation_strategies)，有时默认值可能不适合你的用例。如果生成的输出与你期望的结果不一致，我们列出了最常见的陷阱及其避免方法。
 
 ```py
 >>> from transformers import AutoModelForCausalLM, AutoTokenizer
@@ -146,7 +146,7 @@ pip install transformers bitsandbytes>=0.39.0 -q
 
 ### 生成模式不正确
 
-默认情况下，除非在 [`~generation.GenerationConfig`] 文件中指定，否则 `generate` 会在每次迭代时选择最可能的令牌（贪婪解码）。根据您的任务，这可能是不希望的；对话型任务或写作文章等创造性任务受益于采样。另一方面，音频转录或翻译等基于输入的任务受益于贪婪解码。通过设置 `do_sample=True` 来启用采样，您可以在这篇 [博文](https://huggingface.co/blog/how-to-generate) 中了解更多关于这个主题的信息。
+默认情况下，除非在 [`~generation.GenerationConfig`] 文件中指定，否则 `generate` 会在每次迭代时选择最可能的令牌（贪婪解码）。根据你的任务，这可能是不希望的；对话型任务或写作文章等创造性任务受益于采样。另一方面，音频转录或翻译等基于输入的任务受益于贪婪解码。通过设置 `do_sample=True` 来启用采样，你可以在这篇 [博文](https://huggingface.co/blog/how-to-generate) 中了解更多关于这个主题的信息。
 
 ```py
 >>> # Set seed or reproducibility -- you don't need this unless you want full reproducibility
@@ -168,7 +168,7 @@ pip install transformers bitsandbytes>=0.39.0 -q
 
 ### 填充方向不正确
 
-LLMs 是仅解码器架构，这意味着它们会继续迭代您的输入提示。如果您的输入长度不相同，则需要进行填充。由于 LLMs 没有训练过从填充令牌继续生成，因此您的输入需要进行左填充。同时确保不要忘记将注意力遮罩传递给 generate！
+LLMs 是仅解码器架构，这意味着它们会继续迭代你的输入提示。如果你的输入长度不相同，则需要进行填充。由于 LLMs 没有训练过从填充令牌继续生成，因此你的输入需要进行左填充。同时确保不要忘记将注意力遮罩传递给 generate！
 
 ```py
 >>> # The tokenizer initialized above has right-padding active by default: the 1st sequence,
@@ -195,7 +195,7 @@ LLMs 是仅解码器架构，这意味着它们会继续迭代您的输入提示
 
 ## 进一步资源
 
-尽管自回归生成过程相对简单，但要充分利用您的 LLM 可能是一项具有挑战性的任务，因为其中涉及许多复杂的部分。以下是帮助您进一步了解和使用 LLM 的下一步资源：
+尽管自回归生成过程相对简单，但要充分利用你的 LLM 可能是一项具有挑战性的任务，因为其中涉及许多复杂的部分。以下是帮助你进一步了解和使用 LLM 的下一步资源：
 
 <!-- TODO: complete with new guides -->
 ### 高级 generate 用法
@@ -210,11 +210,11 @@ LLMs 是仅解码器架构，这意味着它们会继续迭代您的输入提示
 
 ### 延迟和吞吐量
 
-1. [指南](http://www.liuzard.com/main_classes/quantization) 介绍动态量化，向您展示如何大幅减少内存需求。
+1. [指南](http://www.liuzard.com/main_classes/quantization) 介绍动态量化，向你展示如何大幅减少内存需求。
 
 ### 相关库
 
 1. [`text-generation-inference`](https://github.com/huggingface/text-generation-inference)，一个面向生产环境的 LLM 服务器；
 2. [`optimum`](https://github.com/huggingface/optimum)，🤗 Transformers 的扩展，针对特定硬件设备进行优化。
 
-这些资源将帮助您更深入地了解和使用 LLM，并在各种自然语言处理任务中发挥其优势。祝您进一步取得成功！
+这些资源将帮助你更深入地了解和使用 LLM，并在各种自然语言处理任务中发挥其优势。祝你进一步取得成功！

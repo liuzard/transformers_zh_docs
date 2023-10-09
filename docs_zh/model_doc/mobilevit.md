@@ -1,11 +1,11 @@
 <!--版权所有2022年HuggingFace团队。保留所有权利。 
 
-根据Apache许可证2.0版（“许可证”）进行授权；您不得在未遵守许可证的情况下使用本文件。
-您可以从下面的链接获取许可证的副本：
+根据Apache许可证2.0版（“许可证”）进行授权；你不得在未遵守许可证的情况下使用本文件。
+你可以从下面的链接获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
-除非适用法律要求或书面同意，根据许可证分发的软件是基于“按原样” BASIS 分发的，没有任何明示或默示的保证、条件或其他条款。请详阅许可证中的特定语言这样的许可证可能在您的Markdown视图器中不正确渲染。
+除非适用法律要求或书面同意，根据许可证分发的软件是基于“按原样” BASIS 分发的，没有任何明示或默示的保证、条件或其他条款。请详阅许可证中的特定语言这样的许可证可能在你的Markdown视图器中不正确渲染。
 -->
 
 # MobileViT
@@ -20,13 +20,13 @@ MobileViT模型是由Sachin Mehta和Mohammad Rastegari在《MobileViT: Light-wei
 
 提示：
 
-- MobileViT更像是CNN模型，而不是Transformer模型。它不适用于序列数据，而是用于图像批次。与ViT不同，没有嵌入。骨干模型输出一个特征图。您可以参考[这个教程](https://keras.io/examples/vision/mobilevit)进行简单入门。
-- 可以使用 [`MobileViTImageProcessor`](https://huggingface.co/transformers/main_classes/mobile_vit_image_processor.html) 准备模型的图像数据。请注意，如果您自己进行预处理，预训练的检查点要求图像采用BGR像素顺序（而不是RGB）。
+- MobileViT更像是CNN模型，而不是Transformer模型。它不适用于序列数据，而是用于图像批次。与ViT不同，没有嵌入。骨干模型输出一个特征图。你可以参考[这个教程](https://keras.io/examples/vision/mobilevit)进行简单入门。
+- 可以使用 [`MobileViTImageProcessor`](https://huggingface.co/transformers/main_classes/mobile_vit_image_processor.html) 准备模型的图像数据。请注意，如果你自己进行预处理，预训练的检查点要求图像采用BGR像素顺序（而不是RGB）。
 - 可用的图像分类检查点是在[ImageNet-1k](https://huggingface.co/datasets/imagenet-1k)上预训练的（也称为ILSVRC 2012，包含130万张图像和1000个类别）。
 - 分割模型使用[DeepLabV3](https://arxiv.org/abs/1706.05587) head。可用的语义分割检查点是在[PASCAL VOC](http://host.robots.ox.ac.uk/pascal/VOC/)上预训练的。
 - 正如名称所暗示的，MobileViT旨在在手机上表现出色并具有高效性。MobileViT模型的TensorFlow版本与[TensorFlow Lite](https://www.tensorflow.org/lite)完全兼容。
 
-  您可以使用以下代码将MobileViT检查点（无论是图像分类还是语义分割）转换为生成一个TensorFlow Lite模型：
+  你可以使用以下代码将MobileViT检查点（无论是图像分类还是语义分割）转换为生成一个TensorFlow Lite模型：
 
 ```py
 from transformers import TFMobileViTForImageClassification
@@ -53,7 +53,7 @@ with open(tflite_filename, "wb") as f:
 
 ## 资源
 
-以下是官方Hugging Face和社区（由🌎标示）提供的一些资源，以帮助您开始使用MobileViT。
+以下是官方Hugging Face和社区（由🌎标示）提供的一些资源，以帮助你开始使用MobileViT。
 
 <PipelineTag pipeline="image-classification"/>
 
@@ -63,7 +63,7 @@ with open(tflite_filename, "wb") as f:
 **语义分割**
 - [语义分割任务指南](../tasks/semantic_segmentation)
 
-如果您有兴趣提供一个资源以供包含在这里，请随时提出拉取请求，我们将进行审查！该资源理想上应该展示出一些新的东西，而不是重复现有的资源。
+如果你有兴趣提供一个资源以供包含在这里，请随时提出拉取请求，我们将进行审查！该资源理想上应该展示出一些新的东西，而不是重复现有的资源。
 
 ## MobileViTConfig
 

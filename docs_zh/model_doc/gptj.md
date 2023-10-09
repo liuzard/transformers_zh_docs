@@ -1,7 +1,7 @@
 <!--版权所有2021年HuggingFace团队。保留所有权利。
 
 根据Apache许可证第2.0版（“许可证”）许可；除非符合许可证的规定，
-否则您不得使用此文件。您可以在以下位置获取许可证的副本：
+否则你不得使用此文件。你可以在以下位置获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -10,7 +10,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 以及许可证下的限制。
 
 ⚠️请注意，此文件为Markdown格式，但包含了我们的doc-builder（类似于MDX）的特定语法，
-在您的Markdown查看器中可能无法正常显示。
+在你的Markdown查看器中可能无法正常显示。
 
 -->
 
@@ -107,7 +107,7 @@ GPT-J模型由Ben Wang和Aran Komatsuzaki在[kingoflolz/mesh-transformer-jax](ht
 
 ## 资源
 
-以下是官方Hugging Face资源和社区资源（由🌎标识），可帮助您开始使用GPT-J。如果您有兴趣提交资源以包含在此处，请随时打开一个Pull Request，我们将进行审核！资源应该是展示新内容而不是重复现有资源的理想选择。
+以下是官方Hugging Face资源和社区资源（由🌎标识），可帮助你开始使用GPT-J。如果你有兴趣提交资源以包含在此处，请随时打开一个Pull Request，我们将进行审核！资源应该是展示新内容而不是重复现有资源的理想选择。
 
 <PipelineTag pipeline="text-generation"/>
 

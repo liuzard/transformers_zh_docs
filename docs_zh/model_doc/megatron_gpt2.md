@@ -1,12 +1,12 @@
 <!--版权所有2021年NVIDIA Corporation和HuggingFace团队。保留所有权利。
 
-根据Apache许可证第2版（“许可证”），您不得使用此文件，除非符合许可证的规定。您可以在以下网址获取许可证的副本：
+根据Apache许可证第2版（“许可证”），你不得使用此文件，除非符合许可证的规定。你可以在以下网址获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非法律要求或书面同意，根据许可证分发的软件是按“原样”分发的，不附带任何明示或暗示的担保或条件。请参阅许可证以获取特定语言下许可证的权限和限制。
 
-⚠️请注意，此文件以Markdown格式编写，但包含我们文档构建器（类似于MDX）的特定语法，可能在您的Markdown查看器中无法正确呈现。-->
+⚠️请注意，此文件以Markdown格式编写，但包含我们文档构建器（类似于MDX）的特定语法，可能在你的Markdown查看器中无法正确呈现。-->
 
 # MegatronGPT2
 
@@ -24,16 +24,16 @@ MegatronGPT2模型是由Mohammad Shoeybi、Mostofa Patwary、Raul Puri、Patrick
 
 要访问这些检查点，请首先[注册](https://ngc.nvidia.com/signup)，并设置NVIDIA GPU云（NGC）注册表CLI。有关下载模型的更多文档，请参阅[NGC文档](https://docs.nvidia.com/dgx/ngc-registry-cli-user-guide/index.html#topic_6_4_1)。
 
-或者，您可以直接使用以下命令下载检查点：
+或者，你可以直接使用以下命令下载检查点：
 
 ```bash
 wget --content-disposition https://api.ngc.nvidia.com/v2/models/nvidia/megatron_lm_345m/versions/v0.0/zip -O
 megatron_gpt2_345m_v0_0.zip
 ```
 
-一旦您从NVIDIA GPU云（NGC）获得了检查点，您需要将其转换为Hugging Face Transformers GPT2实现可轻松加载的格式。
+一旦你从NVIDIA GPU云（NGC）获得了检查点，你需要将其转换为Hugging Face Transformers GPT2实现可轻松加载的格式。
 
-以下命令允许您进行转换。我们假设文件夹`models/megatron_gpt2`包含`megatron_gpt2_345m_v0_0.zip`，并且该命令在该文件夹中运行：
+以下命令允许你进行转换。我们假设文件夹`models/megatron_gpt2`包含`megatron_gpt2_345m_v0_0.zip`，并且该命令在该文件夹中运行：
 
 ```bash
 python3 $PATH_TO_TRANSFORMERS/models/megatron_gpt2/convert_megatron_gpt2_checkpoint.py megatron_gpt2_345m_v0_0.zip

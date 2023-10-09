@@ -1,7 +1,7 @@
 <!--版权所有2020年The HuggingFace团队。 保留所有权利。
 
-根据Apache许可证，版本2.0（“许可”）授权;除非您遵守许可，否则您不得使用此文件
-许可证。 您可以在以下位置获取许可的副本
+根据Apache许可证，版本2.0（“许可”）授权;除非你遵守许可，否则你不得使用此文件
+许可证。 你可以在以下位置获取许可的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -10,14 +10,14 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ⚠️请注意，此文件采用Markdown格式，但包含专用于doc-builder（类似于MDX）的特定语法，可能无法
 
-在您的Markdown查看器中正确渲染。-->
+在你的Markdown查看器中正确渲染。-->
 
 # 如何创建自定义pipeline？
 
 在本指南中，我们将看到如何创建自定义pipeline并将其与[Hub](hf.co/models)共享或添加到
 🤗 Transform库。
 
-首先，您需要确定流水线能够接受的原始输入。它可以是字符串，原始字节，
+首先，你需要确定流水线能够接受的原始输入。它可以是字符串，原始字节，
 字典或其他看起来最可能的所需输入。尽量保持这些输入尽可能简单
 因为它使兼容性更容易（甚至通过JSON在其他语言中实现）。这些将是
 流水线（`preprocess`）的“inputs”。
@@ -109,7 +109,7 @@ def _sanitize_parameters(self, **kwargs):
 
 ## 将其添加到受支持任务的列表中
 
-要将`new-task`注册到受支持任务列表中，您需要将其添加到`PIPELINE_REGISTRY`中：
+要将`new-task`注册到受支持任务列表中，你需要将其添加到`PIPELINE_REGISTRY`中：
 
 ```python
 from transformers.pipelines import PIPELINE_REGISTRY
@@ -121,7 +121,7 @@ PIPELINE_REGISTRY.register_pipeline(
 )
 ```
 
-如果需要，您可以指定默认模型，此时模型应该具有特定的修订版（可以是分支名称或提交哈希），以及类型：
+如果需要，你可以指定默认模型，此时模型应该具有特定的修订版（可以是分支名称或提交哈希），以及类型：
 
 ```python
 PIPELINE_REGISTRY.register_pipeline(
@@ -133,9 +133,9 @@ PIPELINE_REGISTRY.register_pipeline(
 )
 ```
 
-## 在Hub上共享您的pipeline
+## 在Hub上共享你的pipeline
 
-要在Hub上共享您的自定义pipeline，您只需要将`Pipeline`子类的自定义代码保存在一个
+要在Hub上共享你的自定义pipeline，你只需要将`Pipeline`子类的自定义代码保存在一个
 Python文件中。例如，假设我们想为句子对分类使用自定义pipeline，如下所示：
 
 ```py
@@ -221,7 +221,7 @@ classifier = pipeline(model="{your_username}/test-dynamic-pipeline", trust_remot
 
 ## 将pipeline添加到🤗Transformers
 
-如果想要将pipeline贡献给🤗Transformers，您需要在`pipelines`模块中的`pipelines`子模块中添加一个新模块，其中包含您的流水线代码，并将其添加到`pipelines/__init__`中定义的任务列表中。
+如果想要将pipeline贡献给🤗Transformers，你需要在`pipelines`模块中的`pipelines`子模块中添加一个新模块，其中包含你的流水线代码，并将其添加到`pipelines/__init__`中定义的任务列表中。
 
 然后需要添加测试。创建一个名为`tests/test_pipelines_MY_PIPELINE.py`的新文件，并包含其他测试的示例。
 
@@ -230,7 +230,7 @@ classifier = pipeline(model="{your_username}/test-dynamic-pipeline", trust_remot
 这对于将来的兼容性测试非常重要，也就是说，如果有人为
 `XXXForQuestionAnswering`添加了一个新模型，那么pipeline测试将尝试在新模型上运行。因为模型是随机的，所以无法检查实际值，这就是为什么有一个帮助器`ANY`，它将尝试匹配pipeline类型的输出。
 
-您还*需要*编写2（理想情况下是4）个测试。
+你还*需要*编写2（理想情况下是4）个测试。
 
 - `test_small_model_pt`：为该pipeline定义一个小型模型（结果无所谓），并测试pipeline的输出。结果应与`test_small_model_tf`相同。
 - `test_small_model_tf`：为该pipeline定义一个小型模型（结果无所谓），并测试pipeline的输出。结果应与`test_small_model_pt`相同。

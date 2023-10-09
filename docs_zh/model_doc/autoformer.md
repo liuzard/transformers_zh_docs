@@ -1,6 +1,6 @@
 <!--版权归2023年HuggingFace团队所有。
 
-根据Apache许可证第2版（“许可证”）许可；除非符合许可证，否则您不得使用此文件。您可以在以下网址获取许可证的副本：
+根据Apache许可证第2版（“许可证”）许可；除非符合许可证，否则你不得使用此文件。你可以在以下网址获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -8,7 +8,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 没有任何明示或暗示的担保或条件。查看许可证以获取特定的语言和限制条款。
 
 ⚠️请注意，此文件在Markdown中，但包含了我们文档生成器的特定语法（类似于MDX），
-这可能无法在您的Markdown查看器中正确呈现。-->
+这可能无法在你的Markdown查看器中正确呈现。-->
 
 # Autoformer
 
@@ -27,7 +27,7 @@ Autoformer模型是由Haixu Wu, Jiehui Xu, Jianmin Wang, Mingsheng Long在《Aut
 
 ## 资源
 
-以下是官方Hugging Face和社区（由🌎表示）资源列表，可帮助您入门。如果您有兴趣提交资源以包含在此处，请随时发起拉取请求，我们将进行审核！该资源应该 ideally 展示出与现有资源不重复的新内容。
+以下是官方Hugging Face和社区（由🌎表示）资源列表，可帮助你入门。如果你有兴趣提交资源以包含在此处，请随时发起拉取请求，我们将进行审核！该资源应该 ideally 展示出与现有资源不重复的新内容。
 
 - 在HuggingFace博客中查看Autoformer的博文：[Yes, Transformers are Effective for Time Series Forecasting (+ Autoformer)](https://huggingface.co/blog/autoformer)
 

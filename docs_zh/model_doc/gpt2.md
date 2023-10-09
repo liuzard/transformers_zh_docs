@@ -1,17 +1,17 @@
 <!--版权所有2020年HuggingFace团队。保留所有权利。
 
 根据Apache许可证第2版（“许可证”）的条款，除非符合许可证的规定
-您将无法使用此文件。
+你将无法使用此文件。
 
-您可以获得许可证的副本，在下面的链接中获得该许可证
+你可以获得许可证的副本，在下面的链接中获得该许可证
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，否则根据许可证分发的软件将按
 “按原样”分布，没有任何形式的担保或条件，无论是明示还是暗示。有关许可下的特定语言的详细信息
-您可能的限制。
+你可能的限制。
 
-⚠️请注意，此文件采用Markdown格式，但包含我们的doc-builder的特定语法（类似于MDX），可能无法正确显示在您的Markdown查看器中。
+⚠️请注意，此文件采用Markdown格式，但包含我们的doc-builder的特定语法（类似于MDX），可能无法正确显示在你的Markdown查看器中。
 
 -->
 
@@ -47,7 +47,7 @@ OpenAI GPT-2模型由Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Am
 
 ## 资源
 
-以下是官方Hugging Face和社区（由🌎表示）资源列表，以帮助您开始使用GPT2。如果您希望提交资源以包含在此处，请随时提交Pull Request，我们将进行审核！资源应该是新颖的，而不是重复的现有资源。
+以下是官方Hugging Face和社区（由🌎表示）资源列表，以帮助你开始使用GPT2。如果你希望提交资源以包含在此处，请随时提交Pull Request，我们将进行审核！资源应该是新颖的，而不是重复的现有资源。
 
 <PipelineTag pipeline="text-generation"/>
 
@@ -56,8 +56,8 @@ OpenAI GPT-2模型由Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Am
 - 一篇关于[从零开始训练CodeParrot 🦜](https://huggingface.co/blog/codeparrot)的大型GPT-2模型的博客。
 - 一篇关于[如何使用TensorFlow和XLA快速生成文本](https://huggingface.co/blog/tf-xla-generate)的博客，其中包括GPT-2。
 - 一篇关于[如何使用Megatron-LM训练语言模型](https://huggingface.co/blog/megatron-training)的博客，其中包括一个GPT-2模型。
-- 一篇有关[如何使用GPT2微调生成您最喜爱的艺术家风格的歌词的笔记本](https://colab.research.google.com/github/AlekseyKorshuk/huggingartists/blob/master/huggingartists-demo.ipynb)。 🌎
-- 一篇有关[如何使用GPT2微调生成您最喜爱的Twitter用户风格的推文的笔记本](https://colab.research.google.com/github/borisdayma/huggingtweets/blob/master/huggingtweets-demo.ipynb)。 🌎
+- 一篇有关[如何使用GPT2微调生成你最喜爱的艺术家风格的歌词的笔记本](https://colab.research.google.com/github/AlekseyKorshuk/huggingartists/blob/master/huggingartists-demo.ipynb)。 🌎
+- 一篇有关[如何使用GPT2微调生成你最喜爱的Twitter用户风格的推文的笔记本](https://colab.research.google.com/github/borisdayma/huggingtweets/blob/master/huggingtweets-demo.ipynb)。 🌎
 - [因果语言模型](https://huggingface.co/course/en/chapter7/6?fw=pt#training-a-causal-language-model-from-scratch)一章的🤗 Hugging Face课程。
 - [`GPT2LMHeadModel`]由此[因果语言建模示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling#gpt-2gpt-and-causal-language-modeling)、[文本生成示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/text-generation)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling.ipynb)支持。
 - [`TFGPT2LMHeadModel`]由此[因果语言建模示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling#run_clmpy)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling-tf.ipynb)支持。

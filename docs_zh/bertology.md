@@ -1,7 +1,7 @@
 <!--版权2020年Marianne J. McQueen.保留所有权利。
 
-根据Apache许可证2.0版（“许可证”）获得许可;除非符合许可证，否则您不得使用此文件。
-您可以在以下网址获取许可证的副本
+根据Apache许可证2.0版（“许可证”）获得许可;除非符合许可证，否则你不得使用此文件。
+你可以在以下网址获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -27,4 +27,4 @@ http://www.apache.org/licenses/LICENSE-2.0
 - 访问BERT/GPT/GPT-2每个头部的所有注意力权重，
 - 检索头部的输出值和梯度，以计算头部的重要性得分和修剪头部，如https://arxiv.org/abs/1905.10650所述。
 
-为了帮助您理解和使用这些功能，我们添加了一个特定的示例脚本：[bertology.py](https://github.com/huggingface/transformers/tree/main/examples/research_projects/bertology/run_bertology.py)，它提取信息并对在GLUE上预训练的模型进行修剪。
+为了帮助你理解和使用这些功能，我们添加了一个特定的示例脚本：[bertology.py](https://github.com/huggingface/transformers/tree/main/examples/research_projects/bertology/run_bertology.py)，它提取信息并对在GLUE上预训练的模型进行修剪。

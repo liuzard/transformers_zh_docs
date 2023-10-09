@@ -1,8 +1,8 @@
 <!--
 版权所有 2020 年 HuggingFace 团队。版权所有。
 
-根据 Apache 许可证第 2 版（“许可证”），您不得不遵守以下内容使用此文件，除非符合许可证的要求。
-您可以在以下网址获取许可证的副本：
+根据 Apache 许可证第 2 版（“许可证”），你不得不遵守以下内容使用此文件，除非符合许可证的要求。
+你可以在以下网址获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -10,7 +10,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 不附带任何明示或暗示的担保或条件。请参阅许可证以了解许可证下的特定语言管理权和限制。
 
 ⚠️ 请注意，此文件采用 Markdown 格式，但包含我们的文档生成器（类似于 MDX）的特定语法，
-可能在您的 Markdown 查看器中无法正确呈现。
+可能在你的 Markdown 查看器中无法正确呈现。
 
 -->
 
@@ -48,18 +48,18 @@ OpenAI GPT 模型最初由 Alec Radford、Karthik Narasimhan、Tim Salimans 和 
 
 注意：
 
-如果您想要重现 *OpenAI GPT* 论文中的原始分词过程，您需要安装 `ftfy` 和 `SpaCy`：
+如果你想要重现 *OpenAI GPT* 论文中的原始分词过程，你需要安装 `ftfy` 和 `SpaCy`：
 
 ```bash
 pip install spacy ftfy==4.4.3
 python -m spacy download en
 ```
 
-如果您没有安装 `ftfy` 和 `SpaCy`，[`OpenAIGPTTokenizer`] 将默认使用 BERT 的 `BasicTokenizer` 进行分词，然后使用字节对编码（对于大多数用途来说应该没问题，不用担心）。
+如果你没有安装 `ftfy` 和 `SpaCy`，[`OpenAIGPTTokenizer`] 将默认使用 BERT 的 `BasicTokenizer` 进行分词，然后使用字节对编码（对于大多数用途来说应该没问题，不用担心）。
 
 ## 资源
 
-以下是官方 Hugging Face 和社区（用 🌎 表示）资源列表，可以帮助您入门 OpenAI GPT。如果您有兴趣提交资源以包含在这里，请随时打开拉取请求，我们会进行审核！该资源应该展示出一些新的东西，而不是重复现有的资源。
+以下是官方 Hugging Face 和社区（用 🌎 表示）资源列表，可以帮助你入门 OpenAI GPT。如果你有兴趣提交资源以包含在这里，请随时打开拉取请求，我们会进行审核！该资源应该展示出一些新的东西，而不是重复现有的资源。
 
 <PipelineTag pipeline="text-classification"/>
 
@@ -73,8 +73,8 @@ python -m spacy download en
 - 关于从头开始训练 [CodeParrot 🦜](https://huggingface.co/blog/codeparrot)（一个大型 GPT-2 模型）的博客。
 - [使用 TensorFlow 和 XLA 加速文本生成的博客](https://huggingface.co/blog/tf-xla-generate)与 GPT-2。
 - [如何使用 Megatron-LM 训练语言模型](https://huggingface.co/blog/megatron-training)与 GPT-2 模型。
-- 介绍如何[对 GPT2 进行微调以生成您最喜爱的艺术家风格的歌词的笔记本](https://colab.research.google.com/github/AlekseyKorshuk/huggingartists/blob/master/huggingartists-demo.ipynb)。🌎
-- 介绍如何[对 GPT2 进行微调以生成与您最喜欢的 Twitter 用户风格相似的推文的笔记本](https://colab.research.google.com/github/borisdayma/huggingtweets/blob/master/huggingtweets-demo.ipynb)。🌎
+- 介绍如何[对 GPT2 进行微调以生成你最喜爱的艺术家风格的歌词的笔记本](https://colab.research.google.com/github/AlekseyKorshuk/huggingartists/blob/master/huggingartists-demo.ipynb)。🌎
+- 介绍如何[对 GPT2 进行微调以生成与你最喜欢的 Twitter 用户风格相似的推文的笔记本](https://colab.research.google.com/github/borisdayma/huggingtweets/blob/master/huggingtweets-demo.ipynb)。🌎
 - 🤗 Hugging Face 课程中关于[因果语言建模](https://huggingface.co/course/en/chapter7/6?fw=pt#training-a-causal-language-model-from-scratch)的章节。
 - 此 [因果语言建模示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling#gpt-2gpt-and-causal-language-modeling)、[文本生成示例脚本](https://github.com/huggingface/transformers/blob/main/examples/pytorch/text-generation/run_generation.py)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling.ipynb) 都支持 [`OpenAIGPTLMHeadModel`]。
 - 此 [因果语言建模示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling#run_clmpy) 和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling-tf.ipynb) 都支持 [`TFOpenAIGPTLMHeadModel`]。

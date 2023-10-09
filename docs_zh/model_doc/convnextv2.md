@@ -1,13 +1,13 @@
 <!--
 版权 2023 HuggingFace团队。 版权所有。
 
-根据Apache许可证第2.0版（“许可证”）的规定，您不得使用除符合许可证的使用地外的此文件。 您可以在以下网址获取许可证的副本：
+根据Apache许可证第2.0版（“许可证”）的规定，你不得使用除符合许可证的使用地外的此文件。 你可以在以下网址获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用的法律要求或书面同意，否则根据许可证分发的软件是按“原样”分发的，不附带任何明示或暗示的担保或条件。请参阅许可证，了解特定语言下权限的具体限制和限制。
 
-⚠️请注意，此文件是Markdown格式的，但包含我们的文档构建器（类似于MDX）的特定语法，可能无法在您的Markdown查看器中正确呈现。
+⚠️请注意，此文件是Markdown格式的，但包含我们的文档构建器（类似于MDX）的特定语法，可能无法在你的Markdown查看器中正确呈现。
 
 -->
 
@@ -35,13 +35,13 @@ alt="drawing" width="600"/>
 
 ## 资源
 
-以下是官方Hugging Face和社区（由🌎表示）资源的列表，以帮助您开始使用ConvNeXt V2。
+以下是官方Hugging Face和社区（由🌎表示）资源的列表，以帮助你开始使用ConvNeXt V2。
 
 <PipelineTag pipeline="image-classification"/>
 
 - 此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-classification)和[this notebook](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification.ipynb)支持[`ConvNextV2ForImageClassification`]。
 
-如果您有兴趣提交资源以包含在此处，请随时打开拉取请求，我们将对其进行审核！该资源应该展示出新的东西，而不是重复现有的资源。
+如果你有兴趣提交资源以包含在此处，请随时打开拉取请求，我们将对其进行审核！该资源应该展示出新的东西，而不是重复现有的资源。
 
 ## ConvNextV2Config
 

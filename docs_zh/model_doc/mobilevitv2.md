@@ -1,12 +1,12 @@
 <!--版权所有 2023年HuggingFace团队保留。
 
-基于Apache许可证2.0版（“许可证”）获得许可；除非符合许可证要求，否则不能使用此文件。您可以获取许可证的副本。
+基于Apache许可证2.0版（“许可证”）获得许可；除非符合许可证要求，否则不能使用此文件。你可以获取许可证的副本。
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，按“原样”分发的软件仅依据许可证发布，不附带任何形式的明示或暗示保证。有关许可证下特定语言的规定，请参阅许可证。
 
-⚠️请注意，此文件采用Markdown格式，但包含我们doc-builder的特定语法（类似于MDX），在您的Markdown查看器中可能无法正确显示。
+⚠️请注意，此文件采用Markdown格式，但包含我们doc-builder的特定语法（类似于MDX），在你的Markdown查看器中可能无法正确显示。
 
 -->
 
@@ -25,7 +25,7 @@ MobileViTV2是MobileViT的第二个版本，通过用可分离的自注意力替
 提示：
 
 - MobileViTV2更像是卷积神经网络（CNN）而不是Transformer模型。它不适用于序列数据，而是适用于图像批次。与ViT不同，它没有嵌入层。骨干模型输出特征图。
-- 可以使用`MobileViTImageProcessor`来为模型准备图像。请注意，如果您自己进行预处理，则预训练检查点要求图像以BGR像素顺序（而不是RGB）呈现。
+- 可以使用`MobileViTImageProcessor`来为模型准备图像。请注意，如果你自己进行预处理，则预训练检查点要求图像以BGR像素顺序（而不是RGB）呈现。
 - 可用的图像分类检查点已在[ImageNet-1k](https://huggingface.co/datasets/imagenet-1k)上进行了预训练（也称为ILSVRC 2012，包含130万张图像和1000个类别）。
 - 分割模型使用[DeepLabV3](https://arxiv.org/abs/1706.05587)头部。可用的语义分割检查点已在[PASCAL VOC](http://host.robots.ox.ac.uk/pascal/VOC/)上进行了预训练。
 

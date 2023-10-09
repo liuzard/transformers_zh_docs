@@ -1,13 +1,13 @@
 <!--
 版权所有2023年HuggingFace团队保留。
 
-根据Apache许可证第2.0版（“许可证”）许可；除非符合许可证要求，否则不得使用此文件。您可以获取许可证副本，网址为
+根据Apache许可证第2.0版（“许可证”）许可；除非符合许可证要求，否则不得使用此文件。你可以获取许可证副本，网址为
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件基于“按原样”提供，不附带任何明示或暗示的保证或条件。有关许可证的特定语言和限制，请参阅许可证。
 
-⚠️请注意，此文件使用Markdown格式，但包含我们doc-builder（类似于MDX）的特定语法，可能在您的Markdown查看器中无法正确渲染。
+⚠️请注意，此文件使用Markdown格式，但包含我们doc-builder（类似于MDX）的特定语法，可能在你的Markdown查看器中无法正确渲染。
 -->
 
 # 代理和工具
@@ -22,7 +22,7 @@ Huggingface团队的Transformers Agents是一个实验性的API，随时可能�
 
 ## 代理
 
-我们提供三种类型的代理：[`HfAgent`] 使用开源模型的推理端点，[`LocalAgent`] 在本地使用您选择的模型，以及[`OpenAiAgent`] 使用OpenAI的闭源模型。
+我们提供三种类型的代理：[`HfAgent`] 使用开源模型的推理端点，[`LocalAgent`] 在本地使用你选择的模型，以及[`OpenAiAgent`] 使用OpenAI的闭源模型。
 
 ### HfAgent
 

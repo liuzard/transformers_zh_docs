@@ -1,13 +1,13 @@
 版权所有 © 2020 HuggingFace 团队。
 
-根据 Apache 许可证第 2.0 版 ("许可证")，您不能在未遵守许可证的情况下使用此文件。
-您可以在以下位置获取许可证的副本：
+根据 Apache 许可证第 2.0 版 ("许可证")，你不能在未遵守许可证的情况下使用此文件。
+你可以在以下位置获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 根据适用法律或书面同意，软件根据许可证被分发，基于 "现状" 分发，没有任何形式的保证或条件。详细信息请参阅许可证，以及许可证的限制。
 
-⚠️ 注意，此文件是 Markdown 格式，但包含了用于我们文档构建器 (类似于 MDX) 的特定语法，可能无法在您的 Markdown 查看器中正确呈现。
+⚠️ 注意，此文件是 Markdown 格式，但包含了用于我们文档构建器 (类似于 MDX) 的特定语法，可能无法在你的 Markdown 查看器中正确呈现。
 
 # TAPAS
 
@@ -37,21 +37,21 @@ alt="drawing" width="600"/>
 
 提示：
 
-- TAPAS 模型默认使用相对位置嵌入（在表格的每个单元格中重新开始位置嵌入）。请注意，这是在原始 TAPAS 论文发表之后添加的。根据作者的说法，这通常会导致稍微更好的性能，并且允许您在不耗尽嵌入的情况下对较长的序列进行编码。这反映在 [`TapasConfig`] 的 `reset_position_index_per_cell` 参数中，默认设置为 `True`。可在 [hub](https://huggingface.co/models?search=tapas) 上提供的默认版本的模型中使用相对位置嵌入。如果要使用绝对位置嵌入，可以在调用 `from_pretrained()` 方法时传入一个额外的参数 `revision="no_reset"`。通常建议在右侧而不是左侧填充输入。
+- TAPAS 模型默认使用相对位置嵌入（在表格的每个单元格中重新开始位置嵌入）。请注意，这是在原始 TAPAS 论文发表之后添加的。根据作者的说法，这通常会导致稍微更好的性能，并且允许你在不耗尽嵌入的情况下对较长的序列进行编码。这反映在 [`TapasConfig`] 的 `reset_position_index_per_cell` 参数中，默认设置为 `True`。可在 [hub](https://huggingface.co/models?search=tapas) 上提供的默认版本的模型中使用相对位置嵌入。如果要使用绝对位置嵌入，可以在调用 `from_pretrained()` 方法时传入一个额外的参数 `revision="no_reset"`。通常建议在右侧而不是左侧填充输入。
 - TAPAS 基于 BERT，因此例如 `TAPAS-base` 对应于 `BERT-base` 架构。当然，`TAPAS-large` 的性能最好（论文中的结果是根据 `TAPAS-large` 得出的）。各种大小模型的结果显示在[原始的Github存储库](https://github.com/google-research/tapas>)上。
-- TAPAS 有在 SQA 上进行微调的检查点，可以回答与表格相关的问题，也可以在对话设置中提问后续问题，例如 "他多大了？"。请注意，对于对话设置，TAPAS 的前向传递有所不同：在这种情况下，您必须逐一将每个表格-问题对输入模型，以便预测的 `labels` 可以覆盖模型对于先前问题的 `prev_labels` 令牌类型 ID。有关更多信息，请参见"用法"部分。
+- TAPAS 有在 SQA 上进行微调的检查点，可以回答与表格相关的问题，也可以在对话设置中提问后续问题，例如 "他多大了？"。请注意，对于对话设置，TAPAS 的前向传递有所不同：在这种情况下，你必须逐一将每个表格-问题对输入模型，以便预测的 `labels` 可以覆盖模型对于先前问题的 `prev_labels` 令牌类型 ID。有关更多信息，请参见"用法"部分。
 - TAPAS 类似于 BERT，因此依赖于掩蔽语言建模 (MLM) 目标。因此，它在预测掩盖的令牌和自然语言理解方面效率很高，但对于文本生成来说并不是最佳选择。使用因果语言建模 (CLM) 目标训练的模型在这方面更好。请注意，可以在 EncoderDecoderModel 框架中使用 TAPAS 作为编码器，将其与自回归文本解码器（如 GPT-2）结合使用。
 
 ## 使用：微调
 
-在这里，我们将解释如何在您自己的数据集上对 [`TapasForQuestionAnswering`] 进行微调。
+在这里，我们将解释如何在你自己的数据集上对 [`TapasForQuestionAnswering`] 进行微调。
 
-**步骤 1：选择您使用 TAPAS 的 3 种方式之一 - 或进行实验**
+**步骤 1：选择你使用 TAPAS 的 3 种方式之一 - 或进行实验**
 
 基本上，可以通过三种不同的方式对 [`TapasForQuestionAnswering`] 进行微调，对应于对 Tapas 进行微调的不同数据集：
 
-1. SQA：如果您想在对话设置中提问与表格相关的后续问题。例如，如果您先问 "第一位男演员的名字是什么？"，然后可以问一个后续问题，比如 "他多大了？"。在这里，问题不涉及任何聚合（所有问题都是单元格选择问题）。
-2. WTQ：如果您不想在对话设置中提问问题，而是只是问与表格相关的问题，这些问题可能涉及聚合，例如计算行数、求和单元格值或求平均单元格值。然后您可以询问 "Cristiano Ronaldo 职业生涯进球总数是多少？"。这种情况也被称为**弱监督**，因为模型本身必须在只有问题的答案作为监督的情况下，学习适当的聚合操作符（SUM/COUNT/AVERAGE/NONE）。
+1. SQA：如果你想在对话设置中提问与表格相关的后续问题。例如，如果你先问 "第一位男演员的名字是什么？"，然后可以问一个后续问题，比如 "他多大了？"。在这里，问题不涉及任何聚合（所有问题都是单元格选择问题）。
+2. WTQ：如果你不想在对话设置中提问问题，而是只是问与表格相关的问题，这些问题可能涉及聚合，例如计算行数、求和单元格值或求平均单元格值。然后你可以询问 "Cristiano Ronaldo 职业生涯进球总数是多少？"。这种情况也被称为**弱监督**，因为模型本身必须在只有问题的答案作为监督的情况下，学习适当的聚合操作符（SUM/COUNT/AVERAGE/NONE）。
 3. WikiSQL-监督：这个数据集基于 WikiSQL，模型在训练过程中被给予了真实的聚合操作符。这也被称为**强监督**。在这种情况下，学习适当的聚合操作符要简单得多。
 
 总结一下：
@@ -81,7 +81,7 @@ alt="drawing" width="600"/>
 >>> model = TapasForQuestionAnswering.from_pretrained("google/tapas-base", config=config)
 ```
 
-当然，您不一定要按照 TAPAS 的这三种方式之一进行操作。在初始化 [`TapasConfig`] 时，您也可以根据需要定义任何超参数，然后基于该配置创建 [`TapasForQuestionAnswering`]。例如，如果您的数据集既包含对话式问题又包含可能涉及聚合的问题，则可以按照以下方式进行：例如：
+当然，你不一定要按照 TAPAS 的这三种方式之一进行操作。在初始化 [`TapasConfig`] 时，你也可以根据需要定义任何超参数，然后基于该配置创建 [`TapasForQuestionAnswering`]。例如，如果你的数据集既包含对话式问题又包含可能涉及聚合的问题，则可以按照以下方式进行：例如：
 
 ```py
 >>> from transformers import TapasConfig, TapasForQuestionAnswering
@@ -110,7 +110,7 @@ alt="drawing" width="600"/>
 >>> model = TFTapasForQuestionAnswering.from_pretrained("google/tapas-base", config=config)
 ```
 
-当然，您不一定要按照 TAPAS 的这三种方式之一进行操作。在初始化 [`TapasConfig`] 时，您也可以根据需要定义任何超参数，然后基于该配置创建 [`TFTapasForQuestionAnswering`]。例如，如果您的数据集既包含对话式问题又包含可能涉及聚合的问题，则可以按照以下方式进行：例如：
+当然，你不一定要按照 TAPAS 的这三种方式之一进行操作。在初始化 [`TapasConfig`] 时，你也可以根据需要定义任何超参数，然后基于该配置创建 [`TFTapasForQuestionAnswering`]。例如，如果你的数据集既包含对话式问题又包含可能涉及聚合的问题，则可以按照以下方式进行：例如：
 
 ```py
 >>> from transformers import TapasConfig, TFTapasForQuestionAnswering
@@ -123,13 +123,13 @@ alt="drawing" width="600"/>
 </tf>
 </frameworkcontent>
 
-您还可以从已经进行微调的检查点开始。在此说明需要注意的是，由于 L2 损失的一些问题，WTQ 上的已经微调的检查点有些脆弱。有关更多信息，请参阅[此处](https://github.com/google-research/tapas/issues/91#issuecomment-735719340)。
+你还可以从已经进行微调的检查点开始。在此说明需要注意的是，由于 L2 损失的一些问题，WTQ 上的已经微调的检查点有些脆弱。有关更多信息，请参阅[此处](https://github.com/google-research/tapas/issues/91#issuecomment-735719340)。
 
 有关 HuggingFace hub 上可用的所有预训练和微调 TAPAS 检查点的列表，请参见[此处](https://huggingface.co/models?search=tapas)。
 
 **步骤 2：将数据准备成 SQA 格式**
 
-无论您选择了上述哪种方式，您都应该将数据准备成 [SQA](https://www.microsoft.com/en-us/download/details.aspx?id=54253) 格式。这种格式是一个具有以下列的 TSV/CSV 文件：
+无论你选择了上述哪种方式，你都应该将数据准备成 [SQA](https://www.microsoft.com/en-us/download/details.aspx?id=54253) 格式。这种格式是一个具有以下列的 TSV/CSV 文件：
 
 - `id`：可选，表格-问题对的 ID，用于记录目的。
 - `annotator`：可选，注释表格-问题对的人员的 ID，用于记录目的。
@@ -186,7 +186,7 @@ print(predicted_answer_text)
 
 ## TAPAS模型推理的使用方法
 
-在这里，我们解释如何在推理过程中使用[TapasForQuestionAnswering]或[TFTapasForQuestionAnswering]（即在新数据上进行预测）。对于推理，模型只需要提供`input_ids`，`attention_mask`和`token_type_ids`（可以使用[TapasTokenizer]获取）即可获得logits。接下来，您可以使用方便的[`~models.tapas.tokenization_tapas.convert_logits_to_predictions`]方法将它们转换为预测的坐标和可选的聚合指数。
+在这里，我们解释如何在推理过程中使用[TapasForQuestionAnswering]或[TFTapasForQuestionAnswering]（即在新数据上进行预测）。对于推理，模型只需要提供`input_ids`，`attention_mask`和`token_type_ids`（可以使用[TapasTokenizer]获取）即可获得logits。接下来，你可以使用方便的[`~models.tapas.tokenization_tapas.convert_logits_to_predictions`]方法将它们转换为预测的坐标和可选的聚合指数。
 
 但是，请注意，推理的方式取决于设置是否是对话式的。在非对话式设置中，可以并行地对批处理中的所有表格-问题对进行推理。以下是一个例子:
 

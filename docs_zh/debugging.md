@@ -1,6 +1,6 @@
 版权所有2021年The HuggingFace团队。保留所有权利。
 
-根据Apache许可证，第2.0版（“许可证”），您不得使用此文件除非符合许可证的规定。您可以在以下位置获取许可证的副本
+根据Apache许可证，第2.0版（“许可证”），你不得使用此文件除非符合许可证的规定。你可以在以下位置获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -27,7 +27,7 @@ python -m torch.distributed.run --nproc_per_node 2 --nnodes 1 torch-distributed-
 
 对于更多的GPU或节点，请调整脚本中的参数。
 
-您将在诊断脚本中找到更多详细信息，甚至可以找到在SLURM环境中如何运行它的示例。
+你将在诊断脚本中找到更多详细信息，甚至可以找到在SLURM环境中如何运行它的示例。
 
 另一个级别的调试是添加`NCCL_DEBUG=INFO`环境变量，如下所示：
 
@@ -35,7 +35,7 @@ python -m torch.distributed.run --nproc_per_node 2 --nnodes 1 torch-distributed-
 NCCL_DEBUG=INFO python -m torch.distributed.run --nproc_per_node 2 --nnodes 1 torch-distributed-gpu-test.py
 ```
 
-这将输出大量与NCCL相关的调试信息，如果发现出现报告的某些问题，您可以在网上搜索其含义。或者，如果不确定如何解释输出，可以在问题中共享日志文件。
+这将输出大量与NCCL相关的调试信息，如果发现出现报告的某些问题，你可以在网上搜索其含义。或者，如果不确定如何解释输出，可以在问题中共享日志文件。
 
 
 下溢和上溢检测
@@ -58,9 +58,9 @@ NCCL_DEBUG=INFO python -m torch.distributed.run --nproc_per_node 2 --nnodes 1 to
 
 </Tip>
 
-如果您开始出现`loss=NaN`或模型由于激活或权重中的`inf`或`nan`而出现其他异常行为，需要找出第一个下溢或上溢发生的位置以及导致它的原因。幸运的是，您可以通过激活自动检测的特殊模块轻松实现。
+如果你开始出现`loss=NaN`或模型由于激活或权重中的`inf`或`nan`而出现其他异常行为，需要找出第一个下溢或上溢发生的位置以及导致它的原因。幸运的是，你可以通过激活自动检测的特殊模块轻松实现。
 
-如果您正在使用[`Trainer`]，您只需要添加：
+如果你正在使用[`Trainer`]，你只需要添加：
 
 ```bash
 --debug underflow_overflow
@@ -68,7 +68,7 @@ NCCL_DEBUG=INFO python -m torch.distributed.run --nproc_per_node 2 --nnodes 1 to
 
 到正常的命令行参数中，或者在创建[`TrainingArguments`]对象时传递`debug="underflow_overflow"`。
 
-如果您正在使用自己的训练循环或另一个训练器，可以使用以下方式实现相同的效果：
+如果你正在使用自己的训练循环或另一个训练器，可以使用以下方式实现相同的效果：
 
 ```python
 from transformers.debug_utils import DebugUnderflowOverflow
@@ -120,7 +120,7 @@ debug_overflow = DebugUnderflowOverflow(model)
 
 示例输出由于篇幅原因进行了裁剪。
 
-第二列显示绝对最大元素的值，因此如果您仔细查看最后几个帧，输入和输出的范围在`1e4`左右。因此，当此训练使用fp16混合精度进行时，最后一步溢出（因为在`fp16`下，在`inf`之前的最大数字是64e3）。为了避免在`fp16`下发生溢出，激活值必须保持远远低于`1e4`，因为`1e4 * 1e4 = 1e8`，所以任何具有大激活值的矩阵乘法都会导致数值溢出。
+第二列显示绝对最大元素的值，因此如果你仔细查看最后几个帧，输入和输出的范围在`1e4`左右。因此，当此训练使用fp16混合精度进行时，最后一步溢出（因为在`fp16`下，在`inf`之前的最大数字是64e3）。为了避免在`fp16`下发生溢出，激活值必须保持远远低于`1e4`，因为`1e4 * 1e4 = 1e8`，所以任何具有大激活值的矩阵乘法都会导致数值溢出。
 
 在跟踪的开始处，可以发现问题发生的批次号（这里的“在batch_number=0期间检测到inf/nan”意味着问题发生在第一批）。
 
@@ -164,7 +164,7 @@ debug_overflow = DebugUnderflowOverflow(model)
 
 最后一个帧报告了`Dropout.forward`函数的情况，其中第一个条目是唯一的输入，第二个条目是唯一的输出。可以看到它是从`DenseReluDense`类内的一个名为`dropout`的属性中调用的。我们可以看到它发生在第一层的第2个块中，在第一批时发生。最后，绝对最大输入元素为`6.27e+04`，输出也是`inf`。
 
-您可以在此处看到`T5DenseGatedGeluDense.forward`产生了输出激活值，其绝对最大值约为62.7K，非常接近fp16的上限64K。接下来，我们有`Dropout`，它在将一些元素置零后重新规范化权重，这将把绝对最大值推到超过64K，并导致溢出（`inf`）。
+你可以在此处看到`T5DenseGatedGeluDense.forward`产生了输出激活值，其绝对最大值约为62.7K，非常接近fp16的上限64K。接下来，我们有`Dropout`，它在将一些元素置零后重新规范化权重，这将把绝对最大值推到超过64K，并导致溢出（`inf`）。
 
 从这里可以看出，当fp16数字开始变得非常大时，我们需要查看之前的帧。
 
@@ -216,7 +216,7 @@ def forward(self, hidden_states):
         return self._forward(hidden_states)
 ```
 
-由于自动检测器仅报告完整帧的输入和输出，因此一旦知道要查找的位置，您可能还希望分析特定`forward`函数的中间阶段。在这种情况下，您可以使用`detect_overflow`辅助函数将检测器注入到所需的位置，例如：
+由于自动检测器仅报告完整帧的输入和输出，因此一旦知道要查找的位置，你可能还希望分析特定`forward`函数的中间阶段。在这种情况下，你可以使用`detect_overflow`辅助函数将检测器注入到所需的位置，例如：
 
 ```python
 from debug_utils import detect_overflow
@@ -235,7 +235,7 @@ class T5LayerFF(nn.Module):
 
 可以看到，我们添加了其中的2个，并且现在我们跟踪了在它们之间的任何指定的`forward`函数中是否检测到`inf`或`nan`。
 
-实际上，检测器已经报告了这些问题，因为上面的每个调用都是一个`nn.Module`，但是假设如果您有一些局部的直接计算，那么您就可以这样做。
+实际上，检测器已经报告了这些问题，因为上面的每个调用都是一个`nn.Module`，但是假设如果你有一些局部的直接计算，那么你就可以这样做。
 
 此外，如果在自己的代码中实例化了调试器，可以调整保存其默认值的帧数，例如：
 
@@ -249,7 +249,7 @@ debug_overflow = DebugUnderflowOverflow(model, max_frames_to_save=100)
 
 同一调试类可以用于关闭下溢/上溢检测功能时的每批次跟踪。
 
-假设您想要观察给定批次的每个`forward`调用的所有因素的绝对最小值和最大值，并且只对第1批和第3批进行跟踪。然后，您可以将此类实例化为：
+假设你想要观察给定批次的每个`forward`调用的所有因素的绝对最小值和最大值，并且只对第1批和第3批进行跟踪。然后，你可以将此类实例化为：
 
 ```python
 debug_overflow = DebugUnderflowOverflow(model, trace_batch_nums=[1, 3])
@@ -259,7 +259,7 @@ debug_overflow = DebugUnderflowOverflow(model, trace_batch_nums=[1, 3])
 
 批次编号从0开始索引。
 
-这对于您知道程序在某个批次号之后开始出现问题时非常有用，因此您可以直接跳转到该区域。这里是这样一个配置的示例截断输出：
+这对于你知道程序在某个批次号之后开始出现问题时非常有用，因此你可以直接跳转到该区域。这里是这样一个配置的示例截断输出：
 
 ```
                   *** 开始批次号=1 ***
@@ -290,9 +290,9 @@ debug_overflow = DebugUnderflowOverflow(model, trace_batch_nums=[1, 3])
 [...]
 ```
 
-在此配置中，您将获得大量转储的帧-与您的模型中的每个前向调用一样多的帧，因此可能是您想要的，也可能不是，但有时候与正常调试器一起使用比使用正常调试器更容易进行调试。例如，如果问题在第150批之后开始出现。因此，您可以转储149批和150批的跟踪，并比较数字开始发散的位置。
+在此配置中，你将获得大量转储的帧-与你的模型中的每个前向调用一样多的帧，因此可能是你想要的，也可能不是，但有时候与正常调试器一起使用比使用正常调试器更容易进行调试。例如，如果问题在第150批之后开始出现。因此，你可以转储149批和150批的跟踪，并比较数字开始发散的位置。
 
-您还可以指定在哪个批次号之后停止训练，例如：
+你还可以指定在哪个批次号之后停止训练，例如：
 
 ```python
 debug_overflow = DebugUnderflowOverflow(model, trace_batch_nums=[1, 3], abort_after_batch_num=3)

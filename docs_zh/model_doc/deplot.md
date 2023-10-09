@@ -1,10 +1,10 @@
 <!--
 版权所有 © 2021 并保留原文。
 
-根据 Apache 许可证 2.0 版（"许可证"），您无权在不符合许可证的条件下使用此文件
+根据 Apache 许可证 2.0 版（"许可证"），你无权在不符合许可证的条件下使用此文件
 除非适用法律要求或书面同意，否则根据许可证分发的软件是基于"原样"的基础上提供的，没有任何形式的担保或条件。有关许可证的特定语言，请参阅许可证下的相关限制。
 
-⚠️ 请注意，此文件是 Markdown 格式，但包含专用于我们的文档生成器（类似于 MDX）的特定语法，可能在您的 Markdown 查看器中无法正确显示。
+⚠️ 请注意，此文件是 Markdown 格式，但包含专用于我们的文档生成器（类似于 MDX）的特定语法，可能在你的 Markdown 查看器中无法正确显示。
 
 -->
 
@@ -20,7 +20,7 @@ DePlot 在 Fangyu Liu, Julian Martin Eisenschlos, Francesco Piccinno, Syrine Kri
 
 ## 模型描述
 
-DePlot 是使用 `Pix2Struct` 架构训练的模型。您可以在 [Pix2Struct 文档](https://huggingface.co/docs/transformers/main/en/model_doc/pix2struct) 中找到有关 `Pix2Struct` 的更多信息。DePlot 是 `Pix2Struct` 架构的一部分，它是视觉问答的子集。它将输入问题渲染到图像上并预测答案。
+DePlot 是使用 `Pix2Struct` 架构训练的模型。你可以在 [Pix2Struct 文档](https://huggingface.co/docs/transformers/main/en/model_doc/pix2struct) 中找到有关 `Pix2Struct` 的更多信息。DePlot 是 `Pix2Struct` 架构的一部分，它是视觉问答的子集。它将输入问题渲染到图像上并预测答案。
 
 ## 用法
 

@@ -1,12 +1,12 @@
 <!--
 版权所有©2021 HuggingFace团队。保留所有权利。
 
-根据Apache许可证第2.0版（“许可证”），您不得使用此文件，除非符合许可证的规定。
-您可以在以下位置获取许可证的副本
+根据Apache许可证第2.0版（“许可证”），你不得使用此文件，除非符合许可证的规定。
+你可以在以下位置获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
-请注意，虽然此文件是使用Markdown格式的，但包含我们的文档生成器的特定语法（类似于MDX），可能无法在您的Markdown查看器中正确显示。
+请注意，虽然此文件是使用Markdown格式的，但包含我们的文档生成器的特定语法（类似于MDX），可能无法在你的Markdown查看器中正确显示。
 -->
 
 # 语音编码解码模型
@@ -33,7 +33,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ## 从预训练的编码器和预训练的解码器初始化`SpeechEncoderDecoderModel`。
 
-[`SpeechEncoderDecoderModel`]可以从预训练的编码器和预训练的解码器检查点进行初始化。请注意，任何预训练的基于Transformer的语音模型，例如[Wav2Vec2](wav2vec2)、[Hubert](hubert)都可以作为编码器，而预训练的自编码模型（例如BERT）以及预训练的序列到序列模型（例如BART的解码器）也可以作为解码器。根据您选择的解码器架构不同，交叉注意力层可能会被随机初始化。[`SpeechEncoderDecoderModel`]的初始化需要在下游任务上进行微调，就像[解码器的温启动博文](https://huggingface.co/blog/warm-starting-encoder-decoder)中所示。为此，[`SpeechEncoderDecoderModel`]类提供了一个[`SpeechEncoderDecoderModel.from_encoder_decoder_pretrained`]方法。
+[`SpeechEncoderDecoderModel`]可以从预训练的编码器和预训练的解码器检查点进行初始化。请注意，任何预训练的基于Transformer的语音模型，例如[Wav2Vec2](wav2vec2)、[Hubert](hubert)都可以作为编码器，而预训练的自编码模型（例如BERT）以及预训练的序列到序列模型（例如BART的解码器）也可以作为解码器。根据你选择的解码器架构不同，交叉注意力层可能会被随机初始化。[`SpeechEncoderDecoderModel`]的初始化需要在下游任务上进行微调，就像[解码器的温启动博文](https://huggingface.co/blog/warm-starting-encoder-decoder)中所示。为此，[`SpeechEncoderDecoderModel`]类提供了一个[`SpeechEncoderDecoderModel.from_encoder_decoder_pretrained`]方法。
 
 ```python
 >>> from transformers import SpeechEncoderDecoderModel
@@ -72,7 +72,7 @@ Mr. Quilter ist der Apostel der Mittelschicht und wir freuen uns, sein Evangeliu
 ## 训练
 
 模型创建后，可以像BART、T5或任何其他编码器-解码器模型一样对其进行微调，使用一组（语音，文本）对的数据集。
-正如您所看到的，该模型只需两个输入即可计算损失：`input_values`（即语音输入）和`labels`（即目标序列的`input_ids`）。
+正如你所看到的，该模型只需两个输入即可计算损失：`input_values`（即语音输入）和`labels`（即目标序列的`input_ids`）。
 
 ```python
 >>> from transformers import AutoTokenizer, AutoFeatureExtractor, SpeechEncoderDecoderModel

@@ -227,7 +227,7 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 * `path` 指向音频文件的位置。
 * `sampling_rate` 表示每秒测量语音信号的数据点数。
 
-在本教程中，您将使用[Wav2Vec2](https://huggingface.co/facebook/wav2vec2-base)模型。查看模型卡片，您将了解到 Wav2Vec2 是在16kHz 采样率的语音音频上预训练的。确保音频数据的采样率与用于预训练模型的数据集的采样率相匹配很重要。如果数据的采样率不同，那么需要对数据进行重新采样。
+在本教程中，你将使用[Wav2Vec2](https://huggingface.co/facebook/wav2vec2-base)模型。查看模型卡片，你将了解到 Wav2Vec2 是在16kHz 采样率的语音音频上预训练的。确保音频数据的采样率与用于预训练模型的数据集的采样率相匹配很重要。如果数据的采样率不同，那么需要对数据进行重新采样。
 
 1. 使用 🤗 Datasets 的 [`~datasets.Dataset.cast_column`] 方法将采样率提高到 16kHz：
 
@@ -307,17 +307,17 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 
 ## 计算机视觉
 
-对于计算机视觉任务，您需要一个[image processor](main_classes/image_processor)来为模型准备数据集。
+对于计算机视觉任务，你需要一个[image processor](main_classes/image_processor)来为模型准备数据集。
 图像预处理包括将图像转换为模型所需的输入的多个步骤。这些步骤包括但不限于resize、归一化、颜色通道校正和将图像转换为张量。
 
 <Tip>
 
 图像预处理通常在图像增强之后进行。图像预处理和图像增强都可以转换图像数据，但它们有不同的目的：
 
-* 图像增强以一种可以帮助防止过拟合和增加模型鲁棒性的方式改变图像。您可以在数据增强中进行创造性操作 - 调整亮度和颜色、裁剪、旋转、resize、缩放等。但是，请注意，不要通过增强改变图像的含义。
+* 图像增强以一种可以帮助防止过拟合和增加模型鲁棒性的方式改变图像。你可以在数据增强中进行创造性操作 - 调整亮度和颜色、裁剪、旋转、resize、缩放等。但是，请注意，不要通过增强改变图像的含义。
 * 图像预处理保证图像与模型的预期输入格式相匹配。在微调计算机视觉模型时，图像必须像训练模型时那样进行预处理。
 
-您可以使用任何喜欢的库进行图像增强。对于图像预处理，请使用与模型相关联的`ImageProcessor`。
+你可以使用任何喜欢的库进行图像增强。对于图像预处理，请使用与模型相关联的`ImageProcessor`。
 
 </Tip>
 
@@ -353,7 +353,7 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 >>> image_processor = AutoImageProcessor.from_pretrained("google/vit-base-patch16-224")
 ```
 
-首先，让我们添加一些图像增强。您可以使用任何您喜欢的库，但在本教程中，我们将使用torchvision的[`transforms`](https://pytorch.org/vision/stable/transforms.html)模块。如果您想使用另一个数据增强库，请参阅[Albumentations](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification_albumentations.ipynb)或[Kornia notebooks](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification_kornia.ipynb)了解更多信息。
+首先，让我们添加一些图像增强。你可以使用任何你喜欢的库，但在本教程中，我们将使用torchvision的[`transforms`](https://pytorch.org/vision/stable/transforms.html)模块。如果你想使用另一个数据增强库，请参阅[Albumentations](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification_albumentations.ipynb)或[Kornia notebooks](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification_kornia.ipynb)了解更多信息。
 
 1. 在这里，我们使用[`Compose`](https://pytorch.org/vision/master/generated/torchvision.transforms.Compose.html)将几个转换链接在一起 - [`RandomResizedCrop`](https://pytorch.org/vision/main/generated/torchvision.transforms.RandomResizedCrop.html)和[`ColorJitter`](https://pytorch.org/vision/main/generated/torchvision.transforms.ColorJitter.html)。注意，对于resize，我们可以从`image_processor`获取图像大小要求。对于某些模型，期望精确的高度和宽度，对于其他模型只定义了"shortest_edge"。
 
@@ -382,7 +382,7 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 
 在上面的示例中，我们设置了`do_resize=False`，因为我们已经在图像增强转换中调整了图像大小，并利用了适当的`image_processor`的`size`属性。对于不在图像增强期间调整图像大小的情况，请省略此参数。默认情况下，`ImageProcessor`会处理调整大小。
 
-如果您希望将规范化图像作为增强转换的一部分，使用`image_processor.image_mean`和`image_processor.image_std`值。
+如果你希望将规范化图像作为增强转换的一部分，使用`image_processor.image_mean`和`image_processor.image_std`值。
 </Tip>
 
 3. 然后使用🤗 Datasets [`set_transform`](https://huggingface.co/docs/datasets/process.html#format-transform)来实时应用转换：
@@ -391,7 +391,7 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 >>> dataset.set_transform(transforms)
 ```
 
-4. 现在，当您访问图像时，您会注意到图像处理器已添加了`pixel_values`。您现在可以将处理后的数据集传递给模型！
+4. 现在，当你访问图像时，你会注意到图像处理器已添加了`pixel_values`。你现在可以将处理后的数据集传递给模型！
 
 ```py
 >>> dataset[0].keys()
@@ -419,7 +419,7 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 
 ### 填充
 
-在某些情况下，例如，微调[DETR](model_doc/detr)时，模型会在训练时应用比例增强。这可能导致批处理中的图像大小不同。您可以使用[`DetrImageProcessor.pad`](model_doc/detr/#transformers.DetrImageProcessor.pad)和定义一个自定义的`collate_fn`来将图像批处理在一起。
+在某些情况下，例如，微调[DETR](model_doc/detr)时，模型会在训练时应用比例增强。这可能导致批处理中的图像大小不同。你可以使用[`DetrImageProcessor.pad`](model_doc/detr/#transformers.DetrImageProcessor.pad)和定义一个自定义的`collate_fn`来将图像批处理在一起。
 
 ```py
 >>> def collate_fn(batch):
@@ -435,7 +435,7 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 
 ## 多模态
 
-对于涉及多模态输入的任务，您需要一个[processor](main_classes/processors)来为模型准备数据集。处理器将两个处理对象（例如tokenizer和feature extractor）耦合在一起。
+对于涉及多模态输入的任务，你需要一个[processor](main_classes/processors)来为模型准备数据集。处理器将两个处理对象（例如tokenizer和feature extractor）耦合在一起。
 
 加载[LJ Speech](https://huggingface.co/datasets/lj_speech)数据集（有关如何加载数据集的详细信息，请参见🤗 [Datasets教程](https://huggingface.co/docs/datasets/load_hub.html)），以查看如何在自动语音识别（ASR）中使用处理器：
 
@@ -445,7 +445,7 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 >>> lj_speech = load_dataset("lj_speech", split="train")
 ```
 
-对于ASR，您主要关注`audio`和`text`，因此可以删除其他列：
+对于ASR，你主要关注`audio`和`text`，因此可以删除其他列：
 
 ```py
 >>> lj_speech = lj_speech.map(remove_columns=["file", "id", "normalized_text"])
@@ -464,7 +464,7 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 'Printing, in the only sense with which we are at present concerned, differs from most if not from all the arts and crafts represented in the Exhibition'
 ```
 
-请记住，您应该始终[重新采样](preprocessing.md#audio)音频数据集的采样率，以与用于预训练模型的数据集的采样率相匹配！
+请记住，你应该始终[重新采样](preprocessing.md#audio)音频数据集的采样率，以与用于预训练模型的数据集的采样率相匹配！
 
 ```py
 >>> lj_speech = lj_speech.cast_column("audio", Audio(sampling_rate=16_000))
@@ -495,4 +495,4 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 >>> prepare_dataset(lj_speech[0])
 ```
 
-处理器现在已经添加了`input_values`和`labels`，并且采样率也正确地降采样为16kHz。您现在可以将处理后的数据集传递给模型了！
+处理器现在已经添加了`input_values`和`labels`，并且采样率也正确地降采样为16kHz。你现在可以将处理后的数据集传递给模型了！

@@ -2,7 +2,7 @@
 版权 © 2021 HuggingFace 团队。保留所有权利。
 
 根据 Apache 许可证，版本 2.0（"许可证"），除非符合许可证规定，
-否则不能使用此文件。您可以在以下网址获取该许可证副本：
+否则不能使用此文件。你可以在以下网址获取该许可证副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -11,7 +11,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 有关许可证下的特定语言的权限和限制，请参阅许可证。
 
 ⚠️ 请注意，该文件是 Markdown 格式，但包含特定的语法，适用于我们的文档构建工具（类似于 MDX），
-可能在您的 Markdown 查看器中呈现不正确。
+可能在你的 Markdown 查看器中呈现不正确。
 
 -->
 
@@ -56,28 +56,28 @@ ImageNet 上（我们获得的准确率高达 85.2%）以及在转移学习到�
   但发现硬蒸馏效果更好。
 - 所有发布的检查点仅在 ImageNet-1k 上进行了预训练和微调。没有使用外部数据。
   这与原始的 ViT 模型不同，后者使用了外部数据，如 JFT-300M 数据集/Imagenet-21k 进行预训练。
-- DeiT 的作者还发布了效率更高的 ViT 模型，您可以直接将其插入到[`ViTModel`]或[`ViTForImageClassification`]中。
+- DeiT 的作者还发布了效率更高的 ViT 模型，你可以直接将其插入到[`ViTModel`]或[`ViTForImageClassification`]中。
   为了模拟在更大数据集上训练的效果（但仅使用 ImageNet-1k 进行预训练），使用了数据增强、优化和正则化等技术。
   有 4 个变种可供选择（3 种不同大小）：*facebook/deit-tiny-patch16-224*、*facebook/deit-small-patch16-224*、
-  *facebook/deit-base-patch16-224* 和 *facebook/deit-base-patch16-384*。请注意，您应该使用[`DeiTImageProcessor`]来准备模型输入图像。
+  *facebook/deit-base-patch16-224* 和 *facebook/deit-base-patch16-384*。请注意，你应该使用[`DeiTImageProcessor`]来准备模型输入图像。
 
 该模型由 [nielsr](https://huggingface.co/nielsr) 贡献。该模型的 TensorFlow 版本由 [amyeroberts](https://huggingface.co/amyeroberts) 添加。
 
 ## 资源
 
-此处列出了官方 Hugging Face 资源和社区 (🌎) 资源，以帮助您开始使用 DeiT。
+此处列出了官方 Hugging Face 资源和社区 (🌎) 资源，以帮助你开始使用 DeiT。
 
 <PipelineTag pipeline="image-classification"/>
 
-- 您可以使用此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-classification)和
+- 你可以使用此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-classification)和
   [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification.ipynb)来支持[`DeiTForImageClassification`]。
 - 另请参阅：[图像分类任务指南](../tasks/image_classification)
 
 除此之外：
 
-- 您可以使用此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-pretraining)来支持[`DeiTForMaskedImageModeling`]。
+- 你可以使用此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-pretraining)来支持[`DeiTForMaskedImageModeling`]。
 
-如果您有兴趣提交资源以包含在此处，请随时打开一份 Pull Request，我们将进行审查！
+如果你有兴趣提交资源以包含在此处，请随时打开一份 Pull Request，我们将进行审查！
 该资源应该理想地展示一些新内容，而不是重复现有资源。
 
 ## DeiTConfig

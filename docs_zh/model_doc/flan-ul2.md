@@ -1,13 +1,13 @@
 版权所有© 2023 HuggingFace团队。"
 
-根据Apache许可证，第2.0版（"许可证"），您不得使用此文件，除非符合许可证的规定。您可在以下网址获取许可证副本：
+根据Apache许可证，第2.0版（"许可证"），你不得使用此文件，除非符合许可证的规定。你可在以下网址获取许可证副本：
 
 [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 除非适用法律另有规定或书面同意，根据许可证分发的软件是基于"按原样"的基础分发的，没有任何明示或暗示的保证或条件。请参阅许可证了解许可证下的特定语言表示和限制。
 
 
-⚠️ 请注意，此文件是Markdown格式，但包含类似MDX的特定语法，可能无法在您的Markdown查看器中正确渲染。
+⚠️ 请注意，此文件是Markdown格式，但包含类似MDX的特定语法，可能无法在你的Markdown查看器中正确渲染。
 
 # FLAN-UL2
 
@@ -30,7 +30,7 @@ Google已经发布了以下变种：
 
 ## 在低资源设备上运行
 
-该模型非常庞大（~40GB的半精度），所以如果您只想运行模型，请确保以8位加载您的模型，并使用`device_map="auto"`以确保您没有任何内存不足的问题！ 
+该模型非常庞大（~40GB的半精度），所以如果你只想运行模型，请确保以8位加载你的模型，并使用`device_map="auto"`以确保你没有任何内存不足的问题！ 
 
 ```python
 >>> from transformers import AutoModelForSeq2SeqLM, AutoTokenizer

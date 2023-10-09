@@ -1,14 +1,14 @@
 <!--版权2020 HuggingFace团队。保留所有权利。
 
 根据Apache License，Version 2.0 (许可证)许可; 除非符合许可证的要求，
-否则不得使用此文件。您可以在下面的链接处获取许可证的副本：
+否则不得使用此文件。你可以在下面的链接处获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用的法律要求或书面同意，根据许可协议分发的软件以"AS IS"的方式分发，
 不提供任何明示或暗示的担保，包括但不限于对特定目的的适用性和不侵权的担保。
 查看许可证以获取特殊语法的Markdown文件，使用我们的文档构建器(类似MDX)可能无法正确
-在您的Markdown查看器中渲染。
+在你的Markdown查看器中渲染。
 
 -->
 
@@ -49,7 +49,7 @@ BERT模型在[BERT: Pre-training of Deep Bidirectional Transformers for Language
 
 ## 资源
 
-以下是Hugging Face官方资源和社区（由🌎表示）资源的列表，可帮助您开始使用BERT。如果您有兴趣提交资源以包含在这里，请随时提交请求，我们将进行审核！该资源应该理想地展示了一些新东西，而不是重复现有的资源。
+以下是Hugging Face官方资源和社区（由🌎表示）资源的列表，可帮助你开始使用BERT。如果你有兴趣提交资源以包含在这里，请随时提交请求，我们将进行审核！该资源应该理想地展示了一些新东西，而不是重复现有的资源。
 
 <PipelineTag pipeline="text-classification"/>
 

@@ -1,6 +1,6 @@
 <!--版权2023 HuggingFace团队。版权所有。
 
-根据Apache许可证，版本2.0（“许可证”）获得许可；除非符合许可证的规定，否则不得使用此文件。您可以在
+根据Apache许可证，版本2.0（“许可证”）获得许可；除非符合许可证的规定，否则不得使用此文件。你可以在
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -10,7 +10,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 特定语言的权限和限制的详细信息，请参见许可证。
 
-⚠️注意，此文件以Markdown格式编写，但包含特定于我们的文档生成器（类似于MDX）的语法，可能无法正确显示在您的Markdown查看器中。
+⚠️注意，此文件以Markdown格式编写，但包含特定于我们的文档生成器（类似于MDX）的语法，可能无法正确显示在你的Markdown查看器中。
 
 -->
 
@@ -31,7 +31,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 </Tip>
 
-在本指南中，您将了解如何：
+在本指南中，你将了解如何：
 
 * 创建深度估计流水线
 * 手动运行深度估计推理
@@ -90,7 +90,7 @@ pip install -q transformers
 
 ## 手动进行深度估计推理
 
-现在，您已经了解如何使用深度估计流水线，让我们看看如何手动复制相同的结果。
+现在，你已经了解如何使用深度估计流水线，让我们看看如何手动复制相同的结果。
 
 从[Hugging Face Hub](https://huggingface.co/models?pipeline_tag=depth-estimation&sort=downloads)上的检查点加载模型和相关处理器。
 这里我们将使用之前相同的检查点：

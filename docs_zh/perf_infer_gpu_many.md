@@ -1,6 +1,6 @@
 <!--版权所有 2022 The HuggingFace Team。保留所有权利。
 
-根据Apache许可证2.0版（“许可证”）许可；除非符合许可证，否则不得使用此文件。您可以获取许可证的副本，网址为
+根据Apache许可证2.0版（“许可证”）许可；除非符合许可证，否则不得使用此文件。你可以获取许可证的副本，网址为
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -8,7 +8,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 “按原样” BASIS提供的，没有任何明示或默示的保证或条件。请看许可证的要求
 
 ⚠️ 请注意，本文件在Markdown中，但包含我们的文档构建器的特定语法（类似于MDX），可能无法
-在您的Markdown查看器中正确呈现。
+在你的Markdown查看器中正确呈现。
 
 -->
 
@@ -17,7 +17,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 本文档包含有关如何在多个GPU上进行高效推理的信息。
 <Tip>
 
-注意：多GPU设置可以使用在[single GPU section](perf_infer_gpu_one.md)中描述的大部分策略。不过，您必须了解一些简单的技术，以便更好地使用。
+注意：多GPU设置可以使用在[single GPU section](perf_infer_gpu_one.md)中描述的大部分策略。不过，你必须了解一些简单的技术，以便更好地使用。
 
 </Tip>
 
@@ -89,12 +89,12 @@ pip3 install -U --pre torch torchvision torchaudio --index-url https://download.
 
 由于`torch.nn.TransformerEncoderLayer`的快速路径不支持训练，因此会将其调度到`torch.nn.functional.scaled_dot_product_attention`，后者不利用嵌套张量，但可以使用Flash Attention或Memory-Efficient Attention融合内核。
 
-有关BetterTransformer性能的更多详细信息，请参见此[博文](https://medium.com/pytorch/bettertransformer-out-of-the-box-performance-for-huggingface-transformers-3fbe27d50ab2)，您可以在此[博文](https://pytorch.org/blog/a-better-transformer-for-fast-transformer-encoder-inference/)中了解有关编码器模型的BetterTransformer信息。
+有关BetterTransformer性能的更多详细信息，请参见此[博文](https://medium.com/pytorch/bettertransformer-out-of-the-box-performance-for-huggingface-transformers-3fbe27d50ab2)，你可以在此[博文](https://pytorch.org/blog/a-better-transformer-for-fast-transformer-encoder-inference/)中了解有关编码器模型的BetterTransformer信息。
 
 
 ## 高级用法：混合FP4（或Int8）和BetterTransformer
 
-您可以结合上述不同的方法来获得模型的最佳性能。例如，可以将FP4混合精度推理+flash attention与BetterTransformer一起使用：
+你可以结合上述不同的方法来获得模型的最佳性能。例如，可以将FP4混合精度推理+flash attention与BetterTransformer一起使用：
 
 ```py
 import torch

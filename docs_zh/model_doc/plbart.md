@@ -1,21 +1,21 @@
 <!--
 版权所有©2022 HuggingFace团队。保留所有权利。
 
-根据 Apache 许可证，版本 2.0（“许可证”）下，您不得使用此文件，除非符合许可证的要求。
-您可以在以下位置获取许可证的副本：
+根据 Apache 许可证，版本 2.0（“许可证”）下，你不得使用此文件，除非符合许可证的要求。
+你可以在以下位置获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证的规定进行的软件分发将按"原样"分发，不附带任何明示或暗示的担保或条件。
 详细了解许可证中的特定语言和限制，请参阅许可证。
 
-⚠️ 请注意，此文件是使用 Markdown 编写的，但包含我们文档构建器的特定语法（类似于 MDX），可能无法正确在您的 Markdown 查看器中显示。
+⚠️ 请注意，此文件是使用 Markdown 编写的，但包含我们文档构建器的特定语法（类似于 MDX），可能无法正确在你的 Markdown 查看器中显示。
 
 -->
 
 # PLBart
 
-**免责声明：**如果您发现任何奇怪的问题，请提交[GitHub问题](https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template=bug-report.md&title)，并指派给
+**免责声明：**如果你发现任何奇怪的问题，请提交[GitHub问题](https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template=bug-report.md&title)，并指派给
 [@gchhablani](https://www.github.com/gchhablani)。
 
 ## PLBart概述

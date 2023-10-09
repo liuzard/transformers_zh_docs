@@ -1,7 +1,7 @@
 <!--版权2022年HuggingFace团队。版权所有。
 
 根据Apache License，版本2.0（“许可证”）的规定，除非符合许可证的规定，否则不得使用此文件。
-您可以在以下网址获取许可证的副本
+你可以在以下网址获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -17,10 +17,10 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 多选题类似于问答题，不同之处在于上下文中除了提供一个问题，还提供了若干个候选答案，模型的任务是选择正确答案。
 
-本指南将向您展示如何进行以下操作：
+本指南将向你展示如何进行以下操作：
 
 1. 对[SWAG](https://huggingface.co/datasets/swag)数据集的`regular`配置使用[BERT](https://huggingface.co/bert-base-uncased)进行微调，以选择最佳答案。
-2. 使用您微调的模型进行推理。
+2. 使用你微调的模型进行推理。
 
 <Tip>
 本教程中所示任务支持以下模型架构：
@@ -33,13 +33,13 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 </Tip>
 
-开始之前，请确保您已安装所有必需的库：
+开始之前，请确保你已安装所有必需的库：
 
 ```bash
 pip install transformers datasets evaluate
 ```
 
-我们建议登录您的Hugging Face账户，这样您可以上传并与社区共享您的模型。在提示时，输入您的令牌登录：
+我们建议登录你的Hugging Face账户，这样你可以上传并与社区共享你的模型。在提示时，输入你的令牌登录：
 
 ```py
 >>> from huggingface_hub import notebook_login
@@ -76,7 +76,7 @@ pip install transformers datasets evaluate
 
 尽管看起来字段很多，但实际上很简单：
 
-- `sent1`和`sent2`：这些字段显示了句子的开头，并且如果将它们连接起来，您将得到`startphrase`字段。
+- `sent1`和`sent2`：这些字段显示了句子的开头，并且如果将它们连接起来，你将得到`startphrase`字段。
 - `ending`：为句子的可能结尾提供了一些建议，但只有一个是正确答案。
 - `label`：标识正确的句子结尾。
 
@@ -90,7 +90,7 @@ pip install transformers datasets evaluate
 >>> tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 ```
 
-您要创建的预处理函数需要：
+你要创建的预处理函数需要：
 
 1. 复制`sent1`字段的四个副本，并将每个副本与`sent2`组合以重新创建句子的开头。
 2. 将`sent2`与四个可能的句子结尾组合。
@@ -120,7 +120,7 @@ pip install transformers datasets evaluate
 tokenized_swag = swag.map(preprocess_function, batched=True)
 ```
 
-🤗 Transformers没有适用于多选题的数据整理器，因此您需要修改[`DataCollatorWithPadding`]以创建一批示例。在整理过程中，将句子动态填充到批处理中的最长长度，而不是将整个数据集填充到最大长度。
+🤗 Transformers没有适用于多选题的数据整理器，因此你需要修改[`DataCollatorWithPadding`]以创建一批示例。在整理过程中，将句子动态填充到批处理中的最长长度，而不是将整个数据集填充到最大长度。
 
 `DataCollatorForMultipleChoice`对所有模型输入进行扁平化、填充，然后恢复结果：
 
@@ -213,7 +213,7 @@ tokenized_swag = swag.map(preprocess_function, batched=True)
 
 ## 评估
 
-在训练过程中包括一个指标通常有助于评估模型的性能。您可以使用🤗评估库快速加载一个评估方法。对于这个任务，加载[accuracy](https://huggingface.co/spaces/evaluate-metric/accuracy)指标（请参阅🤗 Evaluate [quick tour](https://huggingface.co/docs/evaluate/a_quick_tour)以了解更多有关加载和计算指标的信息）：
+在训练过程中包括一个指标通常有助于评估模型的性能。你可以使用🤗评估库快速加载一个评估方法。对于这个任务，加载[accuracy](https://huggingface.co/spaces/evaluate-metric/accuracy)指标（请参阅🤗 Evaluate [quick tour](https://huggingface.co/docs/evaluate/a_quick_tour)以了解更多有关加载和计算指标的信息）：
 
 ```py
 >>> import evaluate
@@ -221,7 +221,7 @@ tokenized_swag = swag.map(preprocess_function, batched=True)
 >>> accuracy = evaluate.load("accuracy")
 ```
 
-然后创建一个函数，将您的预测和标签传递给[`~evaluate.EvaluationModule.compute`]以计算准确性：
+然后创建一个函数，将你的预测和标签传递给[`~evaluate.EvaluationModule.compute`]以计算准确性：
 
 ```py
 >>> import numpy as np
@@ -233,18 +233,18 @@ tokenized_swag = swag.map(preprocess_function, batched=True)
 ...     return accuracy.compute(predictions=predictions, references=labels)
 ```
 
-现在您的`compute_metrics`函数已经准备好了，当设置训练时将返回它。
+现在你的`compute_metrics`函数已经准备好了，当设置训练时将返回它。
 
 ## 训练
 <frameworkcontent>
 <pt>
 <Tip>
 
-如果您对使用[`Trainer`]微调模型不熟悉，请查看[这里](../training.md#train-with-pytorch-trainer)的基本教程。
+如果你对使用[`Trainer`]微调模型不熟悉，请查看[这里](../training.md#train-with-pytorch-trainer)的基本教程。
 
 </Tip>
 
-现在，您可以开始训练模型了！使用[`AutoModelForMultipleChoice`]加载BERT：
+现在，你可以开始训练模型了！使用[`AutoModelForMultipleChoice`]加载BERT：
 
 ```py
 >>> from transformers import AutoModelForMultipleChoice, TrainingArguments, Trainer
@@ -254,7 +254,7 @@ tokenized_swag = swag.map(preprocess_function, batched=True)
 
 此时，只剩下三个步骤：
 
-1. 在[`TrainingArguments`]中定义您的训练超参数。唯一需要的参数是`output_dir`，它指定保存您的模型的位置。通过设置`push_to_hub=True`，您将该模型上传到Hub（您需要登录Hugging Face以上传您的模型）。在每个epoch结束时，[`Trainer`]将评估准确性并保存训练检查点。
+1. 在[`TrainingArguments`]中定义你的训练超参数。唯一需要的参数是`output_dir`，它指定保存你的模型的位置。通过设置`push_to_hub=True`，你将该模型上传到Hub（你需要登录Hugging Face以上传你的模型）。在每个epoch结束时，[`Trainer`]将评估准确性并保存训练检查点。
 2. 将训练参数与模型、数据集、tokenizer、数据整理器和`compute_metrics`函数一起传递给[`Trainer`]。
 3. 调用[`~Trainer.train`]进行微调。
 
@@ -285,7 +285,7 @@ tokenized_swag = swag.map(preprocess_function, batched=True)
 >>> trainer.train()
 ```
 
-完成训练后，使用[`~transformers.Trainer.push_to_hub`]方法将模型推送到Hub，以便每个人都可以使用您的模型：
+完成训练后，使用[`~transformers.Trainer.push_to_hub`]方法将模型推送到Hub，以便每个人都可以使用你的模型：
 
 ```py
 >>> trainer.push_to_hub()
@@ -294,7 +294,7 @@ tokenized_swag = swag.map(preprocess_function, batched=True)
 <tf>
 <Tip>
 
-如果您对使用Keras微调模型不熟悉，请查看[这里](../training.md#train-a-tensorflow-model-with-keras)的基本教程。
+如果你对使用Keras微调模型不熟悉，请查看[这里](../training.md#train-a-tensorflow-model-with-keras)的基本教程。
 
 </Tip>
 在TensorFlow中微调模型，首先设置一个优化器函数、学习率计划和一些训练超参数：
@@ -335,7 +335,7 @@ tokenized_swag = swag.map(preprocess_function, batched=True)
 ... )
 ```
 
-使用[`compile`](https://keras.io/api/models/model_training_apis/#compile-method)为训练配置模型。注意，Transformer模型都有一个默认的与任务相关的损失函数，因此您不需要指定损失函数，除非您想要使用其他的：
+使用[`compile`](https://keras.io/api/models/model_training_apis/#compile-method)为训练配置模型。注意，Transformer模型都有一个默认的与任务相关的损失函数，因此你不需要指定损失函数，除非你想要使用其他的：
 
 ```py
 >>> model.compile(optimizer=optimizer)  # 没有损失参数！
@@ -370,7 +370,7 @@ tokenized_swag = swag.map(preprocess_function, batched=True)
 ... )
 ```
 
-一旦训练完成，使用[`push_to_hub_callback`](https://huggingface.co/docs/datasets/package_reference/main_classes/transformers.PushToHubCallback)方法将您的模型和tokenizer推送到Hub，以便每个人都可以使用您的模型和tokenizer。
+一旦训练完成，使用[`push_to_hub_callback`](https://huggingface.co/docs/datasets/package_reference/main_classes/transformers.PushToHubCallback)方法将你的模型和tokenizer推送到Hub，以便每个人都可以使用你的模型和tokenizer。
 
 ```py
 >>> model.push_to_hub(push_to_hub_organization="your-organization")

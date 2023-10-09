@@ -42,7 +42,7 @@ DistilBertConfig {
 }
 ```
 
-[`DistilBertConfig`] 显示了用于构建基础 [`DistilBertModel`] 的所有默认属性。所有属性都是可自定义的，为实验提供了空间。例如，您可以使用 `activation` 参数尝试其他不同的激活函数，或者使用 `attention_dropout` 参数来设置更高的注意力概率的丢弃比例。
+[`DistilBertConfig`] 显示了用于构建基础 [`DistilBertModel`] 的所有默认属性。所有属性都是可自定义的，为实验提供了空间。例如，你可以使用 `activation` 参数尝试其他不同的激活函数，或者使用 `attention_dropout` 参数来设置更高的注意力概率的丢弃比例。
 
 ```py
 >>> my_config = DistilBertConfig(activation="relu", attention_dropout=0.4)
@@ -87,7 +87,7 @@ DistilBertConfig {
 
 <Tip>
 
-您还可以将配置文件保存为字典，甚至只保存自定义配置属性与默认配置属性之间的差异！有关更多详细信息，请参阅[配置](main_classes/configuration)文档。
+你还可以将配置文件保存为字典，甚至只保存自定义配置属性与默认配置属性之间的差异！有关更多详细信息，请参阅[配置](main_classes/configuration)文档。
 
 </Tip>
 
@@ -106,7 +106,7 @@ DistilBertConfig {
 >>> model = DistilBertModel(my_config)
 ```
 
-这将创建一个具有随机值而不是预训练权重的模型。在您训练模型之前，您将无法对其进行任何有用的操作。训练是一个昂贵且耗时的过程。通常情况下，建议使用预训练模型，以便更快地获得更好的结果，同时仅使用训练所需资源的一小部分。
+这将创建一个具有随机值而不是预训练权重的模型。在你训练模型之前，你将无法对其进行任何有用的操作。训练是一个昂贵且耗时的过程。通常情况下，建议使用预训练模型，以便更快地获得更好的结果，同时仅使用训练所需资源的一小部分。
 
 使用 [`~PreTrainedModel.from_pretrained`] 创建预训练模型：
 
@@ -114,7 +114,7 @@ DistilBertConfig {
 >>> model = DistilBertModel.from_pretrained("distilbert-base-uncased")
 ```
 
-当加载预训练权重时，如果模型由 🤗 Transformers 提供，则会自动加载默认模型配置。但是，如果您愿意，仍然可以替换-某些或全部-默认模型配置属性：
+当加载预训练权重时，如果模型由 🤗 Transformers 提供，则会自动加载默认模型配置。但是，如果你愿意，仍然可以替换-某些或全部-默认模型配置属性：
 
 ```py
 >>> model = DistilBertModel.from_pretrained("distilbert-base-uncased", config=my_config)
@@ -130,7 +130,7 @@ DistilBertConfig {
 >>> tf_model = TFDistilBertModel(my_config)
 ```
 
-这将创建一个具有随机值而不是预训练权重的模型。在您训练模型之前，您将无法对其进行任何有用的操作。训练是一个昂贵且耗时的过程。通常情况下，建议使用预训练模型，以便更快地获得更好的结果，同时仅使用训练所需资源的一小部分。
+这将创建一个具有随机值而不是预训练权重的模型。在你训练模型之前，你将无法对其进行任何有用的操作。训练是一个昂贵且耗时的过程。通常情况下，建议使用预训练模型，以便更快地获得更好的结果，同时仅使用训练所需资源的一小部分。
 
 使用 [`~TFPreTrainedModel.from_pretrained`] 创建预训练模型：
 
@@ -138,7 +138,7 @@ DistilBertConfig {
 >>> tf_model = TFDistilBertModel.from_pretrained("distilbert-base-uncased")
 ```
 
-当加载预训练权重时，如果模型由 🤗 Transformers 提供，则会自动加载默认模型配置。但是，如果您愿意，仍然可以替换-某些或全部-默认模型配置属性：
+当加载预训练权重时，如果模型由 🤗 Transformers 提供，则会自动加载默认模型配置。但是，如果你愿意，仍然可以替换-某些或全部-默认模型配置属性：
 
 ```py
 >>> tf_model = TFDistilBertModel.from_pretrained("distilbert-base-uncased", config=my_config)
@@ -148,7 +148,7 @@ DistilBertConfig {
 
 ### 模型头
 
-此时，您已经有了一个基本的 DistilBERT 模型，它输出 *隐藏状态*。隐藏状态作为输入传递给模型头以产生最终的输出。只要模型支持任务，🤗 Transformers 为每个任务提供了一个不同的模型头（例如，您不能为 DistilBERT 这样的序列到序列任务（如翻译）使用它）。
+此时，你已经有了一个基本的 DistilBERT 模型，它输出 *隐藏状态*。隐藏状态作为输入传递给模型头以产生最终的输出。只要模型支持任务，🤗 Transformers 为每个任务提供了一个不同的模型头（例如，你不能为 DistilBERT 这样的序列到序列任务（如翻译）使用它）。
 
 <frameworkcontent>
 <pt>
@@ -160,7 +160,7 @@ DistilBertConfig {
 >>> model = DistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased")
 ```
 
-通过切换到不同的模型头，可以轻松地将此检查点用于另一个任务。对于问题回答任务，您将使用 [`DistilBertForQuestionAnswering`] 模型头。问题回答头与序列分类头类似，只是它是位于隐藏状态输出之上的线性层。
+通过切换到不同的模型头，可以轻松地将此检查点用于另一个任务。对于问题回答任务，你将使用 [`DistilBertForQuestionAnswering`] 模型头。问题回答头与序列分类头类似，只是它是位于隐藏状态输出之上的线性层。
 
 ```py
 >>> from transformers import DistilBertForQuestionAnswering
@@ -177,7 +177,7 @@ DistilBertConfig {
 >>> tf_model = TFDistilBertForSequenceClassification.from_pretrained("distilbert-base-uncased")
 ```
 
-通过切换到不同的模型头，可以轻松地将此检查点用于另一个任务。对于问题回答任务，您将使用 [`TFDistilBertForQuestionAnswering`] 模型头。问题回答头与序列分类头类似，只是它是位于隐藏状态输出之上的线性层。
+通过切换到不同的模型头，可以轻松地将此检查点用于另一个任务。对于问题回答任务，你将使用 [`TFDistilBertForQuestionAnswering`] 模型头。问题回答头与序列分类头类似，只是它是位于隐藏状态输出之上的线性层。
 
 ```py
 >>> from transformers import TFDistilBertForQuestionAnswering
@@ -189,7 +189,7 @@ DistilBertConfig {
 
 ## 分词器
 
-在使用模型处理文本数据之前，您需要使用一个[分词器](main_classes/tokenizer)将原始文本转换为张量。🤗 Transformers 提供了两种类型的分词器：
+在使用模型处理文本数据之前，你需要使用一个[分词器](main_classes/tokenizer)将原始文本转换为张量。🤗 Transformers 提供了两种类型的分词器：
 
 - [`PreTrainedTokenizer`]：分词器的 Python 实现。
 - [`PreTrainedTokenizerFast`]：来自我们的基于 Rust 的 [🤗 Tokenizer](https://huggingface.co/docs/tokenizers/python/latest/) 库的分词器。由于其 Rust 实现，这种分词器类型在批量分词时速度明显更快。快速分词器还提供了额外的方法，如 *offset mapping*，用于将标记映射到它们的原始单词或字符。
@@ -210,7 +210,7 @@ DistilBertConfig {
 >>> my_tokenizer = DistilBertTokenizer(vocab_file="my_vocab_file.txt", do_lower_case=False, padding_side="left")
 ```
 
-重要的是要记住，自定义分词器的词汇将与预训练模型分词器生成的词汇不同。如果您使用预训练模型，您需要使用预训练模型的词汇，否则输入将毫无意义。使用预训练模型的词汇创建一个分词器，使用 [`DistilBertTokenizer`] 类：
+重要的是要记住，自定义分词器的词汇将与预训练模型分词器生成的词汇不同。如果你使用预训练模型，你需要使用预训练模型的词汇，否则输入将毫无意义。使用预训练模型的词汇创建一个分词器，使用 [`DistilBertTokenizer`] 类：
 
 ```py
 >>> from transformers import DistilBertTokenizer
@@ -228,7 +228,7 @@ DistilBertConfig {
 
 <Tip>
 
-默认情况下，[`AutoTokenizer`] 将尝试加载快速分词器。您可以通过在 `from_pretrained` 中设置 `use_fast=False` 来禁用此行为。
+默认情况下，[`AutoTokenizer`] 将尝试加载快速分词器。你可以通过在 `from_pretrained` 中设置 `use_fast=False` 来禁用此行为。
 
 </Tip>
 
@@ -236,7 +236,7 @@ DistilBertConfig {
 
 图像处理器处理视觉输入。它是从基类 [`~image_processing_utils.ImageProcessingMixin`] 继承的。
 
-要使用，创建与您正在使用的模型相关联的图像处理器。例如，如果您在使用 [ViT](model_doc/vit) 进行图像分类，则可以创建一个默认的 [`ViTImageProcessor`]：
+要使用，创建与你正在使用的模型相关联的图像处理器。例如，如果你在使用 [ViT](model_doc/vit) 进行图像分类，则可以创建一个默认的 [`ViTImageProcessor`]：
 
 ```py
 >>> from transformers import ViTImageProcessor
@@ -264,7 +264,7 @@ ViTImageProcessor {
 
 <Tip>
 
-如果您不打算进行任何自定义操作，只需使用 `from_pretrained` 方法加载默认图像处理器参数即可。
+如果你不打算进行任何自定义操作，只需使用 `from_pretrained` 方法加载默认图像处理器参数即可。
 
 </Tip>
 
@@ -298,7 +298,7 @@ ViTImageProcessor {
 
 特征提取器处理音频输入。它是从基类 [`~feature_extraction_utils.FeatureExtractionMixin`] 继承的，并且还可以从 [`SequenceFeatureExtractor`] 类继承以处理音频输入。
 
-要使用，创建与您正在使用的模型相关联的特征提取器。例如，如果您在使用 [Wav2Vec2](model_doc/wav2vec2) 进行音频分类，则可以创建一个默认的 [`Wav2Vec2FeatureExtractor`]：
+要使用，创建与你正在使用的模型相关联的特征提取器。例如，如果你在使用 [Wav2Vec2](model_doc/wav2vec2) 进行音频分类，则可以创建一个默认的 [`Wav2Vec2FeatureExtractor`]：
 
 ```py
 >>> from transformers import Wav2Vec2FeatureExtractor
@@ -318,7 +318,7 @@ Wav2Vec2FeatureExtractor {
 
 <Tip>
 
-如果您不打算进行任何自定义操作，只需使用 `from_pretrained` 方法加载默认特征提取器参数即可。
+如果你不打算进行任何自定义操作，只需使用 `from_pretrained` 方法加载默认特征提取器参数即可。
 
 </Tip>
 
@@ -343,7 +343,7 @@ Wav2Vec2FeatureExtractor {
 
 ## 处理器
 
-对于支持多模态任务的模型，🤗 Transformers 提供了一个处理器类，方便地将特征提取器和标记器等处理类封装成一个单一对象。例如，让我们为自动语音识别任务（ASR）使用 [`Wav2Vec2Processor`]。ASR 将语音转录为文本，因此您需要一个特征提取器和一个标记器。
+对于支持多模态任务的模型，🤗 Transformers 提供了一个处理器类，方便地将特征提取器和标记器等处理类封装成一个单一对象。例如，让我们为自动语音识别任务（ASR）使用 [`Wav2Vec2Processor`]。ASR 将语音转录为文本，因此你需要一个特征提取器和一个标记器。
 
 创建一个特征提取器来处理音频输入:
 
@@ -369,4 +369,4 @@ Wav2Vec2FeatureExtractor {
 >>> processor = Wav2Vec2Processor(feature_extractor=feature_extractor, tokenizer=tokenizer)
 ```
 
-通过配置和模型这两个基本类，以及一个额外的预处理类（标记器、图像处理器、特征提取器或处理器），您可以创建🤗 Transformers 支持的任何模型。每个基类都是可配置的， allowing you to use the specific attributes you want。 您可以轻松设置一个用于训练的模型或修改一个现有的预训练模型进行微调。
+通过配置和模型这两个基本类，以及一个额外的预处理类（标记器、图像处理器、特征提取器或处理器），你可以创建🤗 Transformers 支持的任何模型。每个基类都是可配置的， allowing you to use the specific attributes you want。 你可以轻松设置一个用于训练的模型或修改一个现有的预训练模型进行微调。

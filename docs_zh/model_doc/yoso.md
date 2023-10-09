@@ -10,7 +10,7 @@ Http://www.apache.org/licenses/LICENSE-2.0
 特定语言中的特定说明。
 
 ⚠️请注意，此文件是Markdown格式，但包含我们的文档生成器（类似于MDX）的特定语法，可能无法在
-您的Markdown查看器中正确呈现。
+你的Markdown查看器中正确呈现。
 
 -->
 

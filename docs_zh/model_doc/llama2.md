@@ -1,6 +1,6 @@
 <!--版权 2023 HuggingFace 团队。保留所有权利。
 
-根据 Apache 许可证，版本 2.0 (the "License")，除非符合许可证中的要求，否则不得使用此文件。您可以在以下链接获得许可证的副本：
+根据 Apache 许可证，版本 2.0 (the "License")，除非符合许可证中的要求，否则不得使用此文件。你可以在以下链接获得许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -9,7 +9,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 请参阅许可证下的限制和权利。
 
 ⚠️ 请注意，该文件是以 Markdown 格式编写的，但包含我们的 doc-builder 的特定语法（类似于 MDX），
-这可能无法在您的 Markdown 查看器中正确渲染。
+这可能无法在你的 Markdown 查看器中正确渲染。
 
 -->
 
@@ -40,7 +40,7 @@ Llama2 模型是由 Hugo Touvron、Louis Martin、Kevin Stone、Peter Albert、A
 - 可以通过填写[此表格](https://ai.meta.com/resources/models-and-libraries/llama-downloads/)以获取 Llama2 模型的权重。
 - 该架构与第一个 Llama 非常相似，只是增加了 Grouped Query Attention (GQA)，来自这篇[论文](https://arxiv.org/pdf/2305.13245.pdf)。
 - 将 `config.pretraining_tp` 设置为与 1 不同的值将激活更准确但较慢的线性层计算，这应该更好地匹配原始对数值。
-- 原始模型使用 `pad_id = -1` ，这意味着没有填充标记。我们不能使用相同的逻辑，确保使用 `tokenizer.add_special_tokens({"pad_token":"<pad>"})` 添加一个填充标记并相应调整标记嵌入。您还应该设置 `model.config.pad_token_id`。模型的 `embed_tokens` 层通过 `self.embed_tokens = nn.Embedding(config.vocab_size, config.hidden_size, self.config.padding_idx)` 初始化，以确保编码填充标记输出为零，因此建议在初始化时传递它。
+- 原始模型使用 `pad_id = -1` ，这意味着没有填充标记。我们不能使用相同的逻辑，确保使用 `tokenizer.add_special_tokens({"pad_token":"<pad>"})` 添加一个填充标记并相应调整标记嵌入。你还应该设置 `model.config.pad_token_id`。模型的 `embed_tokens` 层通过 `self.embed_tokens = nn.Embedding(config.vocab_size, config.hidden_size, self.config.padding_idx)` 初始化，以确保编码填充标记输出为零，因此建议在初始化时传递它。
 - 填写表单并获得模型检查点的访问权限后，应能够使用转换后的检查点。否则，如果要转换自己的模型，可以使用[转换脚本](https://github.com/huggingface/transformers/blob/main/src/transformers/models/llama/convert_llama_weights_to_hf.py)。该脚本可以使用以下（示例）命令调用：
 
 ```bash
@@ -65,7 +65,7 @@ model = LlamaForCausalLM.from_pretrained("/output/path")
 
 ## 资源
 
-以下是 Hugging Face 官方资源和社区（由 🌎 表示）资源列表，可帮助您快速开始使用 LLaMA2。如果您有兴趣提交要包含在此处的资源，请随时提出拉取请求，我们将对其进行评审！该资源应该展示出一些新内容，而不是重复现有资源。
+以下是 Hugging Face 官方资源和社区（由 🌎 表示）资源列表，可帮助你快速开始使用 LLaMA2。如果你有兴趣提交要包含在此处的资源，请随时提出拉取请求，我们将对其进行评审！该资源应该展示出一些新内容，而不是重复现有资源。
 
 - [Llama 2 is here - get it on Hugging Face](https://huggingface.co/blog/llama2)：一篇关于 Llama 2 及如何使用它与 🤗 Transformers 和 🤗 PEFT 的博客文章。
 - [LLaMA 2 - Every Resource you need](https://www.philschmid.de/llama-2)：编译了一些与 LLaMA 2 和如何快速入门有关的相关资源。

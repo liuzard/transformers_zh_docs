@@ -1,6 +1,6 @@
 <!--版权 2020 The HuggingFace团队。版权所有。
 
-根据Apache许可证第2版 ("许可证")授权;除非符合许可证的要求，否则您不得使用此文件。您可以在
+根据Apache许可证第2版 ("许可证")授权;除非符合许可证的要求，否则你不得使用此文件。你可以在
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -8,7 +8,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，以书面形式分发的软件均是基于"AS IS"的基础上分发的，不附带任何明示或暗示的保证或条件。请参阅许可证，了解有关特定语言的权限和限制。
 
-⚠️ 请注意，此文件使用Markdown格式，但包含了特定于我们doc-builder（类似于MDX）的语法，可能在您的Markdown查看器中无法正确渲染。
+⚠️ 请注意，此文件使用Markdown格式，但包含了特定于我们doc-builder（类似于MDX）的语法，可能在你的Markdown查看器中无法正确渲染。
 
 -->
 

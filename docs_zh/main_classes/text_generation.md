@@ -1,7 +1,7 @@
 <!--版权2022年The HuggingFace团队。版权所有。
 
-根据Apache许可证Version 2.0（“许可证”）进行许可;除非符合许可证的规定，否则您不得使用本文件。
-您可以在以下网址获取许可证的副本：
+根据Apache许可证Version 2.0（“许可证”）进行许可;除非符合许可证的规定，否则你不得使用本文件。
+你可以在以下网址获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -10,7 +10,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 下的特定语。
 
 ⚠️请注意，本文件采用Markdown格式，但包含我们文档构建工具（类似于MDX）的特定语法，
-在您的Markdown查看器中可能无法正确渲染。-->
+在你的Markdown查看器中可能无法正确渲染。-->
 
 # 创建
 
@@ -20,7 +20,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 - TensorFlow [`~generation.TFGenerationMixin.generate`] 在 [`~generation.TFGenerationMixin`] 中实现。
 - Flax/JAX [`~generation.FlaxGenerationMixin.generate`] 在 [`~generation.FlaxGenerationMixin`] 中实现。
 
-无论您选择的框架如何，都可以使用[`~generation.GenerationConfig`]类实例来对生成方法进行参数化。
+无论你选择的框架如何，都可以使用[`~generation.GenerationConfig`]类实例来对生成方法进行参数化。
 有关生成方法的行为，请参考该类以获取完整的生成参数列表。
 
 要了解如何检查模型的生成配置，了解默认值，如何临时更改参数以及如何创建和保存自定义的生成配置，请参阅

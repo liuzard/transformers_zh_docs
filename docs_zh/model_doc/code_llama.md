@@ -1,13 +1,13 @@
 <!--版权2023年The HuggingFace团队。保留所有权利。
 
 根据Apache许可证第2.0版（“许可证”）许可；除非符合许可证的条款，否则不得使用此文件。
-您可以在以下位置获取许可证副本：
+你可以在以下位置获取许可证副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件按“原样”分发，不附带任何形式的保证或条件。有关详细信息，请参阅许可证。
 
-⚠️请注意，此文件是Markdown格式的，但包含我们的文档生成器（类似于MDX）的特定语法，可能在您的Markdown查看器中无法正确渲染。
+⚠️请注意，此文件是Markdown格式的，但包含我们的文档生成器（类似于MDX）的特定语法，可能在你的Markdown查看器中无法正确渲染。
 
 -->
 
@@ -27,18 +27,18 @@ Code Llama模型是由Baptiste Rozière，Jonas Gehring，Fabian Gloeckle，Sten
 
 基于Code Llama的`Llama2`系列模型在训练时使用了`bfloat16`，但原始推断使用了`float16`。让我们来看看不同的精度：
 
-* `float32`：PyTorch约定在模型初始化时以`float32`加载模型，无论模型权重存储时使用的是哪种`dtype`。`transformers`为了与PyTorch保持一致也遵循了这个约定。这是默认选项。如果您希望`AutoModel` API使用存储权重类型来加载检查点，您必须指定`torch_dtype="auto"`，例如`model = AutoModelForCausalLM.from_pretrained("path", torch_dtype = "auto")`。
+* `float32`：PyTorch约定在模型初始化时以`float32`加载模型，无论模型权重存储时使用的是哪种`dtype`。`transformers`为了与PyTorch保持一致也遵循了这个约定。这是默认选项。如果你希望`AutoModel` API使用存储权重类型来加载检查点，你必须指定`torch_dtype="auto"`，例如`model = AutoModelForCausalLM.from_pretrained("path", torch_dtype = "auto")`。
 * `bfloat16`：Code Llama是使用这种精度进行训练的，因此我们建议在后续训练或微调时使用它。
-* `float16`：我们建议使用这种精度进行推断，因为它通常比`bfloat16`更快，并且评估指标显示与`bfloat16`相比没有明显的性能下降。您也可以使用`bfloat16`进行推断，并建议您在微调之后使用`float16`和`bfloat16`检查推断结果。
+* `float16`：我们建议使用这种精度进行推断，因为它通常比`bfloat16`更快，并且评估指标显示与`bfloat16`相比没有明显的性能下降。你也可以使用`bfloat16`进行推断，并建议你在微调之后使用`float16`和`bfloat16`检查推断结果。
 
-如上所述，存储权重的`dtype`大多无关紧要，除非您在初始化模型时使用`torch_dtype="auto"`。原因是模型首先会被下载（使用在线检查点的`dtype`），然后会被转换为`torch`的默认`dtype`（变为`torch.float32`）。如果指定了`torch_dtype`，则将使用指定的`dtype`。
+如上所述，存储权重的`dtype`大多无关紧要，除非你在初始化模型时使用`torch_dtype="auto"`。原因是模型首先会被下载（使用在线检查点的`dtype`），然后会被转换为`torch`的默认`dtype`（变为`torch.float32`）。如果指定了`torch_dtype`，则将使用指定的`dtype`。
 
 </Tip>
 
 提示：
 
 - 这些模型和`Llama2`模型具有相同的架构
-- 支持填充任务。您应该使用`tokenizer.fill_token`，将其放在要进行填充的位置。
+- 支持填充任务。你应该使用`tokenizer.fill_token`，将其放在要进行填充的位置。
 - 模型转换脚本与`Llama2`系列相同：
 
 以下是示例用法

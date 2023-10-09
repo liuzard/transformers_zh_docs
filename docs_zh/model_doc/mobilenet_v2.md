@@ -1,13 +1,13 @@
 <!--版权2022由HuggingFace团队保留。
 
-根据Apache许可证第2.0版（“许可证”）许可；除非符合许可证要求，否则您不得使用此文件。
-您可以在以下网址获得许可证副本：
+根据Apache许可证第2.0版（“许可证”）许可；除非符合许可证要求，否则你不得使用此文件。
+你可以在以下网址获得许可证副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件是按"原样"分发的，不附带任何明示或暗示的担保或条件。请参阅许可证了解许可的特定语言和限制。
 
-⚠ 注意，此文件是Markdown文件，但包含我们文档构建器的特定语法（类似于MDX），您的Markdown查看器可能无法正确呈现。-->
+⚠ 注意，此文件是Markdown文件，但包含我们文档构建器的特定语法（类似于MDX），你的Markdown查看器可能无法正确呈现。-->
 
 # MobileNet V2
 
@@ -27,7 +27,7 @@ MobileNet模型由Mark Sandler、Andrew Howard、Menglong Zhu、Andrey Zhmoginov
 
 - 即使检查点是基于特定大小的图像训练的，该模型也可以处理任意大小的图像。支持的最小图像大小为32x32。
 
-- 您可以使用[`MobileNetV2ImageProcessor`]为模型准备图像。
+- 你可以使用[`MobileNetV2ImageProcessor`]为模型准备图像。
 
 - 可用的图像分类检查点是在[ImageNet-1k](https://huggingface.co/datasets/imagenet-1k)（也称为ILSVRC 2012，包含130万张图像和1000个类别的数据集）上进行预训练的。然而，该模型预测了1001个类别：ImageNet的1000个类别加上额外的“background”类别（索引0）。
 
@@ -49,7 +49,7 @@ MobileNet模型由Mark Sandler、Andrew Howard、Menglong Zhu、Andrey Zhmoginov
 
 ## 资源
 
-官方Hugging Face和社区（🌎表示）资源列表，可帮助您开始使用MobileNetV2。
+官方Hugging Face和社区（🌎表示）资源列表，可帮助你开始使用MobileNetV2。
 
 <PipelineTag pipeline="image-classification"/>
 
@@ -59,7 +59,7 @@ MobileNet模型由Mark Sandler、Andrew Howard、Menglong Zhu、Andrey Zhmoginov
 **语义分割**
 - [语义分割任务指南](../tasks/semantic_segmentation)
 
-如果您有兴趣提交资源以包含在此处，请随时打开拉取请求，我们将对其进行审查！资源应尽量呈现新的内容，而不是重复现有资源。
+如果你有兴趣提交资源以包含在此处，请随时打开拉取请求，我们将对其进行审查！资源应尽量呈现新的内容，而不是重复现有资源。
 
 ## MobileNetV2Config
 

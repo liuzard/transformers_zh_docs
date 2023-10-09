@@ -18,7 +18,7 @@ rendered properly in your Markdown viewer.
 
 [[open-in-colab]]
 
-使用预训练模型有很多优势。它降低了计算成本，有利于环境保护，并且无需从头开始训练模型即可使用最先进的模型。🤗 Transformers为各种任务提供了成千上万个预训练模型。当您使用预训练模型时，您将其训练到与您的任务相关的数据集上。这就是所谓的微调操作，这是一种非常强大的训练技术。在本教程中，您将使用自己选择的深度学习框架来微调预训练模型：
+使用预训练模型有很多优势。它降低了计算成本，有利于环境保护，并且无需从头开始训练模型即可使用最先进的模型。🤗 Transformers为各种任务提供了成千上万个预训练模型。当你使用预训练模型时，你将其训练到与你的任务相关的数据集上。这就是所谓的微调操作，这是一种非常强大的训练技术。在本教程中，你将使用自己选择的深度学习框架来微调预训练模型：
 
 - 使用🤗 Transformers [`Trainer`]来微调预训练模型。
 - 在TensorFlow中使用Keras来微调预训练模型。
@@ -30,7 +30,7 @@ rendered properly in your Markdown viewer.
 
 <Youtube id="_BZearw7f0w"/>
 
-在微调预训练模型之前，首先下载数据集并对其进行处理以供训练使用。前面的教程展示了如何处理训练数据，现在您有机会将这些技能付诸实践！
+在微调预训练模型之前，首先下载数据集并对其进行处理以供训练使用。前面的教程展示了如何处理训练数据，现在你有机会将这些技能付诸实践！
 
 首先加载[Yelp评论](https://huggingface.co/datasets/yelp_review_full)数据集：
 
@@ -94,15 +94,15 @@ rendered properly in your Markdown viewer.
 
 <Tip>
 
-如果您没有GPU，可以使用像[Colaboratory](https://colab.research.google.com/)或[SageMaker StudioLab](https://studiolab.sagemaker.aws/)这样的托管笔记本来免费访问云GPU。
+如果你没有GPU，可以使用像[Colaboratory](https://colab.research.google.com/)或[SageMaker StudioLab](https://studiolab.sagemaker.aws/)这样的托管笔记本来免费访问云GPU。
 
 </Tip>
 
-好了，现在您已经准备好训练了！ 🥳
+好了，现在你已经准备好训练了！ 🥳
 
 ### 训练循环
 
-为了跟踪您的训练进度，使用[tqdm](https://tqdm.github.io/)库在训练步骤的数量上添加一个进度条：
+为了跟踪你的训练进度，使用[tqdm](https://tqdm.github.io/)库在训练步骤的数量上添加一个进度条：
 
 ```py
 >>> from tqdm.auto import tqdm
@@ -125,7 +125,7 @@ rendered properly in your Markdown viewer.
 
 ### 评估
 
-就像您在[`Trainer`]中添加了一个评估函数一样，在编写自己的训练循环时，您需要做同样的事情。但是，与在每个epoch的末尾计算和报告指标不同，这次您将使用[`~evaluate.add_batch`]累积所有的批次，并在最后计算指标。
+就像你在[`Trainer`]中添加了一个评估函数一样，在编写自己的训练循环时，你需要做同样的事情。但是，与在每个epoch的末尾计算和报告指标不同，这次你将使用[`~evaluate.add_batch`]累积所有的批次，并在最后计算指标。
 
 ```py
 >>> import evaluate

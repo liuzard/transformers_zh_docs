@@ -1,8 +1,8 @@
 <!---
 版权所有2023年HuggingFace团队。
 根据Apache许可证2.0版（“许可证”）的规定进行许可；
-您不得在未遵守许可证的情况下使用此文件。
-您可以在以下位置获得许可证的副本
+你不得在未遵守许可证的情况下使用此文件。
+你可以在以下位置获得许可证的副本
 
  http://www.apache.org/licenses/LICENSE-2.0
 
@@ -19,7 +19,7 @@
 这里可以找到Hugging Face提供的官方笔记本的列表。
 
 此外，我们还希望在此列出社区创建的有趣内容。
-如果您编写了一些利用 🤗 转换器的笔记本，并希望在此列出，请打开
+如果你编写了一些利用 🤗 转换器的笔记本，并希望在此列出，请打开
 拉动请求，以便将其包含在社区笔记本中。
 
 
@@ -27,7 +27,7 @@
 
 ### 文档笔记本
 
-您可以在Colab中打开文档的任何页面作为笔记本（页面上有一个直接的按钮），但如果需要，您也可以在此处列出它们：
+你可以在Colab中打开文档的任何页面作为笔记本（页面上有一个直接的按钮），但如果需要，你也可以在此处列出它们：
 
 | 笔记本 | 描述 |   |   |
 |:----------|:-------------|:-------------|------:|
@@ -45,8 +45,8 @@
 
 | 笔记本 | 描述 |   |   |
 |:----------|:-------------|:-------------|------:|
-| [训练您的分词器](https://github.com/huggingface/notebooks/blob/main/examples/tokenizer_training.ipynb)  | 如何训练和使用您自己的分词器  |[![在Colab中打开](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/tokenizer_training.ipynb)| [![在AWS Studio中打开](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/huggingface/notebooks/blob/main/zh/examples/tokenizer_training.ipynb)|
-| [训练您的语言模型](https://github.com/huggingface/notebooks/blob/main/examples/language_modeling_from_scratch.ipynb)   | 如何轻松开始使用转换器  |[![在Colab中打开](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling_from_scratch.ipynb)| [![在AWS Studio中打开](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/huggingface/notebooks/blob/main/zh/examples/language_modeling_from_scratch.ipynb)|
+| [训练你的分词器](https://github.com/huggingface/notebooks/blob/main/examples/tokenizer_training.ipynb)  | 如何训练和使用你自己的分词器  |[![在Colab中打开](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/tokenizer_training.ipynb)| [![在AWS Studio中打开](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/huggingface/notebooks/blob/main/zh/examples/tokenizer_training.ipynb)|
+| [训练你的语言模型](https://github.com/huggingface/notebooks/blob/main/examples/language_modeling_from_scratch.ipynb)   | 如何轻松开始使用转换器  |[![在Colab中打开](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling_from_scratch.ipynb)| [![在AWS Studio中打开](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/huggingface/notebooks/blob/main/zh/examples/language_modeling_from_scratch.ipynb)|
 | [如何在文本分类上微调模型](https://github.com/huggingface/notebooks/blob/main/examples/text_classification.ipynb)| 显示如何预处理数据并在任何GLUE任务上微调预训练模型。 | [![在Colab中打开](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/text_classification.ipynb)| [![在AWS Studio中打开](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/huggingface/notebooks/blob/main/zh/examples/text_classification.ipynb)|
 | [如何在语言建模上微调模型](https://github.com/huggingface/notebooks/blob/main/examples/language_modeling.ipynb)| 显示如何预处理数据并在因果或遮掩的LM任务上微调预训练模型。 | [![在Colab中打开](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling.ipynb)| [![在AWS Studio中打开](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/huggingface/notebooks/blob/main/zh/examples/language_modeling.ipynb)|
 | [如何对标记分类任务微调模型](https://github.com/huggingface/notebooks/blob/main/examples/token_classification.ipynb)| 显示如何预处理数据并在标记分类任务（NER，POS）上微调预训练模型。 | [![在Colab中打开](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification.ipynb)| [![在AWS Studio中打开](https://studiolab.sagemaker.aws/studiolab.svg)](https://studiolab.sagemaker.aws/import/github/huggingface/notebooks/blob/main/zh/examples/token_classification.ipynb)|

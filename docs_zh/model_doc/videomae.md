@@ -1,13 +1,13 @@
 <!--
 版权所有2022年的抱抱脸团队。版权所有。
 
-根据Apache许可证第2.0版（“许可证”）进行许可；除非符合许可证的规定，否则您不得使用此文件。
-您可以在以下网址获得许可证的副本
+根据Apache许可证第2.0版（“许可证”）进行许可；除非符合许可证的规定，否则你不得使用此文件。
+你可以在以下网址获得许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用的法律另有规定或书面同意，根据许可证分发的软件基于“AS IS”原则，不附带任何明示或隐含的担保或条件。
-请注意，该文件采用Markdown格式，但包含适用于我们的文档生成器（类似于MDX）的特定语法，这可能无法在您的Markdown查看器中正确渲染。
+请注意，该文件采用Markdown格式，但包含适用于我们的文档生成器（类似于MDX）的特定语法，这可能无法在你的Markdown查看器中正确渲染。
 
 -->
 
@@ -23,7 +23,7 @@ VideoMAE将Masked Autoencoders（MAE）扩展到视频领域，在几个视频�
 *在相对较小的数据集上，通常需要在额外大规模数据集上对视频Transformer进行预训练，以实现出色的性能。本文中，我们展示了视频遮罩自编码器（VideoMAE）是用于自监督视频预训练（SSVP）的高效学习者。我们受到最近的ImageMAE的启发，提出了定制的视频管遮罩和重构。这些简单的设计证明能有效地克服由视频重构过程中的时间相关性造成的信息泄露。关于SSVP，我们取得了三个重要的发现：（1）相当高比例的遮罩比例（即，90%到95%）仍然可以产生良好的VideoMAE性能。比起图像，时间冗余的视频内容可实现更高的遮罩比例。（2）VideoMAE在非常小的数据集上（即约3k-4k个视频）取得了令人印象深刻的结果，而无需使用任何额外的数据。这部分归因于视频重构任务的挑战性，以实现高级结构学习。（3）VideoMAE显示了数据质量对于SSVP而言比数据数量更为重要。预训练数据集与目标数据集之间的领域偏移是SSVP中的重要问题。值得注意的是，我们的Vanilla ViT骨干网络的VideoMAE在Kinects-400上可以达到83.9%，在Something-Something V2上可以达到75.3%，在UCF101上可以达到90.8%，在HMDB51上可以达到61.1%，而无需使用任何额外的数据。*
 
 提示：
-- 您可以使用[`VideoMAEImageProcessor`]来为模型准备视频。它将为您调整大小和标准化视频的所有帧。
+- 你可以使用[`VideoMAEImageProcessor`]来为模型准备视频。它将为你调整大小和标准化视频的所有帧。
 - [`VideoMAEForPreTraining`]包含了自监督预训练模型的解码器。
 
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/transformers/model_doc/videomae_architecture.jpeg"
@@ -36,7 +36,7 @@ alt="drawing" width="600"/>
 
 ## 资源
 
-以下是官方Hugging Face和社区（由🌎表示）的资源列表，可帮助您开始使用VideoMAE。如果您有兴趣提交资源以包含在此处，请随时提出Pull Request，我们将进行审查！资源应该显示一些新内容，而不是重复现有的资源。
+以下是官方Hugging Face和社区（由🌎表示）的资源列表，可帮助你开始使用VideoMAE。如果你有兴趣提交资源以包含在此处，请随时提出Pull Request，我们将进行审查！资源应该显示一些新内容，而不是重复现有的资源。
 
 **视频分类**
 - [一个笔记本](https://github.com/huggingface/notebooks/blob/main/examples/video_classification.ipynb)，展示如何在自定义数据集上微调VideoMAE模型。
@@ -87,7 +87,7 @@ VideoMAE将遮罩自编码器（MAE）扩展到视频领域，并声称在几个
 
 提示：
 
-- 您可以使用[`VideoMAEImageProcessor`]来为模型准备视频。它会为您调整视频的大小并对每一帧进行标准化。
+- 你可以使用[`VideoMAEImageProcessor`]来为模型准备视频。它会为你调整视频的大小并对每一帧进行标准化。
 - [`VideoMAEForPreTraining`]中包含了自监督预训练模型的解码器。
 
 ![VideoMAE架构](https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/transformers/model_doc/videomae_architecture.jpeg)
@@ -99,7 +99,7 @@ VideoMAE将遮罩自编码器（MAE）扩展到视频领域，并声称在几个
 
 ## 资源
 
-下面是用于帮助您入门VideoMAE的官方Hugging Face资源和社区资源（由🌎表示）。如果您有兴趣提交资源以包含在这里，请随时打开一个Pull Request，我们将会进行审查！资源应该展示一些新的内容，而不是重复现有的资源。
+下面是用于帮助你入门VideoMAE的官方Hugging Face资源和社区资源（由🌎表示）。如果你有兴趣提交资源以包含在这里，请随时打开一个Pull Request，我们将会进行审查！资源应该展示一些新的内容，而不是重复现有的资源。
 
 **视频分类**
 - [一个笔记本](https://github.com/huggingface/notebooks/blob/main/examples/video_classification.ipynb)展示如何在定制的数据集上微调VideoMAE模型。

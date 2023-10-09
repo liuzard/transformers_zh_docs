@@ -1,7 +1,7 @@
 <!--版权 2022 年 HuggingFace 团队。保留所有权利。
 
-根据 Apache 许可证第2版（“许可证”）的规定，您只有在遵守许可证的情况下才能使用此文件，
-您可在
+根据 Apache 许可证第2版（“许可证”）的规定，你只有在遵守许可证的情况下才能使用此文件，
+你可在
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -10,11 +10,11 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ⚠️ 请注意，此文件是用 Markdown 格式编写的，
 但包含了我们的文档生成器（类似于 MDX）的特定语法，
-可能无法在您的 Markdown 查看器中正确显示。-->
+可能无法在你的 Markdown 查看器中正确显示。-->
 
 # 使用 AutoClass 加载预训练实例
 
-由于存在如此多不同的 Transformer 架构，为您的检查点创建一个可能是具有挑战性的任务。作为🤗 Transformers 核心理念的一部分，使库易于使用、简单灵活，`AutoClass` 会自动推断并从给定的检查点中加载正确的架构。`from_pretrained()` 方法允许您快速加载任何架构的预训练模型，因此您无需花费时间和资源从头开始训练模型。生成这种类型的与检查点无关的代码意味着，如果您的代码适用于一个检查点，它将适用于另一个检查点-只要它是针对类似任务进行训练的-即使架构不同。
+由于存在如此多不同的 Transformer 架构，为你的检查点创建一个可能是具有挑战性的任务。作为🤗 Transformers 核心理念的一部分，使库易于使用、简单灵活，`AutoClass` 会自动推断并从给定的检查点中加载正确的架构。`from_pretrained()` 方法允许你快速加载任何架构的预训练模型，因此你无需花费时间和资源从头开始训练模型。生成这种类型的与检查点无关的代码意味着，如果你的代码适用于一个检查点，它将适用于另一个检查点-只要它是针对类似任务进行训练的-即使架构不同。
 
 <Tip>
 
@@ -22,7 +22,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 </Tip>
 
-在本教程中，您将学习：
+在本教程中，你将学习：
 
 - 加载预训练的分词器。
 - 加载预训练的图像处理器。
@@ -32,7 +32,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ## AutoTokenizer
 
-几乎每个 NLP 任务都始于一个分词器。分词器将您的输入转换为可以被模型处理的格式。
+几乎每个 NLP 任务都始于一个分词器。分词器将你的输入转换为可以被模型处理的格式。
 
 使用 [`AutoTokenizer.from_pretrained`] 加载一个分词器：
 
@@ -92,7 +92,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 <frameworkcontent>
 <pt>
-最后，`AutoModelFor` 类让您可以加载一个给定任务的预训练模型（请参阅[这里]（http://www.liuzard.com/model_doc/auto）以获取可用任务的完整列表）。例如，使用 [`AutoModelForSequenceClassification.from_pretrained`] 加载一个用于序列分类的模型：
+最后，`AutoModelFor` 类让你可以加载一个给定任务的预训练模型（请参阅[这里]（http://www.liuzard.com/model_doc/auto）以获取可用任务的完整列表）。例如，使用 [`AutoModelForSequenceClassification.from_pretrained`] 加载一个用于序列分类的模型：
 
 ```python
 >>> from transformers import AutoModelForSequenceClassification
@@ -116,10 +116,10 @@ TensorFlow 和 Flax 检查点不受影响，可以使用 `from_pretrained` 方�
 
 </Tip>
 
-通常情况下，我们建议使用 `AutoTokenizer` 类和 `AutoModelFor` 类加载预训练的模型实例。这样可以确保每次都加载正确的架构。在下一个[教程]（http://www.liuzard.com/preprocessing）中，您将学习如何使用新加载的分词器、图像处理器、特征提取器和处理器对数据集进行预处理，以便进行微调。
+通常情况下，我们建议使用 `AutoTokenizer` 类和 `AutoModelFor` 类加载预训练的模型实例。这样可以确保每次都加载正确的架构。在下一个[教程]（http://www.liuzard.com/preprocessing）中，你将学习如何使用新加载的分词器、图像处理器、特征提取器和处理器对数据集进行预处理，以便进行微调。
 </pt>
 <tf>
-最后，`TFAutoModelFor` 类使您可以加载给定任务的预训练模型（有关可用任务的完整列表，请参阅[此处](http://www.liuzard.com/model_doc/auto)）。例如，使用 [`TFAutoModelForSequenceClassification.from_pretrained`] 加载一个用于序列分类的模型：
+最后，`TFAutoModelFor` 类使你可以加载给定任务的预训练模型（有关可用任务的完整列表，请参阅[此处](http://www.liuzard.com/model_doc/auto)）。例如，使用 [`TFAutoModelForSequenceClassification.from_pretrained`] 加载一个用于序列分类的模型：
 
 ```python
 >>> from transformers import TFAutoModelForSequenceClassification
@@ -135,6 +135,6 @@ TensorFlow 和 Flax 检查点不受影响，可以使用 `from_pretrained` 方�
 >>> model = TFAutoModelForTokenClassification.from_pretrained("distilbert-base-uncased")
 ```
 
-通常情况下，我们建议使用 `AutoTokenizer` 类和 `TFAutoModelFor` 类加载预训练的模型实例。这样可以确保每次都正确加载架构。在下一个[教程](http://www.liuzard.com/preprocessing)中，您将学习如何使用新加载的分词器、图像处理器、特征提取器和处理器对数据集进行预处理，以进行微调。
+通常情况下，我们建议使用 `AutoTokenizer` 类和 `TFAutoModelFor` 类加载预训练的模型实例。这样可以确保每次都正确加载架构。在下一个[教程](http://www.liuzard.com/preprocessing)中，你将学习如何使用新加载的分词器、图像处理器、特征提取器和处理器对数据集进行预处理，以进行微调。
 </tf>
 </frameworkcontent>

@@ -1,7 +1,7 @@
 <!--版权所有2022年HuggingFace团队。保留所有权利。
 
 根据Apache许可证第2.0版（“许可证”），除非符合许可证的规定，
-否则您不能使用此文件。您可以在以下位置获取许可证的副本：
+否则你不能使用此文件。你可以在以下位置获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -47,7 +47,7 @@ alt="drawing" width="600"/>
 - 关于在自定义数据上进行推断和微调GIT的演示笔记本可以在[此处](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/GIT)找到。
 - 参见：[因果语言建模任务指南](../tasks/language_modeling)
 
-如果您有兴趣提交资源以包含在此处，请随时提交拉取请求，我们会对其进行审查。
+如果你有兴趣提交资源以包含在此处，请随时提交拉取请求，我们会对其进行审查。
 该资源应该是新颖的，而不是重复现有的资源。
 
 ## GitVisionConfig

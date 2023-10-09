@@ -1,7 +1,7 @@
 <!--版权 2023 年The HuggingFace团队。保留所有权利。
 
-根据Apache许可证，版本2.0（“许可证”）授权;除非符合许可证，否则您不得使用此文件
-。您可以在以下网址获取许可证副本
+根据Apache许可证，版本2.0（“许可证”）授权;除非符合许可证，否则你不得使用此文件
+。你可以在以下网址获取许可证副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -9,7 +9,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 ,不提供任何明示或暗示的保证或条件。请参阅许可证以了解许可下的具体语言和限制。
 
 ⚠️ 请注意，此文件为Markdown格式，但包含我们doc-builder的特定语法（类似于MDX），
-这可能在您的Markdown查看器中无法正确呈现。-->
+这可能在你的Markdown查看器中无法正确呈现。-->
 
 # GPTSAN-japanese
 
@@ -39,8 +39,8 @@ GPTSAN是一个使用Switch Transformer的日语语言模型。它与T5论文中
 ## GPTSAN特点
 
 GPTSAN具有一些独特的特点。它具有Prefix-LM模型的结构，并可作为移位掩码语言模型用于前缀输入标记。未加前缀的输入表现为常规生成模型。
-Spout向量是GPTSAN的特殊输入。Spout是在微调过程中使用随机输入进行预训练的，但您可以在微调过程中指定文本类别或任意向量。这使得您可以表示所生成文本的趋势。
-GPTSAN具有基于Switch-Transformer的稀疏前馈。您还可以添加其他层并对其进行部分训练。有关详细信息，请参阅原始的GPTSAN仓库。
+Spout向量是GPTSAN的特殊输入。Spout是在微调过程中使用随机输入进行预训练的，但你可以在微调过程中指定文本类别或任意向量。这使得你可以表示所生成文本的趋势。
+GPTSAN具有基于Switch-Transformer的稀疏前馈。你还可以添加其他层并对其进行部分训练。有关详细信息，请参阅原始的GPTSAN仓库。
 
 ### Prefix-LM模型
 

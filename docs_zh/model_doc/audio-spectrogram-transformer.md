@@ -1,7 +1,7 @@
 <!--专有权利 2022 The HuggingFace Team.版权所有。
 
-根据Apache许可证，版本2.0（“许可证”）进行许可；除非符合许可证的规定，否则您不得使用此文件。
-您可以在以下网址获取许可证的副本
+根据Apache许可证，版本2.0（“许可证”）进行许可；除非符合许可证的规定，否则你不得使用此文件。
+你可以在以下网址获取许可证的副本
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件是基于“AS IS”基础分发的，不附带任何担保或条件，无论是明示还是暗示。请查看许可证，了解特定语言的权限和限制。
@@ -20,8 +20,8 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 提示：
 
-- 当在自己的数据集上对音频光谱图Transformer（AST）进行微调时，建议注意输入归一化（确保输入的均值为0，标准差为0.5）。`ASTFeatureExtractor`负责此任务。请注意，它默认使用AudioSet的均值和标准差。您可以查看[`ast/src/get_norm_stats.py`](https://github.com/YuanGongND/ast/blob/master/src/get_norm_stats.py)以了解作者如何计算下游数据集的统计信息。
-- 请注意，AST需要较低的学习率（作者在[PSLA论文](https://arxiv.org/abs/2102.01243)中使用了比他们的CNN模型小10倍的学习率），并且收敛速度较快，因此请为您的任务搜索合适的学习率和学习率调度器。
+- 当在自己的数据集上对音频光谱图Transformer（AST）进行微调时，建议注意输入归一化（确保输入的均值为0，标准差为0.5）。`ASTFeatureExtractor`负责此任务。请注意，它默认使用AudioSet的均值和标准差。你可以查看[`ast/src/get_norm_stats.py`](https://github.com/YuanGongND/ast/blob/master/src/get_norm_stats.py)以了解作者如何计算下游数据集的统计信息。
+- 请注意，AST需要较低的学习率（作者在[PSLA论文](https://arxiv.org/abs/2102.01243)中使用了比他们的CNN模型小10倍的学习率），并且收敛速度较快，因此请为你的任务搜索合适的学习率和学习率调度器。
 
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/transformers/model_doc/audio_spectogram_transformer_architecture.png"
 alt="drawing" width="600"/>
@@ -33,7 +33,7 @@ alt="drawing" width="600"/>
 
 ## 资源
 
-以下是官方Hugging Face和社区（由🌎表示）资源列表，可帮助您开始使用音频光谱图Transformer。
+以下是官方Hugging Face和社区（由🌎表示）资源列表，可帮助你开始使用音频光谱图Transformer。
 
 <PipelineTag pipeline="audio-classification"/>
 
@@ -41,7 +41,7 @@ alt="drawing" width="600"/>
 - [示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/audio-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/audio_classification.ipynb)支持对`ASTForAudioClassification`进行操作。
 - 另请参阅：[音频分类](../tasks/audio_classification)。
 
-如果您有兴趣提交资源以包含在此处，请随时打开拉取请求，我们将对其进行审查！该资源理想情况下应该展示出一些新的东西，而不是重复现有的资源。
+如果你有兴趣提交资源以包含在此处，请随时打开拉取请求，我们将对其进行审查！该资源理想情况下应该展示出一些新的东西，而不是重复现有的资源。
 
 ## ASTConfig
 

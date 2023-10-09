@@ -1,7 +1,7 @@
 <!--
 版权所有2020年HuggingFace团队保留。
 
-根据Apache License版本2.0（“许可证”）的规定，您不得使用此文件，除非符合许可证的规定。您可以在以下网址获取许可证的副本
+根据Apache License版本2.0（“许可证”）的规定，你不得使用此文件，除非符合许可证的规定。你可以在以下网址获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -25,7 +25,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 </a>
 </div>
 
-**DISCLAIMER：**这个模型目前仍处于开发中，如果您发现奇怪的现象，请[提交Github Issue](https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template=bug-report.md&title)。
+**DISCLAIMER：**这个模型目前仍处于开发中，如果你发现奇怪的现象，请[提交Github Issue](https://github.com/huggingface/transformers/issues/new?assignees=&labels=&template=bug-report.md&title)。
 
 ## 概述
 

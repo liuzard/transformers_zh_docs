@@ -1,11 +1,11 @@
 <!--版权 2020 HuggingFace团队 保留所有权利。
 
 根据Apache许可证，第2.0版（“许可证”）许可；除非符合许可证的规定，否则不得使用此文件。
-您可以在以下位置获取许可证的副本 http://www.apache.org/licenses/LICENSE-2.0
+你可以在以下位置获取许可证的副本 http://www.apache.org/licenses/LICENSE-2.0
 除非适用法律要求或书面协议，否则根据许可证分发的软件基于“按原样”分发的基础上，
 没有任何保证或条件，无论是明示的还是暗示的。有关许可下的特定语言的权限和限制，请参阅许可证。
 
-⚠️ 请注意，此文件是Markdown格式，但包含特定的语法，用于我们的文档构建器（类似于MDX），可能在您的Markdown查看器中无法正常显示。
+⚠️ 请注意，此文件是Markdown格式，但包含特定的语法，用于我们的文档构建器（类似于MDX），可能在你的Markdown查看器中无法正常显示。
 
 -->
 
@@ -20,7 +20,7 @@
 </a>
 </div>
 
-**Bugs:** 如果您发现任何异常，请[提交 Github 问题](https://github.com/huggingface/transformers/issues/new?assignees=sshleifer&labels=&template=bug-report.md&title)
+**Bugs:** 如果你发现任何异常，请[提交 Github 问题](https://github.com/huggingface/transformers/issues/new?assignees=sshleifer&labels=&template=bug-report.md&title)
 并指派 @patrickvonplaten。
 
 翻译应该与模型卡中的测试集输出类似，但不完全相同。
@@ -60,7 +60,7 @@
 
 - 所有模型名称都使用以下格式：`Helsinki-NLP/opus-mt-{src}-{tgt}`：
 - 如果模型可以输出多种语言，则应通过在`src_text`前面添加所需的输出语言来指定语言代码。
-- 您可以在模型卡中查看模型支持的语言代码，如[opus-mt-en-roa](https://huggingface.co/Helsinki-NLP/opus-mt-en-roa)中的目标成分中所示。
+- 你可以在模型卡中查看模型支持的语言代码，如[opus-mt-en-roa](https://huggingface.co/Helsinki-NLP/opus-mt-en-roa)中的目标成分中所示。
 - 请注意，如果模型只在源端是多语言的，例如`Helsinki-NLP/opus-mt-roa-en`，则不需要语言代码。
 
 来自[Tatoeba-Challenge 仓库](https://github.com/Helsinki-NLP/Tatoeba-Challenge)的新多语言模型需要 3 个字符的语言代码：

@@ -1,11 +1,11 @@
 <!--版权所有 © 2022年 HuggingFace团队。保留所有权利。
 
-根据Apache许可证2.0版本（“许可证”）发布。除非符合许可证的规定，否则您不得使用此文件。
-您可以在以下链接处获得许可证的副本
+根据Apache许可证2.0版本（“许可证”）发布。除非符合许可证的规定，否则你不得使用此文件。
+你可以在以下链接处获得许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
-注意，此文件采用Markdown格式，但包含我们的文档构建器（类似于MDX）的特定语法，可能在您的Markdown查看器中无法正确显示。
+注意，此文件采用Markdown格式，但包含我们的文档构建器（类似于MDX）的特定语法，可能在你的Markdown查看器中无法正确显示。
 
 -->
 
@@ -29,14 +29,14 @@ alt="drawing" width="600"/>
 
 ## 资源
 
-以下是官方Hugging Face和社区（由🌎表示）提供的资源列表，可帮助您开始使用DPT。
+以下是官方Hugging Face和社区（由🌎表示）提供的资源列表，可帮助你开始使用DPT。
 
 - [`DPTForDepthEstimation`]的演示笔记本可在[此处](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/DPT)找到。
 
 - [语义分割任务指南](../tasks/semantic_segmentation)
 - [单目深度估计任务指南](../tasks/monocular_depth_estimation)
 
-如果您有兴趣提交资源以包含在此处，请随时发起拉取请求，我们会进行审核！资源应该展示出新的东西，而不是重复现有的资源。
+如果你有兴趣提交资源以包含在此处，请随时发起拉取请求，我们会进行审核！资源应该展示出新的东西，而不是重复现有的资源。
 
 ## DPTConfig
 

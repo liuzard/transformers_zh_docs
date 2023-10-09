@@ -1,6 +1,6 @@
 <!--版权所有2021 HuggingFace团队。
 
-根据Apache许可证，版本2.0（“许可证”）获得许可；除非遵守许可证，否则禁止使用此文件。您可以在
+根据Apache许可证，版本2.0（“许可证”）获得许可；除非遵守许可证，否则禁止使用此文件。你可以在
 
 
 http://www.apache.org/licenses/LICENSE-2.0
@@ -10,7 +10,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件是基于“AS IS” BASIS分发的，无论是明示还是暗示的，都不包括保证或条件。请参阅许可证以获取许可证下的特定语言的权限和限制的详细信息。
 
-⚠️请注意，此文件采用Markdown格式，但包含我们的doc-builder的特定语法（类似于MDX），可能在您的Markdown查看器中无法正确渲染。-->
+⚠️请注意，此文件采用Markdown格式，但包含我们的doc-builder的特定语法（类似于MDX），可能在你的Markdown查看器中无法正确渲染。-->
 
 # CANINE
 

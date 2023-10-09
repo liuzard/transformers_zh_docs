@@ -1,13 +1,13 @@
 <!--
 版权所有2020年The HuggingFace团队。保留所有权利。
 
-根据Apache许可证2.0版（“许可证”）授权；除非遵守许可证，否则您不得使用该文件。您可以在以下位置获得许可证的副本：
+根据Apache许可证2.0版（“许可证”）授权；除非遵守许可证，否则你不得使用该文件。你可以在以下位置获得许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件按“按原样”分发，不附带任何明示或默示的担保或条件。请参阅许可证以了解许可证下的特定语言和限制。
 
-⚠️ 请注意，此文件是Markdown格式，但包含特定于我们的doc-builder（类似于MDX）的语法，这可能在您的Markdown查看器中无法正常呈现。
+⚠️ 请注意，此文件是Markdown格式，但包含特定于我们的doc-builder（类似于MDX）的语法，这可能在你的Markdown查看器中无法正常呈现。
 
 -->
 
@@ -27,7 +27,7 @@ DeBERTa模型由Pengcheng He，Xiaodong Liu，Jianfeng Gao，Weizhu Chen在[DeBE
 
 ## 资源
 
-以下是官方Hugging Face和社区（标有🌎）资源的列表，可帮助您开始使用DeBERTa。如果您有兴趣提交资源以包含在此处，请随时提交拉取请求，我们会进行审查！资源理想情况下应该展示出一些新的东西，而不是重复现有的资源。
+以下是官方Hugging Face和社区（标有🌎）资源的列表，可帮助你开始使用DeBERTa。如果你有兴趣提交资源以包含在此处，请随时提交拉取请求，我们会进行审查！资源理想情况下应该展示出一些新的东西，而不是重复现有的资源。
 
 <PipelineTag pipeline="text-classification"/>
 

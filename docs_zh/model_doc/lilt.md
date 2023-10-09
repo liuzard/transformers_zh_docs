@@ -1,12 +1,12 @@
 <!--版权所有2022年The HuggingFace团队。
 
-根据Apache许可证第2.0版（“许可证”），除非符合许可证，否则不得使用此文件。您可以在下方链接中获得许可证的副本
+根据Apache许可证第2.0版（“许可证”），除非符合许可证，否则不得使用此文件。你可以在下方链接中获得许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件基于“按原样”分发，不附带任何明示或暗示的保证或条件。请参阅许可证以获取具体的语言权限和限制。
 
-⚠注意，此文件是Markdown格式的，但包含特定于我们的文档构建器的语法（类似于MDX），您的Markdown查看器可能无法正常显示。-->
+⚠注意，此文件是Markdown格式的，但包含特定于我们的文档构建器的语法（类似于MDX），你的Markdown查看器可能无法正常显示。-->
 
 # LiLT
 
@@ -22,7 +22,7 @@ LiLT允许将任何预训练的RoBERTa文本编码器与轻量级布局变换器
 提示：
 
 - 要将语言无关布局变换器与[hug](https://huggingface.co/models?search=roberta)中的新RoBERTa检查点相结合，请参考[此指南](https://github.com/jpWang/LiLT#or-generate-your-own-checkpoint-optional)。
-该脚本将会将`config.json`和`pytorch_model.bin`文件存储在本地。在完成此操作后，可以执行以下操作（假设您正在使用您的HuggingFace账户登录）：
+该脚本将会将`config.json`和`pytorch_model.bin`文件存储在本地。在完成此操作后，可以执行以下操作（假设你正在使用你的HuggingFace账户登录）：
 
 ```
 from transformers import LiltModel
@@ -31,7 +31,7 @@ model = LiltModel.from_pretrained("path_to_your_files")
 model.push_to_hub("name_of_repo_on_the_hub")
 ```
 
-- 在为模型准备数据时，请确保使用与您所组合的布局变换器相对应的标记词汇。
+- 在为模型准备数据时，请确保使用与你所组合的布局变换器相对应的标记词汇。
 - 由于[lilt-roberta-zh-base](https://huggingface.co/SCUT-DLVCLab/lilt-roberta-en-base)使用与[LayoutLMv3](layoutlmv3)相同的词汇表，因此可以使用[`LayoutLMv3TokenizerFast`]来为模型准备数据。
 对于[lilt-roberta-en-base](https://huggingface.co/SCUT-DLVCLab/lilt-roberta-en-base)也是如此：可以使用[`LayoutXLMTokenizerFast`]来为该模型准备数据。
 
@@ -45,7 +45,7 @@ alt="drawing" width="600"/>
 
 ## 资源
 
-以下是官方Hugging Face资源和社区（标有🌎）资源的列表，可帮助您开始使用LiLT。
+以下是官方Hugging Face资源和社区（标有🌎）资源的列表，可帮助你开始使用LiLT。
 
 - LiLT的演示笔记本可在[此处](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/LiLT)找到。
 
@@ -54,7 +54,7 @@ alt="drawing" width="600"/>
 - [标记分类任务指南](../tasks/token_classification)
 - [问答任务指南](../tasks/question_answering)
 
-如果您有兴趣提交资源以包含在这里，请随意打开Pull Request，我们会进行审核！该资源应该展示出新的东西，而不是重复现有资源。
+如果你有兴趣提交资源以包含在这里，请随意打开Pull Request，我们会进行审核！该资源应该展示出新的东西，而不是重复现有资源。
 
 ## LiltConfig
 

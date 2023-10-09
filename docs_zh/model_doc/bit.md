@@ -1,7 +1,7 @@
 <!--版权所有2022 The HuggingFace团队。保留所有权利。
 
-根据Apache许可证2.0版（“许可证”）进行许可；除非符合许可证的规定，否则您不得使用此文件。
-您可以在以下位置获取许可证的副本：
+根据Apache许可证2.0版（“许可证”）进行许可；除非符合许可证的规定，否则你不得使用此文件。
+你可以在以下位置获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -9,7 +9,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 不附带任何明示或暗示的担保或条件。有关许可证下的特定语言，请参阅许可证。
 
 ⚠️注意，此文件是以Markdown格式编写的，但包含特定的语法，
-用于我们的doc-builder（类似于MDX），可能无法在您的Markdown查看器中正确呈现。
+用于我们的doc-builder（类似于MDX），可能无法在你的Markdown查看器中正确呈现。
 
 -->
 
@@ -34,14 +34,14 @@ BiT是一种简单的方法，用于扩展[ResNet](resnet)-like架构（具体�
 
 ## 资源
 
-以下是官方Hugging Face和社区（用🌎表示）资源列表，可帮助您开始使用BiT。
+以下是官方Hugging Face和社区（用🌎表示）资源列表，可帮助你开始使用BiT。
 
 <PipelineTag pipeline="image-classification"/>
 
 - 该[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-classification) 和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification.ipynb) 支持使用 `BitForImageClassification` 进行图像分类。
 - 另请参阅：[图像分类任务指南](../tasks/image_classification)
 
-如果您有兴趣提交资源以包含在此处，请随时打开Pull请求，我们将对其进行审核！该资源应该理想地展示一些新的东西，而不是重复现有的资源。
+如果你有兴趣提交资源以包含在此处，请随时打开Pull请求，我们将对其进行审核！该资源应该理想地展示一些新的东西，而不是重复现有的资源。
 
 ## BitConfig
 

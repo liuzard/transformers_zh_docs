@@ -1,12 +1,12 @@
 <!--版权所有2022年由HuggingFace团队保留。
 
-根据Apache License, Version 2.0（"许可证"）的规定，除非符合许可证的规定，否则您不得使用此文件。 您可以在下面的网址中获得许可证的副本：
+根据Apache License, Version 2.0（"许可证"）的规定，除非符合许可证的规定，否则你不得使用此文件。 你可以在下面的网址中获得许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，否则根据许可证分发的软件是基于“按原样”的基础进行分发的，不附带任何形式的保证或条件。请参阅许可证以获取特定语言的权限和限制。
 
-⚠️ 请注意，此文件是Markdown格式，但包含特定语法供我们的文档构建工具（类似于MDX）使用，可能无法在您的Markdown查看器中正确显示。-->
+⚠️ 请注意，此文件是Markdown格式，但包含特定语法供我们的文档构建工具（类似于MDX）使用，可能无法在你的Markdown查看器中正确显示。-->
 
 # GLPN
 
@@ -37,7 +37,7 @@ alt="drawing" width="600"/>
 
 ## 资源
 
-官方Hugging Face和社区（标有🌎）资源列表，以帮助您开始使用GLPN。
+官方Hugging Face和社区（标有🌎）资源列表，以帮助你开始使用GLPN。
 
 - [`GLPNForDepthEstimation`]的演示笔记本可以在[这里](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/GLPN)找到。
 - [单目深度估计任务指南](../tasks/monocular_depth_estimation)

@@ -1,13 +1,13 @@
 <!--版权2022年HuggingFace团队保留所有权利。
 
-根据Apache License, Version 2.0许可证（以下称“许可证”），您不能使用此文件，除非符合许可证的规定。
-您可以在以下网址获取许可证的副本：
+根据Apache License, Version 2.0许可证（以下称“许可证”），你不能使用此文件，除非符合许可证的规定。
+你可以在以下网址获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律另有规定或书面同意，根据许可证分发的软件是按"原样"提供的，不附带任何明示或暗示的保证或条件。有关许可证的特定语言和限制的详细信息，请参阅许可证。
 
-⚠️请注意，此文件采用Markdown格式，但包含特定语法用于我们的doc-builder（类似MDX），可能在您的Markdown查看器中无法正确显示。
+⚠️请注意，此文件采用Markdown格式，但包含特定语法用于我们的doc-builder（类似MDX），可能在你的Markdown查看器中无法正确显示。
 
 -->
 
@@ -24,7 +24,7 @@ CLIPSeg模型是由Timo Lüddecke和Alexander Ecker在《使用文本和图像�
 提示：
 
 - [`CLIPSegForImageSegmentation`] 在[`CLIPSegModel`]之上添加一个解码器。后者与[`CLIPModel`]相同。
-- [`CLIPSegForImageSegmentation`] 可以根据测试时的任意提示生成图像分割。提示可以是文本（作为`input_ids`提供给模型）或图像（作为`conditional_pixel_values`提供给模型）。您还可以提供自定义的条件嵌入（作为`conditional_embeddings`提供给模型）。
+- [`CLIPSegForImageSegmentation`] 可以根据测试时的任意提示生成图像分割。提示可以是文本（作为`input_ids`提供给模型）或图像（作为`conditional_pixel_values`提供给模型）。你还可以提供自定义的条件嵌入（作为`conditional_embeddings`提供给模型）。
 
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/transformers/model_doc/clipseg_architecture.png" alt="drawing" width="600"/> 
 
@@ -35,7 +35,7 @@ CLIPSeg模型是由Timo Lüddecke和Alexander Ecker在《使用文本和图像�
 
 ## 资源
 
-官方Hugging Face和社区（以🌎表示）资源列表，以帮助您开始使用CLIPSeg。如果您有兴趣提交资源以包含在此处，请随时提出拉取请求，我们将进行审核！该资源应该体现出一些新的东西，而不是重复现有的资源。
+官方Hugging Face和社区（以🌎表示）资源列表，以帮助你开始使用CLIPSeg。如果你有兴趣提交资源以包含在此处，请随时提出拉取请求，我们将进行审核！该资源应该体现出一些新的东西，而不是重复现有的资源。
 
 <PipelineTag pipeline="image-segmentation"/>
 

@@ -1,19 +1,19 @@
 版权所有2020年The HuggingFace团队。版权所有。
 
-根据Apache许可证第2.0版（“许可证”），除非符合许可以外，否则您不得使用此文件。
-您可以在以下位置获取许可证的副本
+根据Apache许可证第2.0版（“许可证”），除非符合许可以外，否则你不得使用此文件。
+你可以在以下位置获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或经书面同意，否则根据许可证分发的软件是基于“按原样”分发的，不附带任何明示或暗示的担保或条件。请参阅许可证的特定语言，以获得许可证下的特定语言的权限和限制的说明。
 
-⚠️请注意，此文件在Markdown中，但包含我们的文档生成器特定语法（类似于MDX），在您的Markdown查看器中可能无法正确呈现。
+⚠️请注意，此文件在Markdown中，但包含我们的文档生成器特定语法（类似于MDX），在你的Markdown查看器中可能无法正确呈现。
 
 # Trainer
 
 [`Trainer`]类为PyTorch的大多数标准用例提供了完整的训练API。它在大多数[示例脚本](https://github.com/huggingface/transformers/tree/main/examples)中使用。
 
-在实例化您的[`Trainer`]之前，请创建一个[`TrainingArguments`]来在训练期间访问所有自定义点。
+在实例化你的[`Trainer`]之前，请创建一个[`TrainingArguments`]来在训练期间访问所有自定义点。
 
 该API支持在多个GPU/TPU上进行分布式训练，通过[NVIDIA Apex](https://github.com/NVIDIA/apex)和PyTorch的Native AMP进行混合精度训练。
 
@@ -23,7 +23,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 - **get_eval_dataloader** —— 创建评估DataLoader。
 - **get_test_dataloader** —— 创建测试DataLoader。
 - **log** —— 记录监视训练的各种对象的信息。
-- **create_optimizer_and_scheduler** —— 设置优化器和学习率调度程序（如果在init时未传递）。请注意，您也可以分别子类化或覆盖`create_optimizer`和`create_scheduler`方法。
+- **create_optimizer_and_scheduler** —— 设置优化器和学习率调度程序（如果在init时未传递）。请注意，你也可以分别子类化或覆盖`create_optimizer`和`create_scheduler`方法。
 - **create_optimizer** —— 设置优化器（如果在init时未传递）。
 - **create_scheduler** —— 设置学习率调度程序（如果在init时未传递）。
 - **compute_loss** - 计算批处理训练输入的损失。
@@ -36,9 +36,9 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 [`Trainer`]类针对🤗Transformers模型进行了优化，并在使用其他模型时可能具有令人惊讶的行为。当在自己的模型上使用它时，请确保：
 
-- 您的模型始终返回元组或[`~utils.ModelOutput`]的子类。
-- 如果提供了`labels`参数并且将损失返回为元组的第一个元素（如果您的模型返回元组），则您的模型可以计算损失。
-- 您的模型可以接受多个标签参数（在[`TrainingArguments`]中使用`label_names`来指示它们的名称给[`Trainer`]），但这些参数中没有一个应命名为`"label"`。
+- 你的模型始终返回元组或[`~utils.ModelOutput`]的子类。
+- 如果提供了`labels`参数并且将损失返回为元组的第一个元素（如果你的模型返回元组），则你的模型可以计算损失。
+- 你的模型可以接受多个标签参数（在[`TrainingArguments`]中使用`label_names`来指示它们的名称给[`Trainer`]），但这些参数中没有一个应命名为`"label"`。
 
 </Tip>
 
@@ -87,17 +87,17 @@ class CustomTrainer(Trainer):
 
 ## Checkpoints
 
-默认情况下，[`Trainer`]会将所有检查点保存在您设置的`output_dir`中的子文件夹`checkpoint-xxx`中，其中xxx是训练的步骤。
+默认情况下，[`Trainer`]会将所有检查点保存在你设置的`output_dir`中的子文件夹`checkpoint-xxx`中，其中xxx是训练的步骤。
 
 可以通过使用以下调用[`Trainer.train`]来从检查点恢复训练：
 
 - `resume_from_checkpoint=True` ——将从最新的检查点恢复训练
 - `resume_from_checkpoint=checkpoint_dir` ——将从指定目录中的特定检查点恢复训练
 
-此外，当使用`push_to_hub=True`时，您还可以将检查点轻松保存在模型中心（Model Hub）中。默认情况下，保存在中间检查点中的所有模型都保存在不同的提交中，但不保存优化器状态。您可以根据您的[`TrainingArguments`]适应[`hub-strategy`]值来执行以下操作之一：
+此外，当使用`push_to_hub=True`时，你还可以将检查点轻松保存在模型中心（Model Hub）中。默认情况下，保存在中间检查点中的所有模型都保存在不同的提交中，但不保存优化器状态。你可以根据你的[`TrainingArguments`]适应[`hub-strategy`]值来执行以下操作之一：
 
-- `"checkpoint"`：最新的检查点也会被推送到一个名为last-checkpoint的子文件夹中，方便您使用`trainer.train(resume_from_checkpoint="output_dir/last-checkpoint")`继续训练。
-- `"all_checkpoints"`：所有检查点都按照它们在输出文件夹中出现的方式进行推送（因此您将获得一个检查点文件夹，每个文件夹在最终存储库中对应一个文件夹）
+- `"checkpoint"`：最新的检查点也会被推送到一个名为last-checkpoint的子文件夹中，方便你使用`trainer.train(resume_from_checkpoint="output_dir/last-checkpoint")`继续训练。
+- `"all_checkpoints"`：所有检查点都按照它们在输出文件夹中出现的方式进行推送（因此你将获得一个检查点文件夹，每个文件夹在最终存储库中对应一个文件夹）
 
 
 ## 日志记录
@@ -135,7 +135,7 @@ transformers.utils.logging.set_verbosity(log_level)
 trainer = Trainer(...)
 ```
 
-然后，如果您只想在主节点上看到警告，并且所有其他节点不打印任何可能重复的警告，您可以按以下方式运行：
+然后，如果你只想在主节点上看到警告，并且所有其他节点不打印任何可能重复的警告，你可以按以下方式运行：
 
 ```bash
 my_app.py ... --log_level warning --log_level_replica error
@@ -149,7 +149,7 @@ my_app.py ... --log_level warning --log_level_replica error --log_on_each_node 0
 
 然后，只有第一个节点的主进程将以“warning”级别记录日志，其他节点上的所有进程以及其他节点上的所有进程将以“error”级别记录日志。
 
-如果您需要应用程序尽可能尽静，请执行以下操作：
+如果你需要应用程序尽可能尽静，请执行以下操作：
 
 ```bash
 my_app.py ... --log_level error --log_level_replica error --log_on_each_node 0
@@ -162,19 +162,19 @@ my_app.py ... --log_level error --log_level_replica error --log_on_each_node 0
 
 从[`Trainer`]生成的检查点中恢复训练时，会尽一切努力将_python_、_numpy_和_pytorch_的随机数生成器状态恢复到保存检查点时的状态，以使“停止和恢复”类型的训练尽量接近非停止训练。
 
-然而，由于各种默认的非确定性pytorch设置，这可能无法完全实现。如果需要完全确定性，请参阅[控制随机源](https://pytorch.org/docs/stable/notes/randomness)。正如文档中所解释的，有一些使事物确定的设置（例如`torch.backends.cudnn.deterministic`）可能会减慢速度，因此默认情况下无法执行此操作，但是您可以在需要时启用它们。
+然而，由于各种默认的非确定性pytorch设置，这可能无法完全实现。如果需要完全确定性，请参阅[控制随机源](https://pytorch.org/docs/stable/notes/randomness)。正如文档中所解释的，有一些使事物确定的设置（例如`torch.backends.cudnn.deterministic`）可能会减慢速度，因此默认情况下无法执行此操作，但是你可以在需要时启用它们。
 
 ## 特定GPU的选择
 
 让我们讨论如何告诉程序使用哪个GPU以及以什么顺序使用它们。
 
-当使用[`DistributedDataParallel`](https://pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html)仅使用GPU子集时，只需指定要使用的GPU数量即可。例如，如果您有4个GPU，但希望使用前2个GPU，可以执行以下操作：
+当使用[`DistributedDataParallel`](https://pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html)仅使用GPU子集时，只需指定要使用的GPU数量即可。例如，如果你有4个GPU，但希望使用前2个GPU，可以执行以下操作：
 
 ```bash
 python -m torch.distributed.launch --nproc_per_node=2  trainer-program.py ...
 ```
 
-如果您安装了[`accelerate`](https://github.com/huggingface/accelerate)或[`deepspeed`](https://github.com/microsoft/DeepSpeed)，您也可以使用以下命令执行相同操作：
+如果你安装了[`accelerate`](https://github.com/huggingface/accelerate)或[`deepspeed`](https://github.com/microsoft/DeepSpeed)，你也可以使用以下命令执行相同操作：
 
 ```bash
 accelerate launch --num_processes 2 trainer-program.py ...
@@ -184,18 +184,18 @@ accelerate launch --num_processes 2 trainer-program.py ...
 deepspeed --num_gpus 2 trainer-program.py ...
 ```
 
-您不需要使用Accelerate或Deepspeed整合功能来使用这些启动器。
+你不需要使用Accelerate或Deepspeed整合功能来使用这些启动器。
 
 
-到目前为止，您可以告诉程序要使用多少个GPU。现在让我们讨论如何选择特定的GPU并控制其顺序。
+到目前为止，你可以告诉程序要使用多少个GPU。现在让我们讨论如何选择特定的GPU并控制其顺序。
 
-以下环境变量可帮助您控制要使用的GPU及其顺序。
+以下环境变量可帮助你控制要使用的GPU及其顺序。
 
 **`CUDA_VISIBLE_DEVICES`**
 
-如果您有多个GPU，并且只想使用其中1个或几个GPU，请将环境变量`CUDA_VISIBLE_DEVICES`设置为要使用的GPU列表。
+如果你有多个GPU，并且只想使用其中1个或几个GPU，请将环境变量`CUDA_VISIBLE_DEVICES`设置为要使用的GPU列表。
 
-例如，假设您有4个GPU：0、1、2和3。要仅在物理GPU 0和2上运行，可以执行以下操作：
+例如，假设你有4个GPU：0、1、2和3。要仅在物理GPU 0和2上运行，可以执行以下操作：
 
 ```bash
 CUDA_VISIBLE_DEVICES=0,2 python -m torch.distributed.launch trainer-program.py ...
@@ -203,7 +203,7 @@ CUDA_VISIBLE_DEVICES=0,2 python -m torch.distributed.launch trainer-program.py .
 
 因此，现在pytorch将只看到2个GPU，其中物理GPU 0和2分别映射到cuda:0和cuda:1。
 
-您甚至可以更改它们的顺序：
+你甚至可以更改它们的顺序：
 
 ```bash
 CUDA_VISIBLE_DEVICES=2,0 python -m torch.distributed.launch trainer-program.py ...
@@ -222,7 +222,7 @@ CUDA_VISIBLE_DEVICES=2,0 python trainer-program.py ...
 CUDA_VISIBLE_DEVICES= python trainer-program.py ...
 ```
 
-与任何其他环境变量一样，您当然可以导出它们，而不是将它们添加到命令行，例如：
+与任何其他环境变量一样，你当然可以导出它们，而不是将它们添加到命令行，例如：
 
 ```bash
 export CUDA_VISIBLE_DEVICES=0,2
@@ -247,16 +247,16 @@ export CUDA_DEVICE_ORDER=PCI_BUS_ID
 export CUDA_DEVICE_ORDER=FASTEST_FIRST
 ```
 
-大多数情况下，您不需要关心这个环境变量，但如果您的设置不平衡，既有较新也有较旧的GPU插入在这样的方式下，以便较慢的旧卡首先出现，这将非常有帮助。解决方法之一是交换卡。但是，如果您无法交换卡（例如，如果设备的冷却受到影响），则将`CUDA_DEVICE_ORDER=FASTEST_FIRST`设置为始终首先放置较新和较快的卡。不过这可能会有点令人困惑，因为`nvidia-smi`仍然会按照PCIe顺序报告它们。
+大多数情况下，你不需要关心这个环境变量，但如果你的设置不平衡，既有较新也有较旧的GPU插入在这样的方式下，以便较慢的旧卡首先出现，这将非常有帮助。解决方法之一是交换卡。但是，如果你无法交换卡（例如，如果设备的冷却受到影响），则将`CUDA_DEVICE_ORDER=FASTEST_FIRST`设置为始终首先放置较新和较快的卡。不过这可能会有点令人困惑，因为`nvidia-smi`仍然会按照PCIe顺序报告它们。
 
 交换顺序的另一种解决方案是使用：
 
 ```bash
 export CUDA_VISIBLE_DEVICES=1,0
 ```
-在此示例中，我们使用了2个GPU，但是当然，对于您的计算机上的所有GPU都适用相同的情况。
+在此示例中，我们使用了2个GPU，但是当然，对于你的计算机上的所有GPU都适用相同的情况。
 
-此外，如果您设置了此环境变量，则最好将其设置在`〜/ .bashrc`文件或其他启动配置文件中，并忘记它。
+此外，如果你设置了此环境变量，则最好将其设置在`〜/ .bashrc`文件或其他启动配置文件中，并忘记它。
 
 
 ## Trainer集成
@@ -274,27 +274,27 @@ Toward Training Trillion Parameter Models](https://arxiv.org/abs/1910.02054)的�
 which nvcc
 ```
 
-如果你没有在系统范围内安装CUDA，请先安装CUDA。您可以使用您喜欢的搜索引擎找到安装说明。例如，如果您使用的是Ubuntu，您可能想搜索: [ubuntu cuda 10.2 安装](https://www.google.com/search?q=ubuntu+cuda+10.2+install)。
+如果你没有在系统范围内安装CUDA，请先安装CUDA。你可以使用你喜欢的搜索引擎找到安装说明。例如，如果你使用的是Ubuntu，你可能想搜索: [ubuntu cuda 10.2 安装](https://www.google.com/search?q=ubuntu+cuda+10.2+install)。
 
 #### 可能的问题＃2
 
-另一个可能的常见问题是您可能在系统范围内安装了多个CUDA工具包。例如，您可能拥有:
+另一个可能的常见问题是你可能在系统范围内安装了多个CUDA工具包。例如，你可能拥有:
 
 ```bash
 /usr/local/cuda-10.2
 /usr/local/cuda-11.0
 ```
 
-在这种情况下，您需要确保`PATH`和`LD_LIBRARY_PATH`环境变量包含正确的CUDA版本的路径。通常，软件包安装程序会将这些设置为最后安装的版本。如果遇到以下问题，即使您在系统范围内安装了相关的CUDA版本，构建程序仍然无法找到正确的CUDA版本，这意味着您需要调整上述2个环境变量。
+在这种情况下，你需要确保`PATH`和`LD_LIBRARY_PATH`环境变量包含正确的CUDA版本的路径。通常，软件包安装程序会将这些设置为最后安装的版本。如果遇到以下问题，即使你在系统范围内安装了相关的CUDA版本，构建程序仍然无法找到正确的CUDA版本，这意味着你需要调整上述2个环境变量。
 
-首先，您可以查看它们的内容:
+首先，你可以查看它们的内容:
 
 ```bash
 echo $PATH
 echo $LD_LIBRARY_PATH
 ```
 
-这样您就可以了解其中的内容。
+这样你就可以了解其中的内容。
 
 `LD_LIBRARY_PATH`可能为空。
 
@@ -309,17 +309,17 @@ export LD_LIBRARY_PATH=/usr/local/cuda-10.2/lib64:$LD_LIBRARY_PATH
 
 请注意，我们没有覆盖现有的值，而是在其前面插入值。
 
-当然，根据版本号和实际情况调整完整路径。检查您分配的目录是否确实存在。`lib64`子目录是各种CUDA `.so`对象（如`libcudart.so`）所在的位置，它们的命名可能不同，但如果存在，可以调整它以反映您的实际情况。
+当然，根据版本号和实际情况调整完整路径。检查你分配的目录是否确实存在。`lib64`子目录是各种CUDA `.so`对象（如`libcudart.so`）所在的位置，它们的命名可能不同，但如果存在，可以调整它以反映你的实际情况。
 
 #### 可能的问题＃3
 
-某些旧版本的CUDA可能拒绝使用更新的编译器进行构建。例如，您可能有`gcc-9`，但它需要`gcc-7`。
+某些旧版本的CUDA可能拒绝使用更新的编译器进行构建。例如，你可能有`gcc-9`，但它需要`gcc-7`。
 
 有各种方法可以解决此问题。
 
-如果您可以安装最新的CUDA工具包，它通常应支持较新的编译器。
+如果你可以安装最新的CUDA工具包，它通常应支持较新的编译器。
 
-或者，您可以在已安装的编译器之外再安装较低版本的编译器，或者您可能已经安装了较低版本的编译器，但它不是默认版本，因此构建系统无法找到它。如果已经安装了`gcc-7`，但构建系统抱怨找不到它，可以尝试以下操作:
+或者，你可以在已安装的编译器之外再安装较低版本的编译器，或者你可能已经安装了较低版本的编译器，但它不是默认版本，因此构建系统无法找到它。如果已经安装了`gcc-7`，但构建系统抱怨找不到它，可以尝试以下操作:
 
 ```bash
 sudo ln -s /usr/bin/gcc-7  /usr/local/cuda-10.2/bin/gcc
@@ -328,18 +328,18 @@ sudo ln -s /usr/bin/g++-7  /usr/local/cuda-10.2/bin/g++
 
 这里，我们创建了一个指向`/usr/local/cuda-10.2/bin/gcc`的指向`gcc-7`的符号链接，因为`/usr/local/cuda-10.2/bin/`应在`PATH`环境变量中（请参阅之前问题的解决方案），所以它应该找到`gcc-7`（和`g++7`），然后构建将成功。
 
-正如总是要注意的那样，请确保修改示例中的路径以符合您的情况。
+正如总是要注意的那样，请确保修改示例中的路径以符合你的情况。
 
 
 ### PyTorch完全分片数据并行
 
-为了加速在较大批次大小上训练庞大的模型，可以使用完全分片的数据并行模型。这种数据并行范式通过分片优化器状态，梯度和参数来实现更多的数据和更大的模型的适配。要了解更多信息和好处，请查看[完全分片数据并行博客](https://pytorch.org/blog/introducing-pytorch-fully-sharded-data-parallel-api/)。我们已经将最新的PyTorch完全分片数据并行（FSDP）训练功能集成到了其中。您只需要通过配置文件启用它。
+为了加速在较大批次大小上训练庞大的模型，可以使用完全分片的数据并行模型。这种数据并行范式通过分片优化器状态，梯度和参数来实现更多的数据和更大的模型的适配。要了解更多信息和好处，请查看[完全分片数据并行博客](https://pytorch.org/blog/introducing-pytorch-fully-sharded-data-parallel-api/)。我们已经将最新的PyTorch完全分片数据并行（FSDP）训练功能集成到了其中。你只需要通过配置文件启用它。
 
 **FSDP支持的必需PyTorch版本**：PyTorch Nightly（或者在发布后阅读本文之后是1.12.0）是唯一支持带有FSDP激活的模型保存的版本。
 
 **使用方法**：
 
-- 确保您已经添加了分布式启动程序`-m torch.distributed.launch --nproc_per_node=NUMBER_OF_GPUS_YOU_HAVE`，如果您还没有使用它。
+- 确保你已经添加了分布式启动程序`-m torch.distributed.launch --nproc_per_node=NUMBER_OF_GPUS_YOU_HAVE`，如果你还没有使用它。
 - **分片策略**：
   - FULL_SHARD: 将优化器状态 + 梯度 + 模型参数分片到数据并行工作进程/GPU。为此，请将 `--fsdp full_shard` 添加到命令行参数中。
   - SHARD_GRAD_OP: 将优化器状态 + 梯度 分片到数据并行工作进程/GPU。 对此，请将 `--fsdp shard_grad_op` 添加到命令行参数中。
@@ -368,7 +368,7 @@ sudo ln -s /usr/bin/g++-7  /usr/local/cuda-10.2/bin/g++
 
 **使用方法**：
 
-与 `Trainer` 集成了 MPS 后端，因此如果您对 MPS 后端的使用有任何问题或疑问，请务必提出问题[PyTorch GitHub](https://github.com/pytorch/pytorch/issues).
+与 `Trainer` 集成了 MPS 后端，因此如果你对 MPS 后端的使用有任何问题或疑问，请务必提出问题[PyTorch GitHub](https://github.com/pytorch/pytorch/issues).
 
 
 ## 使用Trainer在Mac上进行加速PyTorch训练
@@ -408,7 +408,7 @@ python examples/pytorch/text-classification/run_glue.py \
 - MPS尚未实现某些PyTorch操作，使用这些操作将会抛出错误。解决方法之一是设置环境变量 `PYTORCH_ENABLE_MPS_FALLBACK=1`，这将使用CPU执行这些操作。但仍会引发UserWarning警告。
 - `gloo` 和 `nccl` 是MP的后端，则这些后端在 `mps` 设备上无法使用。目前，仅可以使用单个`mps`设备。
 
-最后，请记住，🤗 `Trainer` 只集成了 MPS 的后端，因此如果您在使用 MPS 后端时遇到任何问题或疑问，请在 [PyTorch GitHub](https://github.com/pytorch/pytorch/issues) 上提交问题。
+最后，请记住，🤗 `Trainer` 只集成了 MPS 的后端，因此如果你在使用 MPS 后端时遇到任何问题或疑问，请在 [PyTorch GitHub](https://github.com/pytorch/pytorch/issues) 上提交问题。
 
 
 ## 使用加速启动程序和Trainer
@@ -418,7 +418,7 @@ python examples/pytorch/text-classification/run_glue.py \
 - 现在用户可以将加速启动程序与Trainer一起使用（推荐）。
 
 使用加速启动程序和Trainer的步骤：
-1. 确保已安装🤗 加速，否则您无法使用`Trainer`。如果没有，执行 `pip install accelerate` 。您还可以更新加速的版本： `pip install accelerate --upgrade` 。
+1. 确保已安装🤗 加速，否则你无法使用`Trainer`。如果没有，执行 `pip install accelerate` 。你还可以更新加速的版本： `pip install accelerate --upgrade` 。
 2. 运行 `accelerate config` 并填写问卷。以下是加速配置的示例：
    a. DDP多节点多GPU配置:
     ```yaml
@@ -536,7 +536,7 @@ accelerate launch \
 --overwrite_output_dir
 ```
 
-4. 您也可以直接使用`accelerate launch`命令参数。上面的示例将对应以下命令:
+4. 你也可以直接使用`accelerate launch`命令参数。上面的示例将对应以下命令:
 
 ```bash
 cd transformers
@@ -561,7 +561,7 @@ accelerate launch --num_processes=2 \
 --overwrite_output_dir
 ```
 
-有关更多信息，请参阅🤗加速CLI指南：[启动您的🤗加速脚本](https://huggingface.co/docs/accelerate/basic_tutorials/launch)。
+有关更多信息，请参阅🤗加速CLI指南：[启动你的🤗加速脚本](https://huggingface.co/docs/accelerate/basic_tutorials/launch)。
 
 移动的部分：
 

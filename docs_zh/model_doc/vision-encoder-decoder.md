@@ -1,7 +1,7 @@
 <!--版权 2021年HuggingFace团队。版权所有。
 
 根据Apache许可证第2.0版（"许可证"），除非符合许可证规定，
-否则不得使用此文件。您可以获取许可证的副本，网址为
+否则不得使用此文件。你可以获取许可证的副本，网址为
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -9,7 +9,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 请参阅许可证了解许可证下特定语言的权限和限制。
 
 ⚠️ 请注意，此文件采用Markdown格式，但包含我们的文档生成器（类似于MDX）的特定语法，
-可能无法在您的Markdown查看器中正确呈现。
+可能无法在你的Markdown查看器中正确呈现。
 
 -->
 
@@ -47,7 +47,7 @@ Minghao Li、Tengchao Lv、Lei Cui、Yijuan Lu、Dinei Florencio、Cha Zhang、Z
 
 [`VisionEncoderDecoderModel`]可以从预训练的编码器检查点和预训练的解码器检查点进行初始化。请注意，任何预训练的基于Transformer的视觉模型，
 如[Swin]，都可以作为编码器，同时预训练的自编码模型，如BERT，预训练的因果语言模型，如GPT2，以及序列到序列模型的预训练解码器部分，
-如BART的解码器，都可以作为解码器。根据您选择的解码器架构，交叉注意力层可能会随机初始化。
+如BART的解码器，都可以作为解码器。根据你选择的解码器架构，交叉注意力层可能会随机初始化。
 从预训练的编码器和解码器检查点初始化[`VisionEncoderDecoderModel`]要求对模型进行下游任务的微调，就像在[Warm-starting-encoder-decoder博客文章](https://huggingface.co/blog/warm-starting-encoder-decoder)中所展示的那样。
 为此，`VisionEncoderDecoderModel`类提供了一个[`VisionEncoderDecoderModel.from_encoder_decoder_pretrained`]方法。
 

@@ -1,7 +1,7 @@
 <!--版权所有2023年的爱抱团队。保留所有权利。
 
 根据Apache许可证第2.0版（“许可证”），除非
-许可证。您可以获取许可证的副本
+许可证。你可以获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -9,7 +9,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 “按原样”基础，没有任何明示或暗示的担保或条件。请参阅许可证
 有关特定语言以及许可证下的限制的详细信息。
 
-⚠️请注意，此文件采用Markdown格式，但包含特定于我们的doc-builder（类似于MDX）的语法，可能无法在您的Markdown查看器中正确呈现。-->
+⚠️请注意，此文件采用Markdown格式，但包含特定于我们的doc-builder（类似于MDX）的语法，可能无法在你的Markdown查看器中正确呈现。-->
 
 # 注意机制
 

@@ -31,8 +31,8 @@ Congratulations! You have successfully fine-tuned an image classification model 
 >>> model.compile(optimizer=optimizer, loss=loss)
 ```
 
-要计算从预测中获得的准确率并将您的模型推送到🤗 Hub，请使用[Keras回调](../main_classes/keras_callbacks)。
-将您的`compute_metrics`函数传递给[KerasMetricCallback](../main_classes/keras_callbacks#transformers.KerasMetricCallback)，
+要计算从预测中获得的准确率并将你的模型推送到🤗 Hub，请使用[Keras回调](../main_classes/keras_callbacks)。
+将你的`compute_metrics`函数传递给[KerasMetricCallback](../main_classes/keras_callbacks#transformers.KerasMetricCallback)，
 并使用[PushToHubCallback](../main_classes/keras_callbacks#transformers.PushToHubCallback)上传模型：
 
 ```py
@@ -47,7 +47,7 @@ Congratulations! You have successfully fine-tuned an image classification model 
 >>> callbacks = [metric_callback, push_to_hub_callback]
 ```
 
-最后，您可以开始训练模型了！使用您的训练和验证数据集、epochs的数量和回调函数调用`fit()`以微调模型：
+最后，你可以开始训练模型了！使用你的训练和验证数据集、epochs的数量和回调函数调用`fit()`以微调模型：
 
 ```py
 >>> model.fit(tf_train_dataset, validation_data=tf_eval_dataset, epochs=num_epochs, callbacks=callbacks)
@@ -63,7 +63,7 @@ Epoch 5/5
 250/250 [==============================] - 238s 949ms/step - loss: 0.1232 - val_loss: 0.3259 - accuracy: 0.9890
 ```
 
-恭喜！您已经对模型进行了微调，并在🤗 Hub上分享了它。现在您可以用它进行推理了！
+恭喜！你已经对模型进行了微调，并在🤗 Hub上分享了它。现在你可以用它进行推理了！
 </tf>
 </frameworkcontent>
 
@@ -76,7 +76,7 @@ Epoch 5/5
 
 ## 推理
 
-很好，现在您已经对模型进行了微调，可以使用它进行推理了！
+很好，现在你已经对模型进行了微调，可以使用它进行推理了！
 
 加载要进行推理的图像：
 
@@ -89,7 +89,7 @@ Epoch 5/5
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/beignets-task-guide.png" alt="image of beignets"/>
 </div>
 
-尝试使用[`pipeline`]对微调后的模型进行推理是最简单的方法。使用您的模型实例化一个图像分类的`pipeline`，并将图像传递给它：
+尝试使用[`pipeline`]对微调后的模型进行推理是最简单的方法。使用你的模型实例化一个图像分类的`pipeline`，并将图像传递给它：
 
 ```py
 >>> from transformers import pipeline
@@ -103,7 +103,7 @@ Epoch 5/5
  {'score': 0.012728818692266941, 'label': 'prime_rib'}]
 ```
 
-如果希望，您也可以手动复制`pipeline`的结果：
+如果希望，你也可以手动复制`pipeline`的结果：
 
 <frameworkcontent>
 <pt>

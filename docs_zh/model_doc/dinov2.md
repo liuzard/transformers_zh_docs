@@ -1,7 +1,7 @@
 <!--版权所有2023年HuggingFace团队。保留所有权利。
 
-根据Apache许可证2.0版（“许可证”）授权；除非符合许可证规定，否则您不得使用此文件。
-您可以在以下网址获取许可证的副本
+根据Apache许可证2.0版（“许可证”）授权；除非符合许可证规定，否则你不得使用此文件。
+你可以在以下网址获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -19,7 +19,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 提示：
 
-- 您可以使用[`AutoImageProcessor`]类来为模型准备图像。
+- 你可以使用[`AutoImageProcessor`]类来为模型准备图像。
 
 此模型由[nielsr](https://huggingface.co/nielsr)贡献。
 原始代码可在[此处](https://github.com/facebookresearch/dinov2)找到。

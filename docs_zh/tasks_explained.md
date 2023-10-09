@@ -1,19 +1,19 @@
 <!--版权2023年HuggingFace团队。版权所有。
 
 根据Apache License Version 2.0（“许可证”）许可；除非符合许可证中的条款，
-否则不得使用此文件。您可以在http://www.apache.org/licenses/LICENSE-2.0获取许可证的副本。
+否则不得使用此文件。你可以在http://www.apache.org/licenses/LICENSE-2.0获取许可证的副本。
 
 除非适用法律要求或书面同意，根据许可证分发的软件均按“按原样”分发，
 不附带任何明示或暗示的保证或条件。请参阅许可证以了解特定语言的权限和限制。
 
 ⚠️注意，该文件采用Markdown格式，但包含特定语法，用于我们的文档构建器（类似于MDX），
-这些语法在您的Markdown查看器中可能无法正确渲染。
+这些语法在你的Markdown查看器中可能无法正确渲染。
 
 -->
 
 # 如何使用🤗 Transformers解决任务
 
-在[🤗 Transformers能做什么](task_summary.md)一节中，您了解了自然语言处理（NLP）、语音和音频、计算机视觉任务及其一些重要应用程序。本页将详细介绍模型如何解决这些任务，并解释底层的工作原理。解决给定任务有许多方法，其中一些模型可能实现了特定的技术，甚至从一个新的角度来处理任务，但对于Transformer模型来说，基本思想是相同的。由于其灵活的架构，大多数模型都是编码器、解码器或编码器-解码器结构的变体。除了Transformer模型之外，我们的库还包含了几个卷积神经网络（CNNs），这些网络在计算机视觉任务中仍然被广泛使用。我们还将解释现代CNN是如何工作的。
+在[🤗 Transformers能做什么](task_summary.md)一节中，你了解了自然语言处理（NLP）、语音和音频、计算机视觉任务及其一些重要应用程序。本页将详细介绍模型如何解决这些任务，并解释底层的工作原理。解决给定任务有许多方法，其中一些模型可能实现了特定的技术，甚至从一个新的角度来处理任务，但对于Transformer模型来说，基本思想是相同的。由于其灵活的架构，大多数模型都是编码器、解码器或编码器-解码器结构的变体。除了Transformer模型之外，我们的库还包含了几个卷积神经网络（CNNs），这些网络在计算机视觉任务中仍然被广泛使用。我们还将解释现代CNN是如何工作的。
 
 为了解释任务是如何解决的，我们将详细介绍模型内部的工作过程，以输出有用的预测结果。
 
@@ -28,7 +28,7 @@
 
 <Tip>
 
-在继续之前，最好具备对原始Transformer架构的基本了解。了解编码器、解码器和注意力如何工作将有助于您理解不同的Transformer模型如何工作。如果您刚开始或需要复习，请查看我们的[课程](https://huggingface.co/course/chapter1/4?fw=pt)以获取更多信息！
+在继续之前，最好具备对原始Transformer架构的基本了解。了解编码器、解码器和注意力如何工作将有助于你理解不同的Transformer模型如何工作。如果你刚开始或需要复习，请查看我们的[课程](https://huggingface.co/course/chapter1/4?fw=pt)以获取更多信息！
 
 </Tip>
 
@@ -50,7 +50,7 @@
 
 4. 上下文网络的预训练目标是*对比任务*。模型必须从一组错误的预测中预测屏蔽预测的真实量化语音表示，以鼓励模型找到与上下文向量和量化语音单位（目标标签）最相似的量化语音表示。
 
-现在，可以在音频分类或自动语音识别中对wav2vec2进行预训练，以在您的数据上进行微调！
+现在，可以在音频分类或自动语音识别中对wav2vec2进行预训练，以在你的数据上进行微调！
 
 ### 音频分类
 
@@ -85,7 +85,7 @@ ViT和ConvNeXT都可用于图像分类；主要区别在于ViT使用了注意力
 
 #### Transformer
 
-[ViT](model_doc/vit)完全用纯Transformer架构替换了卷积。如果您熟悉原始Transformer，那么您已经了解ViT的大部分内容。
+[ViT](model_doc/vit)完全用纯Transformer架构替换了卷积。如果你熟悉原始Transformer，那么你已经了解ViT的大部分内容。
 
 <div class="flex justify-center">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/transformers/model_doc/vit_architecture.jpg"/>
@@ -107,7 +107,7 @@ ViT引入的主要改变是图像被输入Transformer的方式：
 
 <Tip>
 
-本节简要介绍了卷积，但最好事先了解它们如何改变图像的形状和大小。如果您对卷积不熟悉，请查看fastai书中的[卷积神经网络章节](https://github.com/fastai/fastbook/blob/master/13_convolutions.ipynb)！
+本节简要介绍了卷积，但最好事先了解它们如何改变图像的形状和大小。如果你对卷积不熟悉，请查看fastai书中的[卷积神经网络章节](https://github.com/fastai/fastbook/blob/master/13_convolutions.ipynb)！
 
 </Tip>
 
@@ -119,7 +119,7 @@ ViT引入的主要改变是图像被输入Transformer的方式：
 
 <small><a href="https://arxiv.org/abs/1603.07285">深度学习的卷积算术指南</a>中的一个基本卷积示例，不带填充和步幅。</small>
 
-您可以将这个输出传递给另一个卷积层，每个连续的层网络都能学习到更复杂和抽象的东西，比如热狗或火箭。在卷积层之间，通常在卷积层之间添加一个池化层，以降低维度，并使模型对特征位置的变化更加鲁棒。
+你可以将这个输出传递给另一个卷积层，每个连续的层网络都能学习到更复杂和抽象的东西，比如热狗或火箭。在卷积层之间，通常在卷积层之间添加一个池化层，以降低维度，并使模型对特征位置的变化更加鲁棒。
 
 <div class="flex justify-center">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/convnext_architecture.png"/>
@@ -163,7 +163,7 @@ ConvNeXT以五种方式现代化了CNN：
 
 ### 图像分割
 
-[Mask2Former](model_doc/mask2former)是一个通用的图像分割任务架构。传统的分割模型通常针对图像分割的特定子任务进行调整，如实例、语义或全景分割。Mask2Former将每个分割任务都视为一个*掩码分类*问题。掩码分类将像素分组为*N*段，并为给定图像预测*N*个掩码及其相应的类别标签。本节中，我们将解释Mask2Former的工作原理，然后您可以尝试微调SegFormer。
+[Mask2Former](model_doc/mask2former)是一个通用的图像分割任务架构。传统的分割模型通常针对图像分割的特定子任务进行调整，如实例、语义或全景分割。Mask2Former将每个分割任务都视为一个*掩码分类*问题。掩码分类将像素分组为*N*段，并为给定图像预测*N*个掩码及其相应的类别标签。本节中，我们将解释Mask2Former的工作原理，然后你可以尝试微调SegFormer。
 
 <div class="flex justify-center">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/mask2former_architecture.png"/>
@@ -215,23 +215,23 @@ Transformer最初是为机器翻译而设计的，此后，它几乎成为解决
 
 要将预训练模型用于文本分类，将一个序列分类头添加到基本的BERT模型上。序列分类头是一个线性层，接受最终的隐藏状态并进行线性变换，将其转换为logits。计算logits和目标之间的交叉熵损失，找到最可能的标签。
 
-准备好尝试您的文本分类了吗？查看我们的完整[文本分类指南](tasks/sequence_classification)，了解如何微调DistilBERT并将其用于推理！
+准备好尝试你的文本分类了吗？查看我们的完整[文本分类指南](tasks/sequence_classification)，了解如何微调DistilBERT并将其用于推理！
 
 ### 标记分类
 
 要在诸如命名实体识别（NER）之类的标记分类任务中使用BERT，可以在基本的BERT模型之上添加一个标记分类头。标记分类头是一个线性层，接受最终的隐藏状态并进行线性变换，将其转换为logits。计算logits和每个标记之间的交叉熵损失，找到最可能的标签。
 
-准备好尝试您的标记分类了吗？查看我们的完整[标记分类指南](tasks/token_classification)，了解如何微调DistilBERT并将其用于推理！
+准备好尝试你的标记分类了吗？查看我们的完整[标记分类指南](tasks/token_classification)，了解如何微调DistilBERT并将其用于推理！
 
 ### 问答
 
 要在问题回答中使用BERT，可以在基本的BERT模型上添加一个跨度分类头。这个线性层接受最终隐藏状态并进行线性变换，计算与答案相对应的`span`的`start`和`end`的logits。计算logits和标签位置之间的交叉熵损失，找到与答案对应的最可能文本跨度。
 
-准备好尝试您的问题回答了吗？查看我们的完整[问题回答指南](tasks/question_answering)，了解如何微调DistilBERT并将其用于推理！
+准备好尝试你的问题回答了吗？查看我们的完整[问题回答指南](tasks/question_answering)，了解如何微调DistilBERT并将其用于推理！
 
 <Tip>
 
-💡注意一旦预训练了BERT，使用它解决不同任务非常容易。您只需要在预训练模型之上添加一个特定类型的头，将隐藏状态转换为所需的输出！
+💡注意一旦预训练了BERT，使用它解决不同任务非常容易。你只需要在预训练模型之上添加一个特定类型的头，将隐藏状态转换为所需的输出！
 
 </Tip>
 
@@ -249,7 +249,7 @@ Transformer最初是为机器翻译而设计的，此后，它几乎成为解决
 
 GPT-2的预训练目标完全基于[因果语言模型](glossary.md#causal-language-modeling)，即预测序列中的下一个词。这使得GPT-2在涉及生成文本的任务上特别有效。
 
-准备好尝试您的文本生成了吗？查看我们的完整[因果语言模型指南](tasks/language_modeling#causal-language-modeling)，了解如何微调DistilGPT-2并将其用于推理！
+准备好尝试你的文本生成了吗？查看我们的完整[因果语言模型指南](tasks/language_modeling#causal-language-modeling)，了解如何微调DistilGPT-2并将其用于推理！
 
 <Tip>
 
@@ -259,7 +259,7 @@ GPT-2的预训练目标完全基于[因果语言模型](glossary.md#causal-langu
 
 ### 摘要
 
-像[BART](model_doc/bart)和[T5](model_doc/t5)这样的编码器-解码器模型专为摘要任务的序列到序列模式而设计。我们在本节中将解释BART的工作原理，然后您可以尝试微调T5。
+像[BART](model_doc/bart)和[T5](model_doc/t5)这样的编码器-解码器模型专为摘要任务的序列到序列模式而设计。我们在本节中将解释BART的工作原理，然后你可以尝试微调T5。
 
 <div class="flex justify-center">
     <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/bart_architecture.png"/>
@@ -269,7 +269,7 @@ GPT-2的预训练目标完全基于[因果语言模型](glossary.md#causal-langu
 
 2. 编码器的输出传递到解码器，解码器必须同时预测编码器输出中的遮盖标记和任何未破坏的标记。这样可以提供额外的上下文，以帮助解码器恢复原始文本。从解码器输出的结果传递到语言建模头部，该头部对隐藏状态进行线性变换，将其转换为logits。计算logits和标签之间的交叉熵损失，其中标签只是通过将logits向右移动一个位置。
 
-准备好尝试您的摘要了吗？查看我们的完整[摘要指南](tasks/summarization)，了解如何微调T5并将其用于推理！
+准备好尝试你的摘要了吗？查看我们的完整[摘要指南](tasks/summarization)，了解如何微调T5并将其用于推理！
 
 <Tip>
 
@@ -279,13 +279,13 @@ GPT-2的预训练目标完全基于[因果语言模型](glossary.md#causal-langu
 
 ### 翻译
 
-翻译是另一个序列到序列任务的例子，这意味着您可以使用像[BART](model_doc/bart)或[T5](model_doc/t5)这样的编码器-解码器模型来进行翻译。我们在本节中将解释BART的工作原理，然后您可以尝试微调T5。
+翻译是另一个序列到序列任务的例子，这意味着你可以使用像[BART](model_doc/bart)或[T5](model_doc/t5)这样的编码器-解码器模型来进行翻译。我们在本节中将解释BART的工作原理，然后你可以尝试微调T5。
 
 BART通过添加单独的随机初始化编码器将一个源语言映射到可以解码为目标语言的输入。这个新的编码器的嵌入被传递到预训练的编码器而不是原始的词嵌入。源编码器通过使用模型输出的交叉熵损失进行源编码器、位置编码和输入嵌入的更新来进行训练。在第一步中，模型参数被冻结，第二步中，所有模型参数一起进行训练。
 
 随后，BART推出了一种用于翻译和在许多不同语言上进行预训练的多语言版本，mBART。
 
-准备好尝试您的翻译了吗？查看我们的完整[翻译指南](tasks/summarization)，了解如何微调T5并将其用于推理！
+准备好尝试你的翻译了吗？查看我们的完整[翻译指南](tasks/summarization)，了解如何微调T5并将其用于推理！
 
 <Tip>
 

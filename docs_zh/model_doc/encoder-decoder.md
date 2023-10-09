@@ -1,9 +1,9 @@
 <!--版权保留 2020 The HuggingFace Team. All rights reserved.
 
 根据 Apache License, Version 2.0 进行许可（“许可证”）；除非符合许可证的规定，
-否则您不得使用此文件。您可以在http://www.apache.org/licenses/LICENSE-2.0获得许可证副本。
+否则你不得使用此文件。你可以在http://www.apache.org/licenses/LICENSE-2.0获得许可证副本。
 
-请注意，此文件是Markdown格式的，但包含我们的文档生成器的特定语法（类似于MDX），可能无法正常呈现在您的Markdown查看器中。
+请注意，此文件是Markdown格式的，但包含我们的文档生成器的特定语法（类似于MDX），可能无法正常呈现在你的Markdown查看器中。
 
 -->
 
@@ -42,7 +42,7 @@
 可以从预训练的编码器检查点和预训练的解码器检查点初始化[`EncoderDecoderModel`]。
 请注意，任何预训练的自编码模型（例如BERT）都可以作为编码器，
 而预训练的自编码模型（例如BERT），预训练的因果语言模型（例如GPT2），以及序列到序列模型的预训练解码器部分（例如BART的解码器）都可以作为解码器。
-根据您选择的解码器架构不同，交叉注意层的初始化方式可能是随机的。
+根据你选择的解码器架构不同，交叉注意层的初始化方式可能是随机的。
 从预训练的编码器和解码器检查点初始化[`EncoderDecoderModel`]需要对下游任务进行微调，
 这在[《*Warm-starting-encoder-decoder blog post*》](https://huggingface.co/blog/warm-starting-encoder-decoder)中已经证明过。
 为此，[`EncoderDecoderModel`]类提供了[`EncoderDecoderModel.from_encoder_decoder_pretrained`]方法。
@@ -106,7 +106,7 @@ nearly 800 thousand customers were affected by the shutoffs. the aim is to reduc
 ## 训练
 
 创建了模型之后，可以进行与BART、T5或任何其他编码器解码器模型类似的微调。
-如您所见，为了计算损失，模型只需要2个输入：`input_ids`（已编码输入序列的`input_ids`）和`labels`（已编码目标序列的`input_ids`）。
+如你所见，为了计算损失，模型只需要2个输入：`input_ids`（已编码输入序列的`input_ids`）和`labels`（已编码目标序列的`input_ids`）。
 
 ```python
 >>> from transformers import BertTokenizer, EncoderDecoderModel

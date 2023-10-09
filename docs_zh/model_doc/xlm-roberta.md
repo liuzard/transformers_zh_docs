@@ -2,7 +2,7 @@
 
 根据Apache许可证2.0版（"许可证"）授权;除非符合许可证规定否则禁止使用本文件。
 
-您可以在以下位置获取许可证的副本
+你可以在以下位置获取许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -43,7 +43,7 @@ Wenzek，Francisco Guzmán，Edouard Grave，Myle Ott，Luke Zettlemoyer和Vesel
 
 ## 资源
 
-以下是官方Hugging Face和社区（由🌎表示）资源列表，以帮助您入门XLM-RoBERTa。如果您有兴趣提交资源以包含在此处，请随时打开Pull Request，我们将进行审查！该资源应该展示出一些新东西，而不是重复现有资源。
+以下是官方Hugging Face和社区（由🌎表示）资源列表，以帮助你入门XLM-RoBERTa。如果你有兴趣提交资源以包含在此处，请随时打开Pull Request，我们将进行审查！该资源应该展示出一些新东西，而不是重复现有资源。
 
 <PipelineTag pipeline="text-classification"/>
 

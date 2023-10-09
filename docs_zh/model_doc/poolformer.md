@@ -1,14 +1,14 @@
 <!--版权所有2022年HuggingFace团队。 版权所有。
 
 根据Apache许可证，版本2.0进行许可（“许可证”）;你不得使用此文件，除非要遵守许可。
-您可以在以下位置获取许可的副本
+你可以在以下位置获取许可的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，以软件形式分发的软件在
 基于“原样”，无论是明示或默示的任何种类的保证或条件。有关许可下的特定语言，请参阅许可。
 
-⚠️请注意，此文件采用Markdown格式，但包含我们doc-builder的特定语法（类似于MDX），可能无法在您的Markdown查看器中正确呈现。
+⚠️请注意，此文件采用Markdown格式，但包含我们doc-builder的特定语法（类似于MDX），可能无法在你的Markdown查看器中正确呈现。
 
 -->
 
@@ -44,14 +44,14 @@ PoolFormer模型在Sea AI Labs的论文[MetaFormer is Actually What You Need for
 
 ## 资源
 
-Hugging Face官方和社区（用🌎表示）资源列表，以帮助您开始使用PoolFormer。
+Hugging Face官方和社区（用🌎表示）资源列表，以帮助你开始使用PoolFormer。
 
 <PipelineTag pipeline="image-classification"/>
 
 - [`PoolFormerForImageClassification`]受到此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification.ipynb)的支持。
 - 另请参阅：[图像分类任务指南](../tasks/image_classification)
 
-如果您有兴趣提交要包含在此处的资源，请随时打开拉取请求，我们将进行审核！该资源应该展示出一些新的东西，而不是重复现有的资源。
+如果你有兴趣提交要包含在此处的资源，请随时打开拉取请求，我们将进行审核！该资源应该展示出一些新的东西，而不是重复现有的资源。
 
 ## PoolFormerConfig
 

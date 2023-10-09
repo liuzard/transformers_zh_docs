@@ -1,7 +1,7 @@
 <!--版权所有2021 The HuggingFace团队。保留所有权利。
 
 根据Apache License, Version 2.0（“许可证”）进行许可；除非符合许可证的规定
-您可能不使用此文件。您可以在以下位置获取许可证副本
+你可能不使用此文件。你可以在以下位置获取许可证副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -31,7 +31,7 @@ alt="绘图" width="600"/>
 
 - ImageGPT与[GPT-2](gpt2)几乎完全相同，唯一的区别是使用了不同的激活函数（即“quick gelu”），并且层归一化层不对输入进行均值中心化。ImageGPT
   也没有输入和输出嵌入的绑定。
-- 由于Transformer的注意机制的时间和内存需求与序列长度呈二次关系，作者在较小的输入分辨率（例如32x32和64x64）上预训练了ImageGPT。然而，将大小为32x32x3=3072的序列从0到255的范围的整数输入到Transformer仍然是不可行的。因此，作者对（R，G，B）像素值应用了k-means聚类，其中k = 512。这样，我们只有一个长度为32*32 = 1024的序列，但是现在是0..511范围内的整数。因此，我们通过增大嵌入矩阵的开销来缩小序列长度。换句话说，ImageGPT的词汇表大小为512，+ 1表示特殊的“句子开始”（SOS）令牌，在每个序列的开头使用。您可以使用[`ImageGPTImageProcessor`]来准备
+- 由于Transformer的注意机制的时间和内存需求与序列长度呈二次关系，作者在较小的输入分辨率（例如32x32和64x64）上预训练了ImageGPT。然而，将大小为32x32x3=3072的序列从0到255的范围的整数输入到Transformer仍然是不可行的。因此，作者对（R，G，B）像素值应用了k-means聚类，其中k = 512。这样，我们只有一个长度为32*32 = 1024的序列，但是现在是0..511范围内的整数。因此，我们通过增大嵌入矩阵的开销来缩小序列长度。换句话说，ImageGPT的词汇表大小为512，+ 1表示特殊的“句子开始”（SOS）令牌，在每个序列的开头使用。你可以使用[`ImageGPTImageProcessor`]来准备
   图像以供模型使用。
 - 尽管ImageGPT完全无监督地进行预训练（即没有使用任何标签），但它产生了对下游任务（如图像分类）有用的性能良好的图像特征。作者表明，网络中间的特征最为有效，并且可以直接用作训练线性模型的输入（例如sklearn的逻辑回归模型）。这也被称为“线性探测”。可以通过首先将图像输入模型，然后指定`output_hidden_states=True`，然后在所需的任何层上对隐藏状态进行平均池化来轻松获取特征。
 - 另外，可以类似于BERT的方式对整个模型进行进一步的下游数据集微调。为此，可以使用[`ImageGPTForImageClassification`]。
@@ -48,7 +48,7 @@ alt="绘图" width="600"/>
 
 ## 资源
 
-这是一个官方Hugging Face和社区（由🌎表示）资源列表，以帮助您开始使用ImageGPT。
+这是一个官方Hugging Face和社区（由🌎表示）资源列表，以帮助你开始使用ImageGPT。
 
 <PipelineTag pipeline="image-classification"/>
 
@@ -56,7 +56,7 @@ alt="绘图" width="600"/>
 - 通过此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification.ipynb)支持[`ImageGPTForImageClassification`]。
 - 另请参阅：[图像分类任务指南](../tasks/image_classification)
 
-如果您有兴趣提交资源以包含在此处，请随时打开拉取请求，我们将对其进行审查！资源应该尽量展示新内容，而不是重复现有资源。
+如果你有兴趣提交资源以包含在此处，请随时打开拉取请求，我们将对其进行审查！资源应该尽量展示新内容，而不是重复现有资源。
 
 ## ImageGPTConfig
 

@@ -1,14 +1,14 @@
 <!--版权所有2022年HuggingFace团队。保留所有权利。
 
 根据Apache许可证第2.0版（“许可证”），除非符合以下规定，否则不得使用此文件；
-您可以在以下的网址上获得许可证的副本
+你可以在以下的网址上获得许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件是基于“按原样”提供的，
 没有任何明示或暗示的担保或条件。请参阅许可证以了解许可证下的特定语言的权限和限制。
 
-⚠️注意，此文件采用Markdown格式，但包含特定于我们doc-builder（类似于MDX）的语法，可能无法在您的Markdown查看器中正确显示。-->
+⚠️注意，此文件采用Markdown格式，但包含特定于我们doc-builder（类似于MDX）的语法，可能无法在你的Markdown查看器中正确显示。-->
 
 # Data2Vec
 
@@ -38,7 +38,7 @@ NLP和语音的原始代码可以在[此处](https://github.com/pytorch/fairseq/
 
 ## 资源
 
-以下是官方Hugging Face资源和社区资源（由🌎表示），可以帮助您开始使用Data2Vec。
+以下是官方Hugging Face资源和社区资源（由🌎表示），可以帮助你开始使用Data2Vec。
 
 <PipelineTag pipeline="image-classification"/>
 
@@ -61,7 +61,7 @@ NLP和语音的原始代码可以在[此处](https://github.com/pytorch/fairseq/
 - [图像分类](../tasks/image_classification)
 - [语义分割](../tasks/semantic_segmentation)
 
-如果您有兴趣提交资源以包含在此处，请随时提出拉取请求，我们将会进行审核！资源理想情况下应该展示出一些新内容，而不是重复现有资源。
+如果你有兴趣提交资源以包含在此处，请随时提出拉取请求，我们将会进行审核！资源理想情况下应该展示出一些新内容，而不是重复现有资源。
 
 ## Data2VecTextConfig
 

@@ -1,7 +1,7 @@
 <!--版权 2020年HuggingFace团队保留所有权利。
 
-根据Apache License，Version 2.0（“许可证”）许可； 除非符合许可证，否则您不得使用此文件。
-您可以在
+根据Apache License，Version 2.0（“许可证”）许可； 除非符合许可证，否则你不得使用此文件。
+你可以在
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -10,7 +10,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 除非适用的法律要求或书面同意，否则根据许可证分发的软件以“原样”分发，
 不附带任何明示或暗示的担保或条件。有关许可的更多详细信息，请参阅许可证
 在许可证下有关特定语法与我们的文档生成器（类似于MDX）的内容不同的Markdown中的该文件
-不能在您的Markdown查看器中正确渲染。
+不能在你的Markdown查看器中正确渲染。
 
 -->
 
@@ -28,7 +28,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 （BPE）](#byte-pair-encoding)，[WordPiece](#wordpiece)和[SentencePiece]（#sentencepiece），并显示示例
 对于哪种模型使用了令牌器类型。
 
-请注意，在每个模型页面上，您可以查看相关分词器的文档，以了解预训练模型使用的分词器
+请注意，在每个模型页面上，你可以查看相关分词器的文档，以了解预训练模型使用的分词器
 类型。例如，如果我们查看[`BertTokenizer`]，我们可以看到
 该模型使用[WordPiece](#wordpiece)。
 
@@ -91,7 +91,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 子词，但是罕见的单词应该被分解为有意义的子词。例如，`"annoyingly"`可能是一个
 被认为是罕见的单词，并且可以分解为`"annoying"`和`"ly"`。两者`"annoying"`和`"ly"`作为
 独立的子词出现的次数比较多，同时`"annoyingly"`的含义也保持不变
-“annoying”和“ly”的合成意义。这对于像土耳其语这样的粘聚语言特别有用，您可以通过将子词串连在一起来形成（几乎）任意长的复杂单词。
+“annoying”和“ly”的合成意义。这对于像土耳其语这样的粘聚语言特别有用，你可以通过将子词串连在一起来形成（几乎）任意长的复杂单词。
 
 子词分词允许模型拥有合理的词汇量，同时能够学习有意义的
 上下文独立表示。此外，子词分词使模型能够处理以前从未见过的单词，将其分解为已知子词。例如，[`~transformers.BertTokenizer`]将

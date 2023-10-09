@@ -1,7 +1,7 @@
 <!--版权所有2022年贴心面团小组。版权所有。
 
 根据Apache License，Version 2.0（“许可证”）许可；除非符合许可证的规定，否则不得使用此文件。
-您可以获取该许可证的副本
+你可以获取该许可证的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -9,7 +9,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 没有任何明示或暗示的担保或条件。有关的具体语言，请参见许可证
 中的特定语法。
 
-⚠️请注意，此文件是Markdown格式，但包含我们文档生成器的特定语法（类似于MDX），在您的Markdown查看器中可能无法正确渲染。
+⚠️请注意，此文件是Markdown格式，但包含我们文档生成器的特定语法（类似于MDX），在你的Markdown查看器中可能无法正确渲染。
 
 -->
 
@@ -47,6 +47,6 @@ Google发布了以下变体：
 
 - [google/flan-t5-xxl](https://huggingface.co/google/flan-t5-xxl).
 
-您可以参考[T5的文档页面](t5)获取所有提示、代码示例和笔记本文件。以及有关模型训练和评估的FLAN-T5模型卡片的详细信息。
+你可以参考[T5的文档页面](t5)获取所有提示、代码示例和笔记本文件。以及有关模型训练和评估的FLAN-T5模型卡片的详细信息。
 
 原始检查点可在[此处](https://github.com/google-research/t5x/blob/main/docs/models.md#flan-t5-checkpoints)找到。

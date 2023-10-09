@@ -1,11 +1,11 @@
 <!--版权所有2022 The HuggingFace团队。
 
 根据Apache许可证第2.0版（“许可证”）获得许可；除非符合许可证，否则不得使用此文件。
-您可以在下面的网址获取许可证的副本
+你可以在下面的网址获取许可证的副本
 http://www.apache.org/licenses/LICENSE-2.0
 除非适用法律要求或书面同意，否则依照许可证分发的软件是基于“原样”分发的，无论明示或暗示，均不附带任何担保或条件。请详阅许可证中的详细信息和限制。
 
-⚠️请注意，这个文件是以Markdown格式编写的，但是包含特定的语法，用于我们的文档构建器（类似于MDX），可能无法在您的Markdown查看器中正确显示。
+⚠️请注意，这个文件是以Markdown格式编写的，但是包含特定的语法，用于我们的文档构建器（类似于MDX），可能无法在你的Markdown查看器中正确显示。
 
 -->
 
@@ -23,14 +23,14 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ## 资源
 
-为帮助您开始使用ViT混合，下面是一些官方的Hugging Face和社区（由🌎表示）资源。
+为帮助你开始使用ViT混合，下面是一些官方的Hugging Face和社区（由🌎表示）资源。
 
 <PipelineTag pipeline="image-classification"/>
 
 - 此项目支持[`ViTHybridForImageClassification`]，该示例脚本（[example script](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-classification)）和 [notebook](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/image_classification.ipynb) 示例。
 - 参见：[图像分类任务指南](../tasks/image_classification)
 
-如果您有兴趣提交资源以包含在此处，请随时发起拉取请求，我们将进行审核！该资源应该展示一些新的内容，而不是重复现有的资源。
+如果你有兴趣提交资源以包含在此处，请随时发起拉取请求，我们将进行审核！该资源应该展示一些新的内容，而不是重复现有的资源。
 
 ## ViTHybridConfig
 

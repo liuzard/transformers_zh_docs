@@ -1,22 +1,22 @@
 <!--版权所有2020的拥抱面团团队。保留所有权利。
 
-根据Apache许可证，版本2.0（“许可证”）的规定，除非符合许可证的规定，否则您不得使用此文件。
+根据Apache许可证，版本2.0（“许可证”）的规定，除非符合许可证的规定，否则你不得使用此文件。
 
-您可以在以下位置获取许可证的副本:
+你可以在以下位置获取许可证的副本:
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件基础上提供，不提供任何担保或条件。有关许可下特定语言的具体语言，请参见许可协议的相关部分。
 
-⚠️请注意，此文件采用Markdown格式，但包含我们doc-builder的特定语法(类似于MDX)，可能在您的Markdown查看器中无法正确呈现。
+⚠️请注意，此文件采用Markdown格式，但包含我们doc-builder的特定语法(类似于MDX)，可能在你的Markdown查看器中无法正确呈现。
 
 -->
 
 # Transformer模型系列
 
-自2017年首次推出[原始Transformer](https://arxiv.org/abs/1706.03762)模型以来，它已经激发了许多新颖的模型，并超越了自然语言处理（NLP）任务。有模型用于[预测蛋白质的折叠结构](https://huggingface.co/blog/deep-learning-with-proteins)，[训练一只猎豹奔跑](https://huggingface.co/blog/train-decision-transformers)和[时间序列预测](https://huggingface.co/blog/time-series-transformers)。由于有这么多Transformer的变种可用，很容易忽视整体情况。所有这些模型的共同之处在于它们都基于原始的Transformer架构。某些模型仅使用编码器或解码器，而其他模型则同时使用两者。这为对Transformer系列模型进行分类和检查其高级差异提供了有用的分类法，并且它将帮助您理解以前未遇到的Transformer模型。
+自2017年首次推出[原始Transformer](https://arxiv.org/abs/1706.03762)模型以来，它已经激发了许多新颖的模型，并超越了自然语言处理（NLP）任务。有模型用于[预测蛋白质的折叠结构](https://huggingface.co/blog/deep-learning-with-proteins)，[训练一只猎豹奔跑](https://huggingface.co/blog/train-decision-transformers)和[时间序列预测](https://huggingface.co/blog/time-series-transformers)。由于有这么多Transformer的变种可用，很容易忽视整体情况。所有这些模型的共同之处在于它们都基于原始的Transformer架构。某些模型仅使用编码器或解码器，而其他模型则同时使用两者。这为对Transformer系列模型进行分类和检查其高级差异提供了有用的分类法，并且它将帮助你理解以前未遇到的Transformer模型。
 
-如果您对原始Transformer模型不熟悉或需要复习，请查看Hugging Face课程中的[Transformer是如何工作的](https://huggingface.co/course/chapter1/4?fw=pt)章节。
+如果你对原始Transformer模型不熟悉或需要复习，请查看Hugging Face课程中的[Transformer是如何工作的](https://huggingface.co/course/chapter1/4?fw=pt)章节。
 
 <div align="center">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/H39Z_720T5s" title="YouTube视频播放器"
@@ -90,7 +90,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 [VisualBERT](model_doc/visual_bert)是一个用于视觉-语言任务的多模态模型，它在BERT和经过预训练的物体检测系统之间组合了嵌入，将其传递给BERT。VisualBERT根据未遮挡的文本和视觉嵌入预测遮挡的文本，并且还必须预测文本是否与图像对齐。当ViT发布时，[ViLT](model_doc/vilt)采用了ViT的架构，因为这样更容易获得图像嵌入。图像嵌入与文本嵌入一起进行联合处理。从那时起，ViLT通过图像文本匹配、遮挡语言建模和整词遮挡进行预训练。
 
-[CLIP](model_doc/clip)采用了一种不同的方法，并对(`image`,`text`)对进行一对预测。图像编码器（ViT）和文本编码器（Transformer）共同在一个4亿个(`image`,`text`)对的数据集上进行训练，以最大限度地提高(`image`,`text`)对之间的图像和文本嵌入的相似性。预训练后，您可以使用自然语言指示CLIP来预测给定图像或反之亦然的文本。
+[CLIP](model_doc/clip)采用了一种不同的方法，并对(`image`,`text`)对进行一对预测。图像编码器（ViT）和文本编码器（Transformer）共同在一个4亿个(`image`,`text`)对的数据集上进行训练，以最大限度地提高(`image`,`text`)对之间的图像和文本嵌入的相似性。预训练后，你可以使用自然语言指示CLIP来预测给定图像或反之亦然的文本。
 
 [OWL-ViT](model_doc/owlvit)在CLIP的基础上构建，将其用作进行零射击对象检测的骨干网络。预训练后，会添加一个物体检测头，以对(`class`,`bounding box`)对进行集合预测。
 

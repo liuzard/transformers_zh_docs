@@ -1,7 +1,7 @@
 <!--版权所有2020 The HuggingFace团队。保留所有权利。
 
 根据Apache许可证第2.0版（“许可证”）的规定，在遵守许可证的前提下，
-您不得使用此文件。您可以获得许可证的副本。
+你不得使用此文件。你可以获得许可证的副本。
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -9,14 +9,14 @@ http://www.apache.org/licenses/LICENSE-2.0
 没有明示或暗示的保证或条件。请参阅许可证以获取特定语言的权限和限制。
 
 ⚠️ 请注意，此文件是Markdown格式，但包含我们doc-builder的特定语法（类似于MDX），
-可能在您的Markdown查看器中无法正确显示。
+可能在你的Markdown查看器中无法正确显示。
 
 -->
 
 # 自动类
 
-在许多情况下，您要使用的架构可以从预训练模型的名称或路径中猜测出来，
-您将此名称/路径提供给`from_pretrained()`方法即可自动检索出相关的模型、权重、配置文件和词汇表。
+在许多情况下，你要使用的架构可以从预训练模型的名称或路径中猜测出来，
+你将此名称/路径提供给`from_pretrained()`方法即可自动检索出相关的模型、权重、配置文件和词汇表。
 
 实例化[`AutoConfig`]、[`AutoModel`]和
 [`AutoTokenizer`]中的任何一个类都将直接创建相应架构的类。例如
@@ -32,7 +32,7 @@ model = AutoModel.from_pretrained("bert-base-cased")
 
 ## 扩展自动类
 
-每个自动类都有一个方法可以用于扩展您的自定义类。例如，如果您定义了一个自定义模型类`NewModel`，
+每个自动类都有一个方法可以用于扩展你的自定义类。例如，如果你定义了一个自定义模型类`NewModel`，
 请确保有一个`NewModelConfig`，然后可以像这样将其添加到自动类中：
 
 ```python
@@ -42,7 +42,7 @@ AutoConfig.register("new-model", NewModelConfig)
 AutoModel.register(NewModelConfig, NewModel)
 ```
 
-然后，您就可以像通常使用自动类一样使用它们！
+然后，你就可以像通常使用自动类一样使用它们！
 
 <Tip warning={true}>
 

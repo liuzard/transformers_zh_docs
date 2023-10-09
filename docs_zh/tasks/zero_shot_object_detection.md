@@ -1,12 +1,12 @@
 <!--版权所有2023年HuggingFace团队。保留所有权利。
 
-根据Apache License第2版（“许可证”）进行许可；除非按适用法律要求或书面同意，否则您不得使用本文件。
-您可以在以下网址获取许可证的副本：
+根据Apache License第2版（“许可证”）进行许可；除非按适用法律要求或书面同意，否则你不得使用本文件。
+你可以在以下网址获取许可证的副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 请注意，此文件虽然是Markdown格式，但包含我们的doc-builder的特定语法（类似于MDX），
-可能无法在您的Markdown查看器中正确呈现。
+可能无法在你的Markdown查看器中正确呈现。
 
 -->
 
@@ -23,12 +23,12 @@ OWL-ViT利用多模态表示来进行开放词汇表的检测。它将CLIP与轻
 
 采用这种方法，模型可以根据文本描述检测对象，而无需在标记的数据集上进行先前的训练。
 
-在本指南中，您将学习如何使用OWL-ViT：
+在本指南中，你将学习如何使用OWL-ViT：
 - 根据文本提示来检测对象
 - 进行批量目标检测
 - 进行图像引导的目标检测
                                                         
-开始之前，请确保您已安装所有必要的库:
+开始之前，请确保你已安装所有必要的库:
 
 ```bash
 pip install -q transformers
@@ -45,7 +45,7 @@ pip install -q transformers
 >>> detector = pipeline(model=checkpoint, task="zero-shot-object-detection")
 ```
 
-接下来，选择一张您想要检测对象的图片。这里我们将使用NASA Great Images数据集中的宇航员Eileen Collins的照片。
+接下来，选择一张你想要检测对象的图片。这里我们将使用NASA Great Images数据集中的宇航员Eileen Collins的照片。
 
 ```py
 >>> import skimage
@@ -116,7 +116,7 @@ pip install -q transformers
 
 ## 手动进行文本启发的零样本目标检测
 
-现在，您已经了解了如何使用零样本目标检测的pipeline，让我们手动复制相同的结果。
+现在，你已经了解了如何使用零样本目标检测的pipeline，让我们手动复制相同的结果。
 
 首先从[Hugging Face Hub上的检查点](https://huggingface.co/models?other=owlvit)加载模型和相关的processor。
 这里我们将使用与之前相同的检查点：
@@ -149,7 +149,7 @@ pip install -q transformers
 >>> inputs = processor(text=text_queries, images=im, return_tensors="pt")
 ```
 
-将输入传递给模型，进行后处理和可视化结果。由于图像处理器在将图像馈送给模型之前会调整图像大小，因此您需要使用[`~OwlViTImageProcessor.post_process_object_detection`]方法来确保预测的边界框相对于原始图像具有正确的坐标：
+将输入传递给模型，进行后处理和可视化结果。由于图像处理器在将图像馈送给模型之前会调整图像大小，因此你需要使用[`~OwlViTImageProcessor.post_process_object_detection`]方法来确保预测的边界框相对于原始图像具有正确的坐标：
 
 ```py
 >>> import torch
@@ -179,9 +179,9 @@ pip install -q transformers
 
 ## 批量处理
 
-您可以传递多组图像和文本查询来搜索一个或多个图像中的不同（或相同）对象。
+你可以传递多组图像和文本查询来搜索一个或多个图像中的不同（或相同）对象。
 让我们一起使用宇航员图像和海滩图像。
-对于批量处理，您应该将文本查询作为处理器的嵌套列表传递，并将图像作为PIL图像，PyTorch张量或NumPy数组的列表传递。
+对于批量处理，你应该将文本查询作为处理器的嵌套列表传递，并将图像作为PIL图像，PyTorch张量或NumPy数组的列表传递。
 
 ```py
 >>> images = [image, im]
@@ -221,7 +221,7 @@ pip install -q transformers
 
 ## 图像引导的目标检测
 
-除了使用文本查询进行零样本目标检测外，OWL-ViT还提供了图像引导的目标检测。这意味着您可以使用图像查询在目标图像中查找相似的对象。
+除了使用文本查询进行零样本目标检测外，OWL-ViT还提供了图像引导的目标检测。这意味着你可以使用图像查询在目标图像中查找相似的对象。
 与文本查询不同，图像查询只允许一个示例图像。
 
 让我们以一个有两只猫的沙发图像作为目标图像，并以单个猫的图像作为查询：
@@ -278,7 +278,7 @@ pip install -q transformers
      <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/transformers/tasks/zero-sh-obj-detection_6.png" alt="带有边界框的猫"/>
 </div>
 
-如果您想交互式地尝试与OWL-ViT进行推理，请查看此演示:
+如果你想交互式地尝试与OWL-ViT进行推理，请查看此演示:
 
 <iframe
 	src="https://adirik-owl-vit.hf.space"

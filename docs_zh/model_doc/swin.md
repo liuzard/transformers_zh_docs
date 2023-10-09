@@ -2,7 +2,7 @@
 版权 2022 The HuggingFace 团队。 保留所有权利。
 
 根据 Apache 许可证 Version 2.0（"许可证"）许可；除非符合许可证，否则不得使用此文件。
-您可以在以下处获得许可证副本：
+你可以在以下处获得许可证副本：
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件是按"原样"基础分发的，
@@ -26,7 +26,7 @@ Swin Transformer 的这些特点使其与包括图像分类（ImageNet-1K 上的
 分层设计和位移窗口方法对所有 MLP 架构也具有益处。*
 
 提示：
-- 您可以使用 [`AutoImageProcessor`] API 准备模型的图片。
+- 你可以使用 [`AutoImageProcessor`] API 准备模型的图片。
 - Swin 补入并支持任何输入高度和宽度（如果是 `32` 的倍数）。
 - Swin 可以用作 *骨干网络*。当 `output_hidden_states = True` 时，它将输出 `hidden_states` 和 `reshaped_hidden_states`。`reshaped_hidden_states` 的形状为 `(batch, num_channels, height, width)`，而不是 `(batch_size, sequence_length, num_channels)`。
 
@@ -40,7 +40,7 @@ alt="drawing" width="600"/>
 
 ## 资源
 
-以下是官方 Hugging Face 资源以及社区（由 🌎 表示）资源列表，以帮助您开始使用 Swin Transformer。
+以下是官方 Hugging Face 资源以及社区（由 🌎 表示）资源列表，以帮助你开始使用 Swin Transformer。
 
 <PipelineTag pipeline="image-classification"/>
 
@@ -51,7 +51,7 @@ alt="drawing" width="600"/>
 
 - 此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/image-pretraining)支持 [`SwinForMaskedImageModeling`]。
 
-如果您有兴趣提交资源以供包含在此处，请随时发起 Pull Request，我们将审查它！该资源应该理想地展示出一些新东西，而不是重复现有的资源。
+如果你有兴趣提交资源以供包含在此处，请随时发起 Pull Request，我们将审查它！该资源应该理想地展示出一些新东西，而不是重复现有的资源。
 
 ## SwinConfig
 

@@ -1,7 +1,7 @@
 <!--版权所有 2022 HuggingFace团队。保留所有权利。
 
 根据Apache许可证第2版 （“许可证”）进行许可;除非符合许可证的要求，否则不得使用此文件。
-您可以在
+你可以在
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -19,17 +19,17 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 除了🤗 Transformers [notebooks](./noteboks/README)外，还有一些演示如何使用[PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch)，[TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow)或[JAX/Flax](https://github.com/huggingface/transformers/tree/main/examples/flax)训练模型的示例脚本。
 
-您还会发现我们在[研究项目](https://github.com/huggingface/transformers/tree/main/examples/research_projects)和[旧示例](https://github.com/huggingface/transformers/tree/main/examples/legacy)中使用的脚本，它们主要是由社区贡献的。这些脚本不再得到维护，并且需要特定版本的🤗 Transformers，这可能与库的最新版本不兼容。
+你还会发现我们在[研究项目](https://github.com/huggingface/transformers/tree/main/examples/research_projects)和[旧示例](https://github.com/huggingface/transformers/tree/main/examples/legacy)中使用的脚本，它们主要是由社区贡献的。这些脚本不再得到维护，并且需要特定版本的🤗 Transformers，这可能与库的最新版本不兼容。
 
-这些示例脚本不是预计在每个问题上都可以直接使用，您可能需要根据您尝试解决的问题来调整脚本。为了帮助您进行调整，大多数脚本完全显示了如何预处理数据，允许您根据需要进行编辑以适应您的用例。
+这些示例脚本不是预计在每个问题上都可以直接使用，你可能需要根据你尝试解决的问题来调整脚本。为了帮助你进行调整，大多数脚本完全显示了如何预处理数据，允许你根据需要进行编辑以适应你的用例。
 
-如果您想在示例脚本中实现某个功能，请在提交Pull请求之前在[论坛](https://discuss.huggingface.co/)或[问题](https://github.com/huggingface/transformers/issues)中讨论。虽然我们欢迎修复错误，但我们不太可能合并一个在可读性方面具有更多功能但牺牲性能的Pull请求。
+如果你想在示例脚本中实现某个功能，请在提交Pull请求之前在[论坛](https://discuss.huggingface.co/)或[问题](https://github.com/huggingface/transformers/issues)中讨论。虽然我们欢迎修复错误，但我们不太可能合并一个在可读性方面具有更多功能但牺牲性能的Pull请求。
 
-这个指南将向您展示如何在[PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch/summarization)和[TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/summarization)中运行一个示例摘要训练脚本。除非另有说明，所有示例都可以在这两个框架上工作。
+这个指南将向你展示如何在[PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch/summarization)和[TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/summarization)中运行一个示例摘要训练脚本。除非另有说明，所有示例都可以在这两个框架上工作。
 
 ## 设置
 
-要成功运行示例脚本的最新版本，您必须在新的虚拟环境中**从源代码安装🤗 Transformers**：
+要成功运行示例脚本的最新版本，你必须在新的虚拟环境中**从源代码安装🤗 Transformers**：
 
 ```bash
 git clone https://github.com/huggingface/transformers
@@ -72,7 +72,7 @@ pip install .
 	</ul>
 </details>
 
-然后将您当前的🤗 Transformers克隆切换到特定版本，例如v3.5.1：
+然后将你当前的🤗 Transformers克隆切换到特定版本，例如v3.5.1：
 
 ```bash
 git checkout tags/v3.5.1
@@ -125,7 +125,7 @@ python examples/tensorflow/summarization/run_summarization.py  \
 
 ## 分布式训练和混合精度
 
-[训练器](https://huggingface.co/docs/transformers/main_classes/trainer)支持分布式训练和混合精度，这意味着您也可以在脚本中使用它们。要启用这两个功能：
+[训练器](https://huggingface.co/docs/transformers/main_classes/trainer)支持分布式训练和混合精度，这意味着你也可以在脚本中使用它们。要启用这两个功能：
 
 - 添加`fp16`参数以启用混合精度。
 - 使用`nproc_per_node`参数设置要使用的GPU数量。
@@ -192,7 +192,7 @@ python run_summarization.py  \
 
 ## 使用🤗 Accelerate运行脚本
 
-🤗 [Accelerate](https://huggingface.co/docs/accelerate)是仅适用于PyTorch的库，它提供了一种统一的方法，在保持对PyTorch训练循环完全可见的同时，在多种设置（仅CPU、多个GPU、TPU）上训练模型。如果您尚未安装🤗 Accelerate，请确保已安装：
+🤗 [Accelerate](https://huggingface.co/docs/accelerate)是仅适用于PyTorch的库，它提供了一种统一的方法，在保持对PyTorch训练循环完全可见的同时，在多种设置（仅CPU、多个GPU、TPU）上训练模型。如果你尚未安装🤗 Accelerate，请确保已安装：
 
 > 注意：由于Accelerate的快速开发，必须安装accelerate的git版本来运行脚本
 ```bash
@@ -205,7 +205,7 @@ pip install git+https://github.com/huggingface/accelerate
 accelerate config
 ```
 
-测试您的设置以确保其正确配置：
+测试你的设置以确保其正确配置：
 
 ```bash
 accelerate test
@@ -224,7 +224,7 @@ accelerate launch run_summarization_no_trainer.py \
 
 ## 使用自定义数据集
 
-摘要脚本支持自定义数据集，只要它们是CSV或JSON Line文件。当使用自己的数据集时，您需要指定一些额外的参数：
+摘要脚本支持自定义数据集，只要它们是CSV或JSON Line文件。当使用自己的数据集时，你需要指定一些额外的参数：
 
 - `train_file`和`validation_file`指定训练和验证文件的路径。
 - `text_column`是输入要进行摘要的文本。
@@ -283,9 +283,9 @@ examples/pytorch/summarization/run_summarization.py -h
 
 ## 从检查点恢复训练
 
-在训练中断时，从先前的检查点恢复训练是一个有用的选项，这样可以确保您可以继续之前的工作，而不是从头开始。从检查点恢复训练有两种方法。
+在训练中断时，从先前的检查点恢复训练是一个有用的选项，这样可以确保你可以继续之前的工作，而不是从头开始。从检查点恢复训练有两种方法。
 
-第一种方法使用`output_dir previous_output_dir`参数从存储在`output_dir`中的最新检查点恢复训练。在这种情况下，您应该删除`overwrite_output_dir`：
+第一种方法使用`output_dir previous_output_dir`参数从存储在`output_dir`中的最新检查点恢复训练。在这种情况下，你应该删除`overwrite_output_dir`：
 
 ```bash
 python examples/pytorch/summarization/run_summarization.py

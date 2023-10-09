@@ -1,14 +1,14 @@
 <!--版权2021 The HuggingFace 团队。保留所有权利。
 
 根据Apache许可证，版本2.0（"许可证"）许可；除非符合所述许可证，否则不得使用此文件。
-您可以获得许可证的副本，许可证网址为
+你可以获得许可证的副本，许可证网址为
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可证分发的软件是基于"原样"的基础，不附带任何形式的明示或暗示的保证。
 有关特定语言的限制和限制的信息，请参阅许可证。
 
-⚠️ 请注意，此文件是Markdown格式，但包含供我们的文档构建程序（类似于MDX）的特定语法，可能无法在您的Markdown查看器中正确显示。
+⚠️ 请注意，此文件是Markdown格式，但包含供我们的文档构建程序（类似于MDX）的特定语法，可能无法在你的Markdown查看器中正确显示。
 
 -->
 
@@ -32,7 +32,7 @@ from transformers import LukeModel
 model = LukeModel.from_pretrained("studio-ousia/mluke-base")
 ```
 
-请注意，mLUKE有自己的标记器[`MLukeTokenizer`]。您可以按以下方式初始化它：
+请注意，mLUKE有自己的标记器[`MLukeTokenizer`]。你可以按以下方式初始化它：
 
 ```python
 from transformers import MLukeTokenizer

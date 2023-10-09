@@ -1,7 +1,7 @@
 <!--版权 2023年The HuggingFace团队，保留所有权利。
 
-根据Apache许可证第2.0版 (the "License")授权；您除遵守License之外不得使用此文件。
-您可以在以下位置获取License的副本
+根据Apache许可证第2.0版 (the "License")授权；你除遵守License之外不得使用此文件。
+你可以在以下位置获取License的副本
 
 http://www.apache.org/licenses/LICENSE-2.0
 
@@ -68,7 +68,7 @@ Audio(waveform, rate=model.config.sampling_rate)
 
 对于某些具有非罗马字母表的语言，如阿拉伯语、普通话或印地语，需要使用[`uroman`](https://github.com/isi-nlp/uroman) Perl包对文本进行预处理。
 
-您可以通过检查预训练`tokenizer`的`is_uroman`属性，来查看您的语言是否需要`uroman`包:
+你可以通过检查预训练`tokenizer`的`is_uroman`属性，来查看你的语言是否需要`uroman`包:
 
 ```python
 from transformers import VitsTokenizer
@@ -77,7 +77,7 @@ tokenizer = VitsTokenizer.from_pretrained("facebook/mms-tts-eng")
 print(tokenizer.is_uroman)
 ```
 
-如果需要，您应该在将文本输入传递给`VitsTokenizer`之前，将uroman包应用于文本输入。因为目前的分词器不支持执行预处理本身。
+如果需要，你应该在将文本输入传递给`VitsTokenizer`之前，将uroman包应用于文本输入。因为目前的分词器不支持执行预处理本身。
 
 首先将uroman存储库克隆到本地计算机，并将bash变量`UROMAN`设置为本地路径:
 
@@ -87,7 +87,7 @@ cd uroman
 export UROMAN=$(pwd)
 ```
 
-然后，您可以使用以下代码片段使用uroman包进行文本输入的预处理。您可以依赖于使用bash变量`UROMAN`指向uroman存储库，或者将uroman目录作为参数传递给`uromaize`函数：
+然后，你可以使用以下代码片段使用uroman包进行文本输入的预处理。你可以依赖于使用bash变量`UROMAN`指向uroman存储库，或者将uroman目录作为参数传递给`uromaize`函数：
 
 ```python
 import torch

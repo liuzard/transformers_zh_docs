@@ -1,13 +1,13 @@
 <!--版权所有2021年The HuggingFace团队。保留所有权利。
 
-根据Apache许可证第2.0版（“许可证”）的规定，除非符合许可证的规定，否则您不得使用此文件。
-您可以在以下网址获得许可证副本：
+根据Apache许可证第2.0版（“许可证”）的规定，除非符合许可证的规定，否则你不得使用此文件。
+你可以在以下网址获得许可证副本：
 
 http://www.apache.org/licenses/LICENSE-2.0
 
 除非适用法律要求或书面同意，根据许可以及其附带的条款分发的软件是基于“按原样”基础分发的，无论是明示还是暗示，不附带任何明示或暗示的保证。有关许可证的详细信息，请参阅许可证。
 
-⚠️请注意，此文件采用Markdown格式，但包含特定于我们文档生成器（类似于MDX）的语法，可能无法在您的Markdown查看器中正确显示。-->
+⚠️请注意，此文件采用Markdown格式，但包含特定于我们文档生成器（类似于MDX）的语法，可能无法在你的Markdown查看器中正确显示。-->
 
 # 语音转文本
 
@@ -24,7 +24,7 @@ Speech2Text是一个接受从语音信号中提取出的对数梅尔滤波器组
 
 [`Speech2TextFeatureExtractor`]类负责提取对数梅尔滤波器组特征。[`Speech2TextProcessor`]将[`Speech2TextFeatureExtractor`]和[`Speech2TextTokenizer`]封装到一个实例中，用于同时提取输入特征并解码预测的标记ID。
 
-特征提取器依赖于`torchaudio`，分词器依赖于`sentencepiece`，所以在运行示例之前，请务必安装这些软件包。您可以使用`pip install transformers"[speech, sentencepiece]"`将它们作为额外的语音依赖项安装，或者使用`pip install torchaudio sentencepiece`单独安装软件包。此外，`torchaudio`需要[libsndfile](http://www.mega-nerd.com/libsndfile/)软件包的开发版本，该软件包可以通过系统软件包管理器安装。在Ubuntu上，可以按照以下步骤进行安装：`apt install libsndfile1-dev`
+特征提取器依赖于`torchaudio`，分词器依赖于`sentencepiece`，所以在运行示例之前，请务必安装这些软件包。你可以使用`pip install transformers"[speech, sentencepiece]"`将它们作为额外的语音依赖项安装，或者使用`pip install torchaudio sentencepiece`单独安装软件包。此外，`torchaudio`需要[libsndfile](http://www.mega-nerd.com/libsndfile/)软件包的开发版本，该软件包可以通过系统软件包管理器安装。在Ubuntu上，可以按照以下步骤进行安装：`apt install libsndfile1-dev`
 
 
 - ASR和语音翻译

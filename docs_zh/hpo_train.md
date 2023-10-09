@@ -1,13 +1,13 @@
 # 使用Trainer API进行超参数搜索
 
-🤗 Transformers 提供了一个经过优化的 [`Trainer`] 类来训练🤗 Transformers 模型，可以让您在没有手动编写训练循环的情况下轻松开始训练。[`Trainer`] 提供了用于超参数搜索的 API。本文档将展示如何在示例中启用超参数搜索。
+🤗 Transformers 提供了一个经过优化的 [`Trainer`] 类来训练🤗 Transformers 模型，可以让你在没有手动编写训练循环的情况下轻松开始训练。[`Trainer`] 提供了用于超参数搜索的 API。本文档将展示如何在示例中启用超参数搜索。
 
 ## 超参数搜索后端
 
 [`Trainer`] 当前支持四种超参数搜索后端：
 [optuna](https://optuna.org/)，[sigopt](https://sigopt.com/)，[raytune](https://docs.ray.io/en/latest/tune/index.html) 和 [wandb](https://wandb.ai/site/sweeps)。
 
-在使用这些超参数搜索后端之前，您需要安装它们：
+在使用这些超参数搜索后端之前，你需要安装它们：
 ```bash
 pip install optuna/sigopt/wandb/ray[tune] 
 ```
@@ -39,7 +39,7 @@ pip install optuna/sigopt/wandb/ray[tune]
 ...     }
 ```
 
-Optuna 提供了多目标超参数优化。您可以在 `hyperparameter_search` 中传递 `direction` 并定义自己的 `compute_objective` 函数来返回多个目标值。Pareto 前沿（`List[BestRun]`）将在超参数搜索中返回，您可以参考 [test_trainer](https://github.com/huggingface/transformers/blob/main/tests/trainer/test_trainer.py) 中的 `TrainerHyperParameterMultiObjectOptunaIntegrationTest` 测试用例。示例如下
+Optuna 提供了多目标超参数优化。你可以在 `hyperparameter_search` 中传递 `direction` 并定义自己的 `compute_objective` 函数来返回多个目标值。Pareto 前沿（`List[BestRun]`）将在超参数搜索中返回，你可以参考 [test_trainer](https://github.com/huggingface/transformers/blob/main/tests/trainer/test_trainer.py) 中的 `TrainerHyperParameterMultiObjectOptunaIntegrationTest` 测试用例。示例如下
 
 ```py
 >>> best_trials = trainer.hyperparameter_search(
