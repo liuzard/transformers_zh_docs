@@ -16,9 +16,9 @@ rendered properly in your Markdown viewer.
 
 # 安装
 
-根据你正在使用的深度学习库的来安装🤗Transformers模块，设置缓存，并且可以配置🤗Transformers以离线运行。
+你可以根据正在使用的深度学习库的来安装🤗Transformers模块，设置缓存，并且可以配置🤗Transformers以离线的方式运行。
 
-🤗Transformers已经在Python 3.6+、PyTorch 1.1.0+、TensorFlow 2.0+和Flax上进行了测试。请根据你使用的深度学习库的安装说明进行操作：
+🤗Transformers已经在Python 3.6+、PyTorch 1.1.0+、TensorFlow 2.0+和Flax上进行了测试。请根据你想要使用的深度学习库进行安装：
 
 * [PyTorch安装引导](https://pytorch.org/get-started/locally/)
 * [TensorFlow 2.0安装引导](https://www.tensorflow.org/install/pip)
@@ -26,7 +26,7 @@ rendered properly in your Markdown viewer.
 
 ## 通过pip安装
 
-在你的项目中，你应该在[虚拟环境](https://docs.python.org/3/library/venv.html)中安装🤗Transformers。如果你对Python虚拟环境不熟悉，请参考这个[指南](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)。虚拟环境可以更轻松地管理不同的项目，并避免依赖项之间的兼容性问题。
+在项目中，你应该在[虚拟环境](https://docs.python.org/3/library/venv.html)中安装🤗Transformers。如果你对Python虚拟环境不熟悉，请参考这个[指南](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)。虚拟环境可以更轻松地管理不同的项目，并避免依赖项之间的兼容性问题。
 
 首先，在你的项目目录中创建一个虚拟环境：
 
@@ -77,7 +77,7 @@ brew install pkg-config
 pip install 'transformers[flax]'
 ```
 
-最后，通过运行以下命令来检查🤗Transformers是否已正确安装。该命令将下载一个预训练模型：
+最后，通过运行以下命令来检查🤗Transformers是否已正确安装。该命令将下载一个预训练模型（注意：可能需要科学上网）：
 
 ```bash
 python -c "from transformers import pipeline; print(pipeline('sentiment-analysis')('we love you'))"
@@ -120,7 +120,7 @@ cd transformers
 pip install -e .
 ```
 
-这些命令将把你克隆存储库的文件夹链接到Python库路径中。Python现在会在正常的库路径之外，也会查找你克隆到的文件夹内的内容。例如，如果你通常的Python包安装在`~/anaconda3/envs/main/lib/python3.7/site-packages/`中，Python也会搜索你克隆到的文件夹：`~/transformers/`。
+这些命令将把你克隆的项目文件夹链接到Python库路径中。Python现在会在正常的库路径之外，查找你克隆的项目文件夹内的内容。例如，如果你通常的Python包安装在`~/anaconda3/envs/main/lib/python3.7/site-packages/`中，Python也会搜索你克隆的文件夹：`~/transformers/`。
 
 <Tip warning={true}>
 
@@ -128,7 +128,7 @@ pip install -e .
 
 </Tip>
 
-现在，你可以使用以下命令轻松更新克隆版本到最新的🤗Transformers：
+现在，你可以使用以下命令轻松拉取最新的🤗Transformers：
 
 ```bash
 cd ~/transformers/
@@ -139,7 +139,7 @@ git pull
 
 ## 通过conda安装
 
-I从conda频道`huggingface`安装：
+从conda频道`huggingface`安装：
 
 ```bash
 conda install -c huggingface transformers
@@ -155,7 +155,7 @@ conda install -c huggingface transformers
 
 <Tip>
 
-🤗Transformers将使用shell环境变量`PYTORCH_TRANSFORMERS_CACHE`或`PYTORCH_PRETRAINED_BERT_CACHE`，如果你是从此库的早期版本转换过来并设置了这些环境变量，除非你指定了shell环境变量`TRANSFORMERS_CACHE`。
+如果你是从此库的早期版本转换过来并设置了这些环境变量，🤗Transformers将使用shell环境变量`PYTORCH_TRANSFORMERS_CACHE`或`PYTORCH_PRETRAINED_BERT_CACHE`，除非你指定了shell环境变量`TRANSFORMERS_CACHE`。
 
 </Tip>
 
@@ -182,7 +182,7 @@ HF_DATASETS_OFFLINE=1 TRANSFORMERS_OFFLINE=1 \
 python examples/pytorch/translation/run_translation.py --model_name_or_path t5-small --dataset_name wmt16 --dataset_config ro-en ...
 ```
 
-脚本现在应该能够正常运行，而无需等待超时，因为它只会查找本地文件。
+现在脚本应该能够正常运行，而无需等待超时，因为它只会查找本地文件。
 
 ### 离线获取模型和分词器
 
