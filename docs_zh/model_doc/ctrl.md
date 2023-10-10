@@ -36,7 +36,7 @@ CTRL模型在Nitish Shirish Keskar*, Bryan McCann*, Lav R. Varshney, Caiming Xio
 
 - CTRL使用控制代码生成文本：它要求以特定的单词、句子或链接开始生成连贯的文本。有关更多信息，请参阅 [原始实现](https://github.com/salesforce/ctrl)。
 - CTRL是一个带有绝对位置嵌入的模型，因此通常建议将输入在右侧而不是左侧进行填充。
-- CTRL通过因果语言建模（CLM）目标进行训练，因此在序列中通过预测下一个令牌的特征进行训练。利用这个特性，CTRL可以生成语法连贯的文本，例如在*run_generation.py*示例脚本中可以观察到。
+- CTRL通过因果语言建模（CLM）目标进行训练，因此在序列中通过预测下一个token的特征进行训练。利用这个特性，CTRL可以生成语法连贯的文本，例如在*run_generation.py*示例脚本中可以观察到。
 - PyTorch模型可以接受`past_key_values`作为输入，这是先前计算的键/值注意力对。TensorFlow模型接受`past`作为输入。使用`past_key_values`值可以防止模型在文本生成的上下文中重新计算预先计算的值。有关此参数的用法，请参阅 [`forward`](model_doc/ctrl#transformers.CTRLModel.forward) 方法。
 
 此模型由[keskarnitishr](https://huggingface.co/keskarnitishr)贡献。原始代码可以在[此处](https://github.com/salesforce/ctrl)找到。

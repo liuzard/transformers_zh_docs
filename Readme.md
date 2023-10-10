@@ -56,7 +56,7 @@
 
 3.3 机器视觉
 
-- [图像分类](docs_zh/transformers_agents.md)
+- [图像分类](docs_zh/tasks/image_classification.md)
 - [图像分割](docs_zh/tasks/semantic_segmentation.md)
 - [视频分类](docs_zh/tasks/video_classification.md)
 - [目标检测](docs_zh/tasks/object_detection.md)

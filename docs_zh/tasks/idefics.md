@@ -105,7 +105,7 @@ IDEFICS处理器将[`LlamaTokenizer`]和IDEFICS图像处理器包装在一个单
 
 [Photo by Hendo Wang](https://unsplash.com/@hendoo)。
 
-IDEFICS接受文本和图像提示。但是，要给图像添加字幕，你无需向模型提供文本提示，只需提供经过预处理的输入图像即可。模型将从开始序列令牌（BOS）开始生成文本，从而创建标题。
+IDEFICS接受文本和图像提示。但是，要给图像添加字幕，你无需向模型提供文本提示，只需提供经过预处理的输入图像即可。模型将从开始序列token（BOS）开始生成文本，从而创建标题。
 
 你可以使用图像对象（`PIL.Image`）或从中检索图像的URL作为模型的图像输入。
 

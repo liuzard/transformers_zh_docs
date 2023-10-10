@@ -28,7 +28,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 - 有关推断以及在自定义数据上微调ViT的演示笔记本可以在[此处找到](https://github.com/NielsRogge/Transformers-Tutorials/tree/master/VisionTransformer)。
 - 为了将图像馈送到Transformer编码器中，将每个图像分成一系列固定大小且没有重叠的块，
-  然后进行线性嵌入。添加了[CLS]令牌以用作整个图像的表示，可用于分类。作者还添加了绝对位置嵌入，
+  然后进行线性嵌入。添加了[CLS]token以用作整个图像的表示，可用于分类。作者还添加了绝对位置嵌入，
   并将结果向量序列馈送到标准的Transformer编码器。
 - 由于Vision Transformer期望每个图像的大小（分辨率）相同，因此可以使用
   [`ViTImageProcessor`]来为模型调整图像的大小（或重新缩放）并进行规范化。

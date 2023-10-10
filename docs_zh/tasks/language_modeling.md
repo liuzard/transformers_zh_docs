@@ -32,7 +32,7 @@
 pip install transformers datasets evaluate
 ```
 
-我们建议你登录Hugging Face帐户，这样你就可以将模型上传并与社区共享。在提示时，输入你的令牌进行登录：
+我们建议你登录Hugging Face帐户，这样你就可以将模型上传并与社区共享。在提示时，输入你的token进行登录：
 
 ```py
 >>> from huggingface_hub import notebook_login
@@ -163,7 +163,7 @@ pip install transformers datasets evaluate
 
 <frameworkcontent>
 <pt>
-使用终止序列令牌作为填充令牌，并设置`mlm=False`。这将使用右移一个元素的标签作为输入：
+使用终止序列token作为填充token，并设置`mlm=False`。这将使用右移一个元素的标签作为输入：
 
 ```py
 >>> from transformers import DataCollatorForLanguageModeling
@@ -174,7 +174,7 @@ pip install transformers datasets evaluate
 
 </pt>
 <tf>
-使用终止序列令牌作为填充令牌，并设置`mlm=False`。这将使用右移一个元素的标签作为输入：
+使用终止序列token作为填充token，并设置`mlm=False`。这将使用右移一个元素的标签作为输入：
 
 ```py
 >>> from transformers import DataCollatorForLanguageModeling
@@ -344,7 +344,7 @@ Perplexity: 49.61
 
 <frameworkcontent>
 <pt>
-将文本令牌化并将`input_ids`返回为PyTorch张量：
+将文本分词处理并将`input_ids`返回为PyTorch张量：
 
 ```py
 >>> from transformers import AutoTokenizer
@@ -362,7 +362,7 @@ Perplexity: 49.61
 >>> outputs = model.generate(inputs, max_new_tokens=100, do_sample=True, top_k=50, top_p=0.95)
 ```
 
-将生成的令牌id解码回文本：
+将生成的token id解码回文本：
 
 ```py
 >>> tokenizer.batch_decode(outputs, skip_special_tokens=True)
@@ -370,7 +370,7 @@ Perplexity: 49.61
 ```
 </pt>
 <tf>
-将文本令牌化并将`input_ids`返回为TensorFlow张量：
+将文本分词处理并将`input_ids`返回为TensorFlow张量：
 
 ```py
 >>> from transformers import AutoTokenizer
@@ -388,7 +388,7 @@ Perplexity: 49.61
 >>> outputs = model.generate(input_ids=inputs, max_new_tokens=100, do_sample=True, top_k=50, top_p=0.95)
 ```
 
-将生成的令牌id解码回文本：
+将生成的token id解码回文本：
 
 ```py
 >>> tokenizer.batch_decode(outputs, skip_special_tokens=True)

@@ -173,7 +173,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ### 输入ID
 
-输入ID通常是传递给模型的唯一必需参数。它们是令牌索引，也就是由构建输入序列的标记的数字表示形式。
+输入ID通常是传递给模型的唯一必需参数。它们是token索引，也就是由构建输入序列的标记的数字表示形式。
 
 <Youtube id="VFp38yj8h3A"/>
 
@@ -214,7 +214,7 @@ tokenizer返回一个带有所有必要参数的字典，以便其对应的模�
 [101, 138, 18696, 155, 1942, 3190, 1144, 1572, 13745, 1104, 159, 9664, 2107, 102]
 ```
 
-请注意，tokenizer会自动添加一些"特殊令牌"(如果相关模型需要)，这些特殊令牌是模型有时使用的特殊ID。
+请注意，tokenizer会自动添加一些"特殊token"(如果相关模型需要)，这些特殊token是模型有时使用的特殊ID。
 
 如果我们解码先前的ID序列，
 
@@ -240,13 +240,13 @@ tokenizer返回一个带有所有必要参数的字典，以便其对应的模�
 这些标签根据模型头部的不同而不同，例如：
 
 - 对于序列分类模型([`BertForSequenceClassification`])，模型期望具有`(batch_size)`维度的张量，批的每个值对应整个序列的预期标签。
-- 对于令牌分类模型([`BertForTokenClassification`])，模型期望具有`(batch_size, seq_length)`维度的张量，每个值对应每个个体令牌的预期标签。
-- 对于掩蔽语言建模([`BertForMaskedLM`])，模型期望具有`(batch_size, seq_length)`维度的张量，每个值对应每个个体令牌的预期标签：标签为掩蔽令牌的标记ID，其余值为待忽略的(通常为-100)。
+- 对于token分类模型([`BertForTokenClassification`])，模型期望具有`(batch_size, seq_length)`维度的张量，每个值对应每个个体token的预期标签。
+- 对于掩蔽语言建模([`BertForMaskedLM`])，模型期望具有`(batch_size, seq_length)`维度的张量，每个值对应每个个体token的预期标签：标签为掩蔽token的标记ID，其余值为待忽略的(通常为-100)。
 - 对于序列到序列任务([`BartForConditionalGeneration`], [`MBartForConditionalGeneration`])，模型期望具有`(batch_size, tgt_seq_length)`维度的张量，每个值对应每个输入序列的目标序列。在训练期间，BART和T5将在内部生成适当的`decoder_input_ids`和解码器注意力掩码。通常情况下，它们不需要被提供。这不适用于使用编码器-解码器框架的模型。
 - 对于图像分类模型([`ViTForImageClassification`])，模型期望具有`(batch_size)`维度的张量，每个值对应每个个体图像的预期标签。
 - 对于语义分割模型([`SegformerForSemanticSegmentation`])，模型期望具有`(batch_size, height, width)`维度的张量，每个值对应每个个体像素的预期标签。
 - 对于物体检测模型([`DetrForObjectDetection`])，模型期望具有字典的列表，其中包含`class_labels`和`boxes`键，批的每个值对应每个个体图像的预期标签和边界框数量。
-- 对于自动语音识别模型([`Wav2Vec2ForCTC`])，模型期望具有`(batch_size, target_length)`维度的张量，每个值对应每个个体令牌的预期标签。
+- 对于自动语音识别模型([`Wav2Vec2ForCTC`])，模型期望具有`(batch_size, target_length)`维度的张量，每个值对应每个个体token的预期标签。
   
 <Tip>
 

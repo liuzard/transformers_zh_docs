@@ -102,7 +102,7 @@ pip install -q transformers
      <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/transformers/tasks/car.jpg" alt="一辆汽车的照片"/>
 </div>
 
-使用处理器为模型准备输入。处理器包括一个图像处理器，它通过调整大小和归一化来准备模型的图像，以及一个令牌处理器，它负责处理文本输入。
+使用处理器为模型准备输入。处理器包括一个图像处理器，它通过调整大小和归一化来准备模型的图像，以及一个token处理器，它负责处理文本输入。
 
 ```py
 >>> candidate_labels = ["树", "汽车", "自行车", "猫"]

@@ -23,7 +23,7 @@ CLIP模型是由Alec Radford、Jong Wook Kim、Chris Hallacy、Aditya Ramesh、G
 
 CLIP是一个多模态的视觉和语言模型。它可以用于图像-文本相似度和零样本图像分类。CLIP使用类似ViT的transformer获取视觉特征，并使用一种因果语言模型获取文本特征。然后将文本和视觉特征投影到一个相同维度的潜空间中，然后使用投影图像和文本特征之间的点积作为相似分数。
 
-为了将图像输入Transformer编码器，需要将每个图像分割成一个固定大小的非重叠的补丁序列，然后进行线性嵌入。添加[CLS]令牌作为整个图像的表示。作者还添加了绝对位置嵌入，并将生成的向量序列馈送到标准Transformer编码器中。[`CLIPImageProcessor`]可用于调整（或缩放）和规范化模型的图像。
+为了将图像输入Transformer编码器，需要将每个图像分割成一个固定大小的非重叠的补丁序列，然后进行线性嵌入。添加[CLS]token作为整个图像的表示。作者还添加了绝对位置嵌入，并将生成的向量序列馈送到标准Transformer编码器中。[`CLIPImageProcessor`]可用于调整（或缩放）和规范化模型的图像。
 
 [`CLIPTokenizer`]用于编码文本。[`CLIPProcessor`]封装了[`CLIPImageProcessor`]和[`CLIPTokenizer`]，用于同时编码文本和准备图像。以下示例展示了如何使用[`CLIPProcessor`]和[`CLIPModel`]获取图像文本相似性得分。
 

@@ -36,7 +36,7 @@ pip install -q pytorchvideo transformers evaluate
 
 你将使用[PyTorchVideo](https://pytorchvideo.org/)（称为`pytorchvideo`）来处理和准备视频。
 
-我们鼓励你登录你的Hugging Face帐户，这样你就可以上传和与社区分享模型。在提示时输入你的令牌登录：
+我们鼓励你登录你的Hugging Face帐户，这样你就可以上传和与社区分享模型。在提示时输入你的token登录：
 
 ```py
 >>> from huggingface_hub import notebook_login

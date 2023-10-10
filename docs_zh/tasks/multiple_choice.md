@@ -39,7 +39,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 pip install transformers datasets evaluate
 ```
 
-我们建议登录你的Hugging Face账户，这样你可以上传并与社区共享你的模型。在提示时，输入你的令牌登录：
+我们建议登录你的Hugging Face账户，这样你可以上传并与社区共享你的模型。在提示时，输入你的token登录：
 
 ```py
 >>> from huggingface_hub import notebook_login

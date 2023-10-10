@@ -13,7 +13,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 # Pipelines用于推理
 
-[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)使得在任何语言、计算机视觉、语音和多模态任务上使用[Hub](https://huggingface.co/models)中的任何模型变得非常简单。即使你对特定模态没有经验或不熟悉模型背后的底层代码，你仍然可以使用[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)进行推理！本教程将教你：
+[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)使得在任何自然语言处理、计算机视觉、语音和多模态任务上使用[Hub](https://huggingface.co/models)中的任何模型变得非常简单。即使你对特定模态没有经验或不熟悉模型背后的底层代码，你仍然可以使用[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)进行推理！本教程将教你：
 
 - 使用[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)进行推理。
 - 使用特定的分词器或模型。

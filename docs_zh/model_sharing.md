@@ -49,7 +49,7 @@ picture-in-picture" allowfullscreen></iframe>
 
 ## 设置
 
-在将模型分享到Hub之前，你需要准备好Hugging Face凭据。如果你可以访问终端，请在安装了🤗 Transformers的虚拟环境中运行以下命令。这将把访问令牌存储在你的Hugging Face缓存文件夹中（默认为`~/.cache/`）：
+在将模型分享到Hub之前，你需要准备好Hugging Face凭据。如果你可以访问终端，请在安装了🤗 Transformers的虚拟环境中运行以下命令。这将把访问token存储在你的Hugging Face缓存文件夹中（默认为`~/.cache/`）：
 
 ```bash
 huggingface-cli login
@@ -61,7 +61,7 @@ huggingface-cli login
 pip install huggingface_hub
 ```
 
-然后使用`notebook_login`登录到Hub，并点击[这里](https://huggingface.co/settings/token)生成一个令牌以进行登录：
+然后使用`notebook_login`登录到Hub，并点击[这里](https://huggingface.co/settings/token)生成一个token以进行登录：
 
 ```py
 >>> from huggingface_hub import notebook_login

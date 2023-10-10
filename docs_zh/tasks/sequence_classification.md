@@ -26,7 +26,7 @@
 pip install transformers datasets evaluate
 ```
 
-我们鼓励你登录到你的 Hugging Face 账户，以便你可以上传和分享模型。在提示时输入你的令牌登录：
+我们鼓励你登录到你的 Hugging Face 账户，以便你可以上传和分享模型。在提示时输入你的token登录：
 
 ```python
 >>> from huggingface_hub import notebook_login
@@ -307,7 +307,7 @@ tokenized_imdb = imdb.map(preprocess_function, batched=True)
 >>> text = "This was a masterpiece. Not completely faithful to the books, but enthralling from beginning to end. Might be my favorite of the three."
 ```
 
-The simplest way to try out your finetuned model for inference is to use it in a [`pipeline`]. Instantiate a `pipeline` for sentiment analysis with your model, and pass your text to it:
+使用微调后的模型进行推理的最简单方法是在[`pipeline`]中使用它。实例化一个用于情感分析的`pipeline`，并将文本传递给它：
 
 ```py
 >>> from transformers import pipeline
@@ -317,11 +317,11 @@ The simplest way to try out your finetuned model for inference is to use it in a
 [{'label': 'POSITIVE', 'score': 0.9994940757751465}]
 ```
 
-You can also manually replicate the results of the `pipeline` if you'd like:
+如果你愿意，你也可以手动复制`pipeline`的结果:
 
 <frameworkcontent>
 <pt>
-Tokenize the text and return PyTorch tensors:
+对文本进行分词并返回PyTorch张量：
 
 ```py
 >>> from transformers import AutoTokenizer
@@ -330,7 +330,7 @@ Tokenize the text and return PyTorch tensors:
 >>> inputs = tokenizer(text, return_tensors="pt")
 ```
 
-Pass your inputs to the model and return the `logits`:
+将输入传递给模型并返回`logits`：
 
 ```py
 >>> from transformers import AutoModelForSequenceClassification
@@ -340,7 +340,7 @@ Pass your inputs to the model and return the `logits`:
 ...     logits = model(**inputs).logits
 ```
 
-Get the class with the highest probability, and use the model's `id2label` mapping to convert it to a text label:
+获取具有最高概率的类别，并使用模型的`id2label`映射将其转换为文本标签：
 
 ```py
 >>> predicted_class_id = logits.argmax().item()
@@ -349,7 +349,7 @@ Get the class with the highest probability, and use the model's `id2label` mappi
 ```
 </pt>
 <tf>
-Tokenize the text and return TensorFlow tensors:
+对文本进行分词并返回TensorFlow张量：
 
 ```py
 >>> from transformers import AutoTokenizer
@@ -358,7 +358,7 @@ Tokenize the text and return TensorFlow tensors:
 >>> inputs = tokenizer(text, return_tensors="tf")
 ```
 
-Pass your inputs to the model and return the `logits`:
+将输入传递给模型并返回`logits`：
 
 ```py
 >>> from transformers import TFAutoModelForSequenceClassification
@@ -367,7 +367,7 @@ Pass your inputs to the model and return the `logits`:
 >>> logits = model(**inputs).logits
 ```
 
-Get the class with the highest probability, and use the model's `id2label` mapping to convert it to a text label:
+获取具有最高概率的类别，并使用模型的`id2label`映射将其转换为文本标签：
 
 ```py
 >>> predicted_class_id = int(tf.math.argmax(logits, axis=-1)[0])
@@ -376,4 +376,3 @@ Get the class with the highest probability, and use the model's `id2label` mappi
 ```
 </tf>
 </frameworkcontent>
-```

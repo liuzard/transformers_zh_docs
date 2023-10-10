@@ -143,3 +143,11 @@ rendered properly in your Markdown viewer.
 
 >>> metric.compute()
 ```
+
+## 其他资源
+
+更多微调示例，请参考：
+
+- [🤗 Transformers 示例](https://github.com/huggingface/transformers/tree/main/examples) 包含了在 PyTorch 和 TensorFlow 中训练常见 NLP 任务的脚本。
+
+- [🤗 Transformers 笔记本](notebooks) 包含了使用 PyTorch 和 TensorFlow 对特定任务进行模型微调的各种笔记本。

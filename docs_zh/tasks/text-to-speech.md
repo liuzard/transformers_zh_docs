@@ -65,7 +65,7 @@ pip install git+https://github.com/huggingface/transformers.git
 
 </Tip>
 
-我们鼓励你登录Hugging Face帐户，以上传和共享模型。在提示时，请输入你的令牌以登录：
+我们鼓励你登录Hugging Face帐户，以上传和共享模型。在提示时，请输入你的token以登录：
 
 ```py
 >>> from huggingface_hub import notebook_login

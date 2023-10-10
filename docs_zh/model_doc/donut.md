@@ -39,7 +39,7 @@ alt="drawing" width="600"/>
 Donut的[`VisionEncoderDecoder`]模型接受图像作为输入，并使用[`~generation.GenerationMixin.generate`]来自回归地生成给定输入图像的文本。
 
 [`DonutImageProcessor`]类负责对输入图像进行预处理，
-[`XLMRobertaTokenizer`/`XLMRobertaTokenizerFast`]解码生成的目标令牌为目标字符串。[`DonutProcessor`]封装了[`DonutImageProcessor`]和[`XLMRobertaTokenizer`/`XLMRobertaTokenizerFast`]，成为一个单一实例，用于提取输入特征并解码预测的令牌id。
+[`XLMRobertaTokenizer`/`XLMRobertaTokenizerFast`]解码生成的目标token为目标字符串。[`DonutProcessor`]封装了[`DonutImageProcessor`]和[`XLMRobertaTokenizer`/`XLMRobertaTokenizerFast`]，成为一个单一实例，用于提取输入特征并解码预测的tokenid。
 
 - 逐步进行文档图像分类
 

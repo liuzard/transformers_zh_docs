@@ -37,7 +37,7 @@ from transformers import AutoModel
 model = AutoModel.from_pretrained("microsoft/dit-base")
 ```
 
-这将加载在遮蔽图像建模方面进行预训练的模型。请注意，这不包括用于预测视觉令牌的语言建模头部。
+这将加载在遮蔽图像建模方面进行预训练的模型。请注意，这不包括用于预测视觉token的语言建模头部。
 
 如果要包含头部，可以将权重加载到`BeitForMaskedImageModeling`模型中，如下所示：
 

@@ -32,7 +32,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 实现说明：
 
 - MEGA的原始实现在对填充和因果自注意力的注意力掩码的期望上存在不一致性。此实现解决了这个问题。
-- 原始实现不包括令牌类型嵌入；此实现通过MegaConfig.add_token_type_embeddings选项来支持这些功能。
+- 原始实现不包括token类型嵌入；此实现通过MegaConfig.add_token_type_embeddings选项来支持这些功能。
 
 ## MegaConfig
 

@@ -103,7 +103,7 @@ transcription = processor.decode(ids)
 # 'joe keton disapproved of films and buster also had reservations about the media'
 ```
 
-现在，我们可以将相同的模型保存在内存中，只需调用模型的方便的[`~Wav2Vec2ForCTC.load_adapter`]功能，以及令牌器的[`~Wav2Vec2CTCTokenizer.set_target_lang`]功能 来更改语言适配器。我们将目标语言作为输入传递给它，对于法语是`"fra"`。
+现在，我们可以将相同的模型保存在内存中，只需调用模型的方便的[`~Wav2Vec2ForCTC.load_adapter`]功能，以及token器的[`~Wav2Vec2CTCTokenizer.set_target_lang`]功能 来更改语言适配器。我们将目标语言作为输入传递给它，对于法语是`"fra"`。
 
 ```py
 processor.tokenizer.set_target_lang("fra")
@@ -143,7 +143,7 @@ pip install --upgrade transformers accelerate
 
 由于VITS中的基于流的模型是非确定性的，为了确保输出的可重复性，最好设置一个种子。
 
-- 对于具有罗马字母的语言（如英语或法语），可以直接使用令牌器对文本进行预处理。以下代码示例运行了使用MMS-TTS英语检查点的正向传递：
+- 对于具有罗马字母的语言（如英语或法语），可以直接使用token器对文本进行预处理。以下代码示例运行了使用MMS-TTS英语检查点的正向传递：
 
 ```python
 import torch
@@ -180,7 +180,7 @@ Audio(waveform, rate=model.config.sampling_rate)
 
 对于某些具有非罗马字母方案（如阿拉伯语、汉语或印地语）的语言，需要[`uroman`](https://github.com/isi-nlp/uroman)Perl软件包来对文本输入进行预处理，将文字转换为罗马字母。
 
-你可以通过检查预训练令牌器的`is_uroman`属性来确定你的语言是否需要`uroman`软件包：
+你可以通过检查预训练token器的`is_uroman`属性来确定你的语言是否需要`uroman`软件包：
 
 ```python
 from transformers import VitsTokenizer
@@ -189,7 +189,7 @@ tokenizer = VitsTokenizer.from_pretrained("facebook/mms-tts-eng")
 print(tokenizer.is_uroman)
 ```
 
-如果需要，你应该在将文本输入传递给`VitsTokenizer`之前，先将uroman软件包应用于你的文本输入。因为目前令牌器不支持执行预处理本身。
+如果需要，你应该在将文本输入传递给`VitsTokenizer`之前，先将uroman软件包应用于你的文本输入。因为目前token器不支持执行预处理本身。
 
 要做到这一点，首先将uroman存储库克隆到本地计算机，并将bash变量`UROMAN`设置为本地路径：
 
@@ -240,7 +240,7 @@ waveform = outputs.waveform[0]
 
 **提示：**
 
-* MMS-TTS检查点是在小写、无标点的文本上进行训练的。默认情况下，`VitsTokenizer` *归一化*输入，通过删除所有大小写和标点符号，以避免将未登录字符传递给模型。因此，模型不受大小写和标点符号的影响，因此在文本提示中应避免使用它们。你可以通过在调用令牌器时设置`noramlize=False`来禁用归一化，但这将导致非预期的行为，不建议这样做。
+* MMS-TTS检查点是在小写、无标点的文本上进行训练的。默认情况下，`VitsTokenizer` *归一化*输入，通过删除所有大小写和标点符号，以避免将未登录字符传递给模型。因此，模型不受大小写和标点符号的影响，因此在文本提示中应避免使用它们。你可以通过在调用token器时设置`noramlize=False`来禁用归一化，但这将导致非预期的行为，不建议这样做。
 * 通过将属性`model.speaking_rate`设置为所选择的值，可以变化说话速度。同理，噪声的随机性由`model.noise_scale`控制。
 
 ```python

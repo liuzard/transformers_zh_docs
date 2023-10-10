@@ -25,7 +25,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 要了解如何检查模型的生成配置，了解默认值，如何临时更改参数以及如何创建和保存自定义的生成配置，请参阅
 [text generation strategies guide](../generation_strategies.md)。
-该指南还解释了如何使用相关功能，如令牌流式传输。
+该指南还解释了如何使用相关功能，如token流式传输。
 
 ## GenerationConfig
 

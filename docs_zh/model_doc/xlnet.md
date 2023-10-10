@@ -41,7 +41,7 @@ XLNet模型是由Zhilin Yang，Zihang Dai，Yiming Yang，Jaime Carbonell，Rusl
 ## 文档资源
 
 - [文本分类任务指南](../tasks/sequence_classification)
-- [令牌分类任务指南](../tasks/token_classification)
+- [token分类任务指南](../tasks/token_classification)
 - [问答任务指南](../tasks/question_answering)
 - [因果语言建模任务指南](../tasks/language_modeling)
 - [多项选择任务指南](../tasks/multiple_choice)

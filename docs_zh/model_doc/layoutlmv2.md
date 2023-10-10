@@ -93,9 +93,9 @@ LayoutLMv2 入门的官方 Hugging Face 和社区资源列表（由 🌎 表示�
 
 <PipelineTag pipeline="token-classification"/>
 
-- 有关[如何在 CORD 数据集上对 LayoutLMv2 进行令牌分类的微调的笔记本](https://colab.research.google.com/github/NielsRogge/Transformers-Tutorials/blob/master/LayoutLMv2/CORD/Fine_tuning_LayoutLMv2ForTokenClassification_on_CORD.ipynb)。
-- 有关[如何在 FUNSD 数据集上对 LayoutLMv2 进行令牌分类的微调的笔记本](https://colab.research.google.com/github/NielsRogge/Transformers-Tutorials/blob/master/LayoutLMv2/FUNSD/Fine_tuning_LayoutLMv2ForTokenClassification_on_FUNSD_using_HuggingFace_Trainer.ipynb)。
-- 另请参阅：[令牌分类任务指南](../tasks/token_classification)
+- 有关[如何在 CORD 数据集上对 LayoutLMv2 进行token分类的微调的笔记本](https://colab.research.google.com/github/NielsRogge/Transformers-Tutorials/blob/master/LayoutLMv2/CORD/Fine_tuning_LayoutLMv2ForTokenClassification_on_CORD.ipynb)。
+- 有关[如何在 FUNSD 数据集上对 LayoutLMv2 进行token分类的微调的笔记本](https://colab.research.google.com/github/NielsRogge/Transformers-Tutorials/blob/master/LayoutLMv2/FUNSD/Fine_tuning_LayoutLMv2ForTokenClassification_on_FUNSD_using_HuggingFace_Trainer.ipynb)。
+- 另请参阅：[token分类任务指南](../tasks/token_classification)
 
 ## 用法：LayoutLMv2Processor
 
@@ -115,7 +115,7 @@ processor = LayoutLMv2Processor(image_processor, tokenizer)
 
 总的来说，处理器支持以下 5 种用例。下面列出了所有这些用例。请注意，每个这些用例都适用于批量和非批量输入（我们以非批量输入为例进行说明）。
 
-**用例 1：文档图像分类（训练、推断）+ 令牌分类（推断），apply_ocr = True**
+**用例 1：文档图像分类（训练、推断）+ token分类（推断），apply_ocr = True**
 
 这是最简单的用例，在该用例中处理器（实际上是图像处理器）将对图像执行 OCR 以获取单词和规范化的边界框。
 
@@ -135,7 +135,7 @@ print(encoding.keys())
 # dict_keys(['input_ids', 'token_type_ids', 'attention_mask', 'bbox', 'image'])
 ```
 
-**用例 2：文档图像分类（训练、推断）+ 令牌分类（推断），apply_ocr=False**
+**用例 2：文档图像分类（训练、推断）+ token分类（推断），apply_ocr=False**
 
 如果你想自行执行 OCR，可以使用 `apply_ocr` 设置为 `False` 初始化图像处理器。在这种情况下，你应该自己提供单词和相应的（规范化的）边界框，以供处理器使用。
 
@@ -155,9 +155,9 @@ print(encoding.keys())
 # dict_keys(['input_ids', 'token_type_ids', 'attention_mask', 'bbox', 'image'])
 ```
 
-**用例 3：令牌分类（训练），apply_ocr=False**
+**用例 3：token分类（训练），apply_ocr=False**
 
-对于令牌分类任务（如 FUNSD、CORD、SROIE、Kleister-NDA），还可以提供相应的单词标签以便训练模型。处理器将这些转换为标记级别的 `labels`。默认情况下，它仅标记单词的第一个词片，然后使用 -100 标记剩余词片，这是 PyTorch 的 CrossEntropyLoss 的 `ignore_index`。如果要对单词的所有词片进行标记，可以将分词器的 `only_label_first_subword` 设置为 `False`。
+对于token分类任务（如 FUNSD、CORD、SROIE、Kleister-NDA），还可以提供相应的单词标签以便训练模型。处理器将这些转换为标记级别的 `labels`。默认情况下，它仅标记单词的第一个词片，然后使用 -100 标记剩余词片，这是 PyTorch 的 CrossEntropyLoss 的 `ignore_index`。如果要对单词的所有词片进行标记，可以将分词器的 `only_label_first_subword` 设置为 `False`。
 
 ```python
 from transformers import LayoutLMv2Processor

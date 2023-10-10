@@ -4,14 +4,14 @@
 
 在使用数据集对模型进行训练之前，需要将数据预处理为模型期望的输入格式。无论数据是文本、图片还是音频，都需要转换和组装成张量批次。🤗 Transformers 提供了一组预处理类来帮助准备数据供模型使用。在本教程中，你将学到以下内容：
 
-* 对于文本，使用[Tokenizer](main_classes/tokenizer)将文本转换为令牌序列，创建令牌的数值表示，并将其组装成张量。
+* 对于文本，使用[Tokenizer](main_classes/tokenizer)将文本转换为token序列，创建token的数值表示，并将其组装成张量。
 * 对于语音和音频，使用[Feature extractor](main_classes/feature_extractor)从音频波形中提取时序特征，并将其转换为张量。
 * 对于图像输入，使用[ImageProcessor](main_classes/image)将图像转换为张量。
-* 对于多模式输入，使用[Processor](main_classes/processors)将令牌化器与特征提取器或图像处理器组合在一起。
+* 对于多模式输入，使用[Processor](main_classes/processors)将分词处理器与特征提取器或图像处理器组合在一起。
 
 <Tip>
 
-`AutoProcessor`**总是**工作，并自动选择适合你使用的模型的正确类别，无论你使用的是令牌化器、图像处理器、特征提取器，还是处理器。
+`AutoProcessor`**总是**工作，并自动选择适合你使用的模型的正确类别，无论你使用的是分词处理器、图像处理器、特征提取器，还是处理器。
 
 </Tip>
 
@@ -25,15 +25,15 @@ pip install datasets
 
 <Youtube id="Yffk5aydLzg"/>
 
-预处理文本数据的主要工具是[令牌化器](main_classes/tokenizer)。令牌化器根据一组规则将文本拆分为*令牌*。然后将这些令牌转换为数值，并将其组装成张量，作为模型的输入。令牌化器还会添加模型所需的任何其他输入。
+预处理文本数据的主要工具是[分词处理器](main_classes/tokenizer)。分词处理器根据一组规则将文本拆分为*token*。然后将这些token转换为数值，并将其组装成张量，作为模型的输入。分词处理器还会添加模型所需的任何其他输入。
 
 <Tip>
 
-如果打算使用预训练模型，使用相应的预训练令牌化器非常重要。这样可以确保文本的拆分方式与预训练语料库相同，并在预训练过程中使用相同的索引标记（通常称为*词汇表*）。
+如果打算使用预训练模型，使用相应的预训练分词处理器非常重要。这样可以确保文本的拆分方式与预训练语料库相同，并在预训练过程中使用相同的索引标记（通常称为*词汇表*）。
 
 </Tip>
 
-首先使用[`AutoTokenizer.from_pretrained`]方法加载预训练令牌化器。这将下载模型的*词汇表*：
+首先使用[`AutoTokenizer.from_pretrained`]方法加载预训练分词处理器。这将下载模型的*词汇表*：
 
 ```py
 >>> from transformers import AutoTokenizer
@@ -41,7 +41,7 @@ pip install datasets
 >>> tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
 ```
 
-然后将文本传递给令牌化器：
+然后将文本传递给分词处理器：
 
 ```py
 >>> encoded_input = tokenizer("Do not meddle in the affairs of wizards, for they are subtle and quick to anger.")
@@ -51,11 +51,11 @@ pip install datasets
  'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
 ```
 
-令牌化器返回一个包含三个重要项的字典：
+分词处理器返回一个包含三个重要项的字典：
 
-* [input_ids](glossary.md#input-ids) 是句子中每个令牌对应的索引。
-* [attention_mask](glossary.md#attention-mask) 指示一个令牌是否应该被注意。
-* [token_type_ids](glossary.md#token-type-ids) 是当有多个序列时，标识一个令牌属于哪个序列。
+* [input_ids](glossary.md#input-ids) 是句子中每个token对应的索引。
+* [attention_mask](glossary.md#attention-mask) 指示一个token是否应该被注意。
+* [token_type_ids](glossary.md#token-type-ids) 是当有多个序列时，标识一个token属于哪个序列。
 
 通过对`input_ids`进行解码，可以返回输入的内容：
 
@@ -64,9 +64,9 @@ pip install datasets
 '[CLS] Do not meddle in the affairs of wizards, for they are subtle and quick to anger. [SEP]'
 ```
 
-可以看到，令牌化器在句子中添加了两个特殊令牌 - `CLS`和`SEP`（分类器和分隔符）。并非所有模型都需要特殊令牌，但如果需要，令牌化器会自动为你添加。
+可以看到，分词处理器在句子中添加了两个特殊token - `CLS`和`SEP`（分类器和分隔符）。并非所有模型都需要特殊token，但如果需要，分词处理器会自动为你添加。
 
-如果有几个句子需要预处理，可以将它们作为列表传递给令牌化器：
+如果有几个句子需要预处理，可以将它们作为列表传递给分词处理器：
 
 ```py
 >>> batch_sentences = [
@@ -147,7 +147,7 @@ pip install datasets
 
 ### 构建张量
 
-最后，希望令牌化器返回实际传递给模型的张量。
+最后，希望分词处理器返回实际传递给模型的张量。
 
 将 `return_tensors` 参数设置为 `pt`（PyTorch）或 `tf`（TensorFlow）：
 
@@ -264,7 +264,7 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
         5.6335266e-04,  4.6588284e-06, -1.7142107e-04], dtype=float32)]}
 ```
 
-与令牌化器类似，可以对批次中的可变长度序列应用填充或截断以进行处理。来看一下这两个音频样本的序列长度：
+与分词处理器类似，可以对批次中的可变长度序列应用填充或截断以进行处理。来看一下这两个音频样本的序列长度：
 
 ```py
 >>> dataset[0]["audio"]["array"].shape

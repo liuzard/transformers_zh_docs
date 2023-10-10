@@ -43,7 +43,7 @@ pip install -q datasets transformers evaluate timm albumentations
 你将使用🤗 Datasets 来从 Hugging Face Hub 加载数据集，🤗 Transformers 用于训练模型，`albumentations` 用于增强数据。`timm` 目前需要用于加载 DETR 模型的卷积骨干网络。
 
 我们鼓励你与社区分享你的模型。登录到你的 Hugging Face 帐户并将其上传到 Hub。
-在提示时输入你的令牌以登录：
+在提示时输入你的token以登录：
 
 ```py
 >>> from huggingface_hub import notebook_login

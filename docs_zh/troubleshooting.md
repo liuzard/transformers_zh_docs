@@ -125,9 +125,9 @@ RuntimeError: CUDA error: device-side assert triggered
 >>> os.environ["CUDA_LAUNCH_BLOCKING"] = "1"
 ```
 
-## 在未对填充令牌进行掩码处理时输出不正确
+## 在未对填充token进行掩码处理时输出不正确
 
-在某些情况下，如果`input_ids`包含填充令牌，则输出的`hidden_state`可能是不正确的。为了演示，加载一个模型和分词器。你可以访问模型的`pad_token_id`来查看其值。对于某些模型，`pad_token_id`可能为`None`，但你始终可以手动设置它。
+在某些情况下，如果`input_ids`包含填充token，则输出的`hidden_state`可能是不正确的。为了演示，加载一个模型和分词器。你可以访问模型的`pad_token_id`来查看其值。对于某些模型，`pad_token_id`可能为`None`，但你始终可以手动设置它。
 
 ```py
 >>> from transformers import AutoModelForSequenceClassification
@@ -138,7 +138,7 @@ RuntimeError: CUDA error: device-side assert triggered
 0
 ```
 
-以下示例显示了在不掩码填充令牌的情况下的输出：
+以下示例显示了在不掩码填充token的情况下的输出：
 
 ```py
 >>> input_ids = torch.tensor([[7592, 2057, 2097, 2393, 9611, 2115], [7592, 0, 0, 0, 0, 0]])
@@ -157,7 +157,7 @@ tensor([[ 0.0082, -0.2307],
 tensor([[-0.1008, -0.4061]], grad_fn=<AddmmBackward0>)
 ```
 
-大多数情况下，应该为模型提供一个`attention_mask`以忽略填充令牌，以避免这种潜在的错误。现在第二个序列的输出与其实际输出匹配：
+大多数情况下，应该为模型提供一个`attention_mask`以忽略填充token，以避免这种潜在的错误。现在第二个序列的输出与其实际输出匹配：
 
 <Tip>
 
@@ -173,10 +173,10 @@ tensor([[ 0.0082, -0.2307],
         [-0.1008, -0.4061]], grad_fn=<AddmmBackward0>)
 ```
 
-🤗Transformers不会自动创建一个`attention_mask`以遮蔽填充令牌，如果提供了填充令牌，因为：
+🤗Transformers不会自动创建一个`attention_mask`以遮蔽填充token，如果提供了填充token，因为：
 
-- 有些模型没有填充令牌。
-- 对于某些用例，用户希望模型关注填充令牌。
+- 有些模型没有填充token。
+- 对于某些用例，用户希望模型关注填充token。
 
 ## ValueError：无法识别的配置类XYZ，不适用于此类AutoModel
 

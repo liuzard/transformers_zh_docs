@@ -14,16 +14,16 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 BROS模型是由Teakgyu Hong、Donghyun Kim、Mingi Ji、Wonseok Hwang、Daehyun Nam、Sungrae Park在文献[BROS: A Pre-trained Language Model Focusing on Text and Layout for Better Key Information Extraction from Documents](https://arxiv.org/abs/2108.04539)中提出的。 
 
-BROS代表BERT Relying On Spatiality。它是一个仅编码器的Transformer模型，接收一系列令牌及其边界框作为输入，并输出一系列隐藏状态。BROS使用相对空间信息编码，而不使用绝对空间信息。
+BROS代表BERT Relying On Spatiality。它是一个仅编码器的Transformer模型，接收一系列token及其边界框作为输入，并输出一系列隐藏状态。BROS使用相对空间信息编码，而不使用绝对空间信息。
 
-它采用了两个预训练目标：词语掩盖语言建模目标（TMLM），用于BERT，以及新的区域掩盖语言建模目标（AMLM）。在TMLM中，令牌被随机掩盖，模型使用空间信息和其他未被掩盖的令牌来预测被掩盖的令牌。AMLM是TMLM的二维版本。它随机掩盖文本令牌，并使用与TMLM相同的信息进行预测，但掩盖的是文本块（区域）。
+它采用了两个预训练目标：词语掩盖语言建模目标（TMLM），用于BERT，以及新的区域掩盖语言建模目标（AMLM）。在TMLM中，token被随机掩盖，模型使用空间信息和其他未被掩盖的token来预测被掩盖的token。AMLM是TMLM的二维版本。它随机掩盖文本token，并使用与TMLM相同的信息进行预测，但掩盖的是文本块（区域）。
 
-`BrosForTokenClassification`在BrosModel之上有一个简单的线性层，用于预测每个令牌的标签。
-`BrosSpadeEEForTokenClassification`在BrosModel之上有一个`initial_token_classifier`和一个`subsequent_token_classifier`。`initial_token_classifier`用于预测每个实体的第一个令牌，`subsequent_token_classifier`用于预测实体内部的下一个令牌。`BrosSpadeELForTokenClassification`在BrosModel之上有一个`entity_linker`。`entity_linker`用于预测两个实体之间的关系。
+`BrosForTokenClassification`在BrosModel之上有一个简单的线性层，用于预测每个token的标签。
+`BrosSpadeEEForTokenClassification`在BrosModel之上有一个`initial_token_classifier`和一个`subsequent_token_classifier`。`initial_token_classifier`用于预测每个实体的第一个token，`subsequent_token_classifier`用于预测实体内部的下一个token。`BrosSpadeELForTokenClassification`在BrosModel之上有一个`entity_linker`。`entity_linker`用于预测两个实体之间的关系。
 
-`BrosForTokenClassification`和`BrosSpadeEEForTokenClassification`本质上执行相同的任务。然而，`BrosForTokenClassification`假设输入令牌被完美地序列化（这是一个非常具有挑战性的任务，因为它们存在于2D空间中），而`BrosSpadeEEForTokenClassification`则允许在处理序列化错误方面更有灵活性，因为它从一个令牌预测下一个连接令牌。
+`BrosForTokenClassification`和`BrosSpadeEEForTokenClassification`本质上执行相同的任务。然而，`BrosForTokenClassification`假设输入token被完美地序列化（这是一个非常具有挑战性的任务，因为它们存在于2D空间中），而`BrosSpadeEEForTokenClassification`则允许在处理序列化错误方面更有灵活性，因为它从一个token预测下一个连接token。
 
-`BrosSpadeELForTokenClassification`执行内部实体链接任务。如果两个实体之间存在某种关系，则从一个令牌（一个实体的令牌）预测到另一个令牌（另一个实体的令牌）的关系。
+`BrosSpadeELForTokenClassification`执行内部实体链接任务。如果两个实体之间存在某种关系，则从一个token（一个实体的token）预测到另一个token（另一个实体的token）的关系。
 
 BROS在关键信息提取（KIE）基准测试中，如FUNSD、SROIE、CORD和SciTSR等方面达到可比或更好的结果，而无需依赖显式的视觉特征。
 
@@ -44,7 +44,7 @@ def expand_and_normalize_bbox(bboxes, doc_width, doc_height):
     bboxes[:, [1, 3]] = bboxes[:, [1, 3]] / height
 ```
 
-- [`~transformers.BrosForTokenClassification.forward`、`~transformers.BrosSpadeEEForTokenClassification.forward`、`~transformers.BrosSpadeEEForTokenClassification.forward`] 不仅需要 `input_ids` 和 `bbox`，还需要用于损失计算的 `box_first_token_mask`。这是一个掩蔽非第一个令牌的每个框的掩码。你可以通过在创建`input_ids`时保存边界框的起始令牌索引来获取该掩码。你可以使用以下代码生成`box_first_token_mask`，
+- [`~transformers.BrosForTokenClassification.forward`、`~transformers.BrosSpadeEEForTokenClassification.forward`、`~transformers.BrosSpadeEEForTokenClassification.forward`] 不仅需要 `input_ids` 和 `bbox`，还需要用于损失计算的 `box_first_token_mask`。这是一个掩蔽非第一个token的每个框的掩码。你可以通过在创建`input_ids`时保存边界框的起始token索引来获取该掩码。你可以使用以下代码生成`box_first_token_mask`，
     
 ```python
 def make_box_first_token_mask(bboxes, words, tokenizer, max_seq_length=512):

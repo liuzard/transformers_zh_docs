@@ -66,8 +66,8 @@ RoBERTa 在 BERT 的基础上进行了改进，修改了关键超参数，去除
 - [`RobertaForTokenClassification`] 受此 [示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/token-classification) 和 [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification.ipynb) 的支持。
 - [`TFRobertaForTokenClassification`] 受此 [示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/token-classification) 和 [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification-tf.ipynb) 的支持。
 - [`FlaxRobertaForTokenClassification`] 受此 [示例脚本](https://github.com/huggingface/transformers/tree/main/examples/flax/token-classification) 的支持。
-- 🤗 Hugging Face 课程中的 [令牌分类](https://huggingface.co/course/chapter7/2?fw=pt) 章节。
-- [令牌分类任务指南](../tasks/token_classification)
+- 🤗 Hugging Face 课程中的 [token分类](https://huggingface.co/course/chapter7/2?fw=pt) 章节。
+- [token分类任务指南](../tasks/token_classification)
 
 <PipelineTag pipeline="fill-mask"/>
 

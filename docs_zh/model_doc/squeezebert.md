@@ -23,7 +23,7 @@ SqueezeBERT模型是由Forrest N. Iandola、Albert E. Shaw、Ravi Krishna、Kurt
 提示：
 
 - SqueezeBERT是一个具有绝对位置嵌入的模型，因此通常建议在输入的右侧进行填充，而不是左侧。
-- SqueezeBERT类似于BERT，因此依赖于遮蔽语言建模（MLM）目标。因此，它在预测遮蔽令牌和NLU方面效率很高，但对于文本生成来说并不是最佳选择。在这方面，使用因果语言建模（CLM）目标训练的模型更好。
+- SqueezeBERT类似于BERT，因此依赖于遮蔽语言建模（MLM）目标。因此，它在预测遮蔽token和NLU方面效率很高，但对于文本生成来说并不是最佳选择。在这方面，使用因果语言建模（CLM）目标训练的模型更好。
 - 在微调序列分类任务时，建议从*squeezebert/squeezebert-mnli-headless*检查点开始以获得最佳结果。
 
 该模型由[forresti](https://huggingface.co/forresti)贡献。

@@ -19,7 +19,7 @@ Jukebox模型的提出来源于[Prafulla Dhariwal, Heewoo Jun, Christine Payne, 
 
 *我们介绍了Jukebox模型，它可以在原始音频领域生成带有唱歌的音乐。我们使用多尺度VQ-VAE来压缩原始音频的长上下文，并使用自回归Transformer模型对其进行建模。我们展示了这种规模的综合模型可以生成高保真度且多样化的音乐，连贯性可达多分钟。我们可以根据艺术家和流派进行条件设置，以调节音乐和声音风格，并根据不对齐的歌词使唱歌更加可控。我们发布了数千个非抽选样本，以及模型权重和代码。*
 
-如下图所示，Jukebox由3个仅解码器模型（`prior`）组成。它们遵循[Generating Long Sequences with Sparse Transformers](https://arxiv.org/abs/1904.10509)中描述的架构，但对其进行了修改以支持更长的上下文长度。首先，使用自编码器对文本歌词进行编码。接下来，第一个（也称为`top_prior`）prior关注从歌词编码器中提取的最后隐藏状态。prior与之前的每个prior通过`AudioConditioner`模块链接。`AudioConditioner`将之前prior的输出上采样到每秒的原始音频帧分辨率。元数据（如*艺术家、流派和时序*）以起始令牌和定位嵌入形式传递给每个prior。隐藏状态被映射到最接近的VQVAE码本向量，以将它们转换为原始音频。
+如下图所示，Jukebox由3个仅解码器模型（`prior`）组成。它们遵循[Generating Long Sequences with Sparse Transformers](https://arxiv.org/abs/1904.10509)中描述的架构，但对其进行了修改以支持更长的上下文长度。首先，使用自编码器对文本歌词进行编码。接下来，第一个（也称为`top_prior`）prior关注从歌词编码器中提取的最后隐藏状态。prior与之前的每个prior通过`AudioConditioner`模块链接。`AudioConditioner`将之前prior的输出上采样到每秒的原始音频帧分辨率。元数据（如*艺术家、流派和时序*）以起始token和定位嵌入形式传递给每个prior。隐藏状态被映射到最接近的VQVAE码本向量，以将它们转换为原始音频。
 
 ![JukeboxModel](https://gist.githubusercontent.com/ArthurZucker/92c1acaae62ebf1b6a951710bdd8b6af/raw/c9c517bf4eff61393f6c7dec9366ef02bdd059a3/jukebox.svg)
 

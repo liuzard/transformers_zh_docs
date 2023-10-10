@@ -63,7 +63,7 @@ OpenAI GPT-2模型由Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Am
 - [`TFGPT2LMHeadModel`]由此[因果语言建模示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling#run_clmpy)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling-tf.ipynb)支持。
 - [`FlaxGPT2LMHeadModel`]由此[因果语言建模示例脚本](https://github.com/huggingface/transformers/tree/main/examples/flax/language-modeling#causal-language-modeling)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/causal_language_modeling_flax.ipynb)支持。
 - [文本分类任务指南](../tasks/sequence_classification)
-- [令牌分类任务指南](../tasks/token_classification)
+- [token分类任务指南](../tasks/token_classification)
 - [因果语言建模任务指南](../tasks/language_modeling)
 
 ## GPT2Config

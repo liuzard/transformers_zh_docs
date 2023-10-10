@@ -41,7 +41,7 @@ def normalize_bbox(bbox, width, height):
     ]
 ```
 
-这里，`width`和`height`对应于令牌出现的原始文档的宽度和高度。可以使用Python Image Library（PIL）库来获取这些值，例如：
+这里，`width`和`height`对应于token出现的原始文档的宽度和高度。可以使用Python Image Library（PIL）库来获取这些值，例如：
 
 ```python
 from PIL import Image
@@ -73,8 +73,8 @@ width，height = image.size
 
 <PipelineTag pipeline="token-classification" />
 
-- 一篇关于如何在FUNSD数据集上进行令牌分类的[Fine-tune LayoutLM](https://github.com/NielsRogge/Transformers-Tutorials/blob/master/LayoutLM/Fine_tuning_LayoutLMForTokenClassification_on_FUNSD.ipynb)的笔记本。
-- [令牌分类任务指南](../tasks/token_classification)。
+- 一篇关于如何在FUNSD数据集上进行token分类的[Fine-tune LayoutLM](https://github.com/NielsRogge/Transformers-Tutorials/blob/master/LayoutLM/Fine_tuning_LayoutLMForTokenClassification_on_FUNSD.ipynb)的笔记本。
+- [token分类任务指南](../tasks/token_classification)。
 
 **其他资源**
 - [遮盖语言建模任务指南](../tasks/masked_language_modeling)。

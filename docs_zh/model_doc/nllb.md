@@ -14,7 +14,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 **声明：** tokenizer的默认行为最近已经修复（并因此更改）！
 
-以前的版本在目标和源定但化的令牌序列末尾添加了`[self.eos_token_id, self.cur_lang_code]`。正如NLLB论文（第48页，6.1.1. 模型架构）所述：
+以前的版本在目标和源定但化的token序列末尾添加了`[self.eos_token_id, self.cur_lang_code]`。正如NLLB论文（第48页，6.1.1. 模型架构）所述：
 
 *请注意，与之前多项工作（Arivazhagan等，2019年; Johnson等，2017年）相反，我们将源序列前置源语言而不是目标语言。这主要是因为我们优化模型在任意200种语言对上的零负样本性能具有优先权，对监督性能进行了一定的牺牲。*
 

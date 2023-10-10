@@ -210,7 +210,7 @@ repo.push_to_hub()
 ```
 
 这将把定义`PairClassificationPipeline`的文件复制到文件夹“test-dynamic-pipeline”中，
-并将流水线的模型和令牌化器保存起来，然后将所有内容推送到存储库
+并将流水线的模型和分词处理器保存起来，然后将所有内容推送到存储库
 `{your_username}/test-dynamic-pipeline`。之后，任何人只要提供选项`trust_remote_code=True`就可以使用它：
 
 ```py

@@ -15,7 +15,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 [[open-in-colab]]
 
-LLMs，即大型语言模型，是文本生成的关键组件。简而言之，它们由大型预训练的 Transformer 模型组成，用于在给定一些输入文本的情况下预测下一个单词（或更准确地说，令牌）。由于它们一次预测一个令牌，因此如果要生成新的句子，你需要进行更复杂的操作，而不仅仅是调用模型 - 你需要进行自回归生成。
+LLMs，即大型语言模型，是文本生成的关键组件。简而言之，它们由大型预训练的 Transformer 模型组成，用于在给定一些输入文本的情况下预测下一个单词（或更准确地说，token）。由于它们一次预测一个token，因此如果要生成新的句子，你需要进行更复杂的操作，而不仅仅是调用模型 - 你需要进行自回归生成。
 
 自回归生成是在推断时使用模型的生成输出迭代调用模型的过程，给定一些初始输入。在 🤗 Transformers 中，这由 [`~generation.GenerationMixin.generate`] 方法处理，该方法适用于具有生成能力的所有模型。
 
@@ -33,7 +33,7 @@ pip install transformers bitsandbytes>=0.39.0 -q
 
 ## 生成文本
 
-训练用于[因果语言建模](tasks/language_modeling)的语言模型以文本令牌序列作为输入，并返回下一个令牌的概率分布。
+训练用于[因果语言建模](tasks/language_modeling)的语言模型以文本token序列作为输入，并返回下一个token的概率分布。
 
 <!-- [GIF 1 -- FWD PASS] -->
 
@@ -46,7 +46,7 @@ pip install transformers bitsandbytes>=0.39.0 -q
     <figcaption>"LLM的前向传播"</figcaption>
 </figure>
 
-使用 LLMs 进行自回归生成的关键是如何从该概率分布中选择下一个令牌。在这一步中，可以采用任何方法，只要能够得到下一次迭代的令牌。这意味着可以简单地选择概率分布中最有可能的令牌，也可以在从所得分布中进行采样之前应用数十个转换来实现更复杂的选择过程。
+使用 LLMs 进行自回归生成的关键是如何从该概率分布中选择下一个token。在这一步中，可以采用任何方法，只要能够得到下一次迭代的token。这意味着可以简单地选择概率分布中最有可能的token，也可以在从所得分布中进行采样之前应用数十个转换来实现更复杂的选择过程。
 
 <!-- [GIF 2 -- TEXT GENERATION] -->
 
@@ -56,18 +56,18 @@ pip install transformers bitsandbytes>=0.39.0 -q
         autoplay loop muted playsinline
         src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/blog/assisted-generation/gif_2_1080p.mov"
     ></video>
-    <figcaption>"自回归生成是通过迭代地从概率分布中选择下一个令牌来生成文本。"</figcaption>
+    <figcaption>"自回归生成是通过迭代地从概率分布中选择下一个token来生成文本。"</figcaption>
 </figure>
 
-上述过程会迭代重复进行，直到满足某个停止条件。理想情况下，停止条件由模型决定，模型应该学会何时输出一个结束序列（`EOS`）令牌。如果不是这种情况，生成将在达到预定义的最大长度时停止。
+上述过程会迭代重复进行，直到满足某个停止条件。理想情况下，停止条件由模型决定，模型应该学会何时输出一个结束序列（`EOS`）token。如果不是这种情况，生成将在达到预定义的最大长度时停止。
 
-正确设置令牌选择步骤和停止条件对于使你的模型在任务中表现符合预期至关重要。这就是为什么我们为每个模型都有一个与之关联的 [`~generation.GenerationConfig`] 文件，其中包含一个良好的默认生成参数设置，并与你的模型一起加载。
+正确设置token选择步骤和停止条件对于使你的模型在任务中表现符合预期至关重要。这就是为什么我们为每个模型都有一个与之关联的 [`~generation.GenerationConfig`] 文件，其中包含一个良好的默认生成参数设置，并与你的模型一起加载。
 
 让我们来谈谈代码！
 
 <Tip>
 
-如果你对 LLMs 的基本用法感兴趣，我们提供的高级 [`Pipeline`](http://www.liuzard.com/pipeline_tutorial) 接口是一个很好的起点。然而，LLMs 通常需要高级功能，比如量化和对令牌选择步骤的精细控制，最好通过 [`~generation.GenerationMixin.generate`] 来实现。带有 LLMs 的自回归生成也需要大量资源，并且应该在 GPU 上执行以获得足够的吞吐量。
+如果你对 LLMs 的基本用法感兴趣，我们提供的高级 [`Pipeline`](http://www.liuzard.com/pipeline_tutorial) 接口是一个很好的起点。然而，LLMs 通常需要高级功能，比如量化和对token选择步骤的精细控制，最好通过 [`~generation.GenerationMixin.generate`] 来实现。带有 LLMs 的自回归生成也需要大量资源，并且应该在 GPU 上执行以获得足够的吞吐量。
 
 </Tip>
 
@@ -99,9 +99,9 @@ pip install transformers bitsandbytes>=0.39.0 -q
 >>> model_inputs = tokenizer(["A list of colors: red, blue"], return_tensors="pt").to("cuda")
 ```
 
-`model_inputs` 变量保存了令牌化的文本输入以及注意力遮罩。虽然 [`~generation.GenerationMixin.generate`] 会尽最大努力在未传递时推断出注意力遮罩，但我们建议尽可能在调用中传递它以获得最佳结果。
+`model_inputs` 变量保存了分词处理的文本输入以及注意力遮罩。虽然 [`~generation.GenerationMixin.generate`] 会尽最大努力在未传递时推断出注意力遮罩，但我们建议尽可能在调用中传递它以获得最佳结果。
 
-最后，调用 [`~generation.GenerationMixin.generate`] 方法返回生成的令牌，应在打印之前将其转换为文本。
+最后，调用 [`~generation.GenerationMixin.generate`] 方法返回生成的token，应在打印之前将其转换为文本。
 
 ```py
 >>> generated_ids = model.generate(**model_inputs)
@@ -127,7 +127,7 @@ pip install transformers bitsandbytes>=0.39.0 -q
 
 ### 生成的输出过短/过长
 
-如果在 [`~generation.GenerationConfig`] 文件中未指定，`generate` 默认最多返回 20 个令牌。我们强烈建议在 `generate` 调用中手动设置 `max_new_tokens`，以控制它可以返回的最大新令牌数量。请记住，LLMs（更准确地说，[仅解码器模型](https://huggingface.co/learn/nlp-course/chapter1/6?fw=pt)）还会将输入提示作为输出的一部分返回。
+如果在 [`~generation.GenerationConfig`] 文件中未指定，`generate` 默认最多返回 20 个token。我们强烈建议在 `generate` 调用中手动设置 `max_new_tokens`，以控制它可以返回的最大新token数量。请记住，LLMs（更准确地说，[仅解码器模型](https://huggingface.co/learn/nlp-course/chapter1/6?fw=pt)）还会将输入提示作为输出的一部分返回。
 
 
 ```py
@@ -146,7 +146,7 @@ pip install transformers bitsandbytes>=0.39.0 -q
 
 ### 生成模式不正确
 
-默认情况下，除非在 [`~generation.GenerationConfig`] 文件中指定，否则 `generate` 会在每次迭代时选择最可能的令牌（贪婪解码）。根据你的任务，这可能是不希望的；对话型任务或写作文章等创造性任务受益于采样。另一方面，音频转录或翻译等基于输入的任务受益于贪婪解码。通过设置 `do_sample=True` 来启用采样，你可以在这篇 [博文](https://huggingface.co/blog/how-to-generate) 中了解更多关于这个主题的信息。
+默认情况下，除非在 [`~generation.GenerationConfig`] 文件中指定，否则 `generate` 会在每次迭代时选择最可能的token（贪婪解码）。根据你的任务，这可能是不希望的；对话型任务或写作文章等创造性任务受益于采样。另一方面，音频转录或翻译等基于输入的任务受益于贪婪解码。通过设置 `do_sample=True` 来启用采样，你可以在这篇 [博文](https://huggingface.co/blog/how-to-generate) 中了解更多关于这个主题的信息。
 
 ```py
 >>> # Set seed or reproducibility -- you don't need this unless you want full reproducibility
@@ -168,7 +168,7 @@ pip install transformers bitsandbytes>=0.39.0 -q
 
 ### 填充方向不正确
 
-LLMs 是仅解码器架构，这意味着它们会继续迭代你的输入提示。如果你的输入长度不相同，则需要进行填充。由于 LLMs 没有训练过从填充令牌继续生成，因此你的输入需要进行左填充。同时确保不要忘记将注意力遮罩传递给 generate！
+LLMs 是仅解码器架构，这意味着它们会继续迭代你的输入提示。如果你的输入长度不相同，则需要进行填充。由于 LLMs 没有训练过从填充token继续生成，因此你的输入需要进行左填充。同时确保不要忘记将注意力遮罩传递给 generate！
 
 ```py
 >>> # The tokenizer initialized above has right-padding active by default: the 1st sequence,

@@ -69,8 +69,8 @@ alt="drawing" width="600"/>
 
 TrOCR的[`VisionEncoderDecoder`]模型接受图像作为输入，并利用[`~generation.GenerationMixin.generate`]将输入图像自回归地生成文本。
 
-[`ViTImageProcessor`/`DeiTImageProcessor`]类负责预处理输入图像，[`RobertaTokenizer`/`XLMRobertaTokenizer`]将生成的目标令牌解码为目标字符串。
-[`TrOCRProcessor`]将[`ViTImageProcessor`/`DeiTImageProcessor`]和[`RobertaTokenizer`/`XLMRobertaTokenizer`]封装为单个实例，用于提取输入特征和解码预测的令牌id。
+[`ViTImageProcessor`/`DeiTImageProcessor`]类负责预处理输入图像，[`RobertaTokenizer`/`XLMRobertaTokenizer`]将生成的目标token解码为目标字符串。
+[`TrOCRProcessor`]将[`ViTImageProcessor`/`DeiTImageProcessor`]和[`RobertaTokenizer`/`XLMRobertaTokenizer`]封装为单个实例，用于提取输入特征和解码预测的tokenid。
 
 - 逐步光学字符识别（OCR）
 

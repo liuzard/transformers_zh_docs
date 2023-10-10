@@ -19,12 +19,12 @@ LED模型由Iz Beltagy、Matthew E. Peters和Arman Cohan在[《Longformer：长�
 
 论文的摘要如下：
 
-*基于Transformer的模型不能处理长序列，因为其自我注意操作与序列长度成二次关系。为了解决这个限制，我们引入了具有线性序列长度缩放的注意机制的Longformer，使其易于处理成千上万个令牌或更长的文档。Longformer的注意机制是标准自我注意机制的一种即插即用替代品，将本地窗口注意力与任务动机全局注意力相结合。沿用以前关于长序列变换器的工作，我们在字符级语言建模上评估了Longformer，并在text8和enwik8上取得了最先进的结果。与大多数先前的工作相反，我们还对Longformer进行了预训练，并在各种下游任务上进行了微调。我们预训练的Longformer在长文档任务上始终优于RoBERTa，并在WikiHop和TriviaQA上取得了新的最先进结果。最后，我们引入了用于支持长文档生成序列到序列任务的Longformer-Encoder-Decoder（LED），并证明其在arXiv摘要数据集上的有效性。*
+*基于Transformer的模型不能处理长序列，因为其自我注意操作与序列长度成二次关系。为了解决这个限制，我们引入了具有线性序列长度缩放的注意机制的Longformer，使其易于处理成千上万个token或更长的文档。Longformer的注意机制是标准自我注意机制的一种即插即用替代品，将本地窗口注意力与任务动机全局注意力相结合。沿用以前关于长序列变换器的工作，我们在字符级语言建模上评估了Longformer，并在text8和enwik8上取得了最先进的结果。与大多数先前的工作相反，我们还对Longformer进行了预训练，并在各种下游任务上进行了微调。我们预训练的Longformer在长文档任务上始终优于RoBERTa，并在WikiHop和TriviaQA上取得了新的最先进结果。最后，我们引入了用于支持长文档生成序列到序列任务的Longformer-Encoder-Decoder（LED），并证明其在arXiv摘要数据集上的有效性。*
 
 提示：
 
 - [`LEDForConditionalGeneration`]是[`BartForConditionalGeneration`]的扩展，用*Longformer*的*分块自我注意力*层替换了传统的*自注意力*层。[`LEDTokenizer`]是[`BartTokenizer`]的别名。
-- LED非常适用于`input_ids`远远超过1024个令牌的长距离*序列到序列*任务。
+- LED非常适用于`input_ids`远远超过1024个token的长距离*序列到序列*任务。
 - 如果需要，LED将`input_ids`填充为`config.attention_window`的倍数，这样可以获得一小部分加速，当使用`pad_to_multiple_of`参数与 [`LEDTokenizer`]结合使用时。
 - LED使用*全局注意力*通过`global_attention_mask`（参见[`LongformerModel`]）来表示。对于摘要，建议只在第一个`<s>`标记上放置*全局注意力*。对于问答，建议对所有问题的标记放置*全局注意力*。
 - 为了在所有16384个序列上对LED进行微调，可以在训练导致内存不足（OOM）错误时启用*梯度检查点*，执行`model.gradient_checkpointing_enable()`即可。此外，可以使用`use_cache=False`标志禁用缓存机制以节省内存。

@@ -40,7 +40,7 @@ Token分类为句子中的每个标记分配一个标签。最常见的Token分�
 pip install transformers datasets evaluate seqeval
 ```
 
-我们建议你登录到你的Hugging Face账户，这样你可以上传和共享你的模型给社区。提示输入你的令牌以登录：
+我们建议你登录到你的Hugging Face账户，这样你可以上传和共享你的模型给社区。提示输入你的token以登录：
 
 ```py
 >>> from huggingface_hub import notebook_login
@@ -90,11 +90,11 @@ pip install transformers datasets evaluate seqeval
 ]
 ```
 
-`ner_tags`中的每个标记前缀字母表示实体的令牌位置：
+`ner_tags`中的每个标记前缀字母表示实体的token位置：
 
 - `B-`表示实体的开始。
-- `I-`表示令牌包含在同一个实体中（例如，`State`令牌是`Empire State Building`实体的一部分）。
-- `0`表示该令牌不对应任何实体。
+- `I-`表示token包含在同一个实体中（例如，`State`token是`Empire State Building`实体的一部分）。
+- `0`表示该token不对应任何实体。
 
 ## 预处理
 
@@ -371,7 +371,7 @@ pip install transformers datasets evaluate seqeval
 >>> metric_callback = KerasMetricCallback(metric_fn=compute_metrics, eval_dataset=tf_validation_set)
 ```
 
-在[`~transformers.PushToHubCallback`]中指定将模型和令牌化器上传到哪：
+在[`~transformers.PushToHubCallback`]中指定将模型和分词处理器上传到哪：
 
 ```py
 >>> from transformers.keras_callbacks import PushToHubCallback
@@ -400,7 +400,7 @@ pip install transformers datasets evaluate seqeval
 
 <Tip>
 
-要了解有关如何为令牌分类微调模型的更详细示例，请参阅相应的[PyTorch notebook](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification.ipynb)或[TensorFlow notebook](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification-tf.ipynb)。
+要了解有关如何为token分类微调模型的更详细示例，请参阅相应的[PyTorch notebook](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification.ipynb)或[TensorFlow notebook](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification-tf.ipynb)。
 
 </Tip>
 
@@ -546,4 +546,3 @@ pip install transformers datasets evaluate seqeval
 ```
 </tf>
 </frameworkcontent>
-```

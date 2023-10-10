@@ -56,7 +56,7 @@ model.save_pretrained("segformer-b0-scene-parse-150-tf")
 pip install -q datasets transformers evaluate
 ```
 
-我们鼓励你登录你的Hugging Face帐户，以便你可以将模型上传和共享给社区。在提示时，输入你的令牌进行登录：
+我们鼓励你登录你的Hugging Face帐户，以便你可以将模型上传和共享给社区。在提示时，输入你的token进行登录：
 
 ```py
 >>> from huggingface_hub import notebook_login

@@ -1,13 +1,18 @@
-+ 著作权© 2023年HuggingFace团队。保留所有权利。
+<!--Copyright 2022 The HuggingFace Team. All rights reserved.
 
-+ 根据Apache许可证2.0版（“许可证”），除非符合许可证要求，否则你不得使用此文件。
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+the License. You may obtain a copy of the License at
 
-+ 你可以在以下网址获取许可证的副本：
 http://www.apache.org/licenses/LICENSE-2.0
 
-+ 除非适用法律要求或书面同意，根据许可证分发的软件是基于“原样”分发的，不附带任何明示或暗示的保证或条件。请参阅许可证以了解许可下的特定语言和限制。
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
 
-⚠️ 请注意，此文件是以Markdown格式撰写的，但包含我们doc-builder的特定语法（类似于MDX），可能无法在Markdown查看器中正确呈现。
+⚠️ Note that this file is in Markdown but contain specific syntax for our doc-builder (similar to MDX) that may not be
+rendered properly in your Markdown viewer.
+
+-->
 
 # 掩码语言建模
 
@@ -40,7 +45,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 pip install transformers datasets evaluate
 ```
 
-我们鼓励你登录Hugging Face帐户，以便你可以上传和与社区共享你的模型。在提示时，输入你的令牌以登录：
+我们鼓励你登录Hugging Face帐户，以便你可以上传和与社区共享你的模型。在提示时，输入你的token以登录：
 
 ```py
 >>> from huggingface_hub import notebook_login

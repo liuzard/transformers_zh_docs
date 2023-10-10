@@ -54,7 +54,7 @@ LayoutLMv3与LayoutLMv2几乎相同，因此我们还包括了可以为LayoutLMv
 - 此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/research_projects/layoutlmv3)和[notebook](https://colab.research.google.com/github/NielsRogge/Transformers-Tutorials/blob/master/LayoutLMv3/Fine_tune_LayoutLMv3_on_FUNSD_(HuggingFace_Trainer).ipynb)支持 [`LayoutLMv3ForTokenClassification`]。
 - 用于如何使用[`LayoutLMv2ForTokenClassification`]进行推理的[笔记本](https://colab.research.google.com/github/NielsRogge/Transformers-Tutorials/blob/master/LayoutLMv2/FUNSD/Inference_with_LayoutLMv2ForTokenClassification.ipynb)，以及无标签情况下如何使用[`LayoutLMv2ForTokenClassification`]进行推理的[笔记本](https://colab.research.google.com/github/NielsRogge/Transformers-Tutorials/blob/master/LayoutLMv2/FUNSD/True_inference_with_LayoutLMv2ForTokenClassification_%2B_Gradio_demo.ipynb)。
 - 如何使用🤗训练器进行微调[`LayoutLMv2ForTokenClassification`]的[笔记本](https://colab.research.google.com/github/NielsRogge/Transformers-Tutorials/blob/master/LayoutLMv2/FUNSD/Fine_tuning_LayoutLMv2ForTokenClassification_on_FUNSD_using_HuggingFace_Trainer.ipynb)。
-- [令牌分类任务指南](../tasks/token_classification)
+- [token分类任务指南](../tasks/token_classification)
 
 <PipelineTag pipeline="question-answering"/>
 

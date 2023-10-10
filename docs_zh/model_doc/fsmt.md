@@ -25,7 +25,7 @@ FSMT（FairSeq MachineTranslation）模型是由Nathan Ng，Kyra Yee，Alexei Ba
 
 ## 实现说明
 
-- FSMT使用未合并成一个的源词汇和目标词汇对。它也不共享嵌入令牌。其分词器非常类似于[`XLMTokenizer`]，主要模型派生自[`BartModel`]。
+- FSMT使用未合并成一个的源词汇和目标词汇对。它也不共享嵌入token。其分词器非常类似于[`XLMTokenizer`]，主要模型派生自[`BartModel`]。
 
 ## FSMTConfig
 

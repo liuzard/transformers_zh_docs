@@ -38,7 +38,7 @@ BLOOM的架构基本类似于GPT3（下一个token预测的自回归模型），
 另请参阅：
 - [因果语言建模任务指南](../tasks/language_modeling)
 - [文本分类任务指南](../tasks/sequence_classification)
-- [令牌分类任务指南](../tasks/token_classification)
+- [token分类任务指南](../tasks/token_classification)
 - [问答任务指南](../tasks/question_answering)
 
 

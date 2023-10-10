@@ -56,7 +56,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 - **模型类**可以是 PyTorch 模型（[torch.nn.Module](https://pytorch.org/docs/stable/nn.html#torch.nn.Module)）、Keras 模型（[tf.keras.Model](https://www.tensorflow.org/api_docs/python/tf/keras/Model)）或 JAX/Flax 模型（[flax.linen.Module](https://flax.readthedocs.io/en/latest/api_reference/flax.linen.html)），它们与库中提供的预训练权重一起使用。
 - **配置类**存储构建模型所需的超参数（例如层数和隐藏大小）。你不一定总是需要实例化这些类。特别是，如果你使用不进行任何修改的预训练模型，则创建模型时会自动处理实例化配置（这是模型的一部分）。
-- **预处理类**将原始数据转换为模型接受的格式。[分词器](main_classes/tokenizer)存储每个模型的词汇表，并提供将字符串编码和解码为要馈送给模型的令牌嵌入索引列表的方法。[图像处理器](main_classes/image_processor)预处理视觉输入，[特征提取器](main_classes/feature_extractor)预处理音频输入，[处理器](main_classes/processors)处理多模态输入。
+- **预处理类**将原始数据转换为模型接受的格式。[分词器](main_classes/tokenizer)存储每个模型的词汇表，并提供将字符串编码和解码为要馈送给模型的token嵌入索引列表的方法。[图像处理器](main_classes/image_processor)预处理视觉输入，[特征提取器](main_classes/feature_extractor)预处理音频输入，[处理器](main_classes/processors)处理多模态输入。
 
 所有这些类都可以从预训练实例进行实例化、本地保存，并通过三种方法在 Hub 上共享：
 

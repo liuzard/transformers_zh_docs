@@ -19,7 +19,7 @@ Code Llama模型是由Baptiste Rozière，Jonas Gehring，Fabian Gloeckle，Sten
 
 论文中的摘要如下：
 
-*我们发布了Code Llama，这是一个基于Llama 2的大规模编码语言模型系列，提供了在开放模型中最先进的性能，填充能力，支持大型输入上下文以及零-shot编程任务中的指令跟随能力。我们提供多个版本以覆盖广泛的应用场景：基础模型（Code Llama），Python专业化（Code Llama - Python）以及指令跟随模型（Code Llama - Instruct），每个模型都具有7B，13B和34B的参数。所有模型都以16k令牌的序列进行训练，并在具有高达100k令牌的输入上显示出改进。7B和13B Code Llama和Code Llama - Instruct变体支持基于周围内容的填充。 Code Llama在多个代码基准测试中达到了开放模型的最先进性能，HumanEval和MBPP分别达到了53%和55%的分数。值得注意的是，Code Llama - Python 7B在HumanEval和MBPP上的表现优于Llama 2 70B，并且我们的所有模型都优于其他所有公开可用的模型。我们根据一种宽松的许可证发布Code Llama，该许可证允许进行研究和商业使用。*
+*我们发布了Code Llama，这是一个基于Llama 2的大规模编码语言模型系列，提供了在开放模型中最先进的性能，填充能力，支持大型输入上下文以及零-shot编程任务中的指令跟随能力。我们提供多个版本以覆盖广泛的应用场景：基础模型（Code Llama），Python专业化（Code Llama - Python）以及指令跟随模型（Code Llama - Instruct），每个模型都具有7B，13B和34B的参数。所有模型都以16ktoken的序列进行训练，并在具有高达100ktoken的输入上显示出改进。7B和13B Code Llama和Code Llama - Instruct变体支持基于周围内容的填充。 Code Llama在多个代码基准测试中达到了开放模型的最先进性能，HumanEval和MBPP分别达到了53%和55%的分数。值得注意的是，Code Llama - Python 7B在HumanEval和MBPP上的表现优于Llama 2 70B，并且我们的所有模型都优于其他所有公开可用的模型。我们根据一种宽松的许可证发布Code Llama，该许可证允许进行研究和商业使用。*
 
 在这里查看所有Code Llama模型[here](https://huggingface.co/models?search=code_llama)，并在[codellama org](https://huggingface.co/codellama)中的官方发布。
 
@@ -91,7 +91,7 @@ def remove_non_ascii(s: str) -> str:
 
 在内部，tokenizer [自动基于"<FILL_ME>"进行拆分](https://huggingface.co/docs/transformers/main/model_doc/code_llama#transformers.CodeLlamaTokenizer.fill_token)，创建符合[原始训练模式](https://github.com/facebookresearch/codellama/blob/cb51c14ec761370ba2e2bc351374a79265d0465e/llama/generation.py#L402)的格式化输入字符串。这比自己准备模式更稳健：它避免了非常难以调试的token glueing等问题。要查看此模型或其他模型所需的CPU和GPU内存量，请尝试[此计算器](https://huggingface.co/spaces/hf-accelerate/model-memory-usage)，它可以帮助确定该值。
 
-- LLaMA分词器是基于[sentencepiece](https://github.com/google/sentencepiece)的BPE模型。sentencepiece的一个怪异之处是，当解码序列时，如果第一个令牌是单词的开头（例如"Banana"），则分词器不会将前缀空格添加到字符串中。
+- LLaMA分词器是基于[sentencepiece](https://github.com/google/sentencepiece)的BPE模型。sentencepiece的一个怪异之处是，当解码序列时，如果第一个token是单词的开头（例如"Banana"），则分词器不会将前缀空格添加到字符串中。
 
 此模型由[ArthurZucker](https://huggingface.co/ArthurZ)贡献。原作者的原始代码可以在[这里](https://github.com/facebookresearch/llama)找到。
 

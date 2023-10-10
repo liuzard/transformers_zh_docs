@@ -226,7 +226,7 @@ py.test -vv tests/models/brand_new_bert/test_modeling_tf_brand_new_bert.py
 假设TensorFlow模型架构在🤗 Transformers中可用，将PyTorch权重转换为TensorFlow权重非常容易！
 
 做法如下：
-1. 确保你已经在终端中登录了你的Hugging Face账户。你可以使用命令`huggingface-cli login`登录（你可以在[这里](https://huggingface.co/settings/tokens)找到你的访问令牌）
+1. 确保你已经在终端中登录了你的Hugging Face账户。你可以使用命令`huggingface-cli login`登录（你可以在[这里](https://huggingface.co/settings/tokens)找到你的访问token）
 2. 运行`transformers-cli pt-to-tf --model-name foo/bar`，其中`foo/bar`是包含你想要转换的PyTorch权重的模型仓库的名称
 3. 在🤗 Hub中创建的PR中使用`@joaogante`和`@Rocketknight1`标记命令以上命令
 

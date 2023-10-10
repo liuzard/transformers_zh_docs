@@ -33,7 +33,7 @@ Wav2Vec2Phoneme模型是由Qiantong Xu，Alexei Baevski和Michael Auli在[Simple
 
 原始代码可以在[这里](https://github.com/pytorch/fairseq/tree/master/fairseq/models/wav2vec)找到。
 
-Wav2Vec2Phoneme的架构基于Wav2Vec2模型，因此可以参考[`Wav2Vec2`]的文档页，除了令牌化器。
+Wav2Vec2Phoneme的架构基于Wav2Vec2模型，因此可以参考[`Wav2Vec2`]的文档页，除了分词处理器。
 
 ## Wav2Vec2PhonemeCTCTokenizer
 

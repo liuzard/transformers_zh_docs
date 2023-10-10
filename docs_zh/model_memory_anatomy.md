@@ -26,7 +26,7 @@ pip install transformers datasets accelerate nvidia-ml-py3
 
 `nvidia-ml-py3`库允许我们监视Python内存中情景模型的内存使用情况。你可能熟悉终端中的`nvidia-smi`命令-此库允许直接在Python中访问相同的信息。
 
-然后，我们创建一些虚拟数据：100到30000之间的随机令牌ID和分类器的二进制标签。
+然后，我们创建一些虚拟数据：100到30000之间的随机tokenID和分类器的二进制标签。
 总共，我们得到512个长度为512的序列，并将它们存储在具有PyTorch格式的[`~datasets.Dataset`]中。
 
 ```py

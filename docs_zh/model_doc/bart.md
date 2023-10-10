@@ -36,13 +36,13 @@ Bart模型是由Mike Lewis、Yinhan Liu、Naman Goyal、Marjan Ghazvininejad、A
 提示：
 
 - Bart是一个具有绝对位置嵌入的模型，因此通常建议将输入在右侧而不是左侧进行填充。
-- Seq2seq模型，由编码器和解码器组成。编码器接收到一个被损坏的令牌版本，解码器接收原始令牌（但有一个遮罩来隐藏未来的单词，就像常规的transformers解码器一样）。对于编码器的预训练任务，应用以下转换的组合：
+- Seq2seq模型，由编码器和解码器组成。编码器接收到一个被损坏的token版本，解码器接收原始token（但有一个遮罩来隐藏未来的单词，就像常规的transformers解码器一样）。对于编码器的预训练任务，应用以下转换的组合：
 
-  * 随机掩码令牌（类似于BERT）
-  * 删除随机令牌
-  * 使用单个掩码令牌掩盖k个令牌的一段（0个令牌的一段是插入一个掩码令牌）
+  * 随机掩码token（类似于BERT）
+  * 删除随机token
+  * 使用单个掩码token掩盖k个token的一段（0个token的一段是插入一个掩码token）
   * 排列句子
-  * 旋转文档，使其从特定令牌开始
+  * 旋转文档，使其从特定token开始
 
 此模型由[sshleifer](https://huggingface.co/sshleifer)贡献。作者的代码在[这里](https://github.com/pytorch/fairseq/tree/master/examples/bart)。
 
@@ -62,7 +62,7 @@ Bart模型是由Mike Lewis、Yinhan Liu、Naman Goyal、Marjan Ghazvininejad、A
 
 ## 填充掩码
 
-`facebook/bart-base` 和 `facebook/bart-large` 检查点可用于填充包含多个令牌的掩码。
+`facebook/bart-base` 和 `facebook/bart-large` 检查点可用于填充包含多个token的掩码。
 
 ```python
 from transformers import BartForConditionalGeneration, BartTokenizer
