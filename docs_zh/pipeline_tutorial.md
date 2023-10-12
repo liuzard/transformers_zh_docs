@@ -19,15 +19,15 @@ http://www.apache.org/licenses/LICENSE-2.0
 - 使用特定的分词器或模型。
 - 在音频、视觉和多模态任务中使用[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)。
 
-<Tip>
+注意：
 
-查看[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)文档，以获取支持的任务列表和可用参数的完整信息。
+>查看[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)文档，以获取支持的任务列表和可用参数的完整信息。
 
-</Tip>
+
 
 ## Pipeline使用方法
 
-虽然每个任务都有一个相关联的[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)，但使用通用的[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)抽象更为简单，该抽象包含了所有特定任务的pipelines。[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)会自动加载默认模型和适用于你任务的预处理类，以实现推理功能。
+虽然每个任务都有一个相关联的[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)，但使用通用的[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)抽象更为简单，该抽象包含了所有特定任务的pipelines。[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)会自动加载默认模型和适用于你所处理任务的预处理类，以实现推理功能。
 
 1. 首先创建一个[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)并指定一个推理任务：
 
@@ -56,7 +56,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 现在的结果看起来更准确了！
 
-我们鼓励你在Hub上寻找适用于不同语言、专门针对你领域的模型等。你可以直接在浏览器上查看和比较Hub上的模型结果，以确定是否符合你的需求或是否能够更好地处理特殊情况。如果你没有找到适合你用例的模型，你始终可以开始[训练](http://liuzard.com/tag/中文/)自己的模型！
+我们鼓励你在Hub上寻找适用于不同语言、专门针对你领域的模型。你可以直接在浏览器上查看和比较Hub上的模型结果，以确定是否符合你的需求或是否能够更好地处理特殊情况。如果你没有找到适合你用例的模型，你始终可以开始[训练](http://liuzard.com/tag/中文/)自己的模型！
 
 如果你有多个输入，你可以将输入作为列表传递给[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)：
 
@@ -121,17 +121,11 @@ texts = generator(audio_filenames)
 
 这会对提供的10个音频文件运行pipeline，但它会将它们以2个一组的批次传递给模型（模型位于GPU上，在这种情况下批处理可能更有帮助），而无需你进一步编写任何代码。 输出应该始终与你在没有批处理的情况下接收到的结果相匹配。这只是一种帮助你提高pipeline速度的方式。
 
-pipelines还可以减轻批处理的一些复杂性，因为对于某些pipelines来说，需要将单个项目（如长音频文件）分成多个部分以供模型处理。pipeline会为你执行这种[*chunk batching*](http://liuzard.com/main_classes/pipelines#pipeline-chunk-batching)。
+pipelines还可以减轻批处理的一些复杂性，因为对于某些pipelines来说，需要将单个输入（如长音频文件）分成多个部分以供模型处理。pipeline会为你执行这种[*chunk batching*](http://liuzard.com/main_classes/pipelines#pipeline-chunk-batching)。
 
 ### 特定任务的参数
 
-所有任务都提供特定任务的参数，这些参数允许额外的灵活性和选项，以帮助你完成工作。 例如，[`transformers.AutomaticSpeechRecognitionPipeline.__call__`](https://huggingface.co/transformers/main_classes/pipelines.html#transformers.AutomaticSpeechRecognitionPipeline.__call__)方法具有一个`return_timestamps`参数，对于为视频生成字幕似乎是一个有希望的选择：
-
-### 特定任务的参数
-
-所有任务都提供特定任务的参数，这些参数允许额外的灵活性和选项，以帮助你完成工作。
-例如，[`transformers.AutomaticSpeechRecognitionPipeline.__call__`](https://huggingface.co/transformers/main_classes/pipelines.html#transformers.AutomaticSpeechRecognitionPipeline.__call__)方法具有一个`return_timestamps`参数，对于为视频生成字幕似乎是一个有希望的选择：
-
+所有任务都提供特定任务的参数，这些参数允许额外的灵活性和选项，以帮助你完成工作。 例如，[`transformers.AutomaticSpeechRecognitionPipeline.__call__`](https://huggingface.co/transformers/main_classes/pipelines.html#transformers.AutomaticSpeechRecognitionPipeline.__call__)方法具有一个`return_timestamps`参数，对于为视频生成字幕似乎是一个有帮助的选择。
 
 ```py
 >>> # Not using whisper, as it cannot provide timestamps.
@@ -182,7 +176,8 @@ for out in pipe(KeyDataset(dataset, "audio")):
 
 ## 使用pipelines构建Web服务器
 
-<Tip> 创建推理引擎是一个复杂的主题，值得拥有自己的页面。 </Tip>
+注意：
+>创建推理引擎是一个复杂的主题，该主题会用单独的内容来说明。
 
 [链接](http://liuzard.com/pipeline_webserver)
 
@@ -240,16 +235,16 @@ for out in pipe(KeyDataset(dataset, "audio")):
 [{'score': 0.42515, 'answer': 'us-001', 'start': 16, 'end': 16}]
 ```
 
-<Tip>
+注意：
 
-要运行上面的示例，除了🤗 Transformers之外，你还需要安装[`pytesseract`](https://pypi.org/project/pytesseract/)：
+> 要运行上面的示例，除了🤗 Transformers之外，你还需要安装[`pytesseract`](https://pypi.org/project/pytesseract/)：
 
 ```bash
 sudo apt install -y tesseract-ocr
 pip install pytesseract
 ```
 
-</Tip>
+
 
 ## 使用`pipeline`处理大型模型与🤗 `accelerate`：
 
