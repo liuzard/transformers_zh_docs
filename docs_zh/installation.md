@@ -16,7 +16,7 @@ rendered properly in your Markdown viewer.
 
 # 安装
 
-你可以根据正在使用的深度学习库的来安装🤗Transformers模块，设置缓存，并且可以配置🤗Transformers以离线的方式运行。
+你可以根据正在使用的深度学习库来安装🤗Transformers模块，设置缓存，并且可以配置🤗Transformers以离线的方式运行。
 
 🤗Transformers已经在Python 3.6+、PyTorch 1.1.0+、TensorFlow 2.0+和Flax上进行了测试。请根据你想要使用的深度学习库进行安装：
 
@@ -34,7 +34,7 @@ rendered properly in your Markdown viewer.
 python -m venv .env
 ```
 
-激活虚拟环境。如果是Linux和MacOS，输入如下命令：
+激活虚拟环境。如果你的系统是Linux和MacOS，输入如下命令：
 
 ```bash
 source .env/bin/activate
@@ -163,11 +163,11 @@ conda install -c huggingface transformers
 
 🤗Transformers可以在防火墙或离线环境中运行，只使用本地文件。设置环境变量`TRANSFORMERS_OFFLINE=1`以启用此功能。
 
-<Tip>
+注意：
 
-通过设置环境变量`HF_DATASETS_OFFLINE=1`，将[🤗Datasets](https://huggingface.co/docs/datasets/)添加到离线训练工作流程中。
+>通过设置环境变量`HF_DATASETS_OFFLINE=1`，将[🤗Datasets](https://huggingface.co/docs/datasets/)添加到离线训练工作流程中。
 
-</Tip>
+
 
 例如，你通常会在一个正常的网络防火墙下运行程序，如下所示：
 
