@@ -164,7 +164,8 @@ for out in pipe(data()):
 
 ```py
 # KeyDataset is a util that will just output the item we're interested in.
-from transformers.pipelines.utils import KeyDataset
+from transformers.pipelines.base import KeyDataset
+from transformers import pipeline
 from datasets import load_dataset
 
 pipe = pipeline(model="hf-internal-testing/tiny-random-wav2vec2", device=0)
