@@ -85,10 +85,11 @@ pip install -r requirements.txt
 ```
 
 ## 运行脚本
+示例脚本(pytorch)下载并预处理了🤗[Datasets](https://huggingface.co/docs/datasets/)库中的数据集。然后，脚本使用支持摘要生成的架构在[Trainer](https://huggingface.co/docs/transformers/main_classes/trainer)上微调了数据集。以下示例演示了如何在[CNN/DailyMail](https://huggingface.co/datasets/cnn_dailymail)数据集上微调[T5-small](https://huggingface.co/t5-small)模型。由于T5模型的训练方式，需要添加额外的`source_prefix`参数。这个prompt让T5知道这是一个摘要任务。
 
 <frameworkcontent>
 <pt>
-示例脚本下载并预处理了🤗 [Datasets](https://huggingface.co/docs/datasets/)库中的数据集。然后，脚本使用支持摘要生成的架构在[Trainer](https://huggingface.co/docs/transformers/main_classes/trainer)上微调了数据集。以下示例演示了如何在[CNN/DailyMail](https://huggingface.co/datasets/cnn_dailymail)数据集上微调[T5-small](https://huggingface.co/t5-small)模型。由于T5模型的训练方式，需要添加额外的`source_prefix`参数。这个prompt让T5知道这是一个摘要任务。
+
 
 ```bash
 python examples/pytorch/summarization/run_summarization.py \
@@ -104,9 +105,10 @@ python examples/pytorch/summarization/run_summarization.py \
     --overwrite_output_dir \
     --predict_with_generate
 ```
+示例脚本(tensorflow)下载并预处理了🤗 [Datasets](https://huggingface.co/docs/datasets/)库中的数据集。然后，脚本使用Keras在支持摘要生成的架构上微调了数据集。以下示例演示了如何在[CNN/DailyMail](https://huggingface.co/datasets/cnn_dailymail)数据集上微调[T5-small](https://huggingface.co/t5-small)模型。由于T5模型的训练方式，需要添加额外的`source_prefix`参数。这个prompt让T5知道这是一个摘要任务。
+
 </pt>
 <tf>
-示例脚本下载并预处理了🤗 [Datasets](https://huggingface.co/docs/datasets/)库中的数据集。然后，脚本使用Keras在支持摘要生成的架构上微调了数据集。以下示例演示了如何在[CNN/DailyMail](https://huggingface.co/datasets/cnn_dailymail)数据集上微调[T5-small](https://huggingface.co/t5-small)模型。由于T5模型的训练方式，需要添加额外的`source_prefix`参数。这个prompt让T5知道这是一个摘要任务。
 
 ```bash
 python examples/tensorflow/summarization/run_summarization.py  \
