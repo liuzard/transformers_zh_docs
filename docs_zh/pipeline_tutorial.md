@@ -56,7 +56,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 现在的结果看起来更准确了！
 
-我们鼓励你在Hub上寻找适用于不同语言、专门针对你领域的模型。你可以直接在浏览器上查看和比较Hub上的模型结果，以确定是否符合你的需求或是否能够更好地处理特殊情况。如果你没有找到适合你用例的模型，你始终可以开始[训练](http://liuzard.com/tag/中文/)自己的模型！
+我们鼓励你在Hub上寻找适用于不同语言、专门针对你领域的模型。你可以直接在浏览器上查看和比较Hub上的模型结果，以确定是否符合你的需求或是否能够更好地处理特殊情况。如果你没有找到适合你用例的模型，你始终可以开始[训练](training.md)自己的模型！
 
 如果你有多个输入，你可以将输入作为列表传递给[`pipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#pipelines-overview-pipelines)：
 
