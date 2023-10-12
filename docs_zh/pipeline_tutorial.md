@@ -138,7 +138,7 @@ pipelines还可以减轻批处理的一些复杂性，因为对于某些pipeline
 
 每个任务都有许多可用的参数，因此请查看每个任务的API参考，了解你可以进行哪些调整！例如，[`~transformers.AutomaticSpeechRecognitionPipeline`](https://huggingface.co/transformers/main_classes/pipelines.html#transformers.AutomaticSpeechRecognitionPipeline)具有一个`chunk_length_s`参数，对于处理非常长的音频文件（例如，为整部电影或长达一小时的视频添加字幕）非常有帮助。这样的音频文件通常一个模型无法独自处理。
 
-如果你找不到真正有用的参数，请随时[提出请求](https://github.com/huggingface/transformers/issues/new?assignees=&labels=feature&template=feature-request.yml)！
+如果你找不到真正有用的参数，请随时[提出需求](https://github.com/huggingface/transformers/issues/new?assignees=&labels=feature&template=feature-request.yml)！
 
 ## 使用pipelines在数据集上进行推理
 
