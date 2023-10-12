@@ -153,11 +153,9 @@ conda install -c huggingface transformers
 2. Shell环境变量：`HF_HOME`。
 3. Shell环境变量：`XDG_CACHE_HOME` + `/huggingface`。
 
-<Tip>
+注意：
+> 如果你是从此库的早期版本转换过来并设置了这些环境变量，🤗Transformers将使用shell环境变量`PYTORCH_TRANSFORMERS_CACHE`或`PYTORCH_PRETRAINED_BERT_CACHE`，除非你指定了shell环境变量`TRANSFORMERS_CACHE`。
 
-如果你是从此库的早期版本转换过来并设置了这些环境变量，🤗Transformers将使用shell环境变量`PYTORCH_TRANSFORMERS_CACHE`或`PYTORCH_PRETRAINED_BERT_CACHE`，除非你指定了shell环境变量`TRANSFORMERS_CACHE`。
-
-</Tip>
 
 ## 离线模式
 
@@ -241,8 +239,6 @@ python examples/pytorch/translation/run_translation.py --model_name_or_path t5-s
 >>> config = AutoConfig.from_pretrained("./your/path/bigscience_t0/config.json")
 ```
 
-<Tip>
+注意：
+>请参阅[如何从Hub下载文件](https://huggingface.co/docs/hub/how-to-downstream)部分，了解有关下载存储在Hub上的文件的更多详细信息。
 
-请参阅[如何从Hub下载文件](https://huggingface.co/docs/hub/how-to-downstream)部分，了解有关下载存储在Hub上的文件的更多详细信息。
-
-</Tip>
