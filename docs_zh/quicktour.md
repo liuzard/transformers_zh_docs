@@ -230,11 +230,11 @@ label: NEGATIVE, with score: 0.5309
 </tf>
 </frameworkcontent>
 
-<Tip>
+注意：
 
-查阅[预处理](preprocessing.md)教程来获得有关分词的更详细的信息, 以及如何使用[`AutoFeatureExtractor`]和[`AutoProcessor`]来处理图像, 音频, 还有多模式输入.
+> 查阅[预处理](preprocessing.md)教程来获得有关分词的更详细的信息, 以及如何使用[`AutoFeatureExtractor`]和[`AutoProcessor`]来处理图像, 音频, 还有多模式输入.
 
-</Tip>
+
 
 ### AutoModel
 
@@ -249,11 +249,10 @@ label: NEGATIVE, with score: 0.5309
 >>> pt_model = AutoModelForSequenceClassification.from_pretrained(model_name)
 ```
 
-<Tip>
+注意
 
-通过[任务摘要](task_summary.md)查找[`AutoModel`]支持的任务.
+> 通过[任务摘要](task_summary.md)查找[`AutoModel`]支持的任务.
 
-</Tip>
 
 现在可以把预处理好的输入批次直接送进模型. 你只需要添加`**`来解包字典:
 
@@ -282,11 +281,10 @@ tensor([[0.0021, 0.0018, 0.0115, 0.2121, 0.7725],
 >>> tf_model = TFAutoModelForSequenceClassification.from_pretrained(model_name)
 ```
 
-<Tip>
+注意：
 
-通过[任务摘要](task_summary.md)查找[`AutoModel`]支持的任务.
+> 通过[任务摘要](task_summary.md)查找[`AutoModel`]支持的任务.
 
-</Tip>
 
 现在通过直接将字典的键传给张量，将预处理的输入批次传给模型.
 
@@ -305,12 +303,11 @@ tensor([[0.0021, 0.0018, 0.0115, 0.2121, 0.7725],
 </tf>
 </frameworkcontent>
 
-<Tip>
+注意：
 
-所有 🤗 Transformers 模型 (PyTorch 或 TensorFlow) 在最终的激活函数(比如softmax)*之前* 输出张量,
-因为最终的激活函数常常与loss融合. 模型的输出是特殊的数据类, 所以它们的属性可以在IDE中被自动补全. 模型的输出就像一个元组或字典 (你可以通过整数、切片或字符串来索引它), 在这种情况下, 为None的属性会被忽略.
+>所有 🤗 Transformers 模型 (PyTorch 或 TensorFlow) 在最终的激活函数(比如softmax)*之前* 输出张量,
+>因为最终的激活函数常常与loss融合. 模型的输出是特殊的数据类, 所以它们的属性可以在IDE中被自动补全. 模型的输出就像一个元组或字典 (你可以通过整数、切片或字符串来索引它), 在这种情况下, 为None的属性会被忽略.
 
-</Tip>
 
 ### 保存模型
 
@@ -488,11 +485,10 @@ tensor([[0.0021, 0.0018, 0.0115, 0.2121, 0.7725],
 >>> trainer.train()  # doctest: +SKIP
 ```
 
-<Tip>
+注意：
 
-对于像翻译或摘要这些使用序列到序列模型的任务, 用[`Seq2SeqTrainer`]和[`Seq2SeqTrainingArguments`]来替代.
+> 对于像翻译或摘要这些使用序列到序列模型的任务, 用[`Seq2SeqTrainer`]和[`Seq2SeqTrainingArguments`]来替代.
 
-</Tip>
 
 你可以通过子类化[`Trainer`]中的方法来自定义训练循环. 这样你就可以自定义像损失函数, 优化器和调度器这样的特性. 查阅[`Trainer`]参考手册了解哪些方法能够被子类化. 
 
