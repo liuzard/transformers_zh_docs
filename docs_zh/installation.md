@@ -159,7 +159,7 @@ conda install -c huggingface transformers
 
 ## 离线模式
 
-🤗Transformers可以在防火墙或离线环境中运行，只使用本地文件。设置环境变量`TRANSFORMERS_OFFLINE=1`以启用此功能。
+🤗Transformers可以在在线或离线环境中运行，只使用本地文件。设置环境变量`TRANSFORMERS_OFFLINE=1`以启用此功能。
 
 注意：
 
@@ -167,7 +167,7 @@ conda install -c huggingface transformers
 
 
 
-例如，你通常会在一个正常的网络防火墙下运行程序，如下所示：
+例如，你通常会在一个正常的在线方式运行程序，如下所示：
 
 ```bash
 python examples/pytorch/translation/run_translation.py --model_name_or_path t5-small --dataset_name wmt16 --dataset_config ro-en ...
