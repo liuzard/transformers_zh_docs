@@ -1,6 +1,8 @@
-本项目为🤗HuggingFace transformers 库的中文文档，仅仅针对英文文档进行了翻译工作，版权归HuggingFace 团队所有。
+本项目为🤗HuggingFace transformers 库的中文文档，仅仅针对英文文档进行了翻译工作，版权归HuggingFace团队所有。
 
-欢迎大家捉虫和贡献。
+项目会不定期优化翻译质量和排版，欢迎大家捉虫和贡献，也欢迎issues和star.
+
+根据官网的英文目录，对应的中文目录如下：
 
 
 **1. 开始使用**
@@ -40,7 +42,7 @@
 
 - [语言模型](docs_zh/tasks/language_modeling.md)
 
-- [掩码语言模型](docs_zh/tasks/masked_language_modeling.md)
+- [mask语言模型](docs_zh/tasks/masked_language_modeling.md)
 
 - [机器翻译](docs_zh/tasks/translation.md)
 
@@ -57,7 +59,7 @@
 3.3 机器视觉
 
 - [图像分类](docs_zh/tasks/image_classification.md)
-- [图像分割](docs_zh/tasks/semantic_segmentation.md)
+- [图像语义分割](docs_zh/tasks/semantic_segmentation.md)
 - [视频分类](docs_zh/tasks/video_classification.md)
 - [目标检测](docs_zh/tasks/object_detection.md)
 - [零样本目标检测](docs_zh/tasks/zero_shot_object_detection.md)
@@ -67,9 +69,9 @@
 3.4 多模态
 
 - [图像描述](docs_zh/tasks/image_captioning.md)
-- [阅读理解](docs_zh/tasks/document_question_answering.md)
+- [文档阅读理解](docs_zh/tasks/document_question_answering.md)
 - [图像问答](docs_zh/tasks/visual_question_answering.md)
-- [文本转语音](docs_zh/tasks/text-to-speech.md)
+- [文本转语音tts](docs_zh/tasks/text-to-speech.md)
 
 3.5 生成
 
@@ -85,7 +87,7 @@
 
 - [通过🤗Tokenizers实现快速分词](docs_zh/fast_tokenizers.md)
 - [多语言模型推理](docs_zh/multilingual.md)
-- [使用模型特定的APIs](docs_zh/create_a_model.md)
+- [使用模型特定的API](docs_zh/create_a_model.md)
 - [分享自定义的模型](docs_zh/custom_models.md)
 - [chat模型模板](docs_zh/chat_templating.md)
 - [通过Amazon SageMaker训练模型](docs_zh/serialization.md)
@@ -93,7 +95,7 @@
 - [导出到TFLite](docs_zh/tflite.md)
 - [导出到TorchScript](docs_zh/torchscript.md)
 - [基准测试](docs_zh/benchmarks.md)
-- [笔记样例](docs_zh/notebooks.md)
+- [笔记示例](docs_zh/notebooks.md)
 - [社区资源](docs_zh/community.md)
 - [自定义Tools和Prompts](docs_zh/custom_tools.md)
 - [问题排查](docs_zh/troubleshooting.md)
@@ -136,7 +138,7 @@
 - [如何将🤗Transformers模型转换为TensorFlow](docs_zh/add_tensorflow_model.md)
 - [如何向🤗Transformers添加pipline](docs_zh/add_new_pipeline.md)
 - [测试](docs_zh/testing.md)
-- [拉取请求的检查](docs_zh/pr_checks.md)
+- [pull request 的检查](docs_zh/pr_checks.md)
 
 **7. 概念指南**
 - [哲学](docs_zh/philosophy.md)
