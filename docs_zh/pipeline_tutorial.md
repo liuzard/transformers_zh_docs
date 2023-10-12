@@ -71,7 +71,7 @@ generator(
 
 如果你想迭代整个数据集，或者想将其用于Web服务器中的推理，请查看专门的部分
 
-[在数据集上使用pipelines](#using-pipelines-on-a-dataset)
+[在数据集上使用pipelines](#使用pipelines在数据集上进行推理)
 
 [在Web服务器上使用pipelines](pipeline_webserver.md)
 
@@ -179,7 +179,7 @@ for out in pipe(KeyDataset(dataset, "audio")):
 注意：
 >创建推理引擎是一个复杂的主题，该主题会用单独的内容来说明。
 
-[链接](http://liuzard.com/pipeline_webserver)
+[链接](pipeline_webserver.md)
 
 ## 视觉任务的pipeline
 
