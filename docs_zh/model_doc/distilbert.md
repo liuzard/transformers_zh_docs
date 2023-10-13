@@ -72,7 +72,7 @@ distilled version of BERT: smaller, faster, cheaper and lighter](https://arxiv.o
 - [`DistilBertForTokenClassification`] 的示例脚本可在此 [链接](https://github.com/huggingface/transformers/tree/main/examples/pytorch/token-classification) 和 [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification.ipynb) 中找到。
 - [`TFDistilBertForTokenClassification`] 的示例脚本可在此 [链接](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/token-classification) 和 [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification-tf.ipynb) 中找到。
 - [`FlaxDistilBertForTokenClassification`] 的示例脚本可在此 [链接](https://github.com/huggingface/transformers/tree/main/examples/flax/token-classification) 中找到。
-- [🤗 Hugging Face 课程中的标记分类](https://huggingface.co/course/chapter7/2?fw=pt) 章节。
+- [🤗Hugging Face 课程中的标记分类](https://huggingface.co/course/chapter7/2?fw=pt) 章节。
 - [标记分类任务指南](../tasks/token_classification)
 
 <PipelineTag pipeline="fill-mask"/>
@@ -80,7 +80,7 @@ distilled version of BERT: smaller, faster, cheaper and lighter](https://arxiv.o
 - [`DistilBertForMaskedLM`] 的示例脚本可在此 [链接](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling#robertabertdistilbert-and-masked-language-modeling) 和 [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling.ipynb) 中找到。
 - [`TFDistilBertForMaskedLM`] 的示例脚本可在此 [链接](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling#run_mlmpy) 和 [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling-tf.ipynb) 中找到。
 - [`FlaxDistilBertForMaskedLM`] 的示例脚本可在此 [链接](https://github.com/huggingface/transformers/tree/main/examples/flax/language-modeling#masked-language-modeling) 和 [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/masked_language_modeling_flax.ipynb) 中找到。
-- [🤗 Hugging Face 课程中的掩码语言建模](https://huggingface.co/course/chapter7/3?fw=pt) 章节。
+- [🤗Hugging Face 课程中的掩码语言建模](https://huggingface.co/course/chapter7/3?fw=pt) 章节。
 - [掩码语言建模任务指南](../tasks/masked_language_modeling)
 
 <PipelineTag pipeline="question-answering"/>
@@ -88,7 +88,7 @@ distilled version of BERT: smaller, faster, cheaper and lighter](https://arxiv.o
 - [`DistilBertForQuestionAnswering`] 的示例脚本可在此 [链接](https://github.com/huggingface/transformers/tree/main/examples/pytorch/question-answering) 和 [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/question_answering.ipynb) 中找到。
 - [`TFDistilBertForQuestionAnswering`] 的示例脚本可在此 [链接](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/question-answering) 和 [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/question_answering-tf.ipynb) 中找到。
 - [`FlaxDistilBertForQuestionAnswering`] 的示例脚本可在此 [链接](https://github.com/huggingface/transformers/tree/main/examples/flax/question-answering) 中找到。
-- [🤗 Hugging Face 课程中的问答](https://huggingface.co/course/chapter7/7?fw=pt) 章节。
+- [🤗Hugging Face 课程中的问答](https://huggingface.co/course/chapter7/7?fw=pt) 章节。
 - [问答任务指南](../tasks/question_answering)
 
 **多选题**
@@ -98,8 +98,8 @@ distilled version of BERT: smaller, faster, cheaper and lighter](https://arxiv.o
 
 ⚗️ 优化
 
-- 一篇关于如何利用 🤗 Optimum 和 Intel 对 DistilBERT 进行量化的博客文章 [quantize DistilBERT with 🤗 Optimum and Intel](https://huggingface.co/blog/intel)。
-- 一篇关于如何使用 🤗 Optimum 优化 GPU 上的 Transformers 的博客文章 [Optimizing Transformers for GPUs with 🤗 Optimum](https://www.philschmid.de/optimizing-transformers-with-optimum-gpu)。
+- 一篇关于如何利用 🤗Optimum 和 Intel 对 DistilBERT 进行量化的博客文章 [quantize DistilBERT with 🤗Optimum and Intel](https://huggingface.co/blog/intel)。
+- 一篇关于如何使用 🤗Optimum 优化 GPU 上的 Transformers 的博客文章 [Optimizing Transformers for GPUs with 🤗Optimum](https://www.philschmid.de/optimizing-transformers-with-optimum-gpu)。
 - 一篇关于使用 Hugging Face Optimum 优化 Transformers 的博客文章 [Optimizing Transformers with Hugging Face Optimum](https://www.philschmid.de/optimizing-transformers-with-optimum)。
 
 ⚡️ 推理

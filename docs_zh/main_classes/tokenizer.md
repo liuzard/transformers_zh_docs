@@ -14,7 +14,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 # Tokenizer
 
-一个Tokenizer负责为模型准备输入。该库包含所有模型的Tokenizer。大多数Tokenizer都有两种类型：一种是完整的Python实现，另一种是基于Rust库[🤗 Tokenizers](https://github.com/huggingface/tokenizers)的"快速"实现。"快速"实现提供了以下功能：
+一个Tokenizer负责为模型准备输入。该库包含所有模型的Tokenizer。大多数Tokenizer都有两种类型：一种是完整的Python实现，另一种是基于Rust库[🤗Tokenizers](https://github.com/huggingface/tokenizers)的"快速"实现。"快速"实现提供了以下功能：
 
 1. 在进行批处理分词时显著加快速度；
 2. 附加方法用于在原始字符串（字符和单词）和标记空间之间进行映射（例如，获取包含给定字符的标记的索引或对应于给定标记的字符范围）。
@@ -42,7 +42,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ## PreTrainedTokenizerFast
 
-[`PreTrainedTokenizerFast`]依赖于[tokenizers](https://huggingface.co/docs/tokenizers)库。从🤗 Tokenizers库获取的Tokenizer可以很简单地加载到🤗 Transformers中。请查看[Using tokenizers from 🤗 tokenizers](../fast_tokenizers.md)页面了解如何使用。
+[`PreTrainedTokenizerFast`]依赖于[tokenizers](https://huggingface.co/docs/tokenizers)库。从🤗Tokenizers库获取的Tokenizer可以很简单地加载到🤗Transformers中。请查看[Using tokenizers from 🤗tokenizers](../fast_tokenizers.md)页面了解如何使用。
 
 [[autodoc]] PreTrainedTokenizerFast
     - __call__

@@ -40,7 +40,7 @@ Bart模型是由Mike Lewis、Yinhan Liu、Naman Goyal、Marjan Ghazvininejad、A
 
   * 随机掩码token（类似于BERT）
   * 删除随机token
-  * 使用单个掩码token掩盖k个token的一段（0个token的一段是插入一个掩码token）
+  * 使用单个掩码tokenmaskk个token的一段（0个token的一段是插入一个掩码token）
   * 排列句子
   * 旋转文档，使其从特定token开始
 
@@ -83,13 +83,13 @@ assert tok.batch_decode(generated_ids, skip_special_tokens=True) == [
 
 <PipelineTag pipeline="summarization"/>
 
-- 有关[分布式训练：使用🤗 Transformers和Amazon SageMaker训练BART/T5进行摘要](https://huggingface.co/blog/sagemaker-distributed-training-seq2seq)的博客文章。
+- 有关[分布式训练：使用🤗Transformers和Amazon SageMaker训练BART/T5进行摘要](https://huggingface.co/blog/sagemaker-distributed-training-seq2seq)的博客文章。
 - 有关如何使用fastai和blurr对BART进行[总结微调的笔记本](https://colab.research.google.com/github/ohmeow/ohmeow_website/blob/master/posts/2021-05-25-mbart-sequence-classification-with-blurr.ipynb)。🌎
 - 有关如何使用Trainer类在两种语言中对BART进行[总结微调的笔记本](https://colab.research.google.com/github/elsanns/xai-nlp-notebooks/blob/master/fine_tune_bart_summarization_two_langs.ipynb)。🌎
 - 通过这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/summarization)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/summarization.ipynb)支持[`BartForConditionalGeneration`]。
 - 通过这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/summarization)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/summarization-tf.ipynb)支持[`TFBartForConditionalGeneration`]。
 - 通过这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/flax/summarization)支持[`FlaxBartForConditionalGeneration`]。
-- 🤗 Hugging Face课程的[摘要](https://huggingface.co/course/chapter7/5?fw=pt#summarization)章节。
+- 🤗Hugging Face课程的[摘要](https://huggingface.co/course/chapter7/5?fw=pt#summarization)章节。
 - [摘要任务指南](../tasks/summarization)
 
 <PipelineTag pipeline="fill-mask"/>
@@ -97,7 +97,7 @@ assert tok.batch_decode(generated_ids, skip_special_tokens=True) == [
 - 通过这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling#robertabertdistilbert-and-masked-language-modeling)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling.ipynb)支持[`BartForConditionalGeneration`]。
 - 通过这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling#run_mlmpy)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling-tf.ipynb)支持[`TFBartForConditionalGeneration`]。
 - 通过这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/flax/language-modeling#masked-language-modeling)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/masked_language_modeling_flax.ipynb)支持[`FlaxBartForConditionalGeneration`]。
-- 🤗 Hugging Face课程的[掩码语言模型](https://huggingface.co/course/chapter7/3?fw=pt)章节。
+- 🤗Hugging Face课程的[掩码语言模型](https://huggingface.co/course/chapter7/3?fw=pt)章节。
 - [掩码语言模型任务指南](../tasks/masked_language_modeling)
 
 <PipelineTag pipeline="translation"/>

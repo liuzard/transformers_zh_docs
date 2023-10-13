@@ -16,7 +16,7 @@ BROS模型是由Teakgyu Hong、Donghyun Kim、Mingi Ji、Wonseok Hwang、Daehyun
 
 BROS代表BERT Relying On Spatiality。它是一个仅编码器的Transformer模型，接收一系列token及其边界框作为输入，并输出一系列隐藏状态。BROS使用相对空间信息编码，而不使用绝对空间信息。
 
-它采用了两个预训练目标：词语掩盖语言建模目标（TMLM），用于BERT，以及新的区域掩盖语言建模目标（AMLM）。在TMLM中，token被随机掩盖，模型使用空间信息和其他未被掩盖的token来预测被掩盖的token。AMLM是TMLM的二维版本。它随机掩盖文本token，并使用与TMLM相同的信息进行预测，但掩盖的是文本块（区域）。
+它采用了两个预训练目标：词语mask语言建模目标（TMLM），用于BERT，以及新的区域mask语言建模目标（AMLM）。在TMLM中，token被随机mask，模型使用空间信息和其他未被mask的token来预测被mask的token。AMLM是TMLM的二维版本。它随机mask文本token，并使用与TMLM相同的信息进行预测，但mask的是文本块（区域）。
 
 `BrosForTokenClassification`在BrosModel之上有一个简单的线性层，用于预测每个token的标签。
 `BrosSpadeEEForTokenClassification`在BrosModel之上有一个`initial_token_classifier`和一个`subsequent_token_classifier`。`initial_token_classifier`用于预测每个实体的第一个token，`subsequent_token_classifier`用于预测实体内部的下一个token。`BrosSpadeELForTokenClassification`在BrosModel之上有一个`entity_linker`。`entity_linker`用于预测两个实体之间的关系。

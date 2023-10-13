@@ -51,7 +51,7 @@ Wenzek，Francisco Guzmán，Edouard Grave，Myle Ott，Luke Zettlemoyer和Vesel
 - [`XLMRobertaForSequenceClassification`]由此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/text-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/text_classification.ipynb)支持。
 - [`TFXLMRobertaForSequenceClassification`]由此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/text-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/text_classification-tf.ipynb)支持。
 - [`FlaxXLMRobertaForSequenceClassification`]由此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/flax/text-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/text_classification_flax.ipynb)支持。
-- [文本分类](https://huggingface.co/docs/transformers/tasks/sequence_classification)章节的🤗 Hugging Face任务指南。
+- [文本分类](https://huggingface.co/docs/transformers/tasks/sequence_classification)章节的🤗Hugging Face任务指南。
 - [文本分类任务指南](../tasks/sequence_classification)
 
 <PipelineTag pipeline="token-classification"/>
@@ -59,13 +59,13 @@ Wenzek，Francisco Guzmán，Edouard Grave，Myle Ott，Luke Zettlemoyer和Vesel
 - [`XLMRobertaForTokenClassification`]由此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/token-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification.ipynb)支持。
 - [`TFXLMRobertaForTokenClassification`]由此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/token-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification-tf.ipynb)支持。
 - [`FlaxXLMRobertaForTokenClassification`]由此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/flax/token-classification)支持。
-- [标记分类](https://huggingface.co/course/chapter7/2?fw=pt)章节的🤗 Hugging Face课程。
+- [标记分类](https://huggingface.co/course/chapter7/2?fw=pt)章节的🤗Hugging Face课程。
 - [标记分类任务指南](../tasks/token_classification)
 
 <PipelineTag pipeline="text-generation"/>
 
 - [`XLMRobertaForCausalLM`]由此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling.ipynb)支持。
-- [因果语言模型](https://huggingface.co/docs/transformers/tasks/language_modeling)章节的🤗 Hugging Face任务指南。
+- [因果语言模型](https://huggingface.co/docs/transformers/tasks/language_modeling)章节的🤗Hugging Face任务指南。
 - [因果语言模型任务指南](../tasks/language_modeling)
 
 <PipelineTag pipeline="fill-mask"/>
@@ -73,7 +73,7 @@ Wenzek，Francisco Guzmán，Edouard Grave，Myle Ott，Luke Zettlemoyer和Vesel
 - [`XLMRobertaForMaskedLM`]由此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling#robertabertdistilbert-and-masked-language-modeling)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling.ipynb)支持。
 - [`TFXLMRobertaForMaskedLM`]由此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling#run_mlmpy)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling-tf.ipynb)支持。
 - [`FlaxXLMRobertaForMaskedLM`]由此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/flax/language-modeling#masked-language-modeling)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/masked_language_modeling_flax.ipynb)支持。
-- [屏蔽语言模型](https://huggingface.co/course/chapter7/3?fw=pt)章节的🤗 Hugging Face课程。
+- [屏蔽语言模型](https://huggingface.co/course/chapter7/3?fw=pt)章节的🤗Hugging Face课程。
 - [屏蔽语言模型](../tasks/masked_language_modeling)
 
 <PipelineTag pipeline="question-answering"/>
@@ -81,7 +81,7 @@ Wenzek，Francisco Guzmán，Edouard Grave，Myle Ott，Luke Zettlemoyer和Vesel
 - [`XLMRobertaForQuestionAnswering`]由此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/question-answering)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/question_answering.ipynb)支持。
 - [`TFXLMRobertaForQuestionAnswering`]由此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/question-answering)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/question_answering-tf.ipynb)支持。
 - [`FlaxXLMRobertaForQuestionAnswering`]由此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/flax/question-answering)支持。
-- [问答](https://huggingface.co/course/chapter7/7?fw=pt)章节的🤗 Hugging Face课程。
+- [问答](https://huggingface.co/course/chapter7/7?fw=pt)章节的🤗Hugging Face课程。
 - [问答任务指南](../tasks/question_answering)
 
 **多选**

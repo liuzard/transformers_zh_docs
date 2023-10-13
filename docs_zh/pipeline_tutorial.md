@@ -98,7 +98,7 @@ out = generator(...)  # This will go back to using `my_parameter=1`.
 generator = pipeline(model="openai/whisper-large", device=0)
 ```
 
-如果模型对于单个GPU来说太大了，你可以将`device_map="auto"`设置为允许🤗 [Accelerate](https://huggingface.co/docs/accelerate)自动确定如何加载和存储模型权重。
+如果模型对于单个GPU来说太大了，你可以将`device_map="auto"`设置为允许🤗[Accelerate](https://huggingface.co/docs/accelerate)自动确定如何加载和存储模型权重。
 
 ```py
 #!pip install accelerate
@@ -160,7 +160,7 @@ for out in pipe(data()):
 
 由于批处理可能加快速度，调整`batch_size`参数可能会有所帮助。
 
-迭代整个数据集的最简单方法就是从🤗 [Datasets](https://github.com/huggingface/datasets/)中加载数据集：
+迭代整个数据集的最简单方法就是从🤗[Datasets](https://github.com/huggingface/datasets/)中加载数据集：
 
 ```py
 # KeyDataset is a util that will just output the item we're interested in.
@@ -238,7 +238,7 @@ for out in pipe(KeyDataset(dataset, "audio")):
 
 注意：
 
-> 要运行上面的示例，除了🤗 Transformers之外，你还需要安装[`pytesseract`](https://pypi.org/project/pytesseract/)：
+> 要运行上面的示例，除了🤗Transformers之外，你还需要安装[`pytesseract`](https://pypi.org/project/pytesseract/)：
 
 ```bash
 sudo apt install -y tesseract-ocr
@@ -247,9 +247,9 @@ pip install pytesseract
 
 
 
-## 使用`pipeline`处理大型模型与🤗 `accelerate`：
+## 使用`pipeline`处理大型模型与🤗`accelerate`：
 
-你可以使用🤗 `accelerate`轻松地在大型模型上运行`pipeline`！首先确保已经使用`pip install accelerate`安装了`accelerate`。
+你可以使用🤗`accelerate`轻松地在大型模型上运行`pipeline`！首先确保已经使用`pip install accelerate`安装了`accelerate`。
 
 首先使用`device_map="auto"`加载你的模型！我们将在示例中使用`facebook/opt-1.3b`。
 

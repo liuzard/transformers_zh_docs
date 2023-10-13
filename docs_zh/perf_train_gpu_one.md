@@ -47,7 +47,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 </Tip>
 
-你可以组合上述方法以获得累积效果。无论你是使用[`Trainer`]训练模型还是编写纯PyTorch循环，都可以使用这些技术。，在后一种情况下，你可以使用🤗 Accelerate[配置这些优化。
+你可以组合上述方法以获得累积效果。无论你是使用[`Trainer`]训练模型还是编写纯PyTorch循环，都可以使用这些技术。，在后一种情况下，你可以使用🤗Accelerate[配置这些优化。
 
 如果这些方法无法获得足够的收益，你可以尝试以下选项：
 * [查看使用高效软件预构建构建自定义Docker容器](#高效软件预构建)
@@ -79,7 +79,7 @@ training_args = TrainingArguments(per_device_train_batch_size=1, gradient_accumu
 
 在上面的示例中，有效的批次大小为4。
 
-或者，使用🤗 Accelerate对训练循环进行全面控制。在本指南的[further down](#using-accelerate)中查找🤗 Accelerate示例。
+或者，使用🤗Accelerate对训练循环进行全面控制。在本指南的[further down](#using-accelerate)中查找🤗Accelerate示例。
 
 虽然建议尽可能充分利用GPU的使用率，但高数量的渐变累积步骤可能导致训练减速更明显。考虑以下示例。假设`per_device_train_batch_size=4`而没有渐变累积时达到了GPU的限制。如果你想使用大小为64的批次进行训练，请勿将`per_device_train_batch_size`设置为1，并将`gradient_accumulation_steps`设置为64。相反，保持`per_device_train_batch_size=4`，并设置`gradient_accumulation_steps=16`。这样可以获得相同的有效批次大小，同时更好地利用可用的GPU资源。
 
@@ -101,7 +101,7 @@ training_args = TrainingArguments(
 )
 ```
 
-或者，使用🤗 Accelerate - 在本指南的较远处查找🤗 Accelerate示例。
+或者，使用🤗Accelerate - 在本指南的较远处查找🤗Accelerate示例。
 
 <Tip>
 
@@ -125,13 +125,13 @@ training_args = TrainingArguments(
 training_args = TrainingArguments(per_device_train_batch_size=4, fp16=True, **default_args)
 ```
 
-如果你更喜欢使用🤗 Accelerate，请在本指南的进一步使用[ further in this guide](#using-accelerate)找到🤗 Accelerate示例。
+如果你更喜欢使用🤗Accelerate，请在本指南的进一步使用[ further in this guide](#using-accelerate)找到🤗Accelerate示例。
 
 ### BF16
 
 如果你可以使用Ampere或更新的硬件，可以使用bf16进行混合精度训练和评估。尽管bf16的精度比fp16更差，但动态范围更大。在fp16中，你可以拥有的最大数字为`65535`，而超过该数字的任何数字都将导致溢出。bf16数字可以达到`3.39e+38`（！），与fp32大致相同-因为两者都使用了8位来表示数值范围。
 
-你可以使用以下命令在🤗 Trainer中启用BF16：
+你可以使用以下命令在🤗Trainer中启用BF16：
 
 ```python
 training_args = TrainingArguments(bf16=True, **default_args)
@@ -150,7 +150,7 @@ CUDA将自动切换到使用tf32而不是使用fp32（假设使用的GPU是Amper
 
 根据[NVIDIA研究](https://developer.nvidia.com/blog/accelerating-ai-training-with-tf32-tensor-cores/)，绝大多数机器学习训练工作负载以tf32训练与fp32相同的困惑度和收敛。如果你已经使用fp16或bf16混合精度，则它也可以提高吞吐量。
 
-你可以在🤗 Trainer中启用此模式：
+你可以在🤗Trainer中启用此模式：
 
 ```python
 TrainingArguments(tf32=True, **default_args)
@@ -268,12 +268,12 @@ pytorch-nightly引入了`torch.optim._multi_tensor`，可以显著加快大量�
 
 ## DeepSpeed ZeRO
 
-DeepSpeed是一个与🤗 Transformers和🤗 Accelerate集成的开源深度学习优化库。它提供了一系列功能和优化，旨在改进大规模深度学习训练的效率和可扩展性。
+DeepSpeed是一个与🤗Transformers和🤗Accelerate集成的开源深度学习优化库。它提供了一系列功能和优化，旨在改进大规模深度学习训练的效率和可扩展性。
 
 如果你的模型适合于单个GPU并且有足够的空间来放置较小的批次大小，则不需要使用DeepSpeed，因为它只会使事情变慢。然而，如果模型无法适应单个GPU，或者无法放置较小的批次，则可以利用DeepSpeed的ZeRO + CPU Offload或NVMe Offload来处理更大的模型。在这种情况下，你需要单独[安装库](main_classes/deepspeed#installation)，然后遵循一个配置文件并启动DeepSpeed的指南：
 
 * 对于DeepSpeed与[`Trainer`]的完整指南，请查阅[相应的文档](main_classes/deepspeed) ，特别是[单个GPU的部署部分](main_classes/deepspeed#deployment-with-one-gpu)。要在笔记本中使用DeepSpeed，需要进行一些调整；请查阅[对应指南](main_classes/deepspeed#deployment-in-notebooks)。
-* 如果你更喜欢使用🤗 Accelerate，请参考[🤗 Accelerate DeepSpeed指南](https://huggingface.co/docs/accelerate/en/usage_guides/deepspeed)。
+* 如果你更喜欢使用🤗Accelerate，请参考[🤗Accelerate DeepSpeed指南](https://huggingface.co/docs/accelerate/en/usage_guides/deepspeed)。
 
 ## 使用torch.compile
 
@@ -307,11 +307,11 @@ training_args = TrainingArguments(torch_compile=True, **default_args)
 * `dynamo.optimize("onnxrt")` - 使用ONNXRT进行CPU/GPU上的推断。[了解更多](https://onnxruntime.ai/)
 * `dynamo.optimize("ipex")` - 使用IPEX进行CPU上的推断。[了解更多](https://github.com/intel/intel-extension-for-pytorch)
 
-要使用`torch.compile`与🤗 Transformers的示例，请查看本文档中关于使用最新的PyTorch 2.0功能[Fine-tuning a BERT model for Text Classification using the newest PyTorch 2.0 features]的[博客文章](https://www.philschmid.de/getting-started-pytorch-2-0-transformers)。
+要使用`torch.compile`与🤗Transformers的示例，请查看本文档中关于使用最新的PyTorch 2.0功能[Fine-tuning a BERT model for Text Classification using the newest PyTorch 2.0 features]的[博客文章](https://www.philschmid.de/getting-started-pytorch-2-0-transformers)。
 
-## 使用🤗 Accelerate
+## 使用🤗Accelerate
 
-通过[🤗 Accelerate](https://huggingface.co/docs/accelerate/index)，你可以使用以上方法，并完全控制训练循环，实质上可以使用纯粹的PyTorch编写循环，只需进行一些细微的修改。
+通过[🤗Accelerate](https://huggingface.co/docs/accelerate/index)，你可以使用以上方法，并完全控制训练循环，实质上可以使用纯粹的PyTorch编写循环，只需进行一些细微的修改。
 
 假设你已经将[`TrainingArguments`]中的方法组合如下：
 
@@ -325,7 +325,7 @@ training_args = TrainingArguments(
 )
 ```
 
-使用🤗 Accelerate的完整示例训练循环只有几行代码：
+使用🤗Accelerate的完整示例训练循环只有几行代码：
 
 ```py
 from accelerate import Accelerator
@@ -351,9 +351,9 @@ for step, batch in enumerate(dataloader, start=1):
 
 首先，我们将数据集包装在[`DataLoader`](https://pytorch.org/docs/stable/data.html#torch.utils.data.DataLoader)中。然后，我们可以通过调用模型的[`~PreTrainedModel.gradient_checkpointing_enable`]方法来启用梯度检查点。在初始化[`Accelerator`](https://huggingface.co/docs/accelerate/package_reference/accelerator#accelerate.Accelerator)时，我们可以指定是否使用混合精度训练，并且它将在[`prepare`]调用中为我们处理。在[`prepare`](https://huggingface.co/docs/accelerate/package_reference/accelerator#accelerate.Accelerator.prepare)调用期间，数据加载器也将在使用多个GPU时分布在工作进程中。我们从之前示例中使用相同的[8位优化器](#8-bit-adam)。
 
-最后，我们可以添加主要的训练循环。请注意，`backward`调用是由🤗 Accelerate处理的。我们还可以看到梯度累积的工作原理：我们将损失归一化，因此在累积结束时得到平均值，并且一旦我们进行足够的步骤，就进行优化。
+最后，我们可以添加主要的训练循环。请注意，`backward`调用是由🤗Accelerate处理的。我们还可以看到梯度累积的工作原理：我们将损失归一化，因此在累积结束时得到平均值，并且一旦我们进行足够的步骤，就进行优化。
 
-在🤗 Accelerate中，通过少量的代码即可实现这些优化技术，并且具有更灵活的训练循环。要了解所有功能的完整文档，请查看[Accelerate文档](https://huggingface.co/docs/accelerate/index)。
+在🤗Accelerate中，通过少量的代码即可实现这些优化技术，并且具有更灵活的训练循环。要了解所有功能的完整文档，请查看[Accelerate文档](https://huggingface.co/docs/accelerate/index)。
 
 ## 高效的软件预构建
 

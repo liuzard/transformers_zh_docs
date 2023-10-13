@@ -67,7 +67,7 @@ model = LlamaForCausalLM.from_pretrained("/output/path")
 
 以下是 Hugging Face 官方资源和社区（由 🌎 表示）资源列表，可帮助你快速开始使用 LLaMA2。如果你有兴趣提交要包含在此处的资源，请随时提出拉取请求，我们将对其进行评审！该资源应该展示出一些新内容，而不是重复现有资源。
 
-- [Llama 2 is here - get it on Hugging Face](https://huggingface.co/blog/llama2)：一篇关于 Llama 2 及如何使用它与 🤗 Transformers 和 🤗 PEFT 的博客文章。
+- [Llama 2 is here - get it on Hugging Face](https://huggingface.co/blog/llama2)：一篇关于 Llama 2 及如何使用它与 🤗Transformers 和 🤗PEFT 的博客文章。
 - [LLaMA 2 - Every Resource you need](https://www.philschmid.de/llama-2)：编译了一些与 LLaMA 2 和如何快速入门有关的相关资源。
 
 <PipelineTag pipeline="text-generation"/>

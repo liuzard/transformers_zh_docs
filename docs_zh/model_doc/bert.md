@@ -69,7 +69,7 @@ BERT模型在[BERT: Pre-training of Deep Bidirectional Transformers for Language
 - [`BertForTokenClassification`]是由这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/token-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification.ipynb)支持的。
 - [`TFBertForTokenClassification`]是由这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/token-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification-tf.ipynb)支持的。
 - [`FlaxBertForTokenClassification`]是由这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/flax/token-classification)支持的。
-- [Token分类](https://huggingface.co/course/chapter7/2?fw=pt)：🤗 Hugging Face课程的章节。
+- [Token分类](https://huggingface.co/course/chapter7/2?fw=pt)：🤗Hugging Face课程的章节。
 - [Token分类任务指南](../tasks/token_classification)
 
 <PipelineTag pipeline="fill-mask"/>
@@ -77,7 +77,7 @@ BERT模型在[BERT: Pre-training of Deep Bidirectional Transformers for Language
 - [`BertForMaskedLM`]是由这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling#robertabertdistilbert-and-masked-language-modeling)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling.ipynb)支持的。
 - [`TFBertForMaskedLM`]是由这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling#run_mlmpy)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling-tf.ipynb)支持的。
 - [`FlaxBertForMaskedLM`]是由这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/flax/language-modeling#masked-language-modeling)支持的。
-- [掩码语言建模](https://huggingface.co/course/chapter7/3?fw=pt)：🤗 Hugging Face课程的章节。
+- [掩码语言建模](https://huggingface.co/course/chapter7/3?fw=pt)：🤗Hugging Face课程的章节。
 - [掩码语言建模任务指南](../tasks/masked_language_modeling)
 
 <PipelineTag pipeline="question-answering"/>
@@ -85,7 +85,7 @@ BERT模型在[BERT: Pre-training of Deep Bidirectional Transformers for Language
 - [`BertForQuestionAnswering`]是由这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/question-answering)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/question_answering.ipynb)支持的。
 - [`TFBertForQuestionAnswering`]是由这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/question-answering)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/question_answering-tf.ipynb)支持的。
 - [`FlaxBertForQuestionAnswering`]是由这个[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/flax/question-answering)支持的。
-- [问答](https://huggingface.co/course/chapter7/7?fw=pt)：🤗 Hugging Face课程的章节。
+- [问答](https://huggingface.co/course/chapter7/7?fw=pt)：🤗Hugging Face课程的章节。
 - [问答任务指南](../tasks/question_answering)
 
 **多项选择**

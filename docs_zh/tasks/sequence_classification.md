@@ -36,7 +36,7 @@ pip install transformers datasets evaluate
 
 ## 加载 IMDb 数据集
 
-首先，从 🤗 Datasets 库中加载 IMDb 数据集：
+首先，从 🤗Datasets 库中加载 IMDb 数据集：
 
 ```python
 >>> from datasets import load_dataset
@@ -76,7 +76,7 @@ pip install transformers datasets evaluate
 ...     return tokenizer(examples["text"], truncation=True)
 ```
 
-使用 🤗 Datasets [`~datasets.Dataset.map`] 函数对整个数据集应用预处理函数，通过将 `batched=True` 设置为一次处理数据集中的多个元素，可以加快处理速度：
+使用 🤗Datasets [`~datasets.Dataset.map`] 函数对整个数据集应用预处理函数，通过将 `batched=True` 设置为一次处理数据集中的多个元素，可以加快处理速度：
 
 ```python
 tokenized_imdb = imdb.map(preprocess_function, batched=True)
@@ -103,7 +103,7 @@ tokenized_imdb = imdb.map(preprocess_function, batched=True)
 
 ## 评估
 
-在训练过程中包含一个评估指标通常对评估模型的性能很有帮助。你可以使用 🤗 [Evaluate](https://huggingface.co/docs/evaluate/index) 库快速加载一个评估方法。对于这个任务，加载 [accuracy](https://huggingface.co/spaces/evaluate-metric/accuracy) 指标（请参阅 🤗 Evaluate [快速入门](https://huggingface.co/docs/evaluate/a_quick_tour) 以了解有关如何加载和计算指标的更多信息）：
+在训练过程中包含一个评估指标通常对评估模型的性能很有帮助。你可以使用 🤗[Evaluate](https://huggingface.co/docs/evaluate/index) 库快速加载一个评估方法。对于这个任务，加载 [accuracy](https://huggingface.co/spaces/evaluate-metric/accuracy) 指标（请参阅 🤗Evaluate [快速入门](https://huggingface.co/docs/evaluate/a_quick_tour) 以了解有关如何加载和计算指标的更多信息）：
 
 ```python
 >>> import evaluate

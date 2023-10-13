@@ -2,20 +2,19 @@
 
 [[在 colab 中打开]]
 
-在使用数据集对模型进行训练之前，需要将数据预处理为模型期望的输入格式。无论数据是文本、图片还是音频，都需要转换和组装成张量批次。🤗 Transformers 提供了一组预处理类来帮助准备数据供模型使用。在本教程中，你将学到以下内容：
+在使用数据集对模型进行训练之前，需要将数据预处理为模型期望的输入格式。无论数据是文本、图片还是音频，都需要转换和组装成张量。🤗Transformers提供了一组预处理类来帮助准备数据供模型使用。在本教程中，你将学到以下内容：
 
-* 对于文本，使用[Tokenizer](main_classes/tokenizer)将文本转换为token序列，创建token的数值表示，并将其组装成张量。
-* 对于语音和音频，使用[Feature extractor](main_classes/feature_extractor)从音频波形中提取时序特征，并将其转换为张量。
-* 对于图像输入，使用[ImageProcessor](main_classes/image)将图像转换为张量。
-* 对于多模式输入，使用[Processor](main_classes/processors)将分词处理器与特征提取器或图像处理器组合在一起。
+* 对于文本，使用[Tokenizer](main_classes/tokenizer.md)将文本转换为token序列，创建token的数值表示，并将其组装成张量。
+* 对于语音和音频，使用[Feature extractor](main_classes/feature_extractor.md)从音频波形中提取时序特征，并将其转换为张量。
+* 对于图像输入，使用[ImageProcessor](main_classes/image_processor.md)将图像转换为张量。
+* 对于多模式输入，使用[Processor](main_classes/processors.md)将分词处理器与特征提取器或图像处理器组合在一起。
 
-<Tip>
+注意：
 
-`AutoProcessor`**总是**工作，并自动选择适合你使用的模型的正确类别，无论你使用的是分词处理器、图像处理器、特征提取器，还是处理器。
+>`AutoProcessor`总是可用的，并自动选择适合你使用的模型的正确类别，无论你使用的是分词处理器、图像处理器、特征提取器，还是处理器。
 
-</Tip>
 
-在开始之前，首先安装 🤗 Datasets，这样可以加载一些数据集进行实验：
+在开始之前，首先安装 🤗Datasets，这样可以加载一些数据集进行实验：
 
 ```bash
 pip install datasets
@@ -25,13 +24,11 @@ pip install datasets
 
 <Youtube id="Yffk5aydLzg"/>
 
-预处理文本数据的主要工具是[分词处理器](main_classes/tokenizer)。分词处理器根据一组规则将文本拆分为*token*。然后将这些token转换为数值，并将其组装成张量，作为模型的输入。分词处理器还会添加模型所需的任何其他输入。
+预处理文本数据的主要工具是[分词处理器](main_classes/tokenizer.md)。分词处理器根据一组规则将文本拆分为*token*。然后将这些token转换为数值，并将其组装成张量，作为模型的输入。分词处理器还会添加模型所需的任何其他输入。
 
-<Tip>
+注意：
 
-如果打算使用预训练模型，使用相应的预训练分词处理器非常重要。这样可以确保文本的拆分方式与预训练语料库相同，并在预训练过程中使用相同的索引标记（通常称为*词汇表*）。
-
-</Tip>
+>如果打算使用预训练模型，使用相应的预训练分词处理器非常重要。这样可以确保文本的拆分方式与预训练语料库相同，并在预训练过程中使用相同的索引标记（通常称为*词汇表*）。
 
 首先使用[`AutoTokenizer.from_pretrained`]方法加载预训练分词处理器。这将下载模型的*词汇表*：
 
@@ -51,11 +48,11 @@ pip install datasets
  'attention_mask': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]}
 ```
 
-分词处理器返回一个包含三个重要项的字典：
+分词处理器返回一个包含三个重要的字典项：
 
-* [input_ids](glossary.md#input-ids) 是句子中每个token对应的索引。
-* [attention_mask](glossary.md#attention-mask) 指示一个token是否应该被注意。
-* [token_type_ids](glossary.md#token-type-ids) 是当有多个序列时，标识一个token属于哪个序列。
+* [input_ids](glossary.md#输入ID) 是句子中每个token对应的索引。
+* [attention_mask](glossary.md#注意力掩码) 指示一个token是否应该被注意(attention or mask)。
+* [token_type_ids](glossary.md#标记类型ID) 是当有多个序列时，标识一个token属于哪个序列。
 
 通过对`input_ids`进行解码，可以返回输入的内容：
 
@@ -64,7 +61,7 @@ pip install datasets
 '[CLS] Do not meddle in the affairs of wizards, for they are subtle and quick to anger. [SEP]'
 ```
 
-可以看到，分词处理器在句子中添加了两个特殊token - `CLS`和`SEP`（分类器和分隔符）。并非所有模型都需要特殊token，但如果需要，分词处理器会自动为你添加。
+可以看到，分词处理器在句子中添加了两个特殊token - `CLS`和`SEP`（分类器标识符和分隔符）。并非所有模型都需要特殊token，但如果需要，分词处理器会自动为你添加。
 
 如果有几个句子需要预处理，可以将它们作为列表传递给分词处理器：
 
@@ -139,11 +136,11 @@ pip install datasets
                     [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]]}
 ```
 
-<Tip>
+注意：
 
-查看[填充和截断](pad_truncation.md)概念指南，了解更多不同的填充和截取参数。
+>查看[填充和截断](pad_truncation.md)概念指南，了解更多不同的填充和截取参数。
 
-</Tip>
+
 
 ### 构建张量
 
@@ -151,8 +148,7 @@ pip install datasets
 
 将 `return_tensors` 参数设置为 `pt`（PyTorch）或 `tf`（TensorFlow）：
 
-<frameworkcontent>
-<pt>
+1、pytorch 写法
 
 ```py
 >>> batch_sentences = [
@@ -172,8 +168,9 @@ pip install datasets
                            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
                            [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]])}
 ```
-</pt>
-<tf>
+
+2、tensorflow写法
+
 ```py
 >>> batch_sentences = [
 ...     "But what about second breakfast?",
@@ -196,14 +193,13 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
        [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
        [1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=int32)>}
 ```
-</tf>
-</frameworkcontent>
+
 
 ## 音频
 
-对于音频任务，需要使用[特征提取器](main_classes/feature_extractor)来准备数据集以供模型使用。特征提取器旨在从原始音频数据中提取特征，并将其转换为张量。
+对于音频任务，需要使用[特征提取器](main_classes/feature_extractor.md)来准备数据集以供模型使用。特征提取器旨在从原始音频数据中提取特征，并将其转换为张量。
 
-加载 [MInDS-14](https://huggingface.co/datasets/PolyAI/minds14) 数据集（参见 🤗 [Datasets 教程](https://huggingface.co/docs/datasets/load_hub.html)了解如何加载数据集的更多细节），以查看如何将特征提取器应用于音频数据集：
+加载 [MInDS-14](https://huggingface.co/datasets/PolyAI/minds14) 数据集（参见 🤗[Datasets教程](https://huggingface.co/docs/datasets/load_hub.html)了解如何加载数据集的更多细节），以查看如何将特征提取器应用于音频数据集：
 
 ```py
 >>> from datasets import load_dataset, Audio
@@ -227,9 +223,9 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 * `path` 指向音频文件的位置。
 * `sampling_rate` 表示每秒测量语音信号的数据点数。
 
-在本教程中，你将使用[Wav2Vec2](https://huggingface.co/facebook/wav2vec2-base)模型。查看模型卡片，你将了解到 Wav2Vec2 是在16kHz 采样率的语音音频上预训练的。确保音频数据的采样率与用于预训练模型的数据集的采样率相匹配很重要。如果数据的采样率不同，那么需要对数据进行重新采样。
+在本教程中，你将使用[Wav2Vec2](https://huggingface.co/facebook/wav2vec2-base)模型。查看模型简介，你将了解到`Wav2Vec2`是在16kHz采样率的语音音频上预训练的。确保音频数据的采样率与用于预训练模型的数据集的采样率相匹配很重要。如果数据的采样率不同，那么需要对数据进行重新采样。
 
-1. 使用 🤗 Datasets 的 [`~datasets.Dataset.cast_column`] 方法将采样率提高到 16kHz：
+1. 使用 🤗Datasets 的 [`~datasets.Dataset.cast_column`] 方法将采样率提高到 16kHz：
 
 ```py
 >>> dataset = dataset.cast_column("audio", Audio(sampling_rate=16_000))
@@ -321,11 +317,11 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 
 </Tip>
 
-加载[food101](https://huggingface.co/datasets/food101)数据集（有关如何加载数据集的详细信息，请参见🤗 [Datasets教程](https://huggingface.co/docs/datasets/load_hub.html)），看看你如何在计算机视觉数据集中使用图像处理器：
+加载[food101](https://huggingface.co/datasets/food101)数据集（有关如何加载数据集的详细信息，请参见🤗[Datasets教程](https://huggingface.co/docs/datasets/load_hub.html)），看看你如何在计算机视觉数据集中使用图像处理器：
 
 <Tip>
 
-使用🤗 Datasets的`split`参数只加载训练集中的一小部分样本，因为数据集非常大！
+使用🤗Datasets的`split`参数只加载训练集中的一小部分样本，因为数据集非常大！
 
 </Tip>
 
@@ -335,7 +331,7 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 >>> dataset = load_dataset("food101", split="train[:100]")
 ```
 
-接下来，查看包含于🤗 Datasets [`Image`](https://huggingface.co/docs/datasets/package_reference/main_classes.html?highlight=image#datasets.Image)特征的图像：
+接下来，查看包含于🤗Datasets [`Image`](https://huggingface.co/docs/datasets/package_reference/main_classes.html?highlight=image#datasets.Image)特征的图像：
 
 ```py
 >>> dataset[0]["image"]
@@ -385,7 +381,7 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 如果你希望将规范化图像作为增强转换的一部分，使用`image_processor.image_mean`和`image_processor.image_std`值。
 </Tip>
 
-3. 然后使用🤗 Datasets [`set_transform`](https://huggingface.co/docs/datasets/process.html#format-transform)来实时应用转换：
+3. 然后使用🤗Datasets [`set_transform`](https://huggingface.co/docs/datasets/process.html#format-transform)来实时应用转换：
 
 ```py
 >>> dataset.set_transform(transforms)
@@ -437,7 +433,7 @@ array([[1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
 
 对于涉及多模态输入的任务，你需要一个[processor](main_classes/processors)来为模型准备数据集。处理器将两个处理对象（例如tokenizer和feature extractor）耦合在一起。
 
-加载[LJ Speech](https://huggingface.co/datasets/lj_speech)数据集（有关如何加载数据集的详细信息，请参见🤗 [Datasets教程](https://huggingface.co/docs/datasets/load_hub.html)），以查看如何在自动语音识别（ASR）中使用处理器：
+加载[LJ Speech](https://huggingface.co/datasets/lj_speech)数据集（有关如何加载数据集的详细信息，请参见🤗[Datasets教程](https://huggingface.co/docs/datasets/load_hub.html)），以查看如何在自动语音识别（ASR）中使用处理器：
 
 ```py
 >>> from datasets import load_dataset

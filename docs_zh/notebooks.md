@@ -14,12 +14,12 @@
 
 -->
 
-# 🤗 转化器笔记本
+# 🤗转化器笔记本
 
 这里可以找到Hugging Face提供的官方笔记本的列表。
 
 此外，我们还希望在此列出社区创建的有趣内容。
-如果你编写了一些利用 🤗 转换器的笔记本，并希望在此列出，请打开
+如果你编写了一些利用 🤗转换器的笔记本，并希望在此列出，请打开
 拉动请求，以便将其包含在社区笔记本中。
 
 
@@ -134,7 +134,7 @@
 
 ### Optimum notebooks
 
-🤗  [Optimum](https://github.com/huggingface/optimum) 是 🤗 Transformers 的扩展，提供了一组性能优化工具，实现在特定硬件上训练和运行模型的最大效率。
+🤗 [Optimum](https://github.com/huggingface/optimum) 是 🤗Transformers 的扩展，提供了一组性能优化工具，实现在特定硬件上训练和运行模型的最大效率。
 
 | Notebook     |      Description      |   |   |
 |:----------|:-------------|:-------------|------:|

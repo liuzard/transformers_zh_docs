@@ -40,7 +40,7 @@ pip install transformers datasets evaluate
 
 加载MInDS-14数据集
 
-首先从🤗 Datasets库加载MInDS-14数据集：
+首先从🤗Datasets库加载MInDS-14数据集：
 
 ```py
 >>> from datasets import load_dataset, Audio
@@ -146,7 +146,7 @@ MInDS-14数据集的采样率为8000khz（你可以在其[数据集卡片](https
 ...     return inputs
 ```
 
-使用🤗 Datasets [`~datasets.Dataset.map`]函数将预处理函数应用于整个数据集。可以通过设置`batched=True`加快`map`的速度，以一次处理数据集的多个元素。删除不需要的列，并将`intent_class`重命名为`label`，因为模型期望的名称是`label`：
+使用🤗Datasets [`~datasets.Dataset.map`]函数将预处理函数应用于整个数据集。可以通过设置`batched=True`加快`map`的速度，以一次处理数据集的多个元素。删除不需要的列，并将`intent_class`重命名为`label`，因为模型期望的名称是`label`：
 
 ```py
 >>> encoded_minds = minds.map(preprocess_function, remove_columns="audio", batched=True)
@@ -155,7 +155,7 @@ MInDS-14数据集的采样率为8000khz（你可以在其[数据集卡片](https
 
 评估
 
-在训练过程中包含指标通常有助于评估模型的性能。你可以使用🤗[Evaluate](https://huggingface.co/docs/evaluate/index)库快速加载评估方法。对于此任务，加载[accuracy](https://huggingface.co/spaces/evaluate-metric/accuracy)指标（请参阅🤗 Evaluate [quick tour](https://huggingface.co/docs/evaluate/a_quick_tour)以了解有关如何加载和计算指标的更多信息）：
+在训练过程中包含指标通常有助于评估模型的性能。你可以使用🤗[Evaluate](https://huggingface.co/docs/evaluate/index)库快速加载评估方法。对于此任务，加载[accuracy](https://huggingface.co/spaces/evaluate-metric/accuracy)指标（请参阅🤗Evaluate [quick tour](https://huggingface.co/docs/evaluate/a_quick_tour)以了解有关如何加载和计算指标的更多信息）：
 
 ```py
 >>> import evaluate

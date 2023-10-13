@@ -13,7 +13,7 @@
 许可证下的限制。
 
 -->
-# 贡献到 🤗 Transformers
+# 贡献到 🤗Transformers
 
 欢迎所有人一起贡献，我们珍视每个人的贡献。代码
 提供的帮助。
@@ -36,7 +36,7 @@
 
 ### 你发现了错误吗？
 
-感谢使用者报告他们遇到的问题，🤗 Transformers 库非常健壮可靠。
+感谢使用者报告他们遇到的问题，🤗Transformers 库非常健壮可靠。
 
 在报告问题之前，我们非常希望你 **确保未曾报告过该错误**
 （在 GitHub 的 Issues 下使用搜索栏）。你的问题应与库本身的问题相关，并且不应与你的代码相关。如果你不确定错误是否在你的代码或库中，请先在[论坛](https://discuss.huggingface.co/)上询问。这样，我们将能够更快地回应与库相关的问题而不是一般问题。
@@ -62,7 +62,7 @@ python src/transformers/commands/transformers_cli.py env
 
 ### 你想要新功能吗？
 
-如果你希望在 🤗 Transformers 中看到新功能，请打开一个问题并描述：
+如果你希望在 🤗Transformers 中看到新功能，请打开一个问题并描述：
 
 1. 此功能背后的**动机**是什么？它是否与库的问题或困扰有关？它是否与你为某个项目所需的功能有关？是否与你工作过的功能有关，你认为它可能对社区有所帮助？
 
@@ -84,9 +84,9 @@ python src/transformers/commands/transformers_cli.py env
 * 如果模型是开源的，请提供实现链接。
 * 如果模型权重可用，请提供权重链接。
 
-如果你愿意贡献模型，请告诉我们，好让我们能协助你将其添加到 🤗 Transformers！
+如果你愿意贡献模型，请告诉我们，好让我们能协助你将其添加到 🤗Transformers！
 
-我们已经添加了一个[详细指南和模板](https://github.com/huggingface/transformers/tree/main/templates)，以帮助你开始添加新模型，我们还有一份更详细的指南，[如何将模型添加到🤗 Transformers](https://huggingface.co/docs/transformers/add_new_model)。
+我们已经添加了一个[详细指南和模板](https://github.com/huggingface/transformers/tree/main/templates)，以帮助你开始添加新模型，我们还有一份更详细的指南，[如何将模型添加到🤗Transformers](https://huggingface.co/docs/transformers/add_new_model)。
 
 ## 你想要添加文档吗？
 
@@ -100,12 +100,12 @@ python src/transformers/commands/transformers_cli.py env
 以确保没有其他人正在处理同样的事情。如果你不确定，最好是打开一个问题以获取一些反馈。
 
 要贡献到
-🤗 Transformers，你需要基本的 `git` 熟练技能。
+🤗Transformers，你需要基本的 `git` 熟练技能。
 虽然 `git` 不是最容易使用的工具，但它有最好的
 帮助手册。在 shell 中输入 `git --help` 并享受吧！如果你更喜欢阅读书籍，那么 [Pro
 Git](https://git-scm.com/book/en/v2) 是一个非常好的参考。
 
-你需要 **[Python 3.8]((https://github.com/huggingface/transformers/blob/main/setup.py#L426))** 或更高的版本来贡献到 🤗 Transformers。请按照以下步骤开始贡献：
+你需要 **[Python 3.8]((https://github.com/huggingface/transformers/blob/main/setup.py#L426))** 或更高的版本来贡献到 🤗Transformers。请按照以下步骤开始贡献：
 
 1. 通过单击存储库页面上的**[Fork](https://github.com/huggingface/transformers/fork)**按钮，对[存储库](https://github.com/huggingface/transformers)进行分支。这将在你的 GitHub 用户帐户下创建代码的副本。
 
@@ -131,7 +131,7 @@ Git](https://git-scm.com/book/en/v2) 是一个非常好的参考。
    pip install -e ".[dev]"
    ```
 
-   如果🤗 Transformers 已在虚拟环境中安装，请使用 `pip uninstall transformers` 将其删除，然后再使用 `-e` 标志重新安装。
+   如果🤗Transformers 已在虚拟环境中安装，请使用 `pip uninstall transformers` 将其删除，然后再使用 `-e` 标志重新安装。
    
    根据你的操作系统，并且由于 Transformers 的可选依赖项数量在不断增加，你可能会遇到此命令的失败。如果是这种情况，请确保你安装了你正在使用的深度学习框架（PyTorch、TensorFlow 和/或 Flax），然后执行以下操作：
 
@@ -153,7 +153,7 @@ Git](https://git-scm.com/book/en/v2) 是一个非常好的参考。
    有关测试的更多信息，请查看
    [Testing](https://huggingface.co/docs/transformers/testing) 指南。
 
-   🤗 Transformers 依赖于 `black` 和 `ruff` 来一致地格式化其源代码。
+   🤗Transformers 依赖于 `black` 和 `ruff` 来一致地格式化其源代码。
    在进行更改后，应用自动样式更正和代码验证
    无法以一次性自动完成的：
 
@@ -170,7 +170,7 @@ Git](https://git-scm.com/book/en/v2) 是一个非常好的参考。
    make style
    ```
 
-   🤗 Transformers 还使用 `ruff` 和一些自定义脚本来检查代码错误。
+   🤗Transformers 还使用 `ruff` 和一些自定义脚本来检查代码错误。
    质量控制是由 CI 运行的，但是你可以使用相同的检查运行：
 
    ```bash
@@ -299,7 +299,7 @@ RUN_SLOW=yes python -m pytest -n auto --dist=loadfile -s -v ./examples/pytorch/t
 
 可以在 [testing_utils.py](src/transformers/testing_utils.py) 中找到更多环境变量和详细信息。
 
-🤗 Transformers 仅使用 `pytest` 作为测试运行器，不会在测试套件本身中使用任何 `pytest` 特定的功能。
+🤗Transformers 仅使用 `pytest` 作为测试运行器，不会在测试套件本身中使用任何 `pytest` 特定的功能。
 
 这意味着 `unittest` 得到了完全支持。以下是如何使用 `unittest` 运行测试的方法：
 
@@ -310,7 +310,7 @@ python -m unittest discover -s examples -t examples -v
 
 ### 风格指南
 
-对于文档字符串，🤗 Transformers 遵循 [Google Python 风格指南](https://google.github.io/styleguide/pyguide.html)。
+对于文档字符串，🤗Transformers 遵循 [Google Python 风格指南](https://google.github.io/styleguide/pyguide.html)。
 请查看我们的[文档编写指南](https://github.com/huggingface/transformers/tree/main/docs#writing-documentation---specification)以获取更多信息。
 
 ### 在 Windows 上开发

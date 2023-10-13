@@ -13,7 +13,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 # 测试
 
 
-让我们来看看🤗 Transformers模型如何进行测试，以及如何编写新的测试和改进现有测试。
+让我们来看看🤗Transformers模型如何进行测试，以及如何编写新的测试和改进现有测试。
 
 存储库中有两个测试套件：
 
@@ -547,7 +547,7 @@ pytest --pastebin=all tests/utils/test_logging.py
 
 ## 编写测试
 
-🤗 transformers 测试基于`unittest`，但由`pytest`运行，因此大多数情况下可以使用这两个系统的功能。
+🤗transformers 测试基于`unittest`，但由`pytest`运行，因此大多数情况下可以使用这两个系统的功能。
 
 你可以在[这里](https://docs.pytest.org/en/stable/unittest.html)阅读其支持的功能，但重要的是要记住，大多数`pytest`修饰器不起作用。参数化也不起作用，但是我们使用`parameterized`模块，它的工作方式类似。
 

@@ -101,7 +101,7 @@ Audio(audio_values[0].numpy(), rate=sampling_rate)
 
 ### 音频条件生成
 
-相同的[`MusicgenProcessor`]可以用于预处理用于音频延续的音频提示。在以下示例中，我们使用🤗 Datasets库加载音频文件，
+相同的[`MusicgenProcessor`]可以用于预处理用于音频延续的音频提示。在以下示例中，我们使用🤗Datasets库加载音频文件，
 可以通过以下命令进行pip安装：
 
 ```

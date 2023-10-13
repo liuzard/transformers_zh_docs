@@ -20,7 +20,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 虽然可以通过优化专门的模型来解决单个任务，但最近出现并日益受到欢迎的另一种方法是使用大型模型处理多样化的任务而无需优化。 例如，大型语言模型可以处理诸如摘要、翻译、分类等NLP任务。这种方法不再局限于文本等单一模态，在本指南中，我们将演示如何使用名为IDEFICS的大型多模态模型来解决图像-文本任务。
 
-[IDEFICS](../model_doc/idefics)是一种用于视觉和文本的开放访问的模型，基于[Flamingo](https://huggingface.co/papers/2204.14198)，这是首先由DeepMind开发的最先进的视觉语言模型。该模型接受任意的图像和文本输入序列，并生成完整的文本作为输出。它可以回答有关图像的问题，描述视觉内容，创建基于多个图像的故事等。IDEFICS有两个变体-[80亿个参数](https://huggingface.co/HuggingFaceM4/idefics-80b)和[9亿个参数](https://huggingface.co/HuggingFaceM4/idefics-9b)，这两个变体都可以在🤗 Hub上找到。对于每个变体，你还可以找到针对会话使用案例进行了调整的模型的精细调整的版本。
+[IDEFICS](../model_doc/idefics)是一种用于视觉和文本的开放访问的模型，基于[Flamingo](https://huggingface.co/papers/2204.14198)，这是首先由DeepMind开发的最先进的视觉语言模型。该模型接受任意的图像和文本输入序列，并生成完整的文本作为输出。它可以回答有关图像的问题，描述视觉内容，创建基于多个图像的故事等。IDEFICS有两个变体-[80亿个参数](https://huggingface.co/HuggingFaceM4/idefics-80b)和[9亿个参数](https://huggingface.co/HuggingFaceM4/idefics-9b)，这两个变体都可以在🤗Hub上找到。对于每个变体，你还可以找到针对会话使用案例进行了调整的模型的精细调整的版本。
 
 该模型非常灵活，可用于各种图像和多模态任务。然而，作为一个大型模型意味着它需要大量的计算资源和基础设施。你需要根据你的使用案例来决定这种方法是否比优化每个单独任务的专门模型更适合你的情况。
 
@@ -373,7 +373,7 @@ This is a beautiful wristwatch with a leather strap and a simple but elegant des
 
 ## IDEFICS指导对于对话使用
 
-对于对话使用情况，你可以在🤗 Hub上找到经过微调的被指导版本的模型：`HuggingFaceM4/idefics-80b-instruct`和`HuggingFaceM4/idefics-9b-instruct`。
+对于对话使用情况，你可以在🤗Hub上找到经过微调的被指导版本的模型：`HuggingFaceM4/idefics-80b-instruct`和`HuggingFaceM4/idefics-9b-instruct`。
 
 这些检查点是在监督学习和指令微调数据集的混合上微调的基础模型的结果，这提升了下游性能，同时使模型在对话环境中更易用。
 

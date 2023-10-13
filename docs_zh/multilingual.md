@@ -18,7 +18,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 [[open-in-colab]]
 
-在🤗 Transformers中有几个多语言模型，它们与单语言模型的推理使用方式不同。当然，并不是*所有*的多语言模型的用法都不同。有些模型，例如[bert-base-multilingual-uncased](https://huggingface.co/bert-base-multilingual-uncased)，可以像单语言模型一样使用。本指南将展示如何使用在推理中用法不同的多语言模型。
+在🤗Transformers中有几个多语言模型，它们与单语言模型的推理使用方式不同。当然，并不是*所有*的多语言模型的用法都不同。有些模型，例如[bert-base-multilingual-uncased](https://huggingface.co/bert-base-multilingual-uncased)，可以像单语言模型一样使用。本指南将展示如何使用在推理中用法不同的多语言模型。
 
 ## XLM
 

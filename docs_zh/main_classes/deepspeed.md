@@ -30,7 +30,7 @@ DeepSpeed ZeRO-2主要用于训练，因为它的特性对推理没有用处。
 
 DeepSpeed ZeRO-3也可以用于推理，因为它允许在多个GPU上加载大型模型，这在单个GPU上是不可能的。
 
-🤗 Transformers通过2种方式集成[DeepSpeed](https://github.com/microsoft/DeepSpeed)：
+🤗Transformers通过2种方式集成[DeepSpeed](https://github.com/microsoft/DeepSpeed)：
 
 1. 通过[`Trainer`]集成核心DeepSpeed功能。这是一种一切都为你完成的集成方式-只需提供自定义配置文件或使用我们的模板，不需要做其他事情。本文档的大部分内容都集中在此功能上。
 2. 如果你不使用[`Trainer`]，而是要使用自己集成了DeepSpeed的自定义Trainer，核心功能函数（例如`from_pretrained`和`from_config`）将包含DeepSpeed的关键部分集成，如ZeRO阶段3及更高级别的`zero.Init`。要使用此功能，请阅读有关[非Trainer的DeepSpeed集成](#nontrainer-deepspeed-integration)的文档。
@@ -976,12 +976,12 @@ DeepSpeed 的主要优化器是 Adam、AdamW、OneBitAdam 和 Lamb。这些已�
 
 DeepSpeed 支持 `LRRangeTest`、`OneCycle`、`WarmupLR` 和 `WarmupDecayLR` 学习率调度器。完整文档在[这里](https://www.deepspeed.ai/docs/config-json/#scheduler-parameters)。
 
-以下是 DeepSpeed 和 🤗 Transformers 之间调度器的重叠部分：
+以下是 DeepSpeed 和 🤗Transformers 之间调度器的重叠部分：
 
 - `WarmupLR` 通过 `--lr_scheduler_type constant_with_warmup`。
 - `WarmupDecayLR` 通过 `--lr_scheduler_type linear`。这也是 `--lr_scheduler_type` 的默认值，因此，如果不配置调度器，这是默认的配置。
 
-如果不在配置文件中配置 `scheduler` 条目，则 [`Trainer`] 将使用 `--lr_scheduler_type`、`--learning_rate` 和 `--warmup_steps` 或 `--warmup_ratio` 的值配置 🤗 Transformers 版本。
+如果不在配置文件中配置 `scheduler` 条目，则 [`Trainer`] 将使用 `--lr_scheduler_type`、`--learning_rate` 和 `--warmup_steps` 或 `--warmup_ratio` 的值配置 🤗Transformers 版本。
 
 以下是自动配置的 `WarmupLR` 的示例:
 
@@ -1057,7 +1057,7 @@ Deepspeed 支持完全的 fp32 和 fp16 混合精度。
 
 如果使用 Ampere 架构的 GPU，从 pytorch 1.7 版本开始，默认情况下会自动切换为使用更高效的 tf32 格式进行某些操作，但结果仍然是 fp32。有关详细信息和基准测试，请参见[TensorFloat-32(TF32) on Ampere devices](https://pytorch.org/docs/stable/notes/cuda.html#tensorfloat-32-tf32-on-ampere-devices)。文档中包含有关如何禁用此自动转换的说明，如果出于某种原因你不想使用它。
 
-使用 🤗 Trainer，你可以使用 `--tf32` 启用它，或使用 `--tf32 0` 或 `--no_tf32` 禁用它。默认情况下，PyTorch 使用默认值。
+使用 🤗Trainer，你可以使用 `--tf32` 启用它，或使用 `--tf32 0` 或 `--no_tf32` 禁用它。默认情况下，PyTorch 使用默认值。
 
 ```json
 {
@@ -1334,11 +1334,11 @@ python -c 'import deepspeed; print(f"deepspeed: {deepspeed.__version__}")'
 
 - Deepspeed可以与PyTorch [`Trainer`]一起工作，但无法与TF [`TFTrainer`]一起工作。
 - 虽然DeepSpeed有一个可pip安装的PyPI软件包，但强烈建议从[源代码](https://github.com/microsoft/deepspeed#installation)进行安装，以便最好地匹配你的硬件，并且如果你需要启用某些功能（如1-bit Adam），在pypi分发中无法使用。
-- 你不必使用[`Trainer`]来与Deepspeed和🤗 Transformers一起使用-你可以使用任何模型与自己的训练器，并且你将不得不根据[Deepspeed集成说明](https://www.deepspeed.ai/getting-started/#writing-deepspeed-models)来调整后者的设置。
+- 你不必使用[`Trainer`]来与Deepspeed和🤗Transformers一起使用-你可以使用任何模型与自己的训练器，并且你将不得不根据[Deepspeed集成说明](https://www.deepspeed.ai/getting-started/#writing-deepspeed-models)来调整后者的设置。
 
 ## 使用非Trainer的Deepspeed集成
 
-当不使用[`Trainer`]时，[`~integrations.HfDeepSpeedConfig`]用于将Deepspeed集成到🤗 Transformers核心功能中。唯一的需要是处理Deepspeed ZeRO-3参数聚合并在`from_pretrained`调用期间自动将模型分割到多个GPU上。其他所有操作都需要你自己完成。
+当不使用[`Trainer`]时，[`~integrations.HfDeepSpeedConfig`]用于将Deepspeed集成到🤗Transformers核心功能中。唯一的需要是处理Deepspeed ZeRO-3参数聚合并在`from_pretrained`调用期间自动将模型分割到多个GPU上。其他所有操作都需要你自己完成。
 
 当使用[`Trainer`]时，所有操作都会自动处理。
 

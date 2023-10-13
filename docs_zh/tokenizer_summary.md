@@ -34,7 +34,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ## 介绍
 
-将文本拆分为较小的块是一项比它看起来更困难的任务，在这方面有多种方法。例如，让我们看一下句子`“Don't you love 🤗 Transformers? We sure do."`
+将文本拆分为较小的块是一项比它看起来更困难的任务，在这方面有多种方法。例如，让我们看一下句子`“Don't you love 🤗Transformers? We sure do."`
 
 <Youtube id="nhJxYji1aho"/>
 
@@ -115,7 +115,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 >>> from transformers import XLNetTokenizer
 
 >>> tokenizer = XLNetTokenizer.from_pretrained("xlnet-base-cased")
->>> tokenizer.tokenize("Don't you love 🤗 Transformers? We sure do.")
+>>> tokenizer.tokenize("Don't you love 🤗Transformers? We sure do.")
 ["▁Don", "'", "t", "▁you", "▁love", "▁", "🤗", "▁", "Transform", "ers", "?", "▁We", "▁sure", "▁do", "."]
 ```
 

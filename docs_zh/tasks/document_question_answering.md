@@ -41,7 +41,7 @@ pip install -q pytesseract
 
 安装完所有依赖项后，请重新启动运行时。
 
-我们鼓励你与社区共享你的模型。登录到你的 Hugging Face 帐户以将其上传到 🤗 Hub。当提示时，输入你的token以登录：
+我们鼓励你与社区共享你的模型。登录到你的 Hugging Face 帐户以将其上传到 🤗Hub。当提示时，输入你的token以登录：
 
 ```py
 >>> from huggingface_hub import notebook_login
@@ -58,7 +58,7 @@ pip install -q pytesseract
 
 ## 加载数据
 
-在本指南中，我们使用了一个预处理的 DocVQA 的小样本，你可以在 🤗 Hub 上找到。如果你希望使用完整的 DocVQA 数据集，可以在 [DocVQA 主页](https://rrc.cvc.uab.es/?ch=17) 上注册并下载。如果这样做，请按照 [如何加载本地和远程文件到 🤗 数据集](https://huggingface.co/docs/datasets/loading#local-and-remote-files) 的指南操作。
+在本指南中，我们使用了一个预处理的 DocVQA 的小样本，你可以在 🤗Hub 上找到。如果你希望使用完整的 DocVQA 数据集，可以在 [DocVQA 主页](https://rrc.cvc.uab.es/?ch=17) 上注册并下载。如果这样做，请按照 [如何加载本地和远程文件到 🤗数据集](https://huggingface.co/docs/datasets/loading#local-and-remote-files) 的指南操作。
 
 ```py
 >>> from datasets import load_dataset
@@ -166,7 +166,7 @@ DatasetDict({
 >>> tokenizer = processor.tokenizer
 ```
 
-在上述预处理之外，我们还需要添加模型的标签。对于 🤗 Transformers 中的 `xxxForQuestionAnswering` 模型，标签由 `start_positions` 和 `end_positions` 组成，指示答案的开始和结束的位置。
+在上述预处理之外，我们还需要添加模型的标签。对于 🤗Transformers 中的 `xxxForQuestionAnswering` 模型，标签由 `start_positions` 和 `end_positions` 组成，指示答案的开始和结束的位置。
 
 让我们从这一点开始。定义一个辅助函数，可以在一个较大的列表（单词列表）中找到一个子列表（答案分割成了单词列表）。
 
@@ -378,7 +378,7 @@ end_index 18
 >>> trainer.train()
 ```
 
-要将最终模型添加到🤗 Hub中，请创建一个模型卡并调用`push_to_hub`：
+要将最终模型添加到🤗Hub中，请创建一个模型卡并调用`push_to_hub`：
 
 ```py
 >>> trainer.create_model_card()
@@ -387,7 +387,7 @@ end_index 18
 
 ## 推理
 
-现在你已经微调了一个LayoutLMv2模型，并将其上传到了🤗 Hub中，你可以用来进行推理。尝试使用[`Pipeline`]最简单的方法来尝试使用微调模型进行推理。
+现在你已经微调了一个LayoutLMv2模型，并将其上传到了🤗Hub中，你可以用来进行推理。尝试使用[`Pipeline`]最简单的方法来尝试使用微调模型进行推理。
 
 这里有一个示例：
 ```py

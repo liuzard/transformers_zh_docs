@@ -15,7 +15,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 # 如何创建自定义pipeline？
 
 在本指南中，我们将看到如何创建自定义pipeline并将其与[Hub](hf.co/models)共享或添加到
-🤗 Transform库。
+🤗Transform库。
 
 首先，你需要确定流水线能够接受的原始输入。它可以是字符串，原始字节，
 字典或其他看起来最可能的所需输入。尽量保持这些输入尽可能简单

@@ -314,7 +314,7 @@ PP引入了一个新的超参数来调整，它是`chunks`，它定义了有多�
 - [SageMaker](https://arxiv.org/abs/2111.05972) - 这是一个专有的解决方案，只能在AWS上使用。
 - [OSLO](https://github.com/tunib-ai/oslo) - 这是基于Hugging Face Transformers实施的。
 
-🤗 Transformers状态：截至目前为止，没有任何模型支持完全的PP。GPT2和T5模型支持天真的MP。主要的障碍是无法将模型转换为`nn.Sequential`并且所有的输入都是Tensors。这是因为目前的模型包括了很多使得转换非常复杂的功能，并且需要去除这些功能才能实现转换。
+🤗Transformers状态：截至目前为止，没有任何模型支持完全的PP。GPT2和T5模型支持天真的MP。主要的障碍是无法将模型转换为`nn.Sequential`并且所有的输入都是Tensors。这是因为目前的模型包括了很多使得转换非常复杂的功能，并且需要去除这些功能才能实现转换。
 
 其他方法：
 
@@ -364,7 +364,7 @@ SageMaker将TP与DP结合起来，以获得更高效的处理。
 - [SageMaker](https://arxiv.org/abs/2111.05972) - 这是一个专有的解决方案，只能在AWS上使用。
 - [OSLO](https://github.com/tunib-ai/oslo)有基于Transformers的张量并行处理实现。
 
-🤗 Transformers状态：
+🤗Transformers状态：
 - 核心：尚未在核心实现中实施
 - 但是，如果你想进行推理，[parallelformers](https://github.com/tunib-ai/parallelformers)提供对大多数模型的支持。所以在这个在核心实现之前，你可以使用他们的解决方案。希望将来能支持训练模式。
 - Deepspeed-Inference还通过CUDA核心实施支持了BERT、GPT-2和GPT-Neo模型，详细信息请参阅[此处](https://www.deepspeed.ai/tutorials/inference-tutorial/)
@@ -386,7 +386,7 @@ DP+PP
 - [SageMaker](https://arxiv.org/abs/2111.05972)
 - [OSLO](https://github.com/tunib-ai/oslo)
 
-🤗 Transformers状态：尚未实现
+🤗Transformers状态：尚未实现
 
 DP+PP+TP
 
@@ -405,7 +405,7 @@ DP+PP+TP
 - [SageMaker](https://arxiv.org/abs/2111.05972)
 - [OSLO](https://github.com/tunib-ai/oslo)
 
-🤗 Transformers状态：尚未实现，因为我们没有PP和TP。
+🤗Transformers状态：尚未实现，因为我们没有PP和TP。
 
 ZeRO DP+PP+TP
 
@@ -430,7 +430,7 @@ ZeRO阶段3也不是一个好选择，原因与上述相同-它需要更多的�
 - [Using DeepSpeed and Megatron to Train Megatron-Turing NLG 530B, A Large-Scale Generative Language Model](
 https://arxiv.org/abs/2201.11990)
 
-🤗 Transformers状态：尚未实现，因为我们没有PP和TP。
+🤗Transformers状态：尚未实现，因为我们没有PP和TP。
 
 FlexFlow
 
@@ -464,7 +464,7 @@ FlexFlow
 
 因此，这个框架非常有吸引力——它在选择的集群上运行30分钟的模拟，并得出最佳策略来利用这个特定环境。如果你添加/删除/替换任何部分，它将运行并重新优化计划。然后你可以进行训练。不同的设置将有自己的定制优化。
 
-🤗 Transformer状态：尚未集成。我们已经通过[transformers.utils.fx](https://github.com/huggingface/transformers/blob/master/src/transformers/utils/fx.py)追踪我们的模型FX，这是FlexFlow的先决条件，因此需要有人弄清楚如何使FlexFlow与我们的模型配合工作。
+🤗Transformer状态：尚未集成。我们已经通过[transformers.utils.fx](https://github.com/huggingface/transformers/blob/master/src/transformers/utils/fx.py)追踪我们的模型FX，这是FlexFlow的先决条件，因此需要有人弄清楚如何使FlexFlow与我们的模型配合工作。
 
 ## 在什么时候采用哪种策略
 

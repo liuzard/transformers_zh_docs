@@ -13,11 +13,11 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 -->
 
-# 量化🤗 Transformers模型
+# 量化🤗Transformers模型
 
 ## `AutoGPTQ`集成
 
-🤗 Transformers已经集成了`optimum` API，用于对语言模型执行GPTQ量化。你可以在8、4、3甚至2个比特中加载和量化模型，而性能下降很小，推理速度更快！这是由大多数GPU硬件支持的。
+🤗Transformers已经集成了`optimum` API，用于对语言模型执行GPTQ量化。你可以在8、4、3甚至2个比特中加载和量化模型，而性能下降很小，推理速度更快！这是由大多数GPU硬件支持的。
 
 要了解有关量化模型的更多信息，请查看：
 - [GPTQ](https://arxiv.org/pdf/2210.17323.pdf)论文
@@ -85,7 +85,7 @@ model = AutoModelForCausalLM.from_pretrained(model_id, device_map="auto", quanti
 目前，GPTQ量化仅适用于文本模型。此外，根据硬件的不同，量化过程可能需要很长时间（175B模型 = 使用NVIDIA A100的4个GPU小时）。如果不是，你可以在GitHub上提交需求。
 </Tip>
 
-### 将量化模型推送到🤗 Hub
+### 将量化模型推送到🤗Hub
 
 你可以像将任何🤗模型推送到Hub一样推送量化模型，使用`push_to_hub`方法。量化配置将被保存并与模型一起推送。
 
@@ -106,7 +106,7 @@ quantized_model.to("cpu")
 quantized_model.save_pretrained("opt-125m-gptq")
 ```
 
-### 从🤗 Hub加载量化模型
+### 从🤗Hub加载量化模型
 
 你可以使用`from_pretrained`从Hub加载量化模型。
 通过检查模型配置对象中是否存在属性`quantization_config`，确保推送的权重已经进行了量化。
@@ -150,7 +150,7 @@ model = AutoModelForCausalLM.from_pretrained("{your_username}/opt-125m-gptq", de
 
 ## `bitsandbytes`集成
 
-🤗 Transformers与`bitsandbytes`上最常用的模块紧密集成。只需几行代码，你就可以以8位精度加载你的模型。
+🤗Transformers与`bitsandbytes`上最常用的模块紧密集成。只需几行代码，你就可以以8位精度加载你的模型。
 自“0.37.0”版本以来，`bitsandbytes`已经支持大多数GPU硬件。
 
 了解有关量化方法的详细信息，请查看[LLM.int8()](https://arxiv.org/abs/2208.07339)论文，或有关此合作的[博文](https://huggingface.co/blog/hf-bitsandbytes-integration)。
@@ -306,7 +306,7 @@ model_double_quant = AutoModelForCausalLM.from_pretrained(model_id, quantization
 ```
 
 
-### 将量化模型推送到🤗 Hub
+### 将量化模型推送到🤗Hub
 
 你可以通过简单地使用`push_to_hub`方法将量化模型推送到Hub上。这将首先推送量化配置文件，然后推送量化模型权重。
 确保使用 `bitsandbytes>0.37.2`（在撰写本文时，我们在`bitsandbytes==0.38.0.post1`上进行了测试），以便能够使用此功能。
@@ -326,7 +326,7 @@ model.push_to_hub("bloom-560m-8bit")
 
 </Tip>
 
-### 从🤗 Hub加载量化模型
+### 从🤗Hub加载量化模型
 
 你可以使用`from_pretrained`方法从Hub加载量化模型。确保推送的权重已经被量化，检查模型配置对象中是否存在`quantization_config`属性。
 
@@ -431,6 +431,6 @@ tokenizer = AutoTokenizer.from_pretrained(model_id)
 
 [[autodoc]] BitsAndBytesConfig
 
-## 使用🤗 `optimum` 进行量化
+## 使用🤗`optimum` 进行量化
 
 请参阅[Optimum文档](https://huggingface.co/docs/optimum/index)以了解`optimum`支持的量化方法，并查看这些方法是否适用于你的用例。

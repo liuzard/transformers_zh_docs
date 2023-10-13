@@ -22,7 +22,7 @@ rendered properly in your Markdown viewer.
 
 翻译是将一种语言的文本序列转换为另一种语言的过程。它是可以将输入转化为输出的序列到序列问题之一，也是一个用于实现翻译或摘要等任务的强大框架。翻译系统通常用于不同语言文本之间的翻译，但也可用于语音或文本转语音或语音转文本等混合应用。
 
-本指南将告诉您如何：
+本指南将告诉你如何：
 
 1. 在英法子集上微调[T5](https://huggingface.co/t5-small)模型，以实现将英文文本翻译为法文。
 2. 使用微调后的模型进行预测。
@@ -43,7 +43,7 @@ rendered properly in your Markdown viewer.
 ```bash
 pip install transformers datasets evaluate sacreble
 ```
-我们鼓励您登录到您的Hugging Face账户，这样您就可以上传和与社区分享您的模型。在提示时，输入您的令牌以登录：
+我们鼓励你登录到你的Hugging Face账户，这样你就可以上传和与社区分享你的模型。在提示时，输入你的token以登录：
 
 ```py
 >>> from huggingface_hub import notebook_login
@@ -53,7 +53,7 @@ pip install transformers datasets evaluate sacreble
 
 ## 加载OPUS Books数据集
 
-首先从🤗 Datasets库加载[OPUS Books](https://huggingface.co/datasets/opus_books)数据集的英法子集：
+首先从🤗Datasets库加载[OPUS Books](https://huggingface.co/datasets/opus_books)数据集的英法子集：
 
 ```py
 >>> from datasets import load_dataset
@@ -91,7 +91,7 @@ pip install transformers datasets evaluate sacreble
 >>> tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 ```
 
-您要创建的预处理函数需要：
+你要创建的预处理函数需要：
 
 1. 使用提示将输入前缀化，以便T5知道这是一个翻译任务。一些能够执行多个NLP任务的模型需要为特定任务提供提示。
 2. 将输入（英文）和目标（法文）分别进行分词，因为不能使用在英文词汇表上进行预训练的分词器对法文文本进行分词。
@@ -110,7 +110,7 @@ pip install transformers datasets evaluate sacreble
 ...     return model_inputs
 ```
 
-应用预处理函数到整个数据集，可以使用🤗 Datasets [`~datasets.Dataset.map`] 方法。你可以通过设置 `batched=True` 来加速 `map` 函数，从而一次处理数据集中的多个元素：
+应用预处理函数到整个数据集，可以使用🤗Datasets [`~datasets.Dataset.map`] 方法。你可以通过设置 `batched=True` 来加速 `map` 函数，从而一次处理数据集中的多个元素：
 
 ```py
 >>> tokenized_books = books.map(preprocess_function, batched=True)
@@ -138,7 +138,7 @@ pip install transformers datasets evaluate sacreble
 
 ## 评估
 
-在训练过程中包含度量指标通常有助于评估模型的性能。你可以使用 🤗 [Evaluate](https://huggingface.co/docs/evaluate/index) 库快速加载评估方法。对于此任务，加载 [SacreBLEU](https://huggingface.co/spaces/evaluate-metric/sacrebleu) 度量指标（请参阅 🤗 Evaluate [快速入门](https://huggingface.co/docs/evaluate/a_quick_tour) 了解有关如何加载和计算度量指标的更多信息）：
+在训练过程中包含度量指标通常有助于评估模型的性能。你可以使用 🤗[Evaluate](https://huggingface.co/docs/evaluate/index) 库快速加载评估方法。对于此任务，加载 [SacreBLEU](https://huggingface.co/spaces/evaluate-metric/sacrebleu) 度量指标（请参阅 🤗Evaluate [快速入门](https://huggingface.co/docs/evaluate/a_quick_tour) 了解有关如何加载和计算度量指标的更多信息）：
 
 ```py
 >>> import evaluate
@@ -235,7 +235,7 @@ Your `compute_metrics` function is ready to go now, and you'll return to it when
 >>> trainer.train()
 ````
 
-一旦训练完成，使用[`~transformers.Trainer.push_to_hub`]方法将您的模型共享到 Hub，以便每个人都可以使用您的模型：
+一旦训练完成，使用[`~transformers.Trainer.push_to_hub`]方法将你的模型共享到 Hub，以便每个人都可以使用你的模型：
 
 ```python
 >>> trainer.push_to_hub()
@@ -245,7 +245,7 @@ Your `compute_metrics` function is ready to go now, and you'll return to it when
 <tf>
 <Tip>
 
-如果您对使用 Keras 进行微调模型不熟悉，请查看[此处](../training#train-a-tensorflow-model-with-keras)的基本教程！
+如果你对使用 Keras 进行微调模型不熟悉，请查看[此处](../training#train-a-tensorflow-model-with-keras)的基本教程！
 
 </Tip>
 
@@ -257,7 +257,7 @@ Your `compute_metrics` function is ready to go now, and you'll return to it when
 >>> optimizer = AdamWeightDecay(learning_rate=2e-5, weight_decay_rate=0.01)
 ```
 
-然后，您可以使用 [`TFAutoModelForSeq2SeqLM`] 加载 T5：
+然后，你可以使用 [`TFAutoModelForSeq2SeqLM`] 加载 T5：
 
 ```python
 >>> from transformers import TFAutoModelForSeq2SeqLM
@@ -283,7 +283,7 @@ Your `compute_metrics` function is ready to go now, and you'll return to it when
 ... )
 ```
 
-使用 [`compile`](https://keras.io/api/models/model_training_apis/#compile-method) 来配置模型进行训练。请注意，Transformers 模型都具有默认的与任务相关的损失函数，因此除非您想要指定一个特定的损失函数，否则不需要指定：
+使用 [`compile`](https://keras.io/api/models/model_training_apis/#compile-method) 来配置模型进行训练。请注意，Transformers 模型都具有默认的与任务相关的损失函数，因此除非你想要指定一个特定的损失函数，否则不需要指定：
 
 ```python
 >>> import tensorflow as tf
@@ -293,7 +293,7 @@ Your `compute_metrics` function is ready to go now, and you'll return to it when
 
 在开始训练之前，还有最后两件事情要设置：从预测中计算 SacreBLEU 指标，并提供一种将模型推送到 Hub 的方式。这两个都可以通过使用 [Keras 回调](../main_classes/keras_callbacks) 来完成。
 
-将您的 `compute_metrics` 函数传递给 [`~transformers.KerasMetricCallback`]：
+将你的 `compute_metrics` 函数传递给 [`~transformers.KerasMetricCallback`]：
 
 ```python
 >>> from transformers.keras_callbacks import KerasMetricCallback
@@ -318,12 +318,12 @@ Your `compute_metrics` function is ready to go now, and you'll return to it when
 >>> callbacks = [metric_callback, push_to_hub_callback]
 ```
 
-最后，您已经准备好开始训练模型了！使用您的训练和验证数据集、迭代次数以及回调函数来调用 [`fit`](https://keras.io/api/models/model_training_apis/#fit-method) 来微调模型：
+最后，你已经准备好开始训练模型了！使用你的训练和验证数据集、迭代次数以及回调函数来调用 [`fit`](https://keras.io/api/models/model_training_apis/#fit-method) 来微调模型：
 
 ```py
 >>> model.fit(x=tf_train_set, validation_data=tf_test_set, epochs=3, callbacks=callbacks)
 ```
-一旦训练完成，您的模型就会自动上传到 Hub 上，这样每个人都可以使用它！
+一旦训练完成，你的模型就会自动上传到 Hub 上，这样每个人都可以使用它！
 </tf>
 </frameworkcontent>
 
@@ -336,15 +336,15 @@ Your `compute_metrics` function is ready to go now, and you'll return to it when
 
 ## 推理
 
-太棒了，现在您已经对模型进行了微调，可以用它进行推理了！
+太棒了，现在你已经对模型进行了微调，可以用它进行推理了！
 
-想出一些您想要翻译成其他语言的文本。对于 T5，根据您正在处理的任务，您需要为输入加上前缀。例如，要从英语翻译成法语，您应该按照以下方式为输入加上前缀：
+想出一些你想要翻译成其他语言的文本。对于 T5，根据你正在处理的任务，你需要为输入加上前缀。例如，要从英语翻译成法语，你应该按照以下方式为输入加上前缀：
 
 ```py
 >>> text = "translate English to French: Legumes share resources with nitrogen-fixing bacteria."
 ```
 
-尝试使用已经微调的模型进行推理的最简单方法是将其用于 [`pipeline`] 中。使用您的模型实例化一个翻译的 `pipeline`，然后将文本传递给它：
+尝试使用已经微调的模型进行推理的最简单方法是将其用于 [`pipeline`] 中。使用你的模型实例化一个翻译的 `pipeline`，然后将文本传递给它：
 
 ```py
 >>> from transformers import pipeline
@@ -354,7 +354,7 @@ Your `compute_metrics` function is ready to go now, and you'll return to it when
 [{'translation_text': 'Legumes partagent des ressources avec des bactéries azotantes.'}]
 ```
 
-如果您愿意，您也可以手动复制 `pipeline` 的结果：
+如果你愿意，你也可以手动复制 `pipeline` 的结果：
 
 <frameworkcontent>
 <pt>

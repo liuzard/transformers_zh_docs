@@ -31,7 +31,7 @@ Congratulations! You have successfully fine-tuned an image classification model 
 >>> model.compile(optimizer=optimizer, loss=loss)
 ```
 
-要计算从预测中获得的准确率并将你的模型推送到🤗 Hub，请使用[Keras回调](../main_classes/keras_callbacks)。
+要计算从预测中获得的准确率并将你的模型推送到🤗Hub，请使用[Keras回调](../main_classes/keras_callbacks)。
 将你的`compute_metrics`函数传递给[KerasMetricCallback](../main_classes/keras_callbacks#transformers.KerasMetricCallback)，
 并使用[PushToHubCallback](../main_classes/keras_callbacks#transformers.PushToHubCallback)上传模型：
 
@@ -63,7 +63,7 @@ Epoch 5/5
 250/250 [==============================] - 238s 949ms/step - loss: 0.1232 - val_loss: 0.3259 - accuracy: 0.9890
 ```
 
-恭喜！你已经对模型进行了微调，并在🤗 Hub上分享了它。现在你可以用它进行推理了！
+恭喜！你已经对模型进行了微调，并在🤗Hub上分享了它。现在你可以用它进行推理了！
 </tf>
 </frameworkcontent>
 

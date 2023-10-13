@@ -34,7 +34,7 @@ Pop2Piano是基于[T5](https://arxiv.org/pdf/1910.10683.pdf)的编码器-解码�
 
 提示：
 
-1. 要使用Pop2Piano，你需要安装🤗 Transformers库以及以下第三方模块：
+1. 要使用Pop2Piano，你需要安装🤗Transformers库以及以下第三方模块：
 ```python
 pip install pretty-midi==0.2.9 essentia==2.1b6.dev1034 librosa scipy
 ```

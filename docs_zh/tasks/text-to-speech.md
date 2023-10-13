@@ -460,7 +460,7 @@ VoxPopuli数据集包括多个说话者的语音，但数据集中有多少个�
 >>> processor.save_pretrained("YOUR_ACCOUNT_NAME/speecht5_finetuned_voxpopuli_nl")
 ```
 
-将最终模型推送到🤗 Hub：
+将最终模型推送到🤗Hub：
 
 ```py
 >>> trainer.push_to_hub()
@@ -513,7 +513,7 @@ VoxPopuli数据集包括多个说话者的语音，但数据集中有多少个�
 
 你可以在不使用流水线的情况下实现相同的推理结果，但是，需要更多的步骤。
 
-从🤗 Hub加载模型：
+从🤗Hub加载模型：
 
 ```py
 >>> model = SpeechT5ForTextToSpeech.from_pretrained("YOUR_ACCOUNT/speecht5_finetuned_voxpopuli_nl")

@@ -26,7 +26,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 PyTorch 提供了两个模块，[JIT and TRACE](https://pytorch.org/docs/stable/jit.html)，允许开发者将他们的模型导出以在其他程序中重用，例如面向效率的 C++ 程序。
 
-我们提供了一个接口，可让你将 🤗 Transformers 模型导出到 TorchScript，以便在与基于 PyTorch 的 Python 程序不同的环境中重用它们。在这里，我们将解释如何使用 TorchScript 导出和使用我们的模型。
+我们提供了一个接口，可让你将 🤗Transformers 模型导出到 TorchScript，以便在与基于 PyTorch 的 Python 程序不同的环境中重用它们。在这里，我们将解释如何使用 TorchScript 导出和使用我们的模型。
 
 导出模型需要两个条件：
 
@@ -37,7 +37,7 @@ PyTorch 提供了两个模块，[JIT and TRACE](https://pytorch.org/docs/stable/
 
 ## TorchScript 标志和绑定的权重
 
-`torchscript` 标志是必需的，因为大多数 🤗 Transformers 语言模型的 `Embedding` 层和 `Decoding` 层之间存在绑定的权重。TorchScript 不允许导出具有绑定权重的模型，因此需要在导出之前解开并克隆这些权重。
+`torchscript` 标志是必需的，因为大多数 🤗Transformers 语言模型的 `Embedding` 层和 `Decoding` 层之间存在绑定的权重。TorchScript 不允许导出具有绑定权重的模型，因此需要在导出之前解开并克隆这些权重。
 
 使用 `torchscript` 标志实例化的模型将它们的 `Embedding` 层和 `Decoding` 层分开，这意味着它们不应该进行后续训练。训练会导致两个层之间的不同步，导致意外的结果。
 

@@ -55,7 +55,7 @@ pip install transformers datasets evaluate
 
 ## 加载 SQuAD 数据集
 
-首先，通过🤗 Datasets库加载SQuAD数据集的一个较小子集。这将给你一个机会在使用完整数据集进行训练之前进行实验和确保一切工作正常。
+首先，通过🤗Datasets库加载SQuAD数据集的一个较小子集。这将给你一个机会在使用完整数据集进行训练之前进行实验和确保一切工作正常。
 
 ```py
 >>> from datasets import load_dataset
@@ -162,13 +162,13 @@ pip install transformers datasets evaluate
 ...     return inputs
 ```
 
-要在整个数据集上应用预处理函数，使用🤗 Datasets的[`~datasets.Dataset.map`]函数即可。你可以通过将`batched=True`设置为一次处理数据集的多个元素来加快`map`函数的速度。删除你不需要的任何列：
+要在整个数据集上应用预处理函数，使用🤗Datasets的[`~datasets.Dataset.map`]函数即可。你可以通过将`batched=True`设置为一次处理数据集的多个元素来加快`map`函数的速度。删除你不需要的任何列：
 
 ```py
 >>> tokenized_squad = squad.map(preprocess_function, batched=True, remove_columns=squad["train"].column_names)
 ```
 
-然后使用[`DefaultDataCollator`]创建一批示例。与🤗 Transformers中的其他数据整理器不同，[`DefaultDataCollator`]不会应用任何额外的预处理，例如填充。
+然后使用[`DefaultDataCollator`]创建一批示例。与🤗Transformers中的其他数据整理器不同，[`DefaultDataCollator`]不会应用任何额外的预处理，例如填充。
 
 <frameworkcontent>
 <pt>
@@ -318,7 +318,7 @@ pip install transformers datasets evaluate
 
 <Tip>
 
-要了解如何对问答模型进行评估并了解其性能，请参阅🤗 Hugging Face课程中的[问答](https://huggingface.co/course/chapter7/7?fw=pt#postprocessing)章节。
+要了解如何对问答模型进行评估并了解其性能，请参阅🤗Hugging Face课程中的[问答](https://huggingface.co/course/chapter7/7?fw=pt#postprocessing)章节。
 
 </Tip>
 

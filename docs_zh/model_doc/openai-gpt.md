@@ -75,7 +75,7 @@ python -m spacy download en
 - [如何使用 Megatron-LM 训练语言模型](https://huggingface.co/blog/megatron-training)与 GPT-2 模型。
 - 介绍如何[对 GPT2 进行微调以生成你最喜爱的艺术家风格的歌词的笔记本](https://colab.research.google.com/github/AlekseyKorshuk/huggingartists/blob/master/huggingartists-demo.ipynb)。🌎
 - 介绍如何[对 GPT2 进行微调以生成与你最喜欢的 Twitter 用户风格相似的推文的笔记本](https://colab.research.google.com/github/borisdayma/huggingtweets/blob/master/huggingtweets-demo.ipynb)。🌎
-- 🤗 Hugging Face 课程中关于[因果语言建模](https://huggingface.co/course/en/chapter7/6?fw=pt#training-a-causal-language-model-from-scratch)的章节。
+- 🤗Hugging Face 课程中关于[因果语言建模](https://huggingface.co/course/en/chapter7/6?fw=pt#training-a-causal-language-model-from-scratch)的章节。
 - 此 [因果语言建模示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling#gpt-2gpt-and-causal-language-modeling)、[文本生成示例脚本](https://github.com/huggingface/transformers/blob/main/examples/pytorch/text-generation/run_generation.py)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling.ipynb) 都支持 [`OpenAIGPTLMHeadModel`]。
 - 此 [因果语言建模示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling#run_clmpy) 和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling-tf.ipynb) 都支持 [`TFOpenAIGPTLMHeadModel`]。
 - 参见：[因果语言建模任务指南](../tasks/language_modeling)。

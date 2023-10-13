@@ -10,13 +10,13 @@ http://www.apache.org/licenses/LICENSE-2.0
 表示或暗示，包括但不限于，适销性、针对特定目的适用性和不侵犯知识产权的
 保证和条件。-->
 
-# 如何将模型添加到🤗 Transformers？
+# 如何将模型添加到🤗Transformers？
 
-通过社区贡献者的帮助，**🤗 Transformers**库通常能够提供新的模型。但这可能是一个具有挑战性的项目，并且需要对**🤗 Transformers**库和要实现的模型有深入的了解。在Hugging Face，我们正在努力赋予更多的社区成员能力来积极地添加模型，因此我们撰写了本指南，以引导你完成添加PyTorch模型的过程（请确保已经[安装了PyTorch](https://pytorch.org/get-started/locally/)）。
+通过社区贡献者的帮助，**🤗Transformers**库通常能够提供新的模型。但这可能是一个具有挑战性的项目，并且需要对**🤗Transformers**库和要实现的模型有深入的了解。在Hugging Face，我们正在努力赋予更多的社区成员能力来积极地添加模型，因此我们撰写了本指南，以引导你完成添加PyTorch模型的过程（请确保已经[安装了PyTorch](https://pytorch.org/get-started/locally/)）。
 
 <Tips>
 
-如果你有意于实现一个TensorFlow模型，请参考[如何将🤗 Transformers模型转换为TensorFlow](add_tensorflow_model.md)指南！
+如果你有意于实现一个TensorFlow模型，请参考[如何将🤗Transformers模型转换为TensorFlow](add_tensorflow_model.md)指南！
 
 </Tips>
 
@@ -27,15 +27,15 @@ http://www.apache.org/licenses/LICENSE-2.0
 - 学会如何高效测试大模型
 - 学会如何集成诸如`black`，`ruff`和`make fix-copies`等Python工具，以确保代码的规范和可读性
 
-Hugging Face团队的成员将随时为你提供帮助，你永远不会孤单。🤗 ❤️
+Hugging Face团队的成员将随时为你提供帮助，你永远不会孤单。🤗❤️
 
-要开始，请在🤗 Transformers中打开一个[New model addition](https://github.com/huggingface/transformers/issues/new?assignees=&labels=New+model&template=new-model-addition.yml)问题，以添加你要在🤗 Transformers中看到的模型。如果你对贡献特定模型不太感兴趣，你可以按照[New model label](https://github.com/huggingface/transformers/labels/New%20model)进行筛选，看看是否有未认领的模型请求并开始工作。
+要开始，请在🤗Transformers中打开一个[New model addition](https://github.com/huggingface/transformers/issues/new?assignees=&labels=New+model&template=new-model-addition.yml)问题，以添加你要在🤗Transformers中看到的模型。如果你对贡献特定模型不太感兴趣，你可以按照[New model label](https://github.com/huggingface/transformers/labels/New%20model)进行筛选，看看是否有未认领的模型请求并开始工作。
 
-打开一个新的模型请求后，第一步是熟悉🤗 Transformers，如果你还没有熟悉。
+打开一个新的模型请求后，第一步是熟悉🤗Transformers，如果你还没有熟悉。
 
-## 🤗 Transformers的概述
+## 🤗Transformers的概述
 
-首先，你应该对🤗 Transformers有一个概览。🤗 Transformers是一个非常明确的库，因此你可能不同意其中的一些哲学观点或设计选择。然而，从我们的经验来看，库的基本设计选择和哲学原则对于高效扩展🤗 Transformers并保持合理的维护成本是至关重要的。
+首先，你应该对🤗Transformers有一个概览。🤗Transformers是一个非常明确的库，因此你可能不同意其中的一些哲学观点或设计选择。然而，从我们的经验来看，库的基本设计选择和哲学原则对于高效扩展🤗Transformers并保持合理的维护成本是至关重要的。
 
 更好地理解这个库的一个好的起点是阅读我们的[哲学文档](https://github.com/huggingface/transformers/blob/master/README.md#philosophy)。作为我们工作方式的结果，有一些选择我们尝试应用到所有模型上：
 
@@ -49,13 +49,13 @@ Hugging Face团队的成员将随时为你提供帮助，你永远不会孤单�
 
 ### 模型概述
 
-要成功添加一个模型，重要的是要理解你的模型与其配置、[`PreTrainedModel`]和[`PretrainedConfig`]之间的交互。为了示例目的，我们将将要添加到🤗 Transformers的模型称为`BrandNewBert`。
+要成功添加一个模型，重要的是要理解你的模型与其配置、[`PreTrainedModel`]和[`PretrainedConfig`]之间的交互。为了示例目的，我们将将要添加到🤗Transformers的模型称为`BrandNewBert`。
 
 让我们来看一下：
 
 <img src="https://huggingface.co/datasets/huggingface/documentation-images/resolve/main/transformers_overview.png"/>
 
-正如你所看到的，我们在🤗 Transformers中确实使用了继承，但我们将抽象级别保持在绝对最低限度。库中任何模型都没有超过两个层次的抽象。`BrandNewBertModel`继承自`BrandNewBertPreTrainedModel`，后者再继承自[`PreTrainedModel`]，而这就是全部。作为一项一般性原则，我们希望确保新模型仅依赖于[`PreTrainedModel`]。自动提供给每个新模型的重要功能包括[`~PreTrainedModel.from_pretrained`]和[`~PreTrainedModel.save_pretrained`]，用于序列化和反序列化。其他重要功能，例如`BrandNewBertModel.forward`，应该在新的`modeling_brand_new_bert.py`脚本中完全定义。接下来，我们要确保具有特定头层的模型，例如`BrandNewBertForMaskedLM`，不继承自`BrandNewBertModel`，而是将`BrandNewBertModel`作为一个可以在其前向传递中调用的组件，以保持抽象级别低。每个新模型都需要一个配置类，称为`BrandNewBertConfig`。此配置始终作为属性存储在[`PreTrainedModel`]中，因此可以通过`config`属性访问所有继承自`BrandNewBertPreTrainedModel`的类：
+正如你所看到的，我们在🤗Transformers中确实使用了继承，但我们将抽象级别保持在绝对最低限度。库中任何模型都没有超过两个层次的抽象。`BrandNewBertModel`继承自`BrandNewBertPreTrainedModel`，后者再继承自[`PreTrainedModel`]，而这就是全部。作为一项一般性原则，我们希望确保新模型仅依赖于[`PreTrainedModel`]。自动提供给每个新模型的重要功能包括[`~PreTrainedModel.from_pretrained`]和[`~PreTrainedModel.save_pretrained`]，用于序列化和反序列化。其他重要功能，例如`BrandNewBertModel.forward`，应该在新的`modeling_brand_new_bert.py`脚本中完全定义。接下来，我们要确保具有特定头层的模型，例如`BrandNewBertForMaskedLM`，不继承自`BrandNewBertModel`，而是将`BrandNewBertModel`作为一个可以在其前向传递中调用的组件，以保持抽象级别低。每个新模型都需要一个配置类，称为`BrandNewBertConfig`。此配置始终作为属性存储在[`PreTrainedModel`]中，因此可以通过`config`属性访问所有继承自`BrandNewBertPreTrainedModel`的类：
 
 ```python
 model = BrandNewBertModel.from_pretrained("brandy/brand_new_bert")
@@ -67,7 +67,7 @@ model.config  # model可以访问其配置
 
 ### 代码风格
 
-当编写新模型时，请记住🤗 Transformers是一个有个人特点的库，我们在编写代码方面有一些小技巧:-)
+当编写新模型时，请记住🤗Transformers是一个有个人特点的库，我们在编写代码方面有一些小技巧:-)
 
 1. 你的模型的前向传递应该完全在建模文件中编写，并且与库中的其他模型完全独立。如果你想重用来自其他模型的块，请复制代码，并在顶部添加一个`# Copied from`的注释（参见[此处](https://github.com/huggingface/transformers/blob/v4.17.0/src/transformers/models/roberta/modeling_roberta.py#L160)以获得良好的示例和[此处](pr_checks.md#check-copies)以获得有关复制注释更多的文档）。
 2. 代码应该可以被任何非英语为母语的人完全理解。这意味着你应该选择具有描述性的变量名，并避免使用缩写词。例如，“activation”比“act”更好。强烈不建议使用单个字母的变量名，除非它是for循环中的索引。
@@ -79,7 +79,7 @@ model.config  # model可以访问其配置
 
 你还没准备好:-（很快会添加这个部分！
 
-## 将模型添加到🤗 Transformers的分步骤介绍
+## 将模型添加到🤗Transformers的分步骤介绍
 
 每个人在端口模型时都有不同的喜好，因此你可以参考其他贡献者将模型端口到Hugging Face的简要摘要，这对你可能非常有帮助。以下是关于如何端口模型的社区博客列表：
 
@@ -88,23 +88,23 @@ model.config  # model可以访问其配置
 
 凭借我们的经验，当添加模型时需要牢记的最重要的事情是：
 
-- 不要重复造轮子!你将为新🤗 Transformers模型添加的代码的大部分可能已经存在于🤗 Transformers的某个地方。花一些时间找到可以复制的类似的已存在的模型和分词器。[grep](https://www.gnu.org/software/grep/) 和 [rg](https://github.com/BurntSushi/ripgrep) 是你的好朋友。请注意，你的模型的分词器很有可能是基于一种模型实现的，而你的模型的建模代码则基于另一种实现。例如，FSMT的建模代码基于BART，而FSMT的分词器代码基于XLM。
+- 不要重复造轮子!你将为新🤗Transformers模型添加的代码的大部分可能已经存在于🤗Transformers的某个地方。花一些时间找到可以复制的类似的已存在的模型和分词器。[grep](https://www.gnu.org/software/grep/) 和 [rg](https://github.com/BurntSushi/ripgrep) 是你的好朋友。请注意，你的模型的分词器很有可能是基于一种模型实现的，而你的模型的建模代码则基于另一种实现。例如，FSMT的建模代码基于BART，而FSMT的分词器代码基于XLM。
 - 这更多是一项工程挑战而不是科学挑战。你应该在创建一个高效的调试环境上花更多时间，而不是试图理解论文中的所有理论方面。
-- 当你遇到困难时，寻求帮助！模型是🤗 Transformers的核心组成部分，因此Hugging Face非常乐意在每个步骤上帮助你添加你的模型。如果你发现自己没有取得进展，请不要犹豫提问。
+- 当你遇到困难时，寻求帮助！模型是🤗Transformers的核心组成部分，因此Hugging Face非常乐意在每个步骤上帮助你添加你的模型。如果你发现自己没有取得进展，请不要犹豫提问。
 
-接下来，我们试图提供一个我们发现在将模型迁移到🤗 Transformers时最有用的一般性的步骤指南。
+接下来，我们试图提供一个我们发现在将模型迁移到🤗Transformers时最有用的一般性的步骤指南。
 
 以下列表概述了必须完成的添加模型的所有工作，并可以作为*待办事项清单*使用：
 
 ☐ （可选）理解BrandNewBert的理论方面<br>
-☐ 准备好了🤗 Transformers的开发环境<br>
+☐ 准备好了🤗Transformers的开发环境<br>
 ☐ 在原始存储库中配置调试环境<br>
 ☐ 编写可以使用原始存储库和检查点成功运行`forward()`传递的脚本<br>
-☐ 成功将模型框架添加到🤗 Transformers<br>
-☐ 成功将原始检查点转换为🤗 Transformers检查点<br>
-☐ 成功在🤗 Transformers中运行`forward()`传递，输出与原始检查点相同<br>
-☐ 完成了🤗 Transformers中的模型测试<br>
-☐ 成功将分词器添加到🤗 Transformers<br>
+☐ 成功将模型框架添加到🤗Transformers<br>
+☐ 成功将原始检查点转换为🤗Transformers检查点<br>
+☐ 成功在🤗Transformers中运行`forward()`传递，输出与原始检查点相同<br>
+☐ 完成了🤗Transformers中的模型测试<br>
+☐ 成功将分词器添加到🤗Transformers<br>
 ☐ 运行端到端集成测试<br>
 ☐ 完成了文档<br>
 ☐ 将模型权重上传到Hub<br>
@@ -116,12 +116,12 @@ model.config  # model可以访问其配置
 
 ### 1. （可选）BrandNewBert 的理论方面
 
-如果 BrandNewBert 的论文存在，你应该花一些时间阅读它。有可能有很多难以理解的部分。如果是这种情况，不要担心 - 不用担心！目标不是对论文进行深入的理论了解，而是从中提取在有效地在🤗 Transformers 中重新实现模型所需的必要信息。话虽如此，你不需要花太多时间在理论方面上，而是应该专注于实践方面，即：
+如果 BrandNewBert 的论文存在，你应该花一些时间阅读它。有可能有很多难以理解的部分。如果是这种情况，不要担心 - 不用担心！目标不是对论文进行深入的理论了解，而是从中提取在有效地在🤗Transformers 中重新实现模型所需的必要信息。话虽如此，你不需要花太多时间在理论方面上，而是应该专注于实践方面，即：
 
 - *brand_new_bert* 是什么类型的模型？类似BERT的仅编码器模型？类似GPT-2的仅解码器模型？类似BART的编码器-解码器模型？如果不熟悉这些差异，请参阅[model_summary](https://github.com/huggingface/transformers/blob/master/README.md#model-summary)。
 - *brand_new_bert* 有哪些应用？文本分类？文本生成？Seq2Seq任务，例如摘要？
 - 这个模型的何种功能使其与BERT/GPT-2/BART不同？
-- 与 *brand_new_bert* 最相似的[🤗 Transformers 模型](https://huggingface.co/transformers/#contents)是哪一个？
+- 与 *brand_new_bert* 最相似的[🤗Transformers 模型](https://huggingface.co/transformers/#contents)是哪一个？
 - 使用了什么类型的分词器？是 sentencepiece 分词器？还是 word piece 分词器？它与BERT或BART使用的分词器是相同的吗？
 
 当你觉得对模型的体系结构有了良好的概览后，你可能希望向Hugging Face团队提问你可能有的任何问题。这可能包括有关模型的体系结构、注意层等方面的问题。我们将非常乐意为你提供帮助。
@@ -146,7 +146,7 @@ source .env/bin/activate
 pip install -e ".[dev]"
 ```
 
-根据你的操作系统，由于`🤗 Transformers`的可选依赖项数量不断增加，你可能会遇到此命令失败的情况。如果是这样，请确保已安装你要使用的深度学习框架（PyTorch，TensorFlow和/或Flax），然后执行：
+根据你的操作系统，由于`🤗Transformers`的可选依赖项数量不断增加，你可能会遇到此命令失败的情况。如果是这样，请确保已安装你要使用的深度学习框架（PyTorch，TensorFlow和/或Flax），然后执行：
 
 ```bash
 pip install -e ".[quality]"
@@ -170,11 +170,11 @@ cd brand_new_bert
 pip install -e .
 ```
 
-现在你已经设置了一个开发环境，可以将 *brand_new_bert* 导入到 🤗 Transformers 中。
+现在你已经设置了一个开发环境，可以将 *brand_new_bert* 导入到 🤗Transformers 中。
 
 ### 3.-4. 使用原始存储库运行预训练的检查点
 
-在最初阶段，你将在原始的 *brand_new_bert* 存储库上工作。通常，原始实现非常“研究型”。意思是文档可能不全，代码可能难以理解。但这正是你重新实现 *brand_new_bert* 的原因。在Hugging Face，我们的主要目标之一是让人们站在巨人的肩膀上，这在这里非常明显，因为我们带来了一个可以工作的模型，并重新编写它，使其尽可能“易于访问、用户友好和美观”。这是将模型重拾到🤗 Transformers中的最重要的动力 - 试图将复杂的新NLP技术提供给**每个人**。
+在最初阶段，你将在原始的 *brand_new_bert* 存储库上工作。通常，原始实现非常“研究型”。意思是文档可能不全，代码可能难以理解。但这正是你重新实现 *brand_new_bert* 的原因。在Hugging Face，我们的主要目标之一是让人们站在巨人的肩膀上，这在这里非常明显，因为我们带来了一个可以工作的模型，并重新编写它，使其尽可能“易于访问、用户友好和美观”。这是将模型重拾到🤗Transformers中的最重要的动力 - 试图将复杂的新NLP技术提供给**每个人**。
 
 
 
@@ -314,7 +314,7 @@ git merge upstream/main
 
 现在你终于可以开始编码了 :). 生成的代码位于 `src/transformers/models/brand_new_bert/modeling_brand_new_bert.py`，如果是编码器-解码器模型，则该代码将与 BART 的体系结构相同，如果是仅编码器模型，则与 BERT 的体系结构相同。此时，你应该回顾一下关于模型的理论方面的内容："该模型与 BERT 或 BART 有何不同？" 根据这些差异来实现更改，通常意味着更改 "self-attention" 层、归一化层的顺序等... 另外，通常查看 Transformers 中已存在模型的类似体系结构，以更好地了解应如何实现自己的模型，这通常是有用的。
 
-请注意，此时并不需要确保代码完全正确或干净。相反，建议首先在 `src/transformers/models/brand_new_bert/modeling_brand_new_bert.py` 添加一个未加工的、直接粘贴的原始代码版本，直到你觉得已添加了所有必要的代码。根据我们的经验，使用转换脚本进行快速添加所需代码并增强/更正代码的效率更高，如下一部分所述。这一步的关键是要确保你能够实例化🤗 Transformers 实现的 *brand_new_bert*，即下面的命令应该可以运行成功:
+请注意，此时并不需要确保代码完全正确或干净。相反，建议首先在 `src/transformers/models/brand_new_bert/modeling_brand_new_bert.py` 添加一个未加工的、直接粘贴的原始代码版本，直到你觉得已添加了所有必要的代码。根据我们的经验，使用转换脚本进行快速添加所需代码并增强/更正代码的效率更高，如下一部分所述。这一步的关键是要确保你能够实例化🤗Transformers 实现的 *brand_new_bert*，即下面的命令应该可以运行成功:
 
 ```python
 from transformers import BrandNewBertModel, BrandNewBertConfig
@@ -362,7 +362,7 @@ def _init_weights(self, module):
 
 **6. 编写转换脚本**
 
-接下来，你应该编写一个转换脚本，让你能够将你在原始库中用于调试 *brand_new_bert* 的检查点转换为与你刚刚创建的🤗 Transformers 实现的 *brand_new_bert* 兼容的检查点。建议不要从头开始编写转换脚本，而是查看已存在的🤗 Transformers 转换脚本，找到用于转换与 *brand_new_bert* 相同框架编写的类似模型的脚本，并做出适应你的情况的轻微修改。如果需要，可以向 Hugging Face 团队寻求帮助，让他们为你指出一个用于你的模型的类似的已存在转换脚本。
+接下来，你应该编写一个转换脚本，让你能够将你在原始库中用于调试 *brand_new_bert* 的检查点转换为与你刚刚创建的🤗Transformers 实现的 *brand_new_bert* 兼容的检查点。建议不要从头开始编写转换脚本，而是查看已存在的🤗Transformers 转换脚本，找到用于转换与 *brand_new_bert* 相同框架编写的类似模型的脚本，并做出适应你的情况的轻微修改。如果需要，可以向 Hugging Face 团队寻求帮助，让他们为你指出一个用于你的模型的类似的已存在转换脚本。
 
 - 如果你要将模型从 TensorFlow 迁移到 PyTorch，可以从 BERT 的转换脚本 [这里](https://github.com/huggingface/transformers/blob/7acfa95afb8194f8f9c1f4d2c6028224dbed35a2/src/transformers/models/bert/modeling_bert.py#L91) 开始
 - 如果你要将模型从 PyTorch 迁移到 PyTorch，可以从 BART 的转换脚本 [这里](https://github.com/huggingface/transformers/blob/main/src/transformers/models/bart/convert_bart_original_pytorch_checkpoint_to_pytorch.py) 开始
@@ -455,11 +455,11 @@ assert (
 logger.info(f"Initialize PyTorch weight {layer_name} from {pretrained_weight.name}")
 ```
 
-如果形状或名称不匹配，你可能错误地将检查点权重分配给了随机初始化的🤗 Transformers 实现的层。
+如果形状或名称不匹配，你可能错误地将检查点权重分配给了随机初始化的🤗Transformers 实现的层。
 
 形状不正确很可能是由于在 `BrandNewBertConfig()` 中设置了不完全匹配的配置参数，这些参数与要转换的检查点使用的参数不完全匹配。然而，也可能是因为 PyTorch 的层实现要求在进行设置之前先对权重进行转置。
 
-最后，你还应该检查是否已初始化**全部**所需权重，并打印出未用于初始化的所有检查点权重，以确保正确转换模型。在转换所有权重到🤗 Transformers 实现之后，可以将模型保存在你选择的文件夹 `/path/to/converted/checkpoint/folder` 下，其中应该包含一个 `pytorch_model.bin` 文件和一个 `config.json` 文件:
+最后，你还应该检查是否已初始化**全部**所需权重，并打印出未用于初始化的所有检查点权重，以确保正确转换模型。在转换所有权重到🤗Transformers 实现之后，可以将模型保存在你选择的文件夹 `/path/to/converted/checkpoint/folder` 下，其中应该包含一个 `pytorch_model.bin` 文件和一个 `config.json` 文件:
 
 ```python
 model.save_pretrained("/path/to/converted/checkpoint/folder")
@@ -467,7 +467,7 @@ model.save_pretrained("/path/to/converted/checkpoint/folder")
 
 **7. 实现前向传递**
 
-在成功加载预训练权重到🤗 Transformers 实现之后，现在你应该确保正确实现了前向传递。在[了解原始库](#34-run-a-pretrained-checkpoint-using-the-original-repository) 中，你已经创建了一个使用原始库运行模型前向传递的脚本。现在，你应该编写一个类似的脚本，使用🤗 Transformers 实现而不是原始实现。它应该如下所示:
+在成功加载预训练权重到🤗Transformers 实现之后，现在你应该确保正确实现了前向传递。在[了解原始库](#34-run-a-pretrained-checkpoint-using-the-original-repository) 中，你已经创建了一个使用原始库运行模型前向传递的脚本。现在，你应该编写一个类似的脚本，使用🤗Transformers 实现而不是原始实现。它应该如下所示:
 
 ```python
 model = BrandNewBertModel.from_pretrained("/path/to/converted/checkpoint/folder")
@@ -475,22 +475,22 @@ input_ids = [0, 4, 4, 3, 2, 4, 1, 7, 19]
 output = model(input_ids).last_hidden_states
 ```
 
-很可能🤗 Transformers 实现和原始模型实现的输出并不完全相同，或者前向传递会引发错误。不要灰心，这是正常情况！首先，你应该确保前向传递不会引发任何错误。经常会出现错误的情况是使用了不正确的维度，导致 "维度不匹配" 错误，或者使用了错误的数据类型对象，比如将 `torch.long` 误用为 `torch.float32`。如果无法解决某些错误，请随时向 Hugging Face 团队寻求帮助。
+很可能🤗Transformers 实现和原始模型实现的输出并不完全相同，或者前向传递会引发错误。不要灰心，这是正常情况！首先，你应该确保前向传递不会引发任何错误。经常会出现错误的情况是使用了不正确的维度，导致 "维度不匹配" 错误，或者使用了错误的数据类型对象，比如将 `torch.long` 误用为 `torch.float32`。如果无法解决某些错误，请随时向 Hugging Face 团队寻求帮助。
 
-确保两个实现的输出精度达到 `1e-3` 是确保🤗 Transformers 实现正确的最后一部分。首先，你应该确保输出形状完全相同，即 `outputs.shape` 在🤗 Transformers 实现的脚本和原始实现的脚本中产生相同的值。接下来，你应该确保输出值也是相同的。这是增加新模型中最困难的部分之一。导致输出不相同的常见错误包括:
+确保两个实现的输出精度达到 `1e-3` 是确保🤗Transformers 实现正确的最后一部分。首先，你应该确保输出形状完全相同，即 `outputs.shape` 在🤗Transformers 实现的脚本和原始实现的脚本中产生相同的值。接下来，你应该确保输出值也是相同的。这是增加新模型中最困难的部分之一。导致输出不相同的常见错误包括:
 
 - 没有添加某些层，比如没有添加一个 "activation" 层，或者忘记了残差连接
 - 单词嵌入矩阵没有连接
 - 使用了错误的位置嵌入，因为原始实现使用了偏移
 - 在前向传递期间应用了丢弃。要解决这个问题，请确保设置了 *model.training* 为 False，并且在前向传递过程中没有错误地激活了丢弃层，例如将 *self.training* 传递给 [PyTorch 的 functional dropout](https://pytorch.org/docs/stable/nn.functional.html?highlight=dropout#torch.nn.functional.dropout)
 
-解决问题的最好方式通常是并排查看原始实现和🤗 Transformers 实现的前向传递，并检查是否存在任何差异。理想情况下，应该在前向传递的两个实现中调试/打印中间输出，以找到🤗 Transformers 实现与原始实现输出不同的确切网络位置。首先，确保两个脚本中硬编码的 `input_ids` 相同。接下来，验证 "input_ids" 的第一个转换的输出（通常是词嵌入）是否完全相同。然后，从网络的最后一层开始，逐层检查网络的输出是否相同。在某个点上，你会注意到两个实现之间的差异，这应该指出🤗 Transformers 实现中的错误。根据我们的经验，一种简单而有效的方法是在原始实现和🤗 Transformers 实现中添加许多打印语句，并在网络的相同位置添加这些打印语句，然后逐步删除显示相同中间结果的打印语句。
+解决问题的最好方式通常是并排查看原始实现和🤗Transformers 实现的前向传递，并检查是否存在任何差异。理想情况下，应该在前向传递的两个实现中调试/打印中间输出，以找到🤗Transformers 实现与原始实现输出不同的确切网络位置。首先，确保两个脚本中硬编码的 `input_ids` 相同。接下来，验证 "input_ids" 的第一个转换的输出（通常是词嵌入）是否完全相同。然后，从网络的最后一层开始，逐层检查网络的输出是否相同。在某个点上，你会注意到两个实现之间的差异，这应该指出🤗Transformers 实现中的错误。根据我们的经验，一种简单而有效的方法是在原始实现和🤗Transformers 实现中添加许多打印语句，并在网络的相同位置添加这些打印语句，然后逐步删除显示相同中间结果的打印语句。
 
 当你确信两个实现会产生相同的输出时，可以通过使用 `torch.allclose(original_output, output, atol=1e-3)` 来验证输出的相等性，你已经完成了最困难的部分！恭喜你——剩下的工作应该很轻松 😊。
 
 **8. 添加所有必要的模型测试**
 
-此时，你已经成功添加了一个新的模型。然而，很可能该模型还不完全符合所需的设计。为确保实现与🤗 Transformers 完全兼容，应通过运行所有常规测试来验证。Cookiecutter 应该自动为你的模型添加了一个测试文件，可能在相同目录下的 `tests/models/brand_new_bert/test_modeling_brand_new_bert.py`。运行该测试文件以验证所有常规测试是否通过:
+此时，你已经成功添加了一个新的模型。然而，很可能该模型还不完全符合所需的设计。为确保实现与🤗Transformers 完全兼容，应通过运行所有常规测试来验证。Cookiecutter 应该自动为你的模型添加了一个测试文件，可能在相同目录下的 `tests/models/brand_new_bert/test_modeling_brand_new_bert.py`。运行该测试文件以验证所有常规测试是否通过:
 
 ```bash
 pytest tests/models/brand_new_bert/test_modeling_brand_new_bert.py
@@ -501,7 +501,7 @@ pytest tests/models/brand_new_bert/test_modeling_brand_new_bert.py
 - a) 社区成员可以通过查看 *brand_new_bert* 的特定测试来方便地理解你的工作
 - b) 对模型进行的任何未来更改都不会破坏模型的重要功能的测试
 
-首先，应该添加集成测试。这些集成测试本质上与你之前用于实现🤗 Transformers模型的调试脚本相同。已经通过Cookiecutter添加了这些模型测试的模板，名为`BrandNewBertModelIntegrationTests`，只需由你填写。为确保这些测试通过，请运行
+首先，应该添加集成测试。这些集成测试本质上与你之前用于实现🤗Transformers模型的调试脚本相同。已经通过Cookiecutter添加了这些模型测试的模板，名为`BrandNewBertModelIntegrationTests`，只需由你填写。为确保这些测试通过，请运行
 
 ```bash
 RUN_SLOW=1 pytest -sv tests/models/brand_new_bert/test_modeling_brand_new_bert.py::BrandNewBertModelIntegrationTests
@@ -520,9 +520,9 @@ RUN_SLOW=1 pytest -sv tests/models/brand_new_bert/test_modeling_brand_new_bert.p
 
 **9. 实现分词器**
 
-接下来，我们应该添加*brand_new_bert*的分词器。通常，分词器与🤗 Transformers的已有分词器等同或非常相似。
+接下来，我们应该添加*brand_new_bert*的分词器。通常，分词器与🤗Transformers的已有分词器等同或非常相似。
 
-非常重要的是找到/提取原始的分词器文件，并设法将该文件加载到🤗 Transformers的分词器实现中。
+非常重要的是找到/提取原始的分词器文件，并设法将该文件加载到🤗Transformers的分词器实现中。
 
 为确保分词器可以正常工作，建议先在原始存储库中创建一个脚本，该脚本输入一个字符串并返回`input_ids`。它可能类似于以下伪代码：
 
@@ -532,7 +532,7 @@ model = BrandNewBertModel.load_pretrained_checkpoint("/path/to/checkpoint/")
 input_ids = model.tokenize(input_str)
 ```
 
-你可能需要再次深入研究原始存储库，以找到正确的分词器函数，或者甚至可能需要对原始存储库的克隆进行更改，以仅输出`input_ids`。一旦编写了使用原始存储库的功能性分词脚本，还应创建一个类似于以下内容的🤗 Transformers的脚本：
+你可能需要再次深入研究原始存储库，以找到正确的分词器函数，或者甚至可能需要对原始存储库的克隆进行更改，以仅输出`input_ids`。一旦编写了使用原始存储库的功能性分词脚本，还应创建一个类似于以下内容的🤗Transformers的脚本：
 
 ```python
 from transformers import BrandNewBertTokenizer
@@ -550,9 +550,9 @@ input_ids = tokenizer(input_str).input_ids
 
 **10. 运行端到端的集成测试**
 
-在添加了分词器之后，你还应在🤗 Transformers中的`tests/models/brand_new_bert/test_modeling_brand_new_bert.py`上添加一些端到端的集成测试，使用模型和分词器。
+在添加了分词器之后，你还应在🤗Transformers中的`tests/models/brand_new_bert/test_modeling_brand_new_bert.py`上添加一些端到端的集成测试，使用模型和分词器。
 
-这样的测试应该通过有意义的文本到文本样本展示🤗 Transformers实现按预期工作的情况。有意义的文本到文本样本可以包括*例如*源到目标翻译对、文章到摘要对、问题到答案对等。如果没有将任何导入的检查点微调到下游任务，只需依赖模型测试即可。
+这样的测试应该通过有意义的文本到文本样本展示🤗Transformers实现按预期工作的情况。有意义的文本到文本样本可以包括*例如*源到目标翻译对、文章到摘要对、问题到答案对等。如果没有将任何导入的检查点微调到下游任务，只需依赖模型测试即可。
 
 最后，请确保在GPU上运行所有测试，以确保模型完全功能。可能会忘记在模型的内部张量中添加一些`.to(self.device)`语句，此类测试将显示出错误。如果无法访问GPU，Hugging Face团队可以负责为你运行这些测试。
 
@@ -560,7 +560,7 @@ input_ids = tokenizer(input_str).input_ids
 
 现在，*brand_new_bert*的所有必要功能都已添加完成-你离完成不远了！只剩下添加良好的文档注释和文档页面了。Cookiecutter应该已经添加了一个名为`docs/source/model_doc/brand_new_bert.md`的模板文件，你需要填写该文件。在使用你的模型之前，模型的用户通常会首先查看此页面。因此，文档必须易于理解和简洁。为了展示模型的正确使用方法，添加一些*提示*非常有用。不要犹豫与Hugging Face团队讨论有关文档注释的问题。
 
-接下来，确保添加到`src/transformers/models/brand_new_bert/modeling_brand_new_bert.py`的文档注释是正确的，并包含所有必要的输入和输出。我们有一份详细的关于撰写文档和我们的文档字符串格式的指南。在处理🤗 Transformers的代码之前，提醒自己始终要对待文档至少与对待代码一样的谨慎，因为文档通常是社区与模型的第一个接触点。
+接下来，确保添加到`src/transformers/models/brand_new_bert/modeling_brand_new_bert.py`的文档注释是正确的，并包含所有必要的输入和输出。我们有一份详细的关于撰写文档和我们的文档字符串格式的指南。在处理🤗Transformers的代码之前，提醒自己始终要对待文档至少与对待代码一样的谨慎，因为文档通常是社区与模型的第一个接触点。
 
 **代码重构**
 
@@ -576,7 +576,7 @@ make style
 make quality
 ```
 
-🤗 Transformers中可能仍然存在一些非常严格的设计测试可能失败的情况，这会在你的Pull Request的测试中显示出来。这通常是由于文档字符串中缺少的一些信息或一些不正确的命名所致。如果你在这一步遇到问题，Hugging Face团队肯定会帮助你。
+🤗Transformers中可能仍然存在一些非常严格的设计测试可能失败的情况，这会在你的Pull Request的测试中显示出来。这通常是由于文档字符串中缺少的一些信息或一些不正确的命名所致。如果你在这一步遇到问题，Hugging Face团队肯定会帮助你。
 
 最后，在确保代码正常工作之后，对代码进行重构是个好主意。所有测试都通过后，现在是时候再次检查添加的代码，并进行一些重构了。
 

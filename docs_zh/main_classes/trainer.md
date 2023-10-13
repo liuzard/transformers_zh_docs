@@ -408,7 +408,7 @@ python examples/pytorch/text-classification/run_glue.py \
 - MPS尚未实现某些PyTorch操作，使用这些操作将会抛出错误。解决方法之一是设置环境变量 `PYTORCH_ENABLE_MPS_FALLBACK=1`，这将使用CPU执行这些操作。但仍会引发UserWarning警告。
 - `gloo` 和 `nccl` 是MP的后端，则这些后端在 `mps` 设备上无法使用。目前，仅可以使用单个`mps`设备。
 
-最后，请记住，🤗 `Trainer` 只集成了 MPS 的后端，因此如果你在使用 MPS 后端时遇到任何问题或疑问，请在 [PyTorch GitHub](https://github.com/pytorch/pytorch/issues) 上提交问题。
+最后，请记住，🤗`Trainer` 只集成了 MPS 的后端，因此如果你在使用 MPS 后端时遇到任何问题或疑问，请在 [PyTorch GitHub](https://github.com/pytorch/pytorch/issues) 上提交问题。
 
 
 ## 使用加速启动程序和Trainer
@@ -418,7 +418,7 @@ python examples/pytorch/text-classification/run_glue.py \
 - 现在用户可以将加速启动程序与Trainer一起使用（推荐）。
 
 使用加速启动程序和Trainer的步骤：
-1. 确保已安装🤗 加速，否则你无法使用`Trainer`。如果没有，执行 `pip install accelerate` 。你还可以更新加速的版本： `pip install accelerate --upgrade` 。
+1. 确保已安装🤗加速，否则你无法使用`Trainer`。如果没有，执行 `pip install accelerate` 。你还可以更新加速的版本： `pip install accelerate --upgrade` 。
 2. 运行 `accelerate config` 并填写问卷。以下是加速配置的示例：
    a. DDP多节点多GPU配置:
     ```yaml

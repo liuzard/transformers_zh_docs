@@ -22,9 +22,9 @@ XLA（加速线性代数）是一种专为线性代数而设计的领域特定�
 
 在TensorFlow中使用XLA很简单-它已打包在`tensorflow`库中，并且可以通过任何图创建函数的`jit_compile`参数触发，例如[`tf.function`](https://www.tensorflow.org/guide/intro_to_graphs)。当使用`fit()`和`predict()`等Keras方法时，你只需将`jit_compile`参数传递给`model.compile()`即可启用XLA。但是，XLA并不限于这些方法-它也可用于加速任何任意的`tf.function`。
 
-🤗 Transformers中的几种TensorFlow方法已被重写为与XLA兼容，包括[GPT2](https://huggingface.co/docs/transformers/model_doc/gpt2)、[T5](https://huggingface.co/docs/transformers/model_doc/t5)和[OPT](https://huggingface.co/docs/transformers/model_doc/opt)等模型的文本生成，以及[Whisper](https://huggingface.co/docs/transformers/model_doc/whisper)等模型的语音处理。
+🤗Transformers中的几种TensorFlow方法已被重写为与XLA兼容，包括[GPT2](https://huggingface.co/docs/transformers/model_doc/gpt2)、[T5](https://huggingface.co/docs/transformers/model_doc/t5)和[OPT](https://huggingface.co/docs/transformers/model_doc/opt)等模型的文本生成，以及[Whisper](https://huggingface.co/docs/transformers/model_doc/whisper)等模型的语音处理。
 
-虽然确切的加速度因模型而异，但对于🤗 Transformers中的TensorFlow文本生成模型，我们注意到了大约100倍的加速度。本文档将解释如何使用XLA来实现这些模型的最大性能。如果你对基准测试和我们的XLA集成设计哲学感兴趣，我们还将提供其他资源的链接。
+虽然确切的加速度因模型而异，但对于🤗Transformers中的TensorFlow文本生成模型，我们注意到了大约100倍的加速度。本文档将解释如何使用XLA来实现这些模型的最大性能。如果你对基准测试和我们的XLA集成设计哲学感兴趣，我们还将提供其他资源的链接。
 
 ## 使用XLA运行TF函数
 
@@ -63,9 +63,9 @@ _ = xla_fn(random_inputs)
 my_xla_fn = tf.function(model.my_xla_fn, jit_compile=True)
 ```
 
-## 使用🤗 Transformers中的XLA运行TF文本生成模型
+## 使用🤗Transformers中的XLA运行TF文本生成模型
 
-要在🤗 Transformers中启用XLA加速的生成功能，你需要安装最新版本的`transformers`。可通过运行以下命令来安装：
+要在🤗Transformers中启用XLA加速的生成功能，你需要安装最新版本的`transformers`。可通过运行以下命令来安装：
 
 ```bash
 pip install transformers --upgrade
@@ -158,15 +158,15 @@ Execution time -- 78.9 ms
 
 `xla_generate()`的第一次调用由于追踪而耗时，但是后续调用的速度快了几个数量级。请记住，任何时候更改生成选项都将触发重新追踪，从而导致生成时间变慢。
 
-我们在本文档中并未涵盖🤗 Transformers在文本生成方面提供的所有选项。我们鼓励你阅读文档以获取更多高级用例。
+我们在本文档中并未涵盖🤗Transformers在文本生成方面提供的所有选项。我们鼓励你阅读文档以获取更多高级用例。
 
 ## 其他资源
 
-在这里，我们为你提供一些其他资源，如果你想深入了解🤗 Transformers中的XLA以及其他方面：
+在这里，我们为你提供一些其他资源，如果你想深入了解🤗Transformers中的XLA以及其他方面：
 
 * [此Colab笔记本](https://colab.research.google.com/github/huggingface/blog/blob/main/notebooks/91_tf_xla_generate.ipynb)提供了一个交互式演示，供你尝试使用与XLA兼容的编码器-解码器（例如[T5](https://huggingface.co/docs/transformers/model_doc/t5)）和仅解码器（例如[GPT2](https://huggingface.co/docs/transformers/model_doc/gpt2)）文本生成模型。
 * [此博客文章](https://huggingface.co/blog/tf-xla-generate)提供了与XLA兼容模型的比较基准的概述，以及对TensorFlow中XLA的友好介绍。
-* [此博客文章](https://blog.tensorflow.org/2022/11/how-hugging-face-improved-text-generation-performance-with-xla.html)讨论了我们在🤗 Transformers中添加对TensorFlow模型的XLA支持的设计哲学。
+* [此博客文章](https://blog.tensorflow.org/2022/11/how-hugging-face-improved-text-generation-performance-with-xla.html)讨论了我们在🤗Transformers中添加对TensorFlow模型的XLA支持的设计哲学。
 * 了解有关XLA和TensorFlow图的更多信息的推荐帖子：
     * [XLA：用于机器学习的优化编译器](https://www.tensorflow.org/xla)
     * [图表和tf.function简介](https://www.tensorflow.org/guide/intro_to_graphs)

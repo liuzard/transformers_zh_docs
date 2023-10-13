@@ -17,7 +17,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 LLMs，即大型语言模型，是文本生成的关键组件。简而言之，它们由大型预训练的 Transformer 模型组成，用于在给定一些输入文本的情况下预测下一个单词（或更准确地说，token）。由于它们一次预测一个token，因此如果要生成新的句子，你需要进行更复杂的操作，而不仅仅是调用模型 - 你需要进行自回归生成。
 
-自回归生成是在推断时使用模型的生成输出迭代调用模型的过程，给定一些初始输入。在 🤗 Transformers 中，这由 [`~generation.GenerationMixin.generate`] 方法处理，该方法适用于具有生成能力的所有模型。
+自回归生成是在推断时使用模型的生成输出迭代调用模型的过程，给定一些初始输入。在 🤗Transformers 中，这由 [`~generation.GenerationMixin.generate`] 方法处理，该方法适用于具有生成能力的所有模型。
 
 本教程将向你展示如何：
 
@@ -215,6 +215,6 @@ LLMs 是仅解码器架构，这意味着它们会继续迭代你的输入提示
 ### 相关库
 
 1. [`text-generation-inference`](https://github.com/huggingface/text-generation-inference)，一个面向生产环境的 LLM 服务器；
-2. [`optimum`](https://github.com/huggingface/optimum)，🤗 Transformers 的扩展，针对特定硬件设备进行优化。
+2. [`optimum`](https://github.com/huggingface/optimum)，🤗Transformers 的扩展，针对特定硬件设备进行优化。
 
 这些资源将帮助你更深入地了解和使用 LLM，并在各种自然语言处理任务中发挥其优势。祝你进一步取得成功！

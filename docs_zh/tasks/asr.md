@@ -47,7 +47,7 @@ pip install transformers datasets evaluate jiwer
 
 ## 加载MInDS-14数据集
 
-首先加载🤗 Datasets库中[MInDS-14](https://huggingface.co/datasets/PolyAI/minds14)数据集的一个较小子集。这将为你提供一个实验和确保一切正常的机会，然后再花更多时间在完整数据集上进行训练。
+首先加载🤗Datasets库中[MInDS-14](https://huggingface.co/datasets/PolyAI/minds14)数据集的一个较小子集。这将为你提供一个实验和确保一切正常的机会，然后再花更多时间在完整数据集上进行训练。
 
 ```py
 >>> from datasets import load_dataset, Audio
@@ -146,7 +146,7 @@ MInDS-14数据集的采样率为8000kHz（你可以在其[数据集卡片](https
 ...     return batch
 ```
 
-要在整个数据集上应用预处理函数，使用🤗 Datasets [`~datasets.Dataset.map`]函数。你可以通过增加`num_proc`参数来加速`map`。使用[`~datasets.Dataset.remove_columns`]方法删除你不需要的列：
+要在整个数据集上应用预处理函数，使用🤗Datasets [`~datasets.Dataset.map`]函数。你可以通过增加`num_proc`参数来加速`map`。使用[`~datasets.Dataset.remove_columns`]方法删除你不需要的列：
 
 ```py
 >>> encoded_minds = minds.map(prepare_dataset, remove_columns=minds.column_names["train"], num_proc=4)
@@ -194,7 +194,7 @@ MInDS-14数据集的采样率为8000kHz（你可以在其[数据集卡片](https
 
 ## 评估
 
-在训练过程中包含一个度量标准通常有助于评估模型的性能。你可以使用🤗 [Evaluate](https://huggingface.co/docs/evaluate/index)库快速加载一个评估方法。对于此任务，加载[单词错误率](https://huggingface.co/spaces/evaluate-metric/wer)（WER）度量（请参阅🤗 Evaluate [快速导览](https://huggingface.co/docs/evaluate/a_quick_tour)了解如何加载和计算度量）：
+在训练过程中包含一个度量标准通常有助于评估模型的性能。你可以使用🤗[Evaluate](https://huggingface.co/docs/evaluate/index)库快速加载一个评估方法。对于此任务，加载[单词错误率](https://huggingface.co/spaces/evaluate-metric/wer)（WER）度量（请参阅🤗Evaluate [快速导览](https://huggingface.co/docs/evaluate/a_quick_tour)了解如何加载和计算度量）：
 
 ```py
 >>> import evaluate

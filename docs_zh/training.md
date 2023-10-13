@@ -18,9 +18,9 @@ rendered properly in your Markdown viewer.
 
 [[open-in-colab]]
 
-使用预训练模型有很多优势。它降低了计算成本，有利于环境保护，并且无需从头开始训练模型即可使用最先进的模型。🤗 Transformers为各种任务提供了成千上万个预训练模型。当你使用预训练模型时，你将其训练到与你的任务相关的数据集上。这就是所谓的微调操作，这是一种非常强大的训练技术。在本教程中，你将使用自己选择的深度学习框架来微调预训练模型：
+使用预训练模型有很多优势。它降低了计算成本，有利于环境保护，并且无需从头开始训练模型即可使用最先进的模型。🤗Transformers为各种任务提供了成千上万个预训练模型。当你使用预训练模型时，你将其训练到与你的任务相关的数据集上。这就是所谓的微调操作，这是一种非常强大的训练技术。在本教程中，你将使用自己选择的深度学习框架来微调预训练模型：
 
-- 使用🤗 Transformers [`Trainer`]来微调预训练模型。
+- 使用🤗Transformers [`Trainer`]来微调预训练模型。
 - 在TensorFlow中使用Keras来微调预训练模型。
 - 在原生PyTorch中微调预训练模型。
 
@@ -148,6 +148,6 @@ rendered properly in your Markdown viewer.
 
 更多微调示例，请参考：
 
-- [🤗 Transformers 示例](https://github.com/huggingface/transformers/tree/main/examples) 包含了在 PyTorch 和 TensorFlow 中训练常见 NLP 任务的脚本。
+- [🤗Transformers 示例](https://github.com/huggingface/transformers/tree/main/examples) 包含了在 PyTorch 和 TensorFlow 中训练常见 NLP 任务的脚本。
 
-- [🤗 Transformers 笔记本](notebooks) 包含了使用 PyTorch 和 TensorFlow 对特定任务进行模型微调的各种笔记本。
+- [🤗Transformers 笔记本](notebooks) 包含了使用 PyTorch 和 TensorFlow 对特定任务进行模型微调的各种笔记本。

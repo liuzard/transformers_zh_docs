@@ -20,13 +20,13 @@ Hugging Face 的基准测试工具已经被弃用，建议使用外部的基准�
 
 [[open-in-colab]]
 
-让我们看一下如何对🤗 Transformers模型进行基准测试，最佳实践以及已有的基准测试。
+让我们看一下如何对🤗Transformers模型进行基准测试，最佳实践以及已有的基准测试。
 
-可以在[这里](https://github.com/huggingface/notebooks/tree/main/examples/benchmark.ipynb)找到一个更详细解释如何对🤗 Transformers模型进行基准测试的笔记本。
+可以在[这里](https://github.com/huggingface/notebooks/tree/main/examples/benchmark.ipynb)找到一个更详细解释如何对🤗Transformers模型进行基准测试的笔记本。
 
-## 如何对🤗 Transformers模型进行基准测试
+## 如何对🤗Transformers模型进行基准测试
 
-[`PyTorchBenchmark`] 和 [`TensorFlowBenchmark`] 类允许灵活地对🤗 Transformers模型进行基准测试。基准测试类允许我们测量推断和训练的 *峰值内存使用量* 和 *所需时间*。
+[`PyTorchBenchmark`] 和 [`TensorFlowBenchmark`] 类允许灵活地对🤗Transformers模型进行基准测试。基准测试类允许我们测量推断和训练的 *峰值内存使用量* 和 *所需时间*。
 
 <Tip>
 

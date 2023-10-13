@@ -15,7 +15,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 # 术语表
 
-本术语表定义了一般的机器学习和🤗 Transformers术语以帮助你更好地理解文档。
+本术语表定义了一般的机器学习和🤗Transformers术语以帮助你更好地理解文档。
 
 ## A
 
@@ -92,7 +92,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ### 通道
 
-彩色图像由三个通道 - 红色、绿色和蓝色(RGB) - 的某种组合组成，灰度图像只有一个通道。在🤗 Transformers中，通道可以是图像张量的第一个或最后一个维度：[`n_channels`, `height`, `width`]或[`height`, `width`, `n_channels`]。
+彩色图像由三个通道 - 红色、绿色和蓝色(RGB) - 的某种组合组成，灰度图像只有一个通道。在🤗Transformers中，通道可以是图像张量的第一个或最后一个维度：[`n_channels`, `height`, `width`]或[`height`, `width`, `n_channels`]。
 
 ### 连接主义时间分类(CTC)
 
@@ -149,7 +149,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 微调是迁移学习的一种形式，它涉及采用预训练模型，冻结其权重，并用新添加的[模型头部](#head)替换输出层。模型头部根据目标数据集进行训练。
 
-有关详细信息，请参见[用于微调的预训练模型](https://huggingface.co/docs/transformers/training)教程，并了解如何使用🤗 Transformers进行模型微调。
+有关详细信息，请参见[用于微调的预训练模型](https://huggingface.co/docs/transformers/training)教程，并了解如何使用🤗Transformers进行模型微调。
 
 ## H
 
@@ -169,7 +169,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ### 推断
 
-推断是在训练完成后对新数据评估模型的过程。请参阅[用于推断的Pipeline](https://huggingface.co/docs/transformers/pipeline_tutorial)教程，了解如何使用🤗 Transformers进行推断。
+推断是在训练完成后对新数据评估模型的过程。请参阅[用于推断的Pipeline](https://huggingface.co/docs/transformers/pipeline_tutorial)教程，了解如何使用🤗Transformers进行推断。
 
 ### 输入ID
 
@@ -200,7 +200,7 @@ tokenizer负责将序列拆分为tokenizer词汇表中可用的标记。
 ['A', 'Titan', 'R', '##T', '##X', 'has', '24', '##GB', 'of', 'V', '##RA', '##M']
 ```
 
-然后，可以将这些标记转换为模型可理解的ID。可以通过直接将句子提供给tokenizer来完成这个操作，它利用[🤗 Tokenizers](https://github.com/huggingface/tokenizers)的Rust实现，以实现最佳性能。
+然后，可以将这些标记转换为模型可理解的ID。可以通过直接将句子提供给tokenizer来完成这个操作，它利用[🤗Tokenizers](https://github.com/huggingface/tokenizers)的Rust实现，以实现最佳性能。
 
 ```python
 >>> inputs = tokenizer(sequence)
@@ -248,11 +248,11 @@ tokenizer返回一个带有所有必要参数的字典，以便其对应的模�
 - 对于物体检测模型([`DetrForObjectDetection`])，模型期望具有字典的列表，其中包含`class_labels`和`boxes`键，批的每个值对应每个个体图像的预期标签和边界框数量。
 - 对于自动语音识别模型([`Wav2Vec2ForCTC`])，模型期望具有`(batch_size, target_length)`维度的张量，每个值对应每个个体token的预期标签。
   
-<Tip>
+注意：
 
-每个模型的标签可能不同，所以一定要始终检查每个模型的文档，以了解有关其特定标签的更多信息！
+>每个模型的标签可能不同，所以一定要始终检查每个模型的文档，以了解有关其特定标签的更多信息！
 
-</Tip>
+
 
 ## M
 
@@ -282,7 +282,7 @@ tokenizer返回一个带有所有必要参数的字典，以便其对应的模�
 
 ### pipeline
 
-在🤗 Transformers中，pipeline是一个抽象，指的是按特定顺序执行的一系列步骤，以预处理和转换数据，并从模型返回预测。pipeline中可能包含一些示例阶段，例如数据预处理、特征提取和归一化。
+在🤗Transformers中，pipeline是一个抽象，指的是按特定顺序执行的一系列步骤，以预处理和转换数据，并从模型返回预测。pipeline中可能包含一些示例阶段，例如数据预处理、特征提取和归一化。
 
 有关更多详细信息，请参阅[用于推断的pipeline]（https://huggingface.co/docs/transformers/pipeline_tutorial）。
 

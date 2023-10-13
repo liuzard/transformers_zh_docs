@@ -14,7 +14,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 # 哲学
 
-🤗 Transformers 是一个为以下目标而构建的观点化库：
+🤗Transformers 是一个为以下目标而构建的观点化库：
 
 - 机器学习研究人员和教育工作者，希望使用、研究或扩展大规模 Transformers 模型。
 - 实践者，希望对这些模型进行微调或在生产环境中使用它们，或两者兼而有之。

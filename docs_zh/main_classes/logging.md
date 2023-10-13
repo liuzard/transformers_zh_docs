@@ -16,7 +16,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 # 日志记录
 
-🤗 Transformers拥有一个集中式的日志记录系统，以便你可以轻松设置库的详细程度。
+🤗Transformers拥有一个集中式的日志记录系统，以便你可以轻松设置库的详细程度。
 
 当前库的默认详细程度为`WARNING`。
 

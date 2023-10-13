@@ -51,7 +51,7 @@ pip install transformers datasets evaluate rouge_score
 
 ## 加载BillSum数据集
 
-首先，从🤗 Dataset库中加载较小的加州州法案子集：
+首先，从🤗Dataset库中加载较小的加州州法案子集：
 
 ```py
 >>> from datasets import load_dataset
@@ -110,7 +110,7 @@ pip install transformers datasets evaluate rouge_score
 ...     return model_inputs
 ```
 
-要在整个数据集上应用预处理函数，请使用🤗 Dataset的[`~datasets.Dataset.map`]方法。你可以通过设置`batched=True`来加快绘制速度，从而一次处理数据集中的多个元素：
+要在整个数据集上应用预处理函数，请使用🤗Dataset的[`~datasets.Dataset.map`]方法。你可以通过设置`batched=True`来加快绘制速度，从而一次处理数据集中的多个元素：
 
 ```py
 >>> tokenized_billsum = billsum.map(preprocess_function, batched=True)
@@ -137,7 +137,7 @@ pip install transformers datasets evaluate rouge_score
 
 ## 评估
 
-在训练过程中添加一个指标通常有助于评估模型的性能。你可以使用🤗 [Evaluate](https://huggingface.co/docs/evaluate/index)库快速加载评估方法。对于本任务，加载[ROUGE](https://huggingface.co/spaces/evaluate-metric/rouge)指标（请参阅🤗 [快速入门](https://huggingface.co/docs/evaluate/a_quick_tour)以了解如何加载和计算指标）：
+在训练过程中添加一个指标通常有助于评估模型的性能。你可以使用🤗[Evaluate](https://huggingface.co/docs/evaluate/index)库快速加载评估方法。对于本任务，加载[ROUGE](https://huggingface.co/spaces/evaluate-metric/rouge)指标（请参阅🤗[快速入门](https://huggingface.co/docs/evaluate/a_quick_tour)以了解如何加载和计算指标）：
 
 ```py
 >>> import evaluate

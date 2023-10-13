@@ -120,7 +120,7 @@ pip install transformers datasets evaluate
 tokenized_swag = swag.map(preprocess_function, batched=True)
 ```
 
-🤗 Transformers没有适用于多选题的数据整理器，因此你需要修改[`DataCollatorWithPadding`]以创建一批示例。在整理过程中，将句子动态填充到批处理中的最长长度，而不是将整个数据集填充到最大长度。
+🤗Transformers没有适用于多选题的数据整理器，因此你需要修改[`DataCollatorWithPadding`]以创建一批示例。在整理过程中，将句子动态填充到批处理中的最长长度，而不是将整个数据集填充到最大长度。
 
 `DataCollatorForMultipleChoice`对所有模型输入进行扁平化、填充，然后恢复结果：
 
@@ -213,7 +213,7 @@ tokenized_swag = swag.map(preprocess_function, batched=True)
 
 ## 评估
 
-在训练过程中包括一个指标通常有助于评估模型的性能。你可以使用🤗评估库快速加载一个评估方法。对于这个任务，加载[accuracy](https://huggingface.co/spaces/evaluate-metric/accuracy)指标（请参阅🤗 Evaluate [quick tour](https://huggingface.co/docs/evaluate/a_quick_tour)以了解更多有关加载和计算指标的信息）：
+在训练过程中包括一个指标通常有助于评估模型的性能。你可以使用🤗评估库快速加载一个评估方法。对于这个任务，加载[accuracy](https://huggingface.co/spaces/evaluate-metric/accuracy)指标（请参阅🤗Evaluate [quick tour](https://huggingface.co/docs/evaluate/a_quick_tour)以了解更多有关加载和计算指标的信息）：
 
 ```py
 >>> import evaluate

@@ -35,7 +35,7 @@ OPT模型是由Meta AI在《开放预训练Transformer语言模型》（Open Pre
 
 - [使用PEFT、bitsandbytes和Transformers对OPT进行微调](https://colab.research.google.com/drive/1jCkpikz0J2o20FBQmYmAGdiKmJGOMo-o?usp=sharing)的笔记本。🌎
 - [使用OPT的解码策略的博客文章](https://huggingface.co/blog/introducing-csearch#62-example-two---opt)。
-- 🤗 Hugging Face课程中的[因果语言建模](https://huggingface.co/course/en/chapter7/6?fw=pt#training-a-causal-language-model-from-scratch)章节。
+- 🤗Hugging Face课程中的[因果语言建模](https://huggingface.co/course/en/chapter7/6?fw=pt#training-a-causal-language-model-from-scratch)章节。
 - 通过此[因果语言建模示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling#gpt-2gpt-and-causal-language-modeling)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling.ipynb)支持[`OPTForCausalLM`]。
 - 通过此[因果语言建模示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling#run_clmpy)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling-tf.ipynb)支持[`TFOPTForCausalLM`]。
 - 通过此[因果语言建模示例脚本](https://github.com/huggingface/transformers/tree/main/examples/flax/language-modeling#causal-language-modeling)支持[`FlaxOPTForCausalLM`]。
@@ -48,11 +48,11 @@ OPT模型是由Meta AI在《开放预训练Transformer语言模型》（Open Pre
 <PipelineTag pipeline="question-answering" />
 
 - 通过此[问题回答示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/question-answering)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/question_answering.ipynb)支持[`OPTForQuestionAnswering`]。
-- 🤗 Hugging Face课程中的[问题回答](https://huggingface.co/course/chapter7/7?fw=pt)章节。
+- 🤗Hugging Face课程中的[问题回答](https://huggingface.co/course/chapter7/7?fw=pt)章节。
 
 ⚡️ 推论
 
-- 有关OPT的[如何通过PyTorch运行🤗 Accelerate处理非常大的模型](https://huggingface.co/blog/accelerate-large-models)的博客文章。
+- 有关OPT的[如何通过PyTorch运行🤗Accelerate处理非常大的模型](https://huggingface.co/blog/accelerate-large-models)的博客文章。
 
 ## OPTConfig
 

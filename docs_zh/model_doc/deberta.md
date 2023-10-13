@@ -41,22 +41,22 @@ DeBERTa模型由Pengcheng He，Xiaodong Liu，Jianfeng Gao，Weizhu Chen在[DeBE
 
 - 此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/token-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification.ipynb)支持`DebertaForTokenClassification`。
 - 此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/token-classification)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification-tf.ipynb)支持`TFDebertaForTokenClassification`。
-- 🤗 Hugging Face课程的[Token classification](https://huggingface.co/course/chapter7/2?fw=pt)章节。
-- 🤗 Hugging Face课程的[Byte-Pair Encoding tokenization](https://huggingface.co/course/chapter6/5?fw=pt)章节。
+- 🤗Hugging Face课程的[Token classification](https://huggingface.co/course/chapter7/2?fw=pt)章节。
+- 🤗Hugging Face课程的[Byte-Pair Encoding tokenization](https://huggingface.co/course/chapter6/5?fw=pt)章节。
 - [标记分类任务指南](../tasks/token_classification)
 
 <PipelineTag pipeline="fill-mask"/>
 
 - 此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling#robertabertdistilbert-and-masked-language-modeling)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling.ipynb)支持`DebertaForMaskedLM`。
 - 此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling#run_mlmpy)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling-tf.ipynb)支持`TFDebertaForMaskedLM`。
-- 🤗 Hugging Face课程的[Masked language modeling](https://huggingface.co/course/chapter7/3?fw=pt)章节。
+- 🤗Hugging Face课程的[Masked language modeling](https://huggingface.co/course/chapter7/3?fw=pt)章节。
 - [遮罩语言建模任务指南](../tasks/masked_language_modeling)
 
 <PipelineTag pipeline="question-answering"/>
 
 - 此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/question-answering)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/question_answering.ipynb)支持`DebertaForQuestionAnswering`。
 - 此[示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/question-answering)和[笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/question_answering-tf.ipynb)支持`TFDebertaForQuestionAnswering`。
-- 🤗 Hugging Face课程的[Question answering](https://huggingface.co/course/chapter7/7?fw=pt)章节。
+- 🤗Hugging Face课程的[Question answering](https://huggingface.co/course/chapter7/7?fw=pt)章节。
 - [问答任务指南](../tasks/question_answering)
 
 ## DebertaConfig

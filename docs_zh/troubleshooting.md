@@ -22,7 +22,7 @@
 
 <Youtube id="S2EEG3JIt2A"/>
 
-1. 在[论坛](https://discuss.huggingface.co/)上寻求帮助。有特定的类别可以发布问题，例如[新手](https://discuss.huggingface.co/c/beginners/5)或[🤗 Transformes](https://discuss.huggingface.co/c/transformers/9)等。请确保你在论坛帖子中写入一个良好的描述论坛帖子，并提供一些可重现的代码，以最大程度地提高解决问题的可能性！
+1. 在[论坛](https://discuss.huggingface.co/)上寻求帮助。有特定的类别可以发布问题，例如[新手](https://discuss.huggingface.co/c/beginners/5)或[🤗Transformes](https://discuss.huggingface.co/c/transformers/9)等。请确保你在论坛帖子中写入一个良好的描述论坛帖子，并提供一些可重现的代码，以最大程度地提高解决问题的可能性！
 
 <Youtube id="_PAli-V4wj0"/>
 

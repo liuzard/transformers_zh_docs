@@ -40,7 +40,7 @@ alt="drawing" width="600"/>
 - TAPAS 模型默认使用相对位置嵌入（在表格的每个单元格中重新开始位置嵌入）。请注意，这是在原始 TAPAS 论文发表之后添加的。根据作者的说法，这通常会导致稍微更好的性能，并且允许你在不耗尽嵌入的情况下对较长的序列进行编码。这反映在 [`TapasConfig`] 的 `reset_position_index_per_cell` 参数中，默认设置为 `True`。可在 [hub](https://huggingface.co/models?search=tapas) 上提供的默认版本的模型中使用相对位置嵌入。如果要使用绝对位置嵌入，可以在调用 `from_pretrained()` 方法时传入一个额外的参数 `revision="no_reset"`。通常建议在右侧而不是左侧填充输入。
 - TAPAS 基于 BERT，因此例如 `TAPAS-base` 对应于 `BERT-base` 架构。当然，`TAPAS-large` 的性能最好（论文中的结果是根据 `TAPAS-large` 得出的）。各种大小模型的结果显示在[原始的Github存储库](https://github.com/google-research/tapas>)上。
 - TAPAS 有在 SQA 上进行微调的检查点，可以回答与表格相关的问题，也可以在对话设置中提问后续问题，例如 "他多大了？"。请注意，对于对话设置，TAPAS 的前向传递有所不同：在这种情况下，你必须逐一将每个表格-问题对输入模型，以便预测的 `labels` 可以覆盖模型对于先前问题的 `prev_labels` token类型 ID。有关更多信息，请参见"用法"部分。
-- TAPAS 类似于 BERT，因此依赖于掩蔽语言建模 (MLM) 目标。因此，它在预测掩盖的token和自然语言理解方面效率很高，但对于文本生成来说并不是最佳选择。使用因果语言建模 (CLM) 目标训练的模型在这方面更好。请注意，可以在 EncoderDecoderModel 框架中使用 TAPAS 作为编码器，将其与自回归文本解码器（如 GPT-2）结合使用。
+- TAPAS 类似于 BERT，因此依赖于掩蔽语言建模 (MLM) 目标。因此，它在预测mask的token和自然语言理解方面效率很高，但对于文本生成来说并不是最佳选择。使用因果语言建模 (CLM) 目标训练的模型在这方面更好。请注意，可以在 EncoderDecoderModel 框架中使用 TAPAS 作为编码器，将其与自回归文本解码器（如 GPT-2）结合使用。
 
 ## 使用：微调
 

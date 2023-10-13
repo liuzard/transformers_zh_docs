@@ -17,9 +17,9 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 # 使用脚本进行训练
 
-除了🤗 Transformers [notebooks](./noteboks/README)外，还有一些演示如何使用[PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch)，[TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow)或[JAX/Flax](https://github.com/huggingface/transformers/tree/main/examples/flax)训练模型的示例脚本。
+除了🤗Transformers [notebooks](./noteboks/README)外，还有一些演示如何使用[PyTorch](https://github.com/huggingface/transformers/tree/main/examples/pytorch)，[TensorFlow](https://github.com/huggingface/transformers/tree/main/examples/tensorflow)或[JAX/Flax](https://github.com/huggingface/transformers/tree/main/examples/flax)训练模型的示例脚本。
 
-你还会发现我们在[研究项目](https://github.com/huggingface/transformers/tree/main/examples/research_projects)和[旧示例](https://github.com/huggingface/transformers/tree/main/examples/legacy)中使用的脚本，它们主要是由社区贡献的。这些脚本不再得到维护，并且需要特定版本的🤗 Transformers，这可能与库的最新版本不兼容。
+你还会发现我们在[研究项目](https://github.com/huggingface/transformers/tree/main/examples/research_projects)和[旧示例](https://github.com/huggingface/transformers/tree/main/examples/legacy)中使用的脚本，它们主要是由社区贡献的。这些脚本不再得到维护，并且需要特定版本的🤗Transformers，这可能与库的最新版本不兼容。
 
 这些示例脚本不是预计在每个问题上都可以直接使用，你可能需要根据你尝试解决的问题来调整脚本。为了帮助你进行调整，大多数脚本完全显示了如何预处理数据，允许你根据需要进行编辑以适应你的用例。
 
@@ -29,7 +29,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ## 设置
 
-要成功运行示例脚本的最新版本，你必须在新的虚拟环境中**从源代码安装🤗 Transformers**：
+要成功运行示例脚本的最新版本，你必须在新的虚拟环境中**从源代码安装🤗Transformers**：
 
 ```bash
 git clone https://github.com/huggingface/transformers
@@ -40,7 +40,7 @@ pip install .
 对于旧版本的示例脚本，请点击下面的切换：
 
 <details>
-  <summary>早期版本的🤗 Transformers示例</summary>
+  <summary>早期版本的🤗Transformers示例</summary>
 	<ul>
 		<li><a href="https://github.com/huggingface/transformers/tree/v4.5.1/examples">v4.5.1</a></li>
 		<li><a href="https://github.com/huggingface/transformers/tree/v4.4.2/examples">v4.4.2</a></li>
@@ -72,7 +72,7 @@ pip install .
 	</ul>
 </details>
 
-然后将你当前的🤗 Transformers克隆切换到特定版本，例如v3.5.1：
+然后将你当前的🤗Transformers克隆切换到特定版本，例如v3.5.1：
 
 ```bash
 git checkout tags/v3.5.1
@@ -105,7 +105,7 @@ python examples/pytorch/summarization/run_summarization.py \
     --overwrite_output_dir \
     --predict_with_generate
 ```
-示例脚本(tensorflow)下载并预处理了🤗 [Datasets](https://huggingface.co/docs/datasets/)库中的数据集。然后，脚本使用Keras在支持摘要生成的架构上微调了数据集。以下示例演示了如何在[CNN/DailyMail](https://huggingface.co/datasets/cnn_dailymail)数据集上微调[T5-small](https://huggingface.co/t5-small)模型。由于T5模型的训练方式，需要添加额外的`source_prefix`参数。这个prompt让T5知道这是一个摘要任务。
+示例脚本(tensorflow)下载并预处理了🤗[Datasets](https://huggingface.co/docs/datasets/)库中的数据集。然后，脚本使用Keras在支持摘要生成的架构上微调了数据集。以下示例演示了如何在[CNN/DailyMail](https://huggingface.co/datasets/cnn_dailymail)数据集上微调[T5-small](https://huggingface.co/t5-small)模型。由于T5模型的训练方式，需要添加额外的`source_prefix`参数。这个prompt让T5知道这是一个摘要任务。
 
 </pt>
 <tf>
@@ -192,16 +192,16 @@ python run_summarization.py  \
 </tf>
 </frameworkcontent>
 
-## 使用🤗 Accelerate运行脚本
+## 使用🤗Accelerate运行脚本
 
-🤗 [Accelerate](https://huggingface.co/docs/accelerate)是仅适用于PyTorch的库，它提供了一种统一的方法，在保持对PyTorch训练循环完全可见的同时，在多种设置（仅CPU、多个GPU、TPU）上训练模型。如果你尚未安装🤗 Accelerate，请确保已安装：
+🤗[Accelerate](https://huggingface.co/docs/accelerate)是仅适用于PyTorch的库，它提供了一种统一的方法，在保持对PyTorch训练循环完全可见的同时，在多种设置（仅CPU、多个GPU、TPU）上训练模型。如果你尚未安装🤗Accelerate，请确保已安装：
 
 > 注意：由于Accelerate的快速开发，必须安装accelerate的git版本来运行脚本
 ```bash
 pip install git+https://github.com/huggingface/accelerate
 ```
 
-不再使用`run_summarization.py`脚本，而是使用`run_summarization_no_trainer.py`脚本。支持🤗 Accelerate的脚本将在文件夹中具有一个`task_no_trainer.py`文件。首先运行以下命令以创建并保存配置文件：
+不再使用`run_summarization.py`脚本，而是使用`run_summarization_no_trainer.py`脚本。支持🤗Accelerate的脚本将在文件夹中具有一个`task_no_trainer.py`文件。首先运行以下命令以创建并保存配置文件：
 
 ```bash
 accelerate config

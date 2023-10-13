@@ -18,7 +18,7 @@ rendered properly in your Markdown viewer.
 
 [[open-in-colab]]
 
-快来使用 🤗 Transformers 吧! 无论你是开发人员还是日常用户, 这篇快速上手教程都将帮助你入门并且向你展示如何使用[`pipeline`]进行推理, 使用[AutoClass](model_doc/auto)加载一个预训练模型和预处理器, 以及使用PyTorch或TensorFlow快速训练一个模型. 如果你是一个初学者, 我们建议你接下来查看我们的教程或者[课程](https://huggingface.co/course/chapter1/1), 来更深入地了解在这里介绍到的概念.
+快来使用 🤗Transformers 吧! 无论你是开发人员还是日常用户, 这篇快速上手教程都将帮助你入门并且向你展示如何使用[`pipeline`]进行推理, 使用[AutoClass](model_doc/auto)加载一个预训练模型和预处理器, 以及使用PyTorch或TensorFlow快速训练一个模型. 如果你是一个初学者, 我们建议你接下来查看我们的教程或者[课程](https://huggingface.co/course/chapter1/1), 来更深入地了解在这里介绍到的概念.
 
 在开始之前, 确保你已经安装了所有必要的库:
 
@@ -55,7 +55,7 @@ pip install tensorflow
 | 文本生成                      | 根据给定的提示生成文本                                                                                         | NLP             | pipeline(task="text-generation")              |
 | 命名实体识别                  | 为序列里的每个token分配一个标签(人, 组织, 地址等等)                                                              | NLP             | pipeline(task="ner")                          |
 | 问答系统                      | 通过给定的上下文和问题, 在文本中提取答案                                                                         | NLP             | pipeline(task="question-answering")           |
-| 掩盖填充                      | 预测出正确的在序列中被掩盖的token                                                                               | NLP             | pipeline(task="fill-mask")                    |
+| mask填充                      | 预测出正确的在序列中被mask的token                                                                               | NLP             | pipeline(task="fill-mask")                    |
 | 文本摘要                      | 为文本序列或文档生成总结                                                                                        | NLP             | pipeline(task="summarization")                |
 | 文本翻译                      | 将文本从一种语言翻译为另一种语言                                                                                | NLP             | pipeline(task="translation")                  |
 | 图像分类                      | 为图像分配一个标签                                                                                             | Computer vision | pipeline(task="image-classification")         |
@@ -76,14 +76,14 @@ pip install tensorflow
 [`pipeline`] 会下载并缓存一个用于情感分析的默认的[预训练模型](https://huggingface.co/distilbert-base-uncased-finetuned-sst-2-english)和分词器. 现在你可以在目标文本上使用 `classifier`了:
 
 ```py
->>> classifier("We are very happy to show you the 🤗 Transformers library.")
+>>> classifier("We are very happy to show you the 🤗Transformers library.")
 [{'label': 'POSITIVE', 'score': 0.9998}]
 ```
 
 如果你有不止一个输入, 可以把所有输入放入一个列表然后传给[`pipeline`], 它将会返回一个字典列表:
 
 ```py
->>> results = classifier(["We are very happy to show you the 🤗 Transformers library.", "We hope you don't hate it."])
+>>> results = classifier(["We are very happy to show you the 🤗Transformers library.", "We hope you don't hate it."])
 >>> for result in results:
 ...     print(f"label: {result['label']}, with score: {round(result['score'], 4)}")
 label: POSITIVE, with score: 0.9998
@@ -99,7 +99,7 @@ label: NEGATIVE, with score: 0.5309
 >>> speech_recognizer = pipeline("automatic-speech-recognition", model="facebook/wav2vec2-base-960h")
 ```
 
-加载一个你想遍历的音频数据集 (查阅 🤗 Datasets [快速开始](https://huggingface.co/docs/datasets/quickstart#audio) 获得更多信息). 比如, 加载 [MInDS-14](https://huggingface.co/datasets/PolyAI/minds14) 数据集:
+加载一个你想遍历的音频数据集 (查阅 🤗Datasets [快速开始](https://huggingface.co/docs/datasets/quickstart#audio) 获得更多信息). 比如, 加载 [MInDS-14](https://huggingface.co/datasets/PolyAI/minds14) 数据集:
 
 ```py
 >>> from datasets import load_dataset, Audio
@@ -159,7 +159,7 @@ label: NEGATIVE, with score: 0.5309
 
 ```py
 >>> classifier = pipeline("sentiment-analysis", model=model, tokenizer=tokenizer)
->>> classifier("Nous sommes très heureux de vous présenter la bibliothèque 🤗 Transformers.")
+>>> classifier("Nous sommes très heureux de vous présenter la bibliothèque 🤗Transformers.")
 [{'label': '5 stars', 'score': 0.7273}]
 ```
 
@@ -189,7 +189,7 @@ label: NEGATIVE, with score: 0.5309
 将文本传入分词器:
 
 ```py
->>> encoding = tokenizer("We are very happy to show you the 🤗 Transformers library.")
+>>> encoding = tokenizer("We are very happy to show you the 🤗Transformers library.")
 >>> print(encoding)
 {'input_ids': [101, 11312, 10320, 12495, 19308, 10114, 11391, 10855, 10103, 100, 58263, 13299, 119, 102],
  'token_type_ids': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -208,7 +208,7 @@ label: NEGATIVE, with score: 0.5309
 
 ```py
 >>> pt_batch = tokenizer(
-...     ["We are very happy to show you the 🤗 Transformers library.", "We hope you don't hate it."],
+...     ["We are very happy to show you the 🤗Transformers library.", "We hope you don't hate it."],
 ...     padding=True,
 ...     truncation=True,
 ...     max_length=512,
@@ -220,7 +220,7 @@ label: NEGATIVE, with score: 0.5309
 
 ```py
 >>> tf_batch = tokenizer(
-...     ["We are very happy to show you the 🤗 Transformers library.", "We hope you don't hate it."],
+...     ["We are very happy to show you the 🤗Transformers library.", "We hope you don't hate it."],
 ...     padding=True,
 ...     truncation=True,
 ...     max_length=512,
@@ -240,7 +240,7 @@ label: NEGATIVE, with score: 0.5309
 
 <frameworkcontent>
 <pt>
-🤗 Transformers 提供了一种简单统一的方式来加载预训练的实例. 这表示你可以像加载[`AutoTokenizer`]一样加载[`AutoModel`]. 唯一不同的地方是为你的任务选择正确的[`AutoModel`]. 对于文本 (或序列) 分类, 你应该加载[`AutoModelForSequenceClassification`]:
+🤗Transformers 提供了一种简单统一的方式来加载预训练的实例. 这表示你可以像加载[`AutoTokenizer`]一样加载[`AutoModel`]. 唯一不同的地方是为你的任务选择正确的[`AutoModel`]. 对于文本 (或序列) 分类, 你应该加载[`AutoModelForSequenceClassification`]:
 
 ```py
 >>> from transformers import AutoModelForSequenceClassification
@@ -272,7 +272,7 @@ tensor([[0.0021, 0.0018, 0.0115, 0.2121, 0.7725],
 ```
 </pt>
 <tf>
-🤗 Transformers 提供了一种简单统一的方式来加载预训练的实例. 这表示你可以像加载[`AutoTokenizer`]一样加载[`TFAutoModel`]. 唯一不同的地方是为你的任务选择正确的[`TFAutoModel`], 对于文本 (或序列) 分类, 你应该加载[`TFAutoModelForSequenceClassification`]:
+🤗Transformers 提供了一种简单统一的方式来加载预训练的实例. 这表示你可以像加载[`AutoTokenizer`]一样加载[`TFAutoModel`]. 唯一不同的地方是为你的任务选择正确的[`TFAutoModel`], 对于文本 (或序列) 分类, 你应该加载[`TFAutoModelForSequenceClassification`]:
 
 ```py
 >>> from transformers import TFAutoModelForSequenceClassification
@@ -305,7 +305,7 @@ tensor([[0.0021, 0.0018, 0.0115, 0.2121, 0.7725],
 
 注意：
 
->所有 🤗 Transformers 模型 (PyTorch 或 TensorFlow) 在最终的激活函数(比如softmax)*之前* 输出张量,
+>所有 🤗Transformers 模型 (PyTorch 或 TensorFlow) 在最终的激活函数(比如softmax)*之前* 输出张量,
 >因为最终的激活函数常常与loss融合. 模型的输出是特殊的数据类, 所以它们的属性可以在IDE中被自动补全. 模型的输出就像一个元组或字典 (你可以通过整数、切片或字符串来索引它), 在这种情况下, 为None的属性会被忽略.
 
 
@@ -344,7 +344,7 @@ tensor([[0.0021, 0.0018, 0.0115, 0.2121, 0.7725],
 </tf>
 </frameworkcontent>
 
-🤗 Transformers有一个特别酷的功能, 它能够保存一个模型, 并且将它加载为PyTorch或TensorFlow模型. `from_pt`或`from_tf`参数可以将模型从一个框架转换为另一个框架:
+🤗Transformers有一个特别酷的功能, 它能够保存一个模型, 并且将它加载为PyTorch或TensorFlow模型. `from_pt`或`from_tf`参数可以将模型从一个框架转换为另一个框架:
 
 <frameworkcontent>
 <pt>
@@ -404,7 +404,7 @@ tensor([[0.0021, 0.0018, 0.0115, 0.2121, 0.7725],
 
 ## Trainer - PyTorch优化训练循环
 
-所有的模型都是标准的[`torch.nn.Module`](https://pytorch.org/docs/stable/nn.html#torch.nn.Module), 所以你可以在任何典型的训练模型中使用它们. 当你编写自己的训练循环时, 🤗 Transformers为PyTorch提供了一个[`Trainer`]类, 它包含了基础的训练循环并且为诸如分布式训练, 混合精度等特性增加了额外的功能.
+所有的模型都是标准的[`torch.nn.Module`](https://pytorch.org/docs/stable/nn.html#torch.nn.Module), 所以你可以在任何典型的训练模型中使用它们. 当你编写自己的训练循环时, 🤗Transformers为PyTorch提供了一个[`Trainer`]类, 它包含了基础的训练循环并且为诸如分布式训练, 混合精度等特性增加了额外的功能.
 
 取决于你的任务, 你通常可以传递以下的参数给[`Trainer`]:
 
@@ -496,7 +496,7 @@ tensor([[0.0021, 0.0018, 0.0115, 0.2121, 0.7725],
 
 ## 使用Tensorflow训练
 
-所有模型都是标准的[`tf.keras.Model`](https://www.tensorflow.org/api_docs/python/tf/keras/Model), 所以你可以通过[Keras](https://keras.io/) API实现在Tensorflow中训练. 🤗 Transformers提供了[`~TFPreTrainedModel.prepare_tf_dataset`]方法来轻松地将数据集加载为`tf.data.Dataset`, 这样你就可以使用Keras的[`compile`](https://keras.io/api/models/model_training_apis/#compile-method)和[`fit`](https://keras.io/api/models/model_training_apis/#fit-method)方法马上开始训练.
+所有模型都是标准的[`tf.keras.Model`](https://www.tensorflow.org/api_docs/python/tf/keras/Model), 所以你可以通过[Keras](https://keras.io/) API实现在Tensorflow中训练. 🤗Transformers提供了[`~TFPreTrainedModel.prepare_tf_dataset`]方法来轻松地将数据集加载为`tf.data.Dataset`, 这样你就可以使用Keras的[`compile`](https://keras.io/api/models/model_training_apis/#compile-method)和[`fit`](https://keras.io/api/models/model_training_apis/#fit-method)方法马上开始训练.
 
 1. 使用[`TFPreTrainedModel`]或者[`tf.keras.Model`](https://www.tensorflow.org/api_docs/python/tf/keras/Model)来开始:
 
@@ -541,4 +541,4 @@ tensor([[0.0021, 0.0018, 0.0115, 0.2121, 0.7725],
 
 ## 接下来做什么?
 
-现在你已经完成了 🤗 Transformers 的快速上手教程, 来看看我们的指南并且学习如何做一些更具体的事情, 比如写一个自定义模型, 为某个任务微调一个模型以及如何使用脚本来训练模型. 如果你有兴趣了解更多 🤗 Transformers 的核心章节, 那就喝杯咖啡然后来看看我们的概念指南吧!
+现在你已经完成了 🤗Transformers 的快速上手教程, 来看看我们的指南并且学习如何做一些更具体的事情, 比如写一个自定义模型, 为某个任务微调一个模型以及如何使用脚本来训练模型. 如果你有兴趣了解更多 🤗Transformers 的核心章节, 那就喝杯咖啡然后来看看我们的概念指南吧!

@@ -37,15 +37,15 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 model = BarkModel.from_pretrained("suno/bark-small", torch_dtype=torch.float16).to(device)
 ```
 
-#### 使用 🤗 Better Transformer
+#### 使用 🤗Better Transformer
 
-Better Transformer是🤗 Optimum的一种优化功能，可以在底层进行内核融合。你可以获得20%至30%的速度提升，而性能不会下降。将模型导出到🤗 Better Transformer只需一行代码：
+Better Transformer是🤗Optimum的一种优化功能，可以在底层进行内核融合。你可以获得20%至30%的速度提升，而性能不会下降。将模型导出到🤗Better Transformer只需一行代码：
 
 ```python
 model = model.to_bettertransformer()
 ```
 
-请注意，在使用此功能之前，必须安装🤗 Optimum。[点击这里了解如何安装。](https://huggingface.co/docs/optimum/installation)
+请注意，在使用此功能之前，必须安装🤗Optimum。[点击这里了解如何安装。](https://huggingface.co/docs/optimum/installation)
 
 #### 使用CPU卸载
 
@@ -57,11 +57,11 @@ model = model.to_bettertransformer()
 model.enable_cpu_offload()
 ```
 
-请注意，在使用此功能之前，必须安装🤗 Accelerate。[点击这里了解如何安装。](https://huggingface.co/docs/accelerate/basic_tutorials/install)
+请注意，在使用此功能之前，必须安装🤗Accelerate。[点击这里了解如何安装。](https://huggingface.co/docs/accelerate/basic_tutorials/install)
 
 #### 结合优化技术
 
-你可以结合使用优化技术，同时使用CPU卸载、半精度和🤗 Better Transformer。
+你可以结合使用优化技术，同时使用CPU卸载、半精度和🤗Better Transformer。
 
 ```python
 from transformers import BarkModel

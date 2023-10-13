@@ -131,7 +131,7 @@ processor.tokenizer.vocab.keys()
 
 ### 语音合成（TTS）
 
-MMS-TTS使用与VITS相同的模型架构，该模型架构在v4.33中添加到了🤗 Transformers 。MMS为项目中的1100多种语言训练了单独的模型检查点。所有可用检查点都可以在Hugging Face Hub上找到：[facebook/mms-tts](https://huggingface.co/models?sort=trending&search=facebook%2Fmms-tts)，推理文档在[VITS](https://huggingface.co/docs/transformers/main/en/model_doc/vits)下。
+MMS-TTS使用与VITS相同的模型架构，该模型架构在v4.33中添加到了🤗Transformers 。MMS为项目中的1100多种语言训练了单独的模型检查点。所有可用检查点都可以在Hugging Face Hub上找到：[facebook/mms-tts](https://huggingface.co/models?sort=trending&search=facebook%2Fmms-tts)，推理文档在[VITS](https://huggingface.co/docs/transformers/main/en/model_doc/vits)下。
 
 #### 推理
 

@@ -66,7 +66,7 @@ RoBERTa 在 BERT 的基础上进行了改进，修改了关键超参数，去除
 - [`RobertaForTokenClassification`] 受此 [示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/token-classification) 和 [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification.ipynb) 的支持。
 - [`TFRobertaForTokenClassification`] 受此 [示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/token-classification) 和 [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/token_classification-tf.ipynb) 的支持。
 - [`FlaxRobertaForTokenClassification`] 受此 [示例脚本](https://github.com/huggingface/transformers/tree/main/examples/flax/token-classification) 的支持。
-- 🤗 Hugging Face 课程中的 [token分类](https://huggingface.co/course/chapter7/2?fw=pt) 章节。
+- 🤗Hugging Face 课程中的 [token分类](https://huggingface.co/course/chapter7/2?fw=pt) 章节。
 - [token分类任务指南](../tasks/token_classification)
 
 <PipelineTag pipeline="fill-mask"/>
@@ -75,7 +75,7 @@ RoBERTa 在 BERT 的基础上进行了改进，修改了关键超参数，去除
 - [`RobertaForMaskedLM`] 受此 [示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/language-modeling#robertabertdistilbert-and-masked-language-modeling) 和 [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling.ipynb) 的支持。
 - [`TFRobertaForMaskedLM`] 受此 [示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/language-modeling#run_mlmpy) 和 [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/language_modeling-tf.ipynb) 的支持。
 - [`FlaxRobertaForMaskedLM`] 受此 [示例脚本](https://github.com/huggingface/transformers/tree/main/examples/flax/language-modeling#masked-language-modeling) 和 [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/masked_language_modeling_flax.ipynb) 的支持。
-- 🤗 Hugging Face 课程中的 [掩码语言建模](https://huggingface.co/course/chapter7/3?fw=pt) 章节。
+- 🤗Hugging Face 课程中的 [掩码语言建模](https://huggingface.co/course/chapter7/3?fw=pt) 章节。
 - [掩码语言建模任务指南](../tasks/masked_language_modeling)
 
 <PipelineTag pipeline="question-answering"/>
@@ -84,7 +84,7 @@ RoBERTa 在 BERT 的基础上进行了改进，修改了关键超参数，去除
 - [`RobertaForQuestionAnswering`] 受此 [示例脚本](https://github.com/huggingface/transformers/tree/main/examples/pytorch/question-answering) 和 [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/question_answering.ipynb) 的支持。
 - [`TFRobertaForQuestionAnswering`] 受此 [示例脚本](https://github.com/huggingface/transformers/tree/main/examples/tensorflow/question-answering) 和 [笔记本](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/question_answering-tf.ipynb) 的支持。
 - [`FlaxRobertaForQuestionAnswering`] 受此 [示例脚本](https://github.com/huggingface/transformers/tree/main/examples/flax/question-answering) 的支持。
-- 🤗 Hugging Face 课程中的 [问答](https://huggingface.co/course/chapter7/7?fw=pt) 章节。
+- 🤗Hugging Face 课程中的 [问答](https://huggingface.co/course/chapter7/7?fw=pt) 章节。
 - [问答任务指南](../tasks/question_answering)
 
 **多选**

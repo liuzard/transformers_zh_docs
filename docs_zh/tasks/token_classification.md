@@ -50,7 +50,7 @@ pip install transformers datasets evaluate seqeval
 
 ## 加载WNUT 17数据集
 
-首先从🤗 Datasets库中加载WNUT 17数据集：
+首先从🤗Datasets库中加载WNUT 17数据集：
 
 ```py
 >>> from datasets import load_dataset
@@ -149,7 +149,7 @@ pip install transformers datasets evaluate seqeval
 ...     return tokenized_inputs
 ```
 
-要将预处理函数应用于整个数据集，请使用🤗 Datasets [`~datasets.Dataset.map`]函数。通过设置`batched=True`可以加速`map`函数，以便一次处理数据集的多个元素：
+要将预处理函数应用于整个数据集，请使用🤗Datasets [`~datasets.Dataset.map`]函数。通过设置`batched=True`可以加速`map`函数，以便一次处理数据集的多个元素：
 
 ```py
 >>> tokenized_wnut = wnut.map(tokenize_and_align_labels, batched=True)
@@ -176,7 +176,7 @@ pip install transformers datasets evaluate seqeval
 
 ## 评估
 
-在训练过程中包含度量标准通常有助于评估模型的性能。你可以使用🤗 [评估](https://huggingface.co/docs/evaluate/index)库快速加载一个评估方法。对于本任务，请加载[seqeval](https://huggingface.co/spaces/evaluate-metric/seqeval)框架（请参阅🤗 Evaluate [快速导览](https://huggingface.co/docs/evaluate/a_quick_tour)以了解有关如何加载和计算度量标准的更多信息）。Seqeval实际上产生了几个分数：精确度（precision）、召回率（recall）、F1和准确度（accuracy）。
+在训练过程中包含度量标准通常有助于评估模型的性能。你可以使用🤗[评估](https://huggingface.co/docs/evaluate/index)库快速加载一个评估方法。对于本任务，请加载[seqeval](https://huggingface.co/spaces/evaluate-metric/seqeval)框架（请参阅🤗Evaluate [快速导览](https://huggingface.co/docs/evaluate/a_quick_tour)以了解有关如何加载和计算度量标准的更多信息）。Seqeval实际上产生了几个分数：精确度（precision）、召回率（recall）、F1和准确度（accuracy）。
 
 ```py
 >>> import evaluate

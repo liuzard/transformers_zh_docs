@@ -23,7 +23,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ## BetterTransformer
 
-[BetterTransformer](https://huggingface.co/docs/optimum/bettertransformer/overview) 将🤗 Transformers模型转换为使用基于PyTorch的快速执行路径（底层调用优化的内核，如Flash Attention）。
+[BetterTransformer](https://huggingface.co/docs/optimum/bettertransformer/overview) 将🤗Transformers模型转换为使用基于PyTorch的快速执行路径（底层调用优化的内核，如Flash Attention）。
 
 BetterTransformer还支持更快的文本、图像和音频模型的单个GPU和多个GPU推理。
 

@@ -40,9 +40,9 @@ Wav2Vec2模型是由Alexei Baevski、Henry Zhou、Abdelrahman Mohamed和Michael 
 
 <PipelineTag pipeline="automatic-speech-recognition"/>
 
-- 一篇关于[增强Wav2Vec2与🤗 Transformers中的n-gram](https://huggingface.co/blog/wav2vec2-with-ngram)的博客文章。
-- 一篇关于如何[使用🤗 Transformers来微调英语ASR中的Wav2Vec2](https://huggingface.co/blog/fine-tune-wav2vec2-english)的博客文章。
-- 关于[用🤗 Transformers微调XLS-R进行多语言ASR](https://huggingface.co/blog/fine-tune-xlsr-wav2vec2)的博客文章。
+- 一篇关于[增强Wav2Vec2与🤗Transformers中的n-gram](https://huggingface.co/blog/wav2vec2-with-ngram)的博客文章。
+- 一篇关于如何[使用🤗Transformers来微调英语ASR中的Wav2Vec2](https://huggingface.co/blog/fine-tune-wav2vec2-english)的博客文章。
+- 关于[用🤗Transformers微调XLS-R进行多语言ASR](https://huggingface.co/blog/fine-tune-xlsr-wav2vec2)的博客文章。
 - 一份有关如何[使用Wav2Vec2从任何视频创建YouTube字幕](https://colab.research.google.com/github/Muennighoff/ytclipcc/blob/main/wav2vec_youtube_captions.ipynb)的笔记本。🌎
 - [`Wav2Vec2ForCTC`]由一份关于[如何在英语中微调语音识别模型](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/speech_recognition.ipynb)和一份关于[如何在任何语言中微调语音识别模型](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/multi_lingual_speech_recognition.ipynb)的笔记本得到支持。
 - [自动语音识别任务指南](../tasks/asr)

@@ -2,7 +2,7 @@
 
 # 创建自定义架构
 
-[`AutoClass`](model_doc/auto)会自动推断模型架构并下载预训练配置和权重。通常，我们建议使用`AutoClass`来产生与检查点无关的代码。但对于希望对特定模型参数有更多控制的用户来说，可以从几个基类创建一个自定义🤗 Transformers模型。这对于对🤗 Transformers模型进行研究、训练或实验的任何人来说都非常有用。在本指南中，深入了解如何创建没有`AutoClass`的自定义模型。学习如何：
+[`AutoClass`](model_doc/auto)会自动推断模型架构并下载预训练配置和权重。通常，我们建议使用`AutoClass`来产生与检查点无关的代码。但对于希望对特定模型参数有更多控制的用户来说，可以从几个基类创建一个自定义🤗Transformers模型。这对于对🤗Transformers模型进行研究、训练或实验的任何人来说都非常有用。在本指南中，深入了解如何创建没有`AutoClass`的自定义模型。学习如何：
 
 - 加载和自定义模型配置。
 - 创建模型架构。
@@ -114,7 +114,7 @@ DistilBertConfig {
 >>> model = DistilBertModel.from_pretrained("distilbert-base-uncased")
 ```
 
-当加载预训练权重时，如果模型由 🤗 Transformers 提供，则会自动加载默认模型配置。但是，如果你愿意，仍然可以替换-某些或全部-默认模型配置属性：
+当加载预训练权重时，如果模型由 🤗Transformers 提供，则会自动加载默认模型配置。但是，如果你愿意，仍然可以替换-某些或全部-默认模型配置属性：
 
 ```py
 >>> model = DistilBertModel.from_pretrained("distilbert-base-uncased", config=my_config)
@@ -138,7 +138,7 @@ DistilBertConfig {
 >>> tf_model = TFDistilBertModel.from_pretrained("distilbert-base-uncased")
 ```
 
-当加载预训练权重时，如果模型由 🤗 Transformers 提供，则会自动加载默认模型配置。但是，如果你愿意，仍然可以替换-某些或全部-默认模型配置属性：
+当加载预训练权重时，如果模型由 🤗Transformers 提供，则会自动加载默认模型配置。但是，如果你愿意，仍然可以替换-某些或全部-默认模型配置属性：
 
 ```py
 >>> tf_model = TFDistilBertModel.from_pretrained("distilbert-base-uncased", config=my_config)
@@ -148,7 +148,7 @@ DistilBertConfig {
 
 ### 模型头
 
-此时，你已经有了一个基本的 DistilBERT 模型，它输出 *隐藏状态*。隐藏状态作为输入传递给模型头以产生最终的输出。只要模型支持任务，🤗 Transformers 为每个任务提供了一个不同的模型头（例如，你不能为 DistilBERT 这样的序列到序列任务（如翻译）使用它）。
+此时，你已经有了一个基本的 DistilBERT 模型，它输出 *隐藏状态*。隐藏状态作为输入传递给模型头以产生最终的输出。只要模型支持任务，🤗Transformers 为每个任务提供了一个不同的模型头（例如，你不能为 DistilBERT 这样的序列到序列任务（如翻译）使用它）。
 
 <frameworkcontent>
 <pt>
@@ -189,10 +189,10 @@ DistilBertConfig {
 
 ## 分词器
 
-在使用模型处理文本数据之前，你需要使用一个[分词器](main_classes/tokenizer)将原始文本转换为张量。🤗 Transformers 提供了两种类型的分词器：
+在使用模型处理文本数据之前，你需要使用一个[分词器](main_classes/tokenizer)将原始文本转换为张量。🤗Transformers 提供了两种类型的分词器：
 
 - [`PreTrainedTokenizer`]：分词器的 Python 实现。
-- [`PreTrainedTokenizerFast`]：来自我们的基于 Rust 的 [🤗 Tokenizer](https://huggingface.co/docs/tokenizers/python/latest/) 库的分词器。由于其 Rust 实现，这种分词器类型在批量分词时速度明显更快。快速分词器还提供了额外的方法，如 *offset mapping*，用于将标记映射到它们的原始单词或字符。
+- [`PreTrainedTokenizerFast`]：来自我们的基于 Rust 的 [🤗Tokenizer](https://huggingface.co/docs/tokenizers/python/latest/) 库的分词器。由于其 Rust 实现，这种分词器类型在批量分词时速度明显更快。快速分词器还提供了额外的方法，如 *offset mapping*，用于将标记映射到它们的原始单词或字符。
 
 这两种分词器都支持常见的方法，如编码和解码、添加新的标记、管理特殊标记。
 
@@ -343,7 +343,7 @@ Wav2Vec2FeatureExtractor {
 
 ## 处理器
 
-对于支持多模态任务的模型，🤗 Transformers 提供了一个处理器类，方便地将特征提取器和标记器等处理类封装成一个单一对象。例如，让我们为自动语音识别任务（ASR）使用 [`Wav2Vec2Processor`]。ASR 将语音转录为文本，因此你需要一个特征提取器和一个标记器。
+对于支持多模态任务的模型，🤗Transformers 提供了一个处理器类，方便地将特征提取器和标记器等处理类封装成一个单一对象。例如，让我们为自动语音识别任务（ASR）使用 [`Wav2Vec2Processor`]。ASR 将语音转录为文本，因此你需要一个特征提取器和一个标记器。
 
 创建一个特征提取器来处理音频输入:
 
@@ -369,4 +369,4 @@ Wav2Vec2FeatureExtractor {
 >>> processor = Wav2Vec2Processor(feature_extractor=feature_extractor, tokenizer=tokenizer)
 ```
 
-通过配置和模型这两个基本类，以及一个额外的预处理类（标记器、图像处理器、特征提取器或处理器），你可以创建🤗 Transformers 支持的任何模型。每个基类都是可配置的， allowing you to use the specific attributes you want。 你可以轻松设置一个用于训练的模型或修改一个现有的预训练模型进行微调。
+通过配置和模型这两个基本类，以及一个额外的预处理类（标记器、图像处理器、特征提取器或处理器），你可以创建🤗Transformers 支持的任何模型。每个基类都是可配置的， allowing you to use the specific attributes you want。 你可以轻松设置一个用于训练的模型或修改一个现有的预训练模型进行微调。

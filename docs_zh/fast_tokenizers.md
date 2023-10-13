@@ -8,9 +8,9 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ⚠️请注意，此文件采用Markdown格式，但包含用于我们的文档构建器（类似于MDX）的特定语法，在你的Markdown查看器中可能无法正确渲染。-->
 
-# 使用🤗 Tokenizers的分词器
+# 使用🤗Tokenizers的分词器
 
-[`PreTrainedTokenizerFast`](https://huggingface.co/docs/tokenizer/installation)依赖于[🤗 Tokenizers](https://huggingface.co/docs/tokenizers)库。从🤗 Tokenizers库获取的分词器可以很简单地加载到🤗 Transformers中。
+[`PreTrainedTokenizerFast`](https://huggingface.co/docs/tokenizer/installation)依赖于[🤗Tokenizers](https://huggingface.co/docs/tokenizers)库。从🤗Tokenizers库获取的分词器可以很简单地加载到🤗Transformers中。
 
 首先，让我们通过几行代码创建一个虚拟分词器：
 
@@ -32,7 +32,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ## 直接从分词器对象加载
 
-让我们看看如何在🤗 Transformers库中利用这个分词器对象。[`PreTrainedTokenizerFast`](https://huggingface.co/docs/tokenizers/quicktour#loading-the-tokenizer)类可以通过接受初始化的*tokenizer*对象作为参数来轻松实例化：
+让我们看看如何在🤗Transformers库中利用这个分词器对象。[`PreTrainedTokenizerFast`](https://huggingface.co/docs/tokenizers/quicktour#loading-the-tokenizer)类可以通过接受初始化的*tokenizer*对象作为参数来轻松实例化：
 
 ```python
 >>> from transformers import PreTrainedTokenizerFast
@@ -40,7 +40,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 >>> fast_tokenizer = PreTrainedTokenizerFast(tokenizer_object=tokenizer)
 ```
 
-现在，这个对象可以与🤗 Transformers分词器共享的所有方法一起使用！请前往[分词器页面](main_classes/tokenizer)了解更多信息。
+现在，这个对象可以与🤗Transformers分词器共享的所有方法一起使用！请前往[分词器页面](main_classes/tokenizer)了解更多信息。
 
 ## 从JSON文件加载
 
@@ -58,4 +58,4 @@ http://www.apache.org/licenses/LICENSE-2.0
 >>> fast_tokenizer = PreTrainedTokenizerFast(tokenizer_file="tokenizer.json")
 ```
 
-现在，这个对象可以与🤗 Transformers分词器共享的所有方法一起使用！请前往[分词器页面](main_classes/tokenizer)了解更多信息。
+现在，这个对象可以与🤗Transformers分词器共享的所有方法一起使用！请前往[分词器页面](main_classes/tokenizer)了解更多信息。

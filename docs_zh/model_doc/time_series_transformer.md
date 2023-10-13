@@ -44,7 +44,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 官方的Hugging Face和社区（由🌎表示）资源列表，以帮助你入门。如果你有兴趣提交资源以包含在这里，请随时提出拉取请求，我们将进行审查！这个资源应该展示一些新东西，而不是重复现有的资源。
 
-- 在HuggingFace博客中查看关于时间序列Transformer的博文：[使用🤗 Transformers进行概率时间序列预测](https://huggingface.co/blog/time-series-transformers)
+- 在HuggingFace博客中查看关于时间序列Transformer的博文：[使用🤗Transformers进行概率时间序列预测](https://huggingface.co/blog/time-series-transformers)
 
 
 ## TimeSeriesTransformerConfig

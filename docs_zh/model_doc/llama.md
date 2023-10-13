@@ -64,11 +64,11 @@ model = LlamaForCausalLM.from_pretrained("/output/path")
 - 一份关于如何使用xturing库在有限的GPU内存上微调LLaMA模型的[笔记本](https://colab.research.google.com/drive/1SQUXq1AMZPSLD4mk3A3swUIc6Y2dclme?usp=sharing)。🌎
 
 ⚡️ 推理
-- 一份关于如何使用🤗 PEFT库中的PeftModel运行LLaMA模型的[笔记本](https://colab.research.google.com/github/DominguesM/alpaca-lora-ptbr-7b/blob/main/notebooks/02%20-%20Evaluate.ipynb)。🌎
+- 一份关于如何使用🤗PEFT库中的PeftModel运行LLaMA模型的[笔记本](https://colab.research.google.com/github/DominguesM/alpaca-lora-ptbr-7b/blob/main/notebooks/02%20-%20Evaluate.ipynb)。🌎
 - 一份关于如何使用LangChain加载PEFT适配器LLaMA模型的[笔记本](https://colab.research.google.com/drive/1l2GiSSPbajVyp2Nk3CFT4t3uH6-5TiBe?usp=sharing)。🌎
 
 🚀 部署
-- 一份关于如何使用🤗 PEFT库通过LoRA方法微调LLaMA模型的[笔记本](https://colab.research.google.com/github/lxe/simple-llama-finetuner/blob/master/Simple_LLaMA_FineTuner.ipynb#scrollTo=3PM_DilAZD8T)。🌎
+- 一份关于如何使用🤗PEFT库通过LoRA方法微调LLaMA模型的[笔记本](https://colab.research.google.com/github/lxe/simple-llama-finetuner/blob/master/Simple_LLaMA_FineTuner.ipynb#scrollTo=3PM_DilAZD8T)。🌎
 - 一份关于如何在Amazon SageMaker上部署用于文本生成的Open-LLaMA模型的[笔记本](https://github.com/aws/amazon-sagemaker-examples/blob/main/introduction_to_amazon_algorithms/jumpstart-foundation-models/text-generation-open-llama.ipynb)。🌎
 
 ## LlamaConfig

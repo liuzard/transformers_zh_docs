@@ -6,7 +6,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 不附带任何明示或暗示的担保或条件。详细了解许可证中的限制和条件。
 ⚠️ 请注意，此文件以Markdown格式编写，但包含我们 doc-builder 的特殊语法（类似于 MDX），这可能在你的 Markdown 视图器中无法正确呈现。-->
 
-# 使用🤗 PEFT加载adapters
+# 使用🤗PEFT加载adapters
 
 [[open-in-colab]]
 
@@ -19,11 +19,11 @@ http://www.apache.org/licenses/LICENSE-2.0
   <figcaption class="text-center">存储在Hub上的OPTForCausalLM模型的adapters权重仅为~6MB，而模型权重的完整大小可以达到~700MB。</figcaption>
 </div>
 
-如果你想了解有关🤗 PEFT库的更多信息，请查看[文档](https://huggingface.co/docs/peft/index)。
+如果你想了解有关🤗PEFT库的更多信息，请查看[文档](https://huggingface.co/docs/peft/index)。
 
 ## 设置
 
-首先，通过安装🤗 PEFT来开始：
+首先，通过安装🤗PEFT来开始：
 
 ```bash
 pip install peft
@@ -37,17 +37,17 @@ pip install git+https://github.com/huggingface/peft.git
 
 ## 支持的PEFT模型
 
-🤗 Transformers原生支持一些PEFT方法，这意味着你可以加载本地或Hub上存储的adapters权重，并使用少量代码运行或训练它们。支持以下方法：
+🤗Transformers原生支持一些PEFT方法，这意味着你可以加载本地或Hub上存储的adapters权重，并使用少量代码运行或训练它们。支持以下方法：
 
 - [低秩adapters](https://huggingface.co/docs/peft/conceptual_guides/lora)
 - [IA3](https://huggingface.co/docs/peft/conceptual_guides/ia3)
 - [AdaLoRA](https://arxiv.org/abs/2303.10512)
 
-如果你想使用其他PEFT方法（如提示学习或提示调整）或了解有关🤗 PEFT库的一般信息，请参阅文档。
+如果你想使用其他PEFT方法（如提示学习或提示调整）或了解有关🤗PEFT库的一般信息，请参阅文档。
 
 ## 加载PEFTadapters
 
-要从🤗 transformers加载和使用PEFTadapters模型，请确保Hub仓库或本地目录包含`adapter_config.json`文件和adapters权重，如上图所示。然后，你可以使用`AutoModelFor`类加载PEFTadapters模型。例如，要为因果语言模型加载PEFTadapters模型：
+要从🤗transformers加载和使用PEFTadapters模型，请确保Hub仓库或本地目录包含`adapter_config.json`文件和adapters权重，如上图所示。然后，你可以使用`AutoModelFor`类加载PEFTadapters模型。例如，要为因果语言模型加载PEFTadapters模型：
 
 1. 指定PEFT模型ID
 2. 将其传递给[`AutoModelForCausalLM`]类

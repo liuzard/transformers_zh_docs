@@ -1,6 +1,6 @@
 # 使用Trainer API进行超参数搜索
 
-🤗 Transformers 提供了一个经过优化的 [`Trainer`] 类来训练🤗 Transformers 模型，可以让你在没有手动编写训练循环的情况下轻松开始训练。[`Trainer`] 提供了用于超参数搜索的 API。本文档将展示如何在示例中启用超参数搜索。
+🤗Transformers 提供了一个经过优化的 [`Trainer`] 类来训练🤗Transformers 模型，可以让你在没有手动编写训练循环的情况下轻松开始训练。[`Trainer`] 提供了用于超参数搜索的 API。本文档将展示如何在示例中启用超参数搜索。
 
 ## 超参数搜索后端
 

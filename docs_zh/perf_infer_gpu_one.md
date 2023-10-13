@@ -15,7 +15,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 ## BetterTransformer
 
-[BetterTransformer](https://huggingface.co/docs/optimum/bettertransformer/overview) 将 🤗 Transformers 模型转换为使用 PyTorch 本地的快速路径执行，该执行调用了优化的核函数，如 Flash Attention。  
+[BetterTransformer](https://huggingface.co/docs/optimum/bettertransformer/overview) 将 🤗Transformers 模型转换为使用 PyTorch 本地的快速路径执行，该执行调用了优化的核函数，如 Flash Attention。  
 
 BetterTransformer 还支持文本、图像和音频模型的在单个和多个GPU上进行更快的推理。
 
@@ -27,7 +27,7 @@ Flash Attention 仅适用于使用 fp16 或 bf16 数据类型的模型。在使�
 
 ### 编码器模型
 
-使用 PyTorch 本地的 [`nn.MultiHeadAttention`](https://pytorch.org/blog/a-better-transformer-for-fast-transformer-encoder-inference/) 注意力快速路径，名为 BetterTransformer，可以通过 [🤗 Optimum 库](https://huggingface.co/docs/optimum/bettertransformer/overview) 中的集成与 Transformers 结合使用。
+使用 PyTorch 本地的 [`nn.MultiHeadAttention`](https://pytorch.org/blog/a-better-transformer-for-fast-transformer-encoder-inference/) 注意力快速路径，名为 BetterTransformer，可以通过 [🤗Optimum 库](https://huggingface.co/docs/optimum/bettertransformer/overview) 中的集成与 Transformers 结合使用。
 
 PyTorch 的注意力快速路径通过内核融合和使用 [嵌套张量](https://pytorch.org/docs/stable/nested.html) 来加速推理。详细的基准测试可以在 [此博文](https://medium.com/pytorch/bettertransformer-out-of-the-box-performance-for-huggingface-transformers-3fbe27d50ab2) 中找到。
 

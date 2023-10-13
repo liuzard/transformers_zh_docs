@@ -104,7 +104,7 @@ VideoMAE将遮罩自编码器（MAE）扩展到视频领域，并声称在几个
 **视频分类**
 - [一个笔记本](https://github.com/huggingface/notebooks/blob/main/examples/video_classification.ipynb)展示如何在定制的数据集上微调VideoMAE模型。
 - [视频分类任务指南](../tasks/video-classification)
-- [一个🤗 Space](https://huggingface.co/spaces/sayakpaul/video-classification-ucf101-subset)展示如何使用视频分类模型进行推理。
+- [一个🤗Space](https://huggingface.co/spaces/sayakpaul/video-classification-ucf101-subset)展示如何使用视频分类模型进行推理。
 
 ## VideoMAEConfig
 

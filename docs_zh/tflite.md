@@ -15,7 +15,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 [TensorFlow Lite](https://www.tensorflow.org/lite/guide) 是一个轻量级框架，用于在资源受限的设备上部署机器学习模型，例如手机、嵌入式系统和物联网设备。TFLite专为在计算能力、内存和电源消耗有限的设备上优化和运行模型而设计。
 TensorFlow Lite模型以 `.tflite` 文件扩展名标识的特殊高效便携格式表示。
 
-🤗 Optimum通过 `exporters.tflite` 模块提供了将🤗 Transformers模型导出为TFLite的功能。有关支持的模型架构列表，请参阅[🤗 Optimum文档](https://huggingface.co/docs/optimum/exporters/tflite/overview)。
+🤗Optimum通过 `exporters.tflite` 模块提供了将🤗Transformers模型导出为TFLite的功能。有关支持的模型架构列表，请参阅[🤗Optimum文档](https://huggingface.co/docs/optimum/exporters/tflite/overview)。
 
 要将模型导出为TFLite，请安装所需的依赖项：
 
@@ -23,13 +23,13 @@ TensorFlow Lite模型以 `.tflite` 文件扩展名标识的特殊高效便携格
 pip install optimum[exporters-tf]
 ```
 
-要查看所有可用的参数，请参阅[🤗 Optimum文档](https://huggingface.co/docs/optimum/main/en/exporters/tflite/usage_guides/export_a_model)，或在命令行中查看帮助：
+要查看所有可用的参数，请参阅[🤗Optimum文档](https://huggingface.co/docs/optimum/main/en/exporters/tflite/usage_guides/export_a_model)，或在命令行中查看帮助：
 
 ```bash
 optimum-cli export tflite --help
 ```
 
-要从🤗 Hub导出模型的检查点，例如`bert-base-uncased`，请运行以下命令：
+要从🤗Hub导出模型的检查点，例如`bert-base-uncased`，请运行以下命令：
 
 ```bash
 optimum-cli export tflite --model bert-base-uncased --sequence_length 128 bert_tflite/
@@ -48,4 +48,4 @@ TensorFlow Lite导出成功，并出现警告：参考模型和TFLite导出模�
 导出的模型已保存在：bert_tflite
 ```
 
-上面的示例说明了从🤗 Hub导出检查点。在导出本地模型时，首先确保将模型的权重和分词器文件保存在同一个目录（`local_path`）下。使用CLI时，将 `local_path` 传递给 `model` 参数，而不是用🤗 Hub上的检查点名称。
+上面的示例说明了从🤗Hub导出检查点。在导出本地模型时，首先确保将模型的权重和分词器文件保存在同一个目录（`local_path`）下。使用CLI时，将 `local_path` 传递给 `model` 参数，而不是用🤗Hub上的检查点名称。

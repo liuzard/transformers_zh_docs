@@ -12,7 +12,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 
 # 使用torch.compile()优化推理
 
-本指南旨在提供使用[`torch.compile()`](https://pytorch.org/tutorials/intermediate/torch_compile_tutorial.html)为[🤗 Transformers中的计算机视觉模型](https://huggingface.co/models?pipeline_tag=image-classification&library=transformers&sort=trending)引入的推理加速的基准。
+本指南旨在提供使用[`torch.compile()`](https://pytorch.org/tutorials/intermediate/torch_compile_tutorial.html)为[🤗Transformers中的计算机视觉模型](https://huggingface.co/models?pipeline_tag=image-classification&library=transformers&sort=trending)引入的推理加速的基准。
 
 ## torch.compile的优点
    

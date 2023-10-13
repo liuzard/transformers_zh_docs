@@ -138,7 +138,7 @@ model = AutoModelForCausalLM.from_pretrained(checkpoint)
 
 图像标注模型通常使用[Rouge Score](https://huggingface.co/spaces/evaluate-metric/rouge)或[Word Error Rate](https://huggingface.co/spaces/evaluate-metric/wer)进行评估。对于本指南，你将使用Word Error Rate (WER)。
 
-我们使用🤗 Evaluate库来实现这一点。关于WER的潜在限制和其他内容，请参考[此指南](https://huggingface.co/spaces/evaluate-metric/wer)。
+我们使用🤗Evaluate库来实现这一点。关于WER的潜在限制和其他内容，请参考[此指南](https://huggingface.co/spaces/evaluate-metric/wer)。
 
 ```python
 from evaluate import load
@@ -188,7 +188,7 @@ training_args = TrainingArguments(
 )
 ```
 
-然后将它们与数据集和模型一起传递给🤗 Trainer。
+然后将它们与数据集和模型一起传递给🤗Trainer。
 
 ```python
 trainer = Trainer(

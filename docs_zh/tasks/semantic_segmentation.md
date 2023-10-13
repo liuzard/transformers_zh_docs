@@ -9,7 +9,7 @@ learning_rate = tf.keras.optimizers.schedules.PiecewiseConstantDecay(
 model = AutoModelForSemanticSegmentation.from_pretrained(checkpoint, id2label=id2label, label2id=label2id)
 
 
-# Step 3: Convert the 🤗 Dataset to a `tf.data.Dataset`
+# Step 3: Convert the 🤗Dataset to a `tf.data.Dataset`
 train_dataset = train_ds.to_tf_dataset(with_transform=train_transforms)
 
 
@@ -165,7 +165,7 @@ pip install -q datasets transformers evaluate
 在本指南中，你将使用[`tf.image`](https://www.tensorflow.org/api_docs/python/tf/image)随机更改图像的颜色属性，但你也可以使用你喜欢的任何图像库。
 请定义两个不同的转换函数：
 - 包含图像增强的训练数据转换
-- 仅转置图像的验证数据转换，因为🤗 Transformers中的计算机视觉模型需要以通道优先的布局（channels-first layout）
+- 仅转置图像的验证数据转换，因为🤗Transformers中的计算机视觉模型需要以通道优先的布局（channels-first layout）
 
 ```py
 >>> import tensorflow as tf
@@ -215,7 +215,7 @@ pip install -q datasets transformers evaluate
 
 ## 评估
 
-在训练过程中包含一个度量指标通常有助于评估模型的性能。你可以使用🤗 [Evaluate](https://huggingface.co/docs/evaluate/index)库快速加载一个评估方法。对于此任务，加载[mean Intersection over Union](https://huggingface.co/spaces/evaluate-metric/accuracy)（IoU）度量指标（请参阅🤗 Evaluate [快速入门](https://huggingface.co/docs/evaluate/a_quick_tour)了解如何加载和计算度量指标）：
+在训练过程中包含一个度量指标通常有助于评估模型的性能。你可以使用🤗[Evaluate](https://huggingface.co/docs/evaluate/index)库快速加载一个评估方法。对于此任务，加载[mean Intersection over Union](https://huggingface.co/spaces/evaluate-metric/accuracy)（IoU）度量指标（请参阅🤗Evaluate [快速入门](https://huggingface.co/docs/evaluate/a_quick_tour)了解如何加载和计算度量指标）：
 
 ```py
 >>> import evaluate
@@ -370,7 +370,7 @@ pip install -q datasets transformers evaluate
 2. 实例化预训练模型。
 3. 将🤗数据集转换为`tf.data.Dataset`。
 4. 编译模型。
-5. 添加回调函数来计算指标和上传模型到🤗 Hub。
+5. 添加回调函数来计算指标和上传模型到🤗Hub。
 6. 使用`fit()`方法来运行训练。
 
 ```py
@@ -384,7 +384,7 @@ learning_rate = tf.keras.optimizers.schedules.PiecewiseConstantDecay(
 model = AutoModelForSemanticSegmentation.from_pretrained(checkpoint, id2label=id2label, label2id=label2id)
 
 
-# 步骤3：将🤗 Dataset转换为`tf.data.Dataset`
+# 步骤3：将🤗Dataset转换为`tf.data.Dataset`
 train_dataset = train_ds.to_tf_dataset(with_transform=train_transforms)
 
 
