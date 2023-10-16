@@ -144,7 +144,7 @@ pip install datasets
 
 ### 构建张量
 
-最后，希望分词处理器返回实际传递给模型的张量。
+最后，分词处理器返回实际传递给模型的张量。
 
 将 `return_tensors` 参数设置为 `pt`（PyTorch）或 `tf`（TensorFlow）：
 
