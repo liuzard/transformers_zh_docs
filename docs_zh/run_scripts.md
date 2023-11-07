@@ -85,10 +85,12 @@ pip install -r requirements.txt
 ```
 
 ## 运行脚本
+
+**1、pyroch代码**
+
 示例脚本(pytorch)下载并预处理了🤗[Datasets](https://huggingface.co/docs/datasets/)库中的数据集。然后，脚本使用支持摘要生成的架构在[Trainer](https://huggingface.co/docs/transformers/main_classes/trainer)上微调了数据集。以下示例演示了如何在[CNN/DailyMail](https://huggingface.co/datasets/cnn_dailymail)数据集上微调[T5-small](https://huggingface.co/t5-small)模型。由于T5模型的训练方式，需要添加额外的`source_prefix`参数。这个prompt让T5知道这是一个摘要任务。
 
-<frameworkcontent>
-<pt>
+
 
 
 ```bash
@@ -105,10 +107,11 @@ python examples/pytorch/summarization/run_summarization.py \
     --overwrite_output_dir \
     --predict_with_generate
 ```
+
+**2、tensorflow代码**
+
 示例脚本(tensorflow)下载并预处理了🤗[Datasets](https://huggingface.co/docs/datasets/)库中的数据集。然后，脚本使用Keras在支持摘要生成的架构上微调了数据集。以下示例演示了如何在[CNN/DailyMail](https://huggingface.co/datasets/cnn_dailymail)数据集上微调[T5-small](https://huggingface.co/t5-small)模型。由于T5模型的训练方式，需要添加额外的`source_prefix`参数。这个prompt让T5知道这是一个摘要任务。
 
-</pt>
-<tf>
 
 ```bash
 python examples/tensorflow/summarization/run_summarization.py  \
@@ -122,8 +125,6 @@ python examples/tensorflow/summarization/run_summarization.py  \
     --do_train \
     --do_eval
 ```
-</tf>
-</frameworkcontent>
 
 ## 分布式训练和混合精度
 
@@ -153,8 +154,9 @@ TensorFlow脚本使用[`MirroredStrategy`](https://www.tensorflow.org/guide/dist
 
 ## 在TPU上运行脚本
 
-<frameworkcontent>
-<pt>
+**1、pytorch 代码**
+
+
 提供tensor处理单元（Tensor Processing Units，TPUs）是为了加速性能而专门设计的。PyTorch使用[XLA](https://www.tensorflow.org/xla)深度学习编译器来支持TPU（有关更多详细信息，请参阅[这里](https://github.com/pytorch/xla/blob/master/README.md)）。要使用TPU，请运行`xla_spawn.py`脚本，并使用`num_cores`参数设置要使用的TPU核心数。
 
 ```bash
@@ -172,8 +174,9 @@ python xla_spawn.py --num_cores 8 \
     --overwrite_output_dir \
     --predict_with_generate
 ```
-</pt>
-<tf>
+
+**2、tensorflow代码**
+
 提供tensor处理单元（Tensor Processing Units，TPUs）是为了加速性能而专门设计的。TensorFlow脚本使用[`TPUStrategy`](https://www.tensorflow.org/guide/distributed_training#tpustrategy)进行TPU上的训练。要使用TPU，请将TPU资源的名称传递给`tpu`参数。
 
 ```bash
@@ -189,8 +192,6 @@ python run_summarization.py  \
     --do_train \
     --do_eval
 ```
-</tf>
-</frameworkcontent>
 
 ## 使用🤗Accelerate运行脚本
 
