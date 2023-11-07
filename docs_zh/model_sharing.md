@@ -19,15 +19,10 @@ http://www.apache.org/licenses/LICENSE-2.0
 - 以编程方式将文件推送到Hub。
 - 使用Web界面将文件拖放到Hub。
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XvSGPZFEjDY" title="YouTube视频播放器"
-frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;
-picture-in-picture" allowfullscreen></iframe>
 
-<Tip>
 
-要与社区分享模型，你需要在[huggingface.co](https://huggingface.co/join)上拥有帐户。你还可以加入现有组织或创建一个新组织。
+>要与社区分享模型，你需要在[huggingface.co](https://huggingface.co/join)上拥有帐户。你还可以加入现有组织或创建一个新组织。
 
-</Tip>
 
 ## 存储库功能
 
@@ -75,16 +70,17 @@ pip install huggingface_hub
 
 转换另一个框架的检查点非常简单。确保你已安装了PyTorch和TensorFlow（请参见[此处](installation.md)的安装说明），然后在另一个框架中找到你任务的特定模型。
 
-<frameworkcontent>
-<pt>
+**1、pytorch 代码**
+
 将`from_tf=True`指定为从TensorFlow转换为PyTorch的检查点：
 
 ```py
 >>> pt_model = DistilBertForSequenceClassification.from_pretrained("path/to/awesome-name-you-picked", from_tf=True)
 >>> pt_model.save_pretrained("path/to/awesome-name-you-picked")
 ```
-</pt>
-<tf>
+
+**2、 tensorflow 代码**
+
 将`from_pt=True`指定为从PyTorch转换为TensorFlow的检查点：
 
 ```py
@@ -96,8 +92,9 @@ pip install huggingface_hub
 ```py
 >>> tf_model.save_pretrained("path/to/awesome-name-you-picked")
 ```
-</tf>
-<jax>
+
+**3、jax代码**
+
 如果在Flax中可用一个模型，你还可以将PyTorch的检查点转换为Flax的检查点：
 
 ```py
@@ -105,13 +102,11 @@ pip install huggingface_hub
 ...     "path/to/awesome-name-you-picked", from_pt=True
 ... )
 ```
-</jax>
-</frameworkcontent>
+
 
 ## 在训练过程中推送模型
 
-<frameworkcontent>
-<pt>
+**1、pytorch 代码**
 <Youtube id="Z1-XMy-GNLQ"/>
 
 将模型推送到Hub就像添加一个额外的参数或回调一样简单。在[微调教程](training.md)中，你在`TrainingArguments`(TrainingArguments)类中指定超参数和其他训练选项。其中一个训练选项包括直接将模型推送到Hub的功能。在[`TrainingArguments`]中将`push_to_hub=True`：
@@ -137,8 +132,9 @@ pip install huggingface_hub
 ```py
 >>> trainer.push_to_hub()
 ```
-</pt>
-<tf>
+**2、 tensorflow 代码**
+
+
 使用[`PushToHubCallback`]将模型推送到Hub。在[`PushToHubCallback`]函数中添加以下内容：
 
 - 模型的输出目录。
@@ -158,8 +154,7 @@ pip install huggingface_hub
 ```py
 >>> model.fit(tf_train_dataset, validation_data=tf_validation_dataset, epochs=3, callbacks=push_to_hub_callback)
 ```
-</tf>
-</frameworkcontent>
+
 
 ## 使用`push_to_hub`功能
 
