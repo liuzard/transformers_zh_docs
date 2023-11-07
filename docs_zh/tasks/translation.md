@@ -184,7 +184,7 @@ Your `compute_metrics` function is ready to go now, and you'll return to it when
 
 ## 训练
 
-1、pytorch 代码
+**1、pytorch 代码**
 
 
 >如果你对使用 [`Trainer`] 对模型进行微调不熟悉，请查看基本教程[此处](../training#train-with-pytorch-trainer)！
@@ -238,7 +238,7 @@ Your `compute_metrics` function is ready to go now, and you'll return to it when
 >>> trainer.push_to_hub()
 ```
 
-2、tensorflow 代码
+**2、tensorflow 代码**
 
 
 >如果你对使用 Keras 进行微调模型不熟悉，请查看[此处](../training#train-a-tensorflow-model-with-keras)的基本教程！
