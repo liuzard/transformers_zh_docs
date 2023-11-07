@@ -170,32 +170,28 @@ pip install transformers datasets evaluate
 
 然后使用[`DefaultDataCollator`]创建一批示例。与🤗Transformers中的其他数据整理器不同，[`DefaultDataCollator`]不会应用任何额外的预处理，例如填充。
 
-<frameworkcontent>
-<pt>
+**1、pytorch 代码**
 ```py
 >>> from transformers import DefaultDataCollator
 
 >>> data_collator = DefaultDataCollator()
 ```
-</pt>
-<tf>
+
+**2、tensorflow代码**
 ```py
 >>> from transformers import DefaultDataCollator
 
 >>> data_collator = DefaultDataCollator(return_tensors="tf")
 ```
-</tf>
-</frameworkcontent>
+
 
 ## 训练
 
-<frameworkcontent>
-<pt>
-<Tip>
+**1、pytorch代码**
 
-如果你不熟悉使用[`Trainer`]微调模型，请参阅[此处](../training.md#train-with-pytorch-trainer)的基础教程！
+>如果你不熟悉使用[`Trainer`]微调模型，请参阅[此处](../training.md#train-with-pytorch-trainer)的基础教程！
 
-</Tip>
+
 
 现在你可以开始训练模型了！使用[`AutoModelForQuestionAnswering`]加载DistilBERT：
 
@@ -240,13 +236,12 @@ pip install transformers datasets evaluate
 ```py
 >>> trainer.push_to_hub()
 ```
-</pt>
-<tf>
-<Tip>
+**2、tensorflow代码**
 
-如果你不熟悉使用Keras微调模型，请参阅[此处](../training.md#train-a-tensorflow-model-with-keras)的基础教程！
 
-</Tip>
+>如果你不熟悉使用Keras微调模型，请参阅[此处](../training.md#train-a-tensorflow-model-with-keras)的基础教程！
+
+
 要在TensorFlow中微调模型，请首先设置优化器、学习率计划和一些训练超参数：
 
 ```py
@@ -313,14 +308,11 @@ pip install transformers datasets evaluate
 >>> model.fit(x=tf_train_set, validation_data=tf_validation_set, epochs=2, callbacks=[callback])
 ```
 训练完成后，你的模型将自动上传到Hub，以便每个人都可以使用它！
-</tf>
-</frameworkcontent>
 
-<Tip>
 
-要了解如何对问答模型进行评估并了解其性能，请参阅🤗Hugging Face课程中的[问答](https://huggingface.co/course/chapter7/7?fw=pt#postprocessing)章节。
 
-</Tip>
+>要了解如何对问答模型进行评估并了解其性能，请参阅🤗Hugging Face课程中的[问答](https://huggingface.co/course/chapter7/7?fw=pt#postprocessing)章节。
+
 
 ## 推理
 
@@ -343,8 +335,8 @@ pip install transformers datasets evaluate
 
 如果你愿意，你也可以手动复制`pipeline`的结果：
 
-<frameworkcontent>
-<pt>
+**1、pytorch代码**
+
 对文本进行标记化并返回PyTorch张量：
 
 ```py
@@ -379,8 +371,9 @@ pip install transformers datasets evaluate
 >>> tokenizer.decode(predict_answer_tokens)
 '176 billion parameters and can generate text in 46 languages natural languages and 13'
 ```
-</pt>
-<tf>
+
+**2、tensorflow 代码**
+
 对文本进行标记化并返回TensorFlow张量：
 
 ```py
@@ -413,5 +406,3 @@ pip install transformers datasets evaluate
 >>> tokenizer.decode(predict_answer_tokens)
 '176 billion parameters and can generate text in 46 languages natural languages and 13'
 ```
-</tf>
-</frameworkcontent>
