@@ -86,7 +86,7 @@ BridgeTower由视觉编码器、文本编码器和带有多个轻量级桥接层
 ...     scores[text] = outputs.logits[0, 1].item()
 ```
 
-以下示例展示了如何使用[`BridgeTowerProcessor`]和[`BridgeTowerForMaskedLM`]运行遮蔽语言建模。
+以下示例展示了如何使用[`BridgeTowerProcessor`]和[`BridgeTowerForMaskedLM`]运行掩码语言建模。
 ```python
 >>> from transformers import BridgeTowerProcessor, BridgeTowerForMaskedLM
 >>> from PIL import Image
@@ -117,7 +117,7 @@ BridgeTower由视觉编码器、文本编码器和带有多个轻量级桥接层
 提示：
 
 - BridgeTower的这个实现使用[`RobertaTokenizer`]生成文本嵌入，并使用OpenAI的CLIP/ViT模型计算图像嵌入。
-- 已发布了预训练的桥塔基础（bridgeTower-base）和桥塔遮蔽语言建模和图像文本匹配（bridgetower masked language modeling and image text matching）的检查点。
+- 已发布了预训练的桥塔基础（bridgeTower-base）和桥塔掩码语言建模和图像文本匹配（bridgetower masked language modeling and image text matching）的检查点。
 - 请参考[表5](https://arxiv.org/pdf/2206.08657.pdf)了解桥塔在图像检索和其他下游任务上的表现。
 - 该模型的PyTorch版本仅适用于torch 1.10及更高版本。
 

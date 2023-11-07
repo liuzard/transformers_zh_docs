@@ -18,7 +18,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 ## 概述
 
 Jonas Pfeiffer，Naman Goyal，Xi Lin，Xian Li，James Cross，Sebastian Riedel 和 Mikel Artetxe 在 [Lifting the Curse of Multilinguality by Pre-training Modular Transformers](http://dx.doi.org/10.18653/v1/2022.naacl-main.255) 中提出了 X-MOD 模型。
-X-MOD 在预训练过程中扩展了多语言遮蔽语言模型（例如 [XLM-R](xlm-roberta)），以包含语言特定的模块化组件（_语言适配器_）。在微调过程中，每个 Transformer 层中的语言适配器将被冻结。
+X-MOD 在预训练过程中扩展了多语言掩码语言模型（例如 [XLM-R](xlm-roberta)），以包含语言特定的模块化组件（_语言适配器_）。在微调过程中，每个 Transformer 层中的语言适配器将被冻结。
 
 以下是论文的摘要：
 
@@ -87,7 +87,7 @@ model.set_default_language("de_DE")
 - [分词分类任务指南](../tasks/token_classification)
 - [问答任务指南](../tasks/question_answering)
 - [因果语言建模任务指南](../tasks/language_modeling)
-- [遮蔽语言建模任务指南](../tasks/masked_language_modeling)
+- [掩码语言建模任务指南](../tasks/masked_language_modeling)
 - [多项选择任务指南](../tasks/multiple_choice)
 
 ## XmodConfig

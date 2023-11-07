@@ -27,7 +27,7 @@ Nyströmformer模型是由Yunyang Xiong、Zhanpeng Zeng、Rudrasis Chakraborty�
 - [文本分类任务指南](../tasks/sequence_classification)
 - [标记分类任务指南](../tasks/token_classification)
 - [问答任务指南](../tasks/question_answering)
-- [遮蔽语言建模任务指南](../tasks/masked_language_modeling)
+- [掩码语言建模任务指南](../tasks/masked_language_modeling)
 - [多项选择任务指南](../tasks/multiple_choice)
 
 ## NystromformerConfig

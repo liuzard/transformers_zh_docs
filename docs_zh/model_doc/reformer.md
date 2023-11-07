@@ -108,7 +108,7 @@ loss = model(input_ids, labels=input_ids)[0]
 - [文本分类任务指南](../tasks/sequence_classification)
 - [问答任务指南](../tasks/question_answering)
 - [因果语言模型任务指南](../tasks/language_modeling)
-- [遮蔽语言模型任务指南](../tasks/masked_language_modeling)
+- [掩码语言模型任务指南](../tasks/masked_language_modeling)
 
 ## ReformerConfig
 

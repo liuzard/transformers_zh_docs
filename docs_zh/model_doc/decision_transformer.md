@@ -25,7 +25,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 *我们提出了一个将强化学习（RL）抽象为序列建模问题的框架。
 这使我们能够利用 Transformer 架构的简单性和可扩展性，以及与 GPT-x 和 BERT 等语言建模的相关进展。
 特别是，我们提出了决策 Transformer，一种将 RL 问题视为条件序列建模问题的架构。
-与先前的 RL 方法不同，先前的方法要么适应值函数，要么计算策略梯度，而决策 Transformer 仅通过利用因果遮蔽 Transformer 输出最佳动作。
+与先前的 RL 方法不同，先前的方法要么适应值函数，要么计算策略梯度，而决策 Transformer 仅通过利用因果掩码 Transformer 输出最佳动作。
 通过将自回归模型的输入设置为期望的回报（奖励）、过去的状态和动作，我们的决策 Transformer 模型可以生成未来实现期望回报的动作。
 尽管简单，决策 Transformer 在 Atari、OpenAI Gym 和 Key-to-Door 任务上可以达到或超过最先进的无模型离线 RL 基线的性能。*
 

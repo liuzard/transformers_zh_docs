@@ -26,7 +26,7 @@ Outputs》一文中提出。
 Perceiver IO是Perceiver的一般化扩展，用于处理任意类型的输出，除了任意类型的输入。原始的Perceiver只能生成单个分类标签。
 除了分类标签，Perceiver IO还可以生成（例如）语言、光流和具有音频的多模态视频。这是使用与原始Perceiver相同的构建块完成的。
 Perceiver IO的计算复杂性与输入和输出的大小呈线性关系，大部分处理发生在潜在空间中，使我们能够处理比标准Transformer处理能力更大的输入和输出。
-这意味着，例如，Perceiver IO可以直接使用字节而不是分词输入来进行BERT风格的遮蔽语言建模。
+这意味着，例如，Perceiver IO可以直接使用字节而不是分词输入来进行BERT风格的掩码语言建模。
 
 该论文的摘要如下：
 
@@ -51,7 +51,7 @@ Perceiver试图通过在输入上执行自注意力操作的代替方式，即�
 你可能会问，如何做到的？实际上，这个想法相对简单：首先定义一个任意大小的输出，然后使用潜在变量的最后隐藏状态作为键和值，
 使用输出作为查询执行交叉注意力。
 
-因此，假设想要使用Perceiver执行遮蔽语言建模（BERT风格）。由于Perceiver的输入长度不会对自注意力层的计算时间产生影响，
+因此，假设想要使用Perceiver执行掩码语言建模（BERT风格）。由于Perceiver的输入长度不会对自注意力层的计算时间产生影响，
 因此可以提供原始字节作为输入，为模型提供长度为2048的`inputs`。如果现在屏蔽了这2048个token中的某些token，
 可以将`outputs`定义为`shape：(batch_size，2048，768)`。接下来，使用潜在变量的最后隐藏状态执行交叉注意力以更新`outputs`张
 量。在交叉注意力之后，仍然有一个`shape：(batch_size，2048，768)`的张量。然后可以在其上放置一个常规语言建模头，将最后一个维度投影到模型的
@@ -74,7 +74,7 @@ Perceiver试图通过在输入上执行自注意力操作的代替方式，即�
 ## 文档资源
 
 - [文本分类任务指南](../tasks/sequence_classification)
-- [遮蔽语言建模任务指南](../tasks/masked_language_modeling)
+- [掩码语言建模任务指南](../tasks/masked_language_modeling)
 - [图像分类任务指南](../tasks/image_classification)
 
 ## Perceiver特定输出

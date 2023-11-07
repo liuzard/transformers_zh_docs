@@ -46,7 +46,7 @@ http://www.apache.org/licenses/LICENSE-2.0
 - 使用可靠的工具来进行微调和研究这些模型：
 
   - 一种简单而一致的方法来向词汇表和嵌入中添加新标记以进行微调。
-  - 对 Transformer 头进行遮蔽和修剪的简单方法。
+  - 对 Transformer 头进行掩码和修剪的简单方法。
 
 - 轻松切换 PyTorch、TensorFlow 2.0 和 Flax，允许使用一个框架进行训练，使用另一个框架进行推断。
 

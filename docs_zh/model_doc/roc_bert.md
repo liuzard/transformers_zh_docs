@@ -32,7 +32,7 @@ RoCBert模型是由HuiSu、WeiweiShi、XiaoyuShen、XiaoZhou、TuoJi和JiaruiFan
 - [标记分类任务指南](../tasks/token_classification)
 - [问答任务指南](../tasks/question_answering)
 - [因果语言建模任务指南](../tasks/language_modeling)
-- [遮蔽语言建模任务指南](../tasks/masked_language_modeling)
+- [掩码语言建模任务指南](../tasks/masked_language_modeling)
 - [多项选择任务指南](../tasks/multiple_choice)
 
 ## RoCBert配置
@@ -68,7 +68,7 @@ RoCBert模型是由HuiSu、WeiweiShi、XiaoyuShen、XiaoZhou、TuoJi和JiaruiFan
     - forward
 
 
-## RoCBert用于遮蔽语言建模
+## RoCBert用于掩码语言建模
 
 [[autodoc]] RoCBertForMaskedLM
     - forward

@@ -173,7 +173,7 @@ tensor([[ 0.0082, -0.2307],
         [-0.1008, -0.4061]], grad_fn=<AddmmBackward0>)
 ```
 
-🤗Transformers不会自动创建一个`attention_mask`以遮蔽填充token，如果提供了填充token，因为：
+🤗Transformers不会自动创建一个`attention_mask`以掩码填充token，如果提供了填充token，因为：
 
 - 有些模型没有填充token。
 - 对于某些用例，用户希望模型关注填充token。
