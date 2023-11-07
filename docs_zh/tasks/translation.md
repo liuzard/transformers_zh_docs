@@ -118,23 +118,22 @@ pip install transformers datasets evaluate sacreble
 
 现在使用 [`DataCollatorForSeq2Seq`] 创建一个示例批次。在整理过程中，将句子动态填充到批次中的最长长度上，而不是将整个数据集填充到最大长度。
 
-<frameworkcontent>
-<pt>
+**1、pytorch代码**
+
 ```py
 >>> from transformers import DataCollatorForSeq2Seq
 
 >>> data_collator = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=checkpoint)
 ```
-</pt>
-<tf>
+
+**2、tensorflow代码**
 
 ```py
 >>> from transformers import DataCollatorForSeq2Seq
 
 >>> data_collator = DataCollatorForSeq2Seq(tokenizer=tokenizer, model=checkpoint, return_tensors="tf")
 ```
-</tf>
-</frameworkcontent>
+
 
 ## 评估
 
@@ -185,13 +184,11 @@ Your `compute_metrics` function is ready to go now, and you'll return to it when
 
 ## 训练
 
-<frameworkcontent>
-<pt>
-<Tip>
+1、pytorch 代码
 
-如果你对使用 [`Trainer`] 对模型进行微调不熟悉，请查看基本教程[此处](../training#train-with-pytorch-trainer)！
 
-</Tip>
+>如果你对使用 [`Trainer`] 对模型进行微调不熟悉，请查看基本教程[此处](../training#train-with-pytorch-trainer)！
+
 
 现在你可以开始训练你的模型了！使用 [`AutoModelForSeq2SeqLM`] 加载 T5：
 
@@ -241,13 +238,12 @@ Your `compute_metrics` function is ready to go now, and you'll return to it when
 >>> trainer.push_to_hub()
 ```
 
-</pt>
-<tf>
-<Tip>
+2、tensorflow 代码
 
-如果你对使用 Keras 进行微调模型不熟悉，请查看[此处](../training#train-a-tensorflow-model-with-keras)的基本教程！
 
-</Tip>
+>如果你对使用 Keras 进行微调模型不熟悉，请查看[此处](../training#train-a-tensorflow-model-with-keras)的基本教程！
+
+
 
 要在 TensorFlow 中微调模型，首先设置优化器函数、学习率计划和一些训练超参数：
 
@@ -324,15 +320,13 @@ Your `compute_metrics` function is ready to go now, and you'll return to it when
 >>> model.fit(x=tf_train_set, validation_data=tf_test_set, epochs=3, callbacks=callbacks)
 ```
 一旦训练完成，你的模型就会自动上传到 Hub 上，这样每个人都可以使用它！
-</tf>
-</frameworkcontent>
 
-<Tip>
 
-要了解如何对模型进行更深入的微调示例，请查看相应的[PyTorch notebook](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/translation.ipynb)
-或[TensorFlow notebook](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/translation-tf.ipynb)。
 
-</Tip>
+>要了解如何对模型进行更深入的微调示例，请查看相应的[PyTorch notebook](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/translation.ipynb)
+>或[TensorFlow notebook](https://colab.research.google.com/github/huggingface/notebooks/blob/main/examples/translation-tf.ipynb)。
+
+
 
 ## 推理
 
@@ -356,8 +350,7 @@ Your `compute_metrics` function is ready to go now, and you'll return to it when
 
 如果你愿意，你也可以手动复制 `pipeline` 的结果：
 
-<frameworkcontent>
-<pt>
+**1、pytorch 代码**
 
 将文本进行标记化，并将 `input_ids` 返回为 PyTorch 张量：
 
@@ -383,8 +376,9 @@ Your `compute_metrics` function is ready to go now, and you'll return to it when
 >>> tokenizer.decode(outputs[0], skip_special_tokens=True)
 'Les lignées partagent des ressources avec des bactéries fixant l'azote.'
 ```
-</pt>
-<tf>
+
+**2、tensorflow 代码**
+
 将文本进行标记化，并将 `input_ids` 返回为 TensorFlow 张量：
 
 ```py
@@ -409,5 +403,3 @@ Your `compute_metrics` function is ready to go now, and you'll return to it when
 >>> tokenizer.decode(outputs[0], skip_special_tokens=True)
 'Les lugumes partagent les ressources avec des bactéries fixatrices d'azote.'
 ```
-</tf>
-</frameworkcontent>
